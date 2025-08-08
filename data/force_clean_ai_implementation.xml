@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- Force delete ALL old AI-related records to ensure clean slate -->
+        <delete model="ir.ui.view" search="[('name', 'ilike', 'ai_provider_oauth')]"/>
+        <delete model="ir.ui.view" search="[('name', 'ilike', 'ai_oauth')]"/>
+        <delete model="ir.ui.view" search="[('name', 'ilike', 'ai_user_token')]"/>
+        
+        <!-- Delete old AI actions -->
+        <delete model="ir.actions.act_window" search="[('res_model', 'ilike', 'ai.provider.oauth')]"/>
+        <delete model="ir.actions.act_window" search="[('res_model', 'ilike', 'ai.oauth')]"/>
+        <delete model="ir.actions.act_window" search="[('res_model', 'ilike', 'ai.user.token')]"/>
+        
+        <!-- Delete any old AI model config records that might conflict -->
+        <delete model="ai.model.config" search="[('name', 'ilike', 'OAuth')]"/>
+        
+        <!-- Force clear any cached menu items (avoid deleting valid 'Fournisseurs d'IA' menu) -->
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'OAuth')]"/>
+        <!-- Intentionally not deleting by 'Fournisseurs' to preserve the AI menu -->
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'Token')]"/>
+        
+    </data>
+</odoo>

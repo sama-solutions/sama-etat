@@ -190,6 +190,17 @@
             </field>
         </record>
 
+        <!-- Dashboard Window Action -->
+        <record id="action_senegal_plan_dashboard" model="ir.actions.act_window">
+            <field name="name">Tableau de Bord - Plan Sénégal 2050</field>
+            <field name="res_model">senegal.plan.dashboard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="senegal_plan_dashboard_view_form"/>
+            <field name="target">main</field>
+            <field name="context">{'create': False, 'edit': False, 'delete': False}</field>
+            <field name="domain">[]</field>
+        </record>
+
         <!-- Server Action to Refresh and Open Dashboard -->
         <record id="action_refresh_and_open_dashboard" model="ir.actions.server">
             <field name="name">Refresh and Open Dashboard</field>

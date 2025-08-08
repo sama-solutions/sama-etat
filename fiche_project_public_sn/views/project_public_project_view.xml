@@ -186,7 +186,7 @@
             <field name="name">project.public.project.tree</field>
             <field name="model">project.public.project</field>
             <field name="arch" type="xml">
-                <tree string="Projets Publics">
+                <list string="Projets Publics">
                     <field name="code"/>
                     <field name="name"/>
                     <field name="secteur_intervention"/>
@@ -196,7 +196,7 @@
                     <field name="duree_en_mois"/>
                     <field name="cout_total_estime"/>
                     <field name="currency_id" groups="base.group_multi_currency"/>
-                </tree>
+                </list>
             </field>
         </record>
 

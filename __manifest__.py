@@ -1,14 +1,19 @@
 {
-    'name': 'SAMA ETAT',
-    'version': '1.0',
+    'name': 'SAMA ÉTAT',
+    'version': '2.0',
     'category': 'Project Management',
-    'summary': 'Module for managing government projects, decisions, events, and budgets based on Plan Senegal 2050.',
+    'summary': 'Governance platform for strategic plans: projects, budgets, decisions, events (Plan Sénégal 2050 ready).',
     'description': """
-        This module provides a comprehensive solution for managing various aspects of government operations
-        in Senegal, aligning them with the strategic objectives of Plan Senegal 2050.
+        SAMA ÉTAT est une plateforme Odoo pour exécuter un plan stratégique (État, municipalités, agences,
+        entreprises publiques). Elle structure, pilote et rend visible l’action publique: projets, budgets,
+        décisions, événements et suivi-évaluation, avec transparence par design.
+
+        SAMA ÉTAT is an Odoo-based platform to operationalize strategic plans for governments, municipalities,
+        and public entities. It structures, drives, and makes public action visible: projects, budgets,
+        decisions, events, and M&E — transparency by design.
     """,
-    'author': 'Your Name/Organization', # TODO: Replace with actual author
-    'website': 'http://www.yourwebsite.com', # TODO: Replace with actual website
+    'author': 'Mamadou Mbagnick DOGUE, Rassol DOGUE',
+    'website': 'https://github.com/loi200812/sama-etat',
     'depends': ['base', 'project', 'mail', 'website', 'hr', 'calendar', 'website_event'],
     'data': [
         # Security files loaded first to ensure groups are defined
@@ -26,7 +31,10 @@
         'views/government_event_views.xml',
         'views/government_budget_views.xml',
         'views/government_ministry_views.xml',
-
+        'views/ai_views_clean.xml',  # Clean AI implementation
+        'views/ai_content_helper_views.xml',  # WYSIWYG AI content helper
+        # 'views/ai_provider_config_views.xml',  # Moved later to ensure load order before menus
+        # 'views/menu_views.xml',  # Moved to the end
 
         'views/public_templates.xml',
         'views/public_templates_extra.xml',
@@ -46,8 +54,17 @@
         'views/fullscreen_map.xml',
         'views/website_homepage.xml',
         'views/website_about.xml',
-        # Currency configuration
-        'data/currency_xof_data.xml',
+        # Dashboard default data
+        'data/dashboard_data.xml',
+        # AI default data
+        # 'data/ai_default_data.xml',  # Temporairement désactivé pour éviter les conflits
+        # Currency configuration - disabled to avoid conflicts with existing journal entries
+        # 'data/currency_xof_data.xml',
+        # Demo data for legal compliance (temporairement désactivées)
+        # 'data/demo_legal_compliance.xml',
+        # 'data/demo_cost_breakdown.xml',
+        # 'data/demo_funding_sources.xml',
+        # 'data/demo_legal_texts.xml',
         # Demo data files
         'data/strategic_objectives_demo_data.xml',
         'data/ministries_demo_data.xml',
@@ -57,13 +74,23 @@
         'data/project_tasks_demo_data.xml',
         'data/government_events_demo_data.xml',
         'data/government_decisions_demo_data.xml',
+        'data/cleanup_old_ai_menus.xml',
+        'data/ai_menu_cleanup.xml',
+        'data/force_clean_ai_implementation.xml',
+        'data/final_ai_model_cleanup.xml',
+        'data/ai_data_clean.xml',
+        'data/ai_provider_config_data.xml',
+        # Ensure action is defined right before menus
+        'views/ai_provider_config_views.xml',
         'views/menu_views.xml',
+        # OAuth controllers
+        'controllers/oauth.py',
     ],
     'installable': True,
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',
     'external_dependencies': {
-        'python': ['qrcode', 'pillow']
+        'python': ['qrcode', 'pillow', 'requests', 'cryptography']
     },
 }

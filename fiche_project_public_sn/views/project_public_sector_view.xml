@@ -22,10 +22,10 @@
             <field name="name">project.public.sector.tree</field>
             <field name="model">project.public.sector</field>
             <field name="arch" type="xml">
-                <tree string="Secteurs d'Intervention">
+                <list string="Secteurs d'Intervention">
                     <field name="name"/>
                     <field name="code"/>
-                </tree>
+                </list>
             </field>
         </record>
 

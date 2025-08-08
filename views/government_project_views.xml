@@ -106,23 +106,166 @@
                             </div>
                         </div>
                         
-                        <group>
-                            <group string="Informations Générales">
-                                <field name="strategic_objective_id" options="{'no_create': True}"/>
-                                <field name="priority" widget="priority"/>
-                                <field name="start_date"/>
-                                <field name="end_date"/>
-                            </group>
-                            <group string="Géolocalisation">
-                                <field name="latitude"/>
-                                <field name="longitude"/>
-                            </group>
-                            <group string="Responsabilités">
-                                <field name="ministry_id" options="{'no_create': True}"/>
-                                <field name="manager_id"/>
-                                <field name="budget_id" options="{'no_create': True}"/>
-                            </group>
-                        </group>
+                        <!-- Onglets pour la Conformité Légale -->
+                        <notebook>
+                            <!-- Onglet 1: Identification du Projet -->
+                            <page string="🏛️ Identification" name="identification">
+                                <group>
+                                    <group string="Informations Générales">
+                                        <field name="code_unique" readonly="1"/>
+                                        <field name="strategic_objective_id" options="{'no_create': True}"/>
+                                        <field name="priority" widget="priority"/>
+                                        <field name="secteur_intervention"/>
+                                    </group>
+                                    <group string="Durée et Calendrier">
+                                        <field name="start_date"/>
+                                        <field name="end_date"/>
+                                        <field name="duree_previsionnelle" string="Durée (mois)"/>
+                                    </group>
+                                </group>
+                                <group string="Description du Projet">
+                                    <div class="o_row">
+                                        <field name="description_succincte" placeholder="Description succincte du projet..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="SAMA IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA SAMA" context="{'field_name': 'description_succincte'}"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="objectifs_generaux" placeholder="Objectifs généraux du projet..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="SAMA IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA SAMA" context="{'field_name': 'objectifs_generaux'}"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="objectifs_specifiques" placeholder="Objectifs spécifiques et mesurables..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="SAMA IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA SAMA" context="{'field_name': 'objectifs_specifiques'}"/>
+                                    </div>
+                                </group>
+                            </page>
+                            
+                            <!-- Onglet 2: Cadre Institutionnel -->
+                            <page string="🏢 Cadre Institutionnel" name="institutional">
+                                <group>
+                                    <group string="Maîtrise d'Ouvrage">
+                                        <field name="ministry_id" options="{'no_create': True}"/>
+                                        <field name="maitre_ouvrage_id" options="{'no_create': True}"/>
+                                        <field name="maitre_ouvrage_delegue_id" options="{'no_create': True}"/>
+                                        <field name="manager_id"/>
+                                    </group>
+                                    <group string="Partenariats">
+                                        <field name="entites_partenaires_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                    </group>
+                                </group>
+                                <group string="Organisation et Coordination">
+                                    <div class="o_row">
+                                        <field name="structures_coordination" placeholder="Structures de coordination et de pilotage..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'structures_coordination'}"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="roles_responsabilites" placeholder="Rôles et responsabilités des différents acteurs..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'roles_responsabilites'}"/>
+                                    </div>
+                                </group>
+                            </page>
+                            
+                            <!-- Onglet 3: Budget et Financement -->
+                            <page string="💰 Budget &amp; Financement" name="budget">
+                                <group>
+                                    <group string="Budget Global">
+                                        <field name="cout_total_projet" widget="monetary"/>
+                                        <field name="budget_id" options="{'no_create': True}"/>
+                                    </group>
+                                    <group string="Géolocalisation">
+                                        <field name="latitude"/>
+                                        <field name="longitude"/>
+                                    </group>
+                                </group>
+                                <!-- Sections pour les modèles liés (temporairement désactivée) -->
+                                <separator string="Ventilation des Coûts par Composante" invisible="1"/>
+                                <!-- <field name="ventilation_cout_composantes_ids">
+                                    <tree editable="bottom">
+                                        <field name="component_name"/>
+                                        <field name="component_type"/>
+                                        <field name="estimated_cost" sum="Total Estimé"/>
+                                        <field name="actual_cost" sum="Total Réel"/>
+                                        <field name="execution_status"/>
+                                        <field name="completion_percentage" widget="percentage"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <group>
+                                                <field name="component_name"/>
+                                                <field name="component_type"/>
+                                                <field name="estimated_cost"/>
+                                                <field name="actual_cost"/>
+                                            </group>
+                                            <group>
+                                                <field name="execution_status"/>
+                                                <field name="completion_percentage" widget="percentage"/>
+                                                <field name="procurement_method"/>
+                                                <field name="responsible_entity"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <group>
+                                                <field name="planned_start_date"/>
+                                                <field name="planned_end_date"/>
+                                            </group>
+                                            <group>
+                                                <field name="actual_start_date"/>
+                                                <field name="actual_end_date"/>
+                                            </group>
+                                        </group>
+                                        <group>
+                                            <field name="description" placeholder="Description détaillée de la composante..."/>
+                                            <field name="budget_line_reference" placeholder="Référence ligne budgétaire..."/>
+                                        </group>
+                                    </form>
+                                </field> -->
+                                
+                                <separator string="Sources de Financement" invisible="1"/>
+                                <!-- <field name="sources_financement_ids"/> -->
+                            </page>
+                            
+                            <!-- Onglet 4: Transparence et Conformité -->
+                            <page string="🔍 Transparence &amp; Conformité" name="compliance">
+                                <group string="Obligations de Transparence">
+                                    <div class="o_row">
+                                        <field name="obligations_publication_info" placeholder="Obligations de publication d'informations publiques..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'obligations_publication_info'}"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="mecanismes_redevabilite" placeholder="Mécanismes de redevabilité et de contrôle citoyen..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'mecanismes_redevabilite'}"/>
+                                    </div>
+                                </group>
+                                <group string="Dispositifs Anti-Corruption">
+                                    <div class="o_row">
+                                        <field name="dispositifs_anti_corruption" placeholder="Mesures et dispositifs anti-corruption mis en place..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'dispositifs_anti_corruption'}"/>
+                                    </div>
+                                    <div class="o_row">
+                                        <field name="conformite_audits" placeholder="Conformité aux audits (Cour des Comptes, IGE)..." class="o_field_widget"/>
+                                        <button name="get_ai_suggestions" type="object" string="🤖 IA" class="btn btn-sm btn-outline-primary" title="Générer avec l'IA" context="{'field_name': 'conformite_audits'}"/>
+                                    </div>
+                                </group>
+                                <group string="Standards Internationaux">
+                                    <field name="standards_ptf" placeholder="Standards des Partenaires Techniques et Financiers..."/>
+                                </group>
+                            </page>
+                            
+                            <!-- Onglet 5: Suivi Opérationnel -->
+                            <page string="📊 Suivi Opérationnel" name="monitoring">
+                                <group string="Projet Odoo Associé" invisible="not odoo_project_id">
+                                    <field name="odoo_project_id" readonly="1"/>
+                                </group>
+                                <group string="Indicateurs d'Avancement" invisible="not odoo_project_id">
+                                    <group>
+                                        <field name="progress" widget="percentage"/>
+                                        <field name="task_count"/>
+                                    </group>
+                                    <group>
+                                        <field name="status" widget="badge"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
                         
                         <!-- Indicateurs de performance -->
                         <group string="Indicateurs d'Avancement" invisible="not odoo_project_id">

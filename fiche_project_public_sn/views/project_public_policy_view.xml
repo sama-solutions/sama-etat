@@ -23,11 +23,11 @@
             <field name="name">project.public.policy.tree</field>
             <field name="model">project.public.policy</field>
             <field name="arch" type="xml">
-                <tree string="Politiques Publiques de Référence">
+                <list string="Politiques Publiques de Référence">
                     <field name="name"/>
                     <field name="code"/>
                     <field name="description"/>
-                </tree>
+                </list>
             </field>
         </record>
 

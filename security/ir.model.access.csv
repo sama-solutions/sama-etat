@@ -12,3 +12,9 @@ access_government_budget_user,government.budget.user,model_government_budget,bas
 access_government_ministry_user,government.ministry.user,model_government_ministry,base.group_user,1,0,0,0
 access_government_project_wizard,government.project.wizard,model_government_project_wizard,base.group_user,1,1,1,1
 access_senegal_plan_dashboard_user,senegal.plan.dashboard.user,model_senegal_plan_dashboard,base.group_user,1,1,1,1
+access_project_cost_breakdown_user,project.cost.breakdown.user,model_project_cost_breakdown,base.group_user,1,1,1,1
+access_ai_model_config_admin,ai.model.config.admin,model_ai_model_config,base.group_system,1,1,1,1
+access_ai_model_config_user,ai.model.config.user,model_ai_model_config,base.group_user,1,0,0,0
+access_ai_content_helper_user,ai.content.helper.user,model_ai_content_helper,base.group_user,1,1,1,1
+access_ai_provider_config_admin,ai.provider.config.admin,model_ai_provider_config,base.group_system,1,1,1,1
+access_ai_provider_config_user,ai.provider.config.user,model_ai_provider_config,base.group_user,1,0,0,0

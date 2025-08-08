@@ -22,10 +22,10 @@
             <field name="name">project.public.info.type.tree</field>
             <field name="model">project.public.info.type</field>
             <field name="arch" type="xml">
-                <tree string="Types d'Information de Publication">
+                <list string="Types d'Information de Publication">
                     <field name="name"/>
                     <field name="description"/>
-                </tree>
+                </list>
             </field>
         </record>
 

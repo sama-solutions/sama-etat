@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- AI Content Helper Form View -->
+        <record id="ai_content_helper_form_view" model="ir.ui.view">
+            <field name="name">ai.content.helper.form</field>
+            <field name="model">ai.content.helper</field>
+            <field name="arch" type="xml">
+                <form string="Assistant IA pour Génération de Contenu">
+                    <header>
+                        <button name="generate_content" type="object" string="🤖 Générer du Contenu" class="btn-primary" invisible="is_generated"/>
+                        <button name="generate_content" type="object" string="🔄 Régénérer" class="btn-secondary" invisible="not is_generated"/>
+                        <button name="copy_to_clipboard" type="object" string="📋 Copier" class="btn-info" invisible="not is_generated"/>
+                        <button name="clear_content" type="object" string="🗑️ Effacer" class="btn-warning" invisible="not is_generated"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <span>🤖 Assistant IA</span>
+                            </h1>
+                            <p>Générez du contenu automatiquement avec l'intelligence artificielle</p>
+                        </div>
+                        
+                        <group string="Configuration">
+                            <field name="ai_model_id" options="{'no_create': True}"/>
+                        </group>
+                        
+                        <group string="Génération de Contenu">
+                            <field name="prompt" widget="text" placeholder="Décrivez le contenu que vous souhaitez générer..."/>
+                            <field name="context_info" widget="text" placeholder="Informations supplémentaires pour améliorer la génération (optionnel)"/>
+                        </group>
+                        
+                        <group string="Contenu Généré" invisible="not is_generated">
+                            <field name="generated_content" widget="html" nolabel="1"/>
+                        </group>
+                        
+                        <field name="is_generated" invisible="1"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- AI Content Helper Action -->
+        <record id="ai_content_helper_action" model="ir.actions.act_window">
+            <field name="name">Assistant IA</field>
+            <field name="res_model">ai.content.helper</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Utilisez l'Assistant IA !
+                </p>
+                <p>
+                    Générez du contenu automatiquement avec l'intelligence artificielle.
+                </p>
+            </field>
+        </record>
+
+        <!-- AI Content Helper menu removed as requested by user -->
+
+    </data>
+</odoo>

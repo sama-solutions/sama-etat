@@ -22,10 +22,10 @@
             <field name="name">project.public.location.departement.tree</field>
             <field name="model">project.public.location.departement</field>
             <field name="arch" type="xml">
-                <tree string="Départements">
+                <list string="Départements">
                     <field name="name"/>
                     <field name="state_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -57,10 +57,10 @@
             <field name="name">project.public.location.commune.tree</field>
             <field name="model">project.public.location.commune</field>
             <field name="arch" type="xml">
-                <tree string="Communes">
+                <list string="Communes">
                     <field name="name"/>
                     <field name="departement_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 

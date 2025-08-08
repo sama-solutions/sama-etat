@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- Delete old AI menu records that might be cached -->
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'Configuration IA')]"/>
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'OAuth')]"/>
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'Fournisseurs IA')]"/>
+        <delete model="ir.ui.menu" search="[('name', 'ilike', 'Tokens')]"/>
+        
+        <!-- Delete old AI action records -->
+        <delete model="ir.actions.act_window" search="[('name', 'ilike', 'OAuth')]"/>
+        <delete model="ir.actions.act_window" search="[('name', 'ilike', 'Fournisseurs IA')]"/>
+        
+    </data>
+</odoo>

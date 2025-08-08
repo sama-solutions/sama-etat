@@ -1,6 +1,10 @@
-# SAMA ÉTAT - Gestion de Projets du Gouvernement Sénégalais
+# SAMA ÉTAT – Plateforme citoyenne de gouvernance stratégique, opérationnelle et transparente
 
-**SAMA ÉTAT** est un module Odoo complet conçu pour optimiser la gestion de projets et de budgets pour les agences gouvernementales au Sénégal. Il offre une plateforme robuste pour gérer l'ensemble du cycle de vie des projets publics, de la proposition initiale à l'exécution finale, en garantissant la transparence, l'efficacité et la responsabilité.
+Auteur·e·s: Mamadou Mbagnick DOGUE, Rassol DOGUE
+
+Version: 2.0
+
+SAMA ÉTAT est une plateforme numérique open source conçue pour digitaliser intégralement la gouvernance publique vers le zéro-papier. Elle vise à structurer, piloter et rendre visible toute action publique, au service d’une République transparente, performante et inclusive.
 
 ## Fonctionnalités Clés
 
@@ -26,19 +30,85 @@
 *   **Personnalisable et Extensible :**
     *   Construit sur le framework flexible d'Odoo, permettant une personnalisation et une intégration faciles avec d'autres modules.
 
-## Installation
+## Dépendances (Odoo et Python)
 
-1.  **Téléchargement :** Téléchargez le module depuis le [dépôt GitHub](https://github.com/loi200812/sama-etat).
-2.  **Ajout à Odoo :** Placez le dossier `sama-etat` dans votre répertoire `addons` d'Odoo.
-3.  **Installation des Dépendances :** Ce module nécessite les paquets Python suivants : `qrcode` et `pillow`. Vous pouvez les installer avec pip :
-    ```bash
-    pip install qrcode pillow
-    ```
-4.  **Installation :**
-    *   Redémarrez votre serveur Odoo.
-    *   Allez dans **Applications** dans votre instance Odoo.
-    *   Cliquez sur **Mettre à jour la liste des applications**.
-    *   Recherchez "SAMA ÉTAT" et cliquez sur **Installer**.
+- Odoo 18.0
+- Modules Odoo: `base`, `project`, `mail`, `website`, `hr`, `calendar`, `website_event` (et selon votre usage: `helpdesk`/`portal`)
+- Dépendances Python: `qrcode`, `pillow`, `requests`, `cryptography`
+
+## Installation (Docker recommandé)
+
+1) Cloner le dépôt
+```bash
+git clone https://github.com/loi200812/sama-etat
+cd sama_etat
+```
+
+2) Exemple de `docker-compose.yml`
+```yaml
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=odoo_db
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    ports: ["5432:5432"]
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:18.0
+    depends_on: [db]
+    ports: ["8069:8069", "8071:8071"]
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./:/mnt/extra-addons/sama_etat_repo
+    command: --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons/sama_etat_repo/custom_addons -d odoo_db
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
+```
+
+3) (Optionnel) Dockerfile si vous souhaitez builder votre image
+```dockerfile
+FROM odoo:18.0
+RUN pip install qrcode pillow requests cryptography
+COPY ./custom_addons /mnt/extra-addons
+```
+
+4) Lancer
+```bash
+docker compose up -d --build
+# puis ouvrir http://localhost:8069
+```
+
+5) Installation manuelle (Linux)
+- Postgres 15, Python 3.10+
+- `pip install qrcode pillow requests cryptography`
+- Démarrez Odoo 18 avec `--addons-path` incluant `custom_addons`
+
+## Intégration IA: rôle et périmètre
+
+SAMA ÉTAT embarque une configuration unifiée des fournisseurs IA via le modèle `ai.provider.config`:
+- Fournisseurs supportés: OpenAI (ChatGPT), Google (Gemini), Microsoft (Azure OpenAI), Ollama (local)
+- Méthodes: clé API (par défaut) et OAuth pour Google/Microsoft si configuré
+- Options: sélection du fournisseur par défaut, test de connexion, paramètres de génération (tokens, température)
+
+Cas d’usage typiques:
+- Aide à la rédaction de contenus (notes, résumés, e-mails, descriptions de projets)
+- Assistance à l’analyse (explications, reformulations) dans l’interface agent
+- Démonstrations locales via Ollama sans dépendance cloud
+
+Respect des données:
+- Les contenus générés restent dans Odoo (chatter, champs texte)
+- Le choix du fournisseur et des endpoints appartient à l’administrateur
 
 ## Utilisation
 

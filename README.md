@@ -1,5 +1,9 @@
 # SAMA ÉTAT – Plateforme citoyenne de gouvernance stratégique, opérationnelle et transparente
 
+Auteur·e·s: Mamadou Mbagnick DOGUE, Rassol DOGUE
+
+Version: 2.0
+
 SAMA ÉTAT est une plateforme numérique open source conçue pour digitaliser intégralement la gouvernance publique vers le zéro-papier. Elle vise à structurer, piloter et rendre visible toute action publique, au service d’une République transparente, performante et inclusive.
 
 ## Une plateforme pensée pour résoudre un vrai problème public
@@ -42,6 +46,86 @@ Elle transforme l’État, non par promesse, mais par architecture logicielle.
 *   Plateforme adaptée à tout plan stratégique ou portefeuille de projets, quelle que soit la taille.
 *   Outil de reporting, de suivi contractuel et de transparence.
 
+## Dépendances (Odoo et Python)
+
+- Odoo 18.0
+- Modules Odoo: `base`, `project`, `mail`, `website`, `hr`, `calendar`, `website_event` (et selon votre usage: `helpdesk`/`portal`)
+- Dépendances Python: `qrcode`, `pillow`, `requests`, `cryptography`
+
+## Installation (Docker recommandé)
+
+1) Cloner le dépôt
+```bash
+git clone https://github.com/loi200812/sama-etat
+cd sama_etat
+```
+
+2) Exemple de `docker-compose.yml`
+```yaml
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=odoo_db
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    ports: ["5432:5432"]
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:18.0
+    depends_on: [db]
+    ports: ["8069:8069", "8071:8071"]
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./:/mnt/extra-addons/sama_etat_repo
+    command: --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons/sama_etat_repo/custom_addons -d odoo_db
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
+```
+
+3) (Optionnel) Dockerfile si vous souhaitez builder votre image
+```dockerfile
+FROM odoo:18.0
+RUN pip install qrcode pillow requests cryptography
+COPY ./custom_addons /mnt/extra-addons
+```
+
+4) Lancer
+```bash
+docker compose up -d --build
+# puis ouvrir http://localhost:8069
+```
+
+5) Installation manuelle (Linux)
+- Postgres 15, Python 3.10+
+- `pip install qrcode pillow requests cryptography`
+- Démarrez Odoo 18 avec `--addons-path` incluant `custom_addons`
+
+## Intégration IA: rôle et périmètre
+
+SAMA ÉTAT embarque une configuration unifiée des fournisseurs IA via le modèle `ai.provider.config`:
+- Fournisseurs supportés: OpenAI (ChatGPT), Google (Gemini), Microsoft (Azure OpenAI), Ollama (local)
+- Méthodes: clé API (par défaut) et OAuth pour Google/Microsoft si configuré
+- Options: sélection du fournisseur par défaut, test de connexion, paramètres de génération (tokens, température)
+
+Cas d’usage typiques:
+- Aide à la rédaction de contenus (notes, résumés, e-mails, descriptions de projets)
+- Assistance à l’analyse (explications, reformulations) dans l’interface agent
+- Démonstrations locales via Ollama sans dépendance cloud
+
+Respect des données:
+- Les contenus générés restent dans Odoo (chatter, champs texte)
+- Le choix du fournisseur et des endpoints appartient à l’administrateur
+
 ## Transparence par design
 
 SAMA ÉTAT place la transparence au cœur de son fonctionnement. Chaque projet, chaque acteur, chaque ressource est visible, traçable et responsable.
@@ -50,11 +134,15 @@ La confiance ne se décrète pas. Elle se construit ligne par ligne, API par API
 
 Le peuple a conçu l’outil. À l’État de l'adopter, aux institutions de l’intégrer, aux citoyens de l’utiliser.
 
-Auteurs : Mamadou Mbagnick DOGUE, Rassol DOGUE
+—
 
 ---
 
 # SAMA ÉTAT – Citizen platform for strategic, operational, and transparent governance
+
+Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
+
+Version: 2.0
 
 SAMA ÉTAT is an open-source digital platform designed to fully digitize public governance towards zero-paper. It aims to structure, manage, and make visible all public actions, serving a transparent, efficient, and inclusive Republic.
 
@@ -96,7 +184,85 @@ It transforms the State, not by promise, but by software architecture.
 *   Platform adaptable to any strategic plan or project portfolio, regardless of size.
 *   Reporting, contractual monitoring, and transparency tool.
 
-## Transparency by design
+## Dependencies (Odoo and Python)
+
+- Odoo 18.0
+- Odoo modules: `base`, `project`, `mail`, `website`, `hr`, `calendar`, `website_event` (and depending on your use: `helpdesk`/`portal`)
+- Python deps: `qrcode`, `pillow`, `requests`, `cryptography`
+
+## Installation (Docker recommended)
+
+1) Clone repository
+```bash
+git clone https://github.com/loi200812/sama-etat
+cd sama_etat
+```
+
+2) Example `docker-compose.yml`
+```yaml
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=odoo_db
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    ports: ["5432:5432"]
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+
+  odoo:
+    image: odoo:18.0
+    depends_on: [db]
+    ports: ["8069:8069", "8071:8071"]
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./:/mnt/extra-addons/sama_etat_repo
+    command: --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons/sama_etat_repo/custom_addons -d odoo_db
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
+```
+
+3) (Optional) Dockerfile if you want to build your image
+```dockerfile
+FROM odoo:18.0
+RUN pip install qrcode pillow requests cryptography
+COPY ./custom_addons /mnt/extra-addons
+```
+
+4) Run
+```bash
+docker compose up -d --build
+# then open http://localhost:8069
+```
+
+5) Manual installation (Linux)
+- Postgres 15, Python 3.10+
+- `pip install qrcode pillow requests cryptography`
+- Start Odoo 18 with `--addons-path` including `custom_addons`
+
+## AI integration: role and reach
+
+The module provides a unified AI provider configuration through `ai.provider.config`:
+- Providers: OpenAI (ChatGPT), Google (Gemini), Microsoft (Azure OpenAI), Ollama (local)
+- Methods: API key (default) and OAuth for Google/Microsoft if configured
+- Features: default provider selection, connection test, generation parameters (tokens, temperature)
+
+Typical use cases:
+- Content authoring assistance (notes, summaries, emails, project descriptions)
+- Analysis assistance (explanations, reformulations) in the agent UI
+- Local demos via Ollama without cloud dependency
+
+Data control:
+- Generated content remains in Odoo (chatter, text fields)
+- Admin controls provider choice and endpoints
 
 SAMA ÉTAT places transparency at the heart of its operation. Every project, every actor, every resource is visible, traceable, and accountable.
 
@@ -104,7 +270,7 @@ Trust is not decreed. It is built line by line, API by API, in a reliable, neutr
 
 The people designed the tool. It is up to the State to adopt it, to institutions to integrate it, and to citizens to use it.
 
-Authors: Mamadou Mbagnick DOGUE, Rassol DOGUE
+—
 
 ---
 

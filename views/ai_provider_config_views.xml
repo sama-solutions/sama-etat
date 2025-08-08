@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- AI Provider Configuration List View -->
+        <record id="ai_provider_config_list_view" model="ir.ui.view">
+            <field name="name">ai.provider.config.list</field>
+            <field name="model">ai.provider.config</field>
+            <field name="arch" type="xml">
+                <list string="Configuration des Fournisseurs IA">
+                    <field name="name"/>
+                    <field name="provider_type"/>
+                    <field name="active" widget="boolean_toggle"/>
+                    <field name="is_default" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- AI Provider Configuration Form View -->
+        <record id="ai_provider_config_form_view" model="ir.ui.view">
+            <field name="name">ai.provider.config.form</field>
+            <field name="model">ai.provider.config</field>
+            <field name="arch" type="xml">
+                <form string="Configuration Fournisseur IA">
+                    <header>
+                        <button name="test_connection" type="object" string="🧪 Tester la Connexion" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <!-- Provider Logo -->
+                        <div class="oe_title" style="display:flex; align-items:center; gap:12px;">
+                            <t t-if="provider_type == 'google'">
+                                <img alt="Google" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png" style="height:28px;"/>
+                            </t>
+                            <t t-if="provider_type == 'microsoft'">
+                                <img alt="Microsoft" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" style="height:24px;"/>
+                            </t>
+                            <t t-if="provider_type == 'openai'">
+                                <img alt="OpenAI" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" style="height:24px;"/>
+                            </t>
+                            <t t-if="provider_type == 'ollama'">
+                                <img alt="Ollama" src="https://raw.githubusercontent.com/jmorganca/ollama/main/app/icon.png" style="height:24px;"/>
+                            </t>
+                            <h1>
+                                <field name="name" placeholder="Nom de la configuration..."/>
+                            </h1>
+                        </div>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        </div>
+                        <group>
+                            <group string="Fournisseur IA">
+                                <field name="provider_type" widget="selection"/>
+                                <field name="auth_method" widget="radio"/>
+                                <field name="is_default"/>
+                            </group>
+                            <group string="Configuration API" invisible="auth_method != 'api_key'">
+                                <field name="api_key" password="True" invisible="provider_type == 'ollama'"/>
+                                <field name="api_url" placeholder="URL de l'API"/>
+                                <field name="model_name" placeholder="Nom du modèle"/>
+                            </group>
+                            <group string="Authentification OAuth" invisible="auth_method != 'oauth'">
+                                <field name="is_oauth_connected" readonly="1"/>
+                                <button name="oauth_login" type="object" string="Se connecter avec OAuth" class="btn-primary" invisible="is_oauth_connected"/>
+                                <button name="oauth_login" type="object" string="Reconnecter OAuth" class="btn-secondary" invisible="not is_oauth_connected"/>
+                            </group>
+                        </group>
+                        <group string="Paramètres de Génération">
+                            <group>
+                                <field name="max_tokens"/>
+                                <field name="temperature"/>
+                            </group>
+                        </group>
+                        
+                        <!-- Help text for each provider -->
+                        <div class="alert alert-info" invisible="provider_type != 'openai'">
+                            <h4>Configuration OpenAI (ChatGPT)</h4>
+                            <p><strong>API Key:</strong> Votre clé API OpenAI</p>
+                            <p><strong>Modèles populaires:</strong> gpt-3.5-turbo, gpt-4, gpt-4-turbo</p>
+                            <p><strong>URL API:</strong> https://api.openai.com/v1/chat/completions</p>
+                        </div>
+                        
+                        <div class="alert alert-info" invisible="provider_type != 'google'">
+                            <h4>Configuration Google (Gemini)</h4>
+                            <p><strong>API Key:</strong> Votre clé API Google AI</p>
+                            <p><strong>Modèles populaires:</strong> gemini-pro, gemini-pro-vision</p>
+                            <p><strong>URL API:</strong> Automatique (basée sur le modèle)</p>
+                        </div>
+                        
+                        <div class="alert alert-info" invisible="provider_type != 'microsoft'">
+                            <h4>Configuration Microsoft (Azure OpenAI)</h4>
+                            <p><strong>API Key:</strong> Votre clé API Azure OpenAI</p>
+                            <p><strong>URL API:</strong> Votre endpoint Azure (ex: https://your-resource.openai.azure.com/openai/deployments/your-deployment/chat/completions?api-version=2023-12-01-preview)</p>
+                            <p><strong>Nom du Modèle:</strong> Le nom de votre déploiement Azure</p>
+                        </div>
+                        
+                        <div class="alert alert-info" invisible="provider_type != 'ollama'">
+                            <h4>Configuration Ollama (Local)</h4>
+                            <p><strong>Aucune clé API requise</strong> - Fonctionne en local</p>
+                            <p><strong>Modèles populaires:</strong> llama2, codellama, mistral</p>
+                            <p><strong>URL API:</strong> http://localhost:11434/api/generate</p>
+                            <p><em>Assurez-vous qu'Ollama est installé et en cours d'exécution</em></p>
+                        </div>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- AI Provider Configuration Action -->
+        <record id="ai_provider_config_action" model="ir.actions.act_window">
+            <field name="name">Fournisseurs IA</field>
+            <field name="res_model">ai.provider.config</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Configurez vos fournisseurs IA !
+                </p>
+                <p>
+                    Ajoutez et configurez des fournisseurs d'intelligence artificielle comme OpenAI (ChatGPT), Google (Gemini), Microsoft (Azure OpenAI), ou Ollama (local).
+                </p>
+            </field>
+        </record>
+
+        <!-- AI menu removed as requested by user -->
+
+    </data>
+</odoo>

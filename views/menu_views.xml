@@ -5,7 +5,7 @@
         <menuitem id="menu_sama_etat_root" name="SAMA ETAT" sequence="10"/>
         
         <!-- Dashboard Menu -->
-        <menuitem id="menu_senegal_dashboard" name="Tableau de Bord" parent="menu_sama_etat_root" action="sama_etat.action_refresh_and_open_dashboard" sequence="5"/>
+        <menuitem id="menu_senegal_dashboard" name="Tableau de Bord" parent="menu_sama_etat_root" action="action_refresh_and_open_dashboard" sequence="1"/>
 
         <!-- Strategic Plan Submenu -->
         <menuitem id="menu_strategic_plan_root" name="Plan Stratégique" parent="menu_sama_etat_root" sequence="10"/>
@@ -28,6 +28,19 @@
 
         <!-- Ministries (res.partner) - Assuming a direct link for now -->
         <menuitem id="menu_ministries" name="Ministères" parent="menu_sama_etat_root" action="government_ministry_action" sequence="60"/>
+        
+        <!-- AI Providers Menu (place right after Ministères) -->
+        <menuitem id="menu_fournisseurs_ia" name="Fournisseurs d'IA" parent="menu_sama_etat_root" action="sama_etat.ai_provider_config_action" sequence="65"/>
+
+        <!-- Configuration Menu -->
+        <menuitem id="menu_sama_etat_config" name="Configuration" parent="menu_sama_etat_root" sequence="90"/>
+
+        <!-- Internal Apps Menu: open the built-in Apps list (ir.module.module) instead of apps.odoo.com -->
+        <menuitem id="menu_sama_etat_apps_internal"
+                  name="Applications"
+                  parent="menu_sama_etat_root"
+                  action="base.open_module_tree"
+                  sequence="85"/>
 
     </data>
 </odoo>

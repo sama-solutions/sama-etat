@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Create default dashboard record -->
+        <record id="default_dashboard" model="senegal.plan.dashboard">
+            <field name="last_update_date" eval="(datetime.now())"/>
+            <field name="currency_id" ref="base.XOF"/>
+        </record>
+    </data>
+</odoo>

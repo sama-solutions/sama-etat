@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        
+        <!-- Delete ALL existing ai.model.config records to ensure clean slate -->
+        <delete model="ai.model.config" search="[]"/>
+        
+        <!-- Delete any conflicting views that might override our clean implementation -->
+        <delete model="ir.ui.view" search="[('model', '=', 'ai.model.config'), ('name', '!=', 'ai.model.config.list'), ('name', '!=', 'ai.model.config.form')]"/>
+        
+        <!-- Delete any conflicting actions -->
+        <delete model="ir.actions.act_window" search="[('res_model', '=', 'ai.model.config'), ('name', '!=', 'Configuration des Modèles IA')]"/>
+        
+        <!-- Force recreate the default AI model with our new clean implementation -->
+        <record id="ai_model_config_default_clean" model="ai.model.config">
+            <field name="name">Configuration IA par Défaut (Clean)</field>
+            <field name="model_type">ollama</field>
+            <field name="api_url">http://localhost:11434/api/generate</field>
+            <field name="model_name">llama2</field>
+            <field name="max_tokens">1000</field>
+            <field name="temperature">0.7</field>
+            <field name="active">True</field>
+            <field name="is_default">True</field>
+        </record>
+        
+    </data>
+</odoo>
