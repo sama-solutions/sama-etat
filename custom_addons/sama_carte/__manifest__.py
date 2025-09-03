@@ -25,6 +25,8 @@ Fonctionnalités :
         'views/dashboard_views.xml',
         'views/v2/card_template_views.xml',
         'views/v2/company_customization_views.xml',
+        'views/v2/template_preview_views.xml',
+        'views/v2/card_designs.xml',
         'reports/paper_format.xml',
         'reports/report_member_card.xml',
         'views/website_member_views.xml',

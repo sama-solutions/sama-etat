@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de prévisualisation complète -->
+    <template id="template_preview_page" name="Prévisualisation Template">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container-fluid">
+                    <!-- Header de prévisualisation -->
+                    <div class="row bg-light py-3 mb-4">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h2 class="mb-0">
+                                        <i class="fa fa-eye me-2"/>
+                                        Prévisualisation : <span t-field="template.name"/>
+                                    </h2>
+                                    <small class="text-muted">
+                                        Template : <code t-field="template.technical_name"/>
+                                        <span t-if="template.is_premium" class="badge badge-warning ms-2">Premium</span>
+                                    </small>
+                                </div>
+                                <div>
+                                    <a href="/web#action=sama_carte.action_membership_card_template" 
+                                       class="btn btn-secondary">
+                                        <i class="fa fa-arrow-left me-1"/>Retour aux Templates
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenu de prévisualisation -->
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Carte de membre avec le template sélectionné -->
+                            <div class="card shadow">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-id-card me-2"/>
+                                        Aperçu de la Carte
+                                    </h5>
+                                </div>
+                                <div class="card-body p-0">
+                                    <!-- Ici on va inclure le template dynamique -->
+                                    <t t-set="template_name" t-value="template.technical_name"/>
+                                    
+                                    <!-- Routeur vers le bon template -->
+                                    <t t-if="template_name == 'modern'">
+                                        <t t-call="sama_carte.design_modern_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'prestige'">
+                                        <t t-call="sama_carte.design_prestige_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'dynamic'">
+                                        <t t-call="sama_carte.design_dynamic_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'corporate'">
+                                        <t t-call="sama_carte.design_corporate_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'nature'">
+                                        <t t-call="sama_carte.design_nature_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'tech'">
+                                        <t t-call="sama_carte.design_tech_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'artistic'">
+                                        <t t-call="sama_carte.design_artistic_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'minimalist'">
+                                        <t t-call="sama_carte.design_minimalist_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'retro'">
+                                        <t t-call="sama_carte.design_retro_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'photographic'">
+                                        <t t-call="sama_carte.design_photographic_layout"/>
+                                    </t>
+                                    <t t-else="">
+                                        <!-- Template par défaut -->
+                                        <t t-call="sama_carte.design_modern_layout"/>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <!-- Informations du template -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-info-circle me-2"/>
+                                        Informations Template
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <dl class="row">
+                                        <dt class="col-sm-4">Nom :</dt>
+                                        <dd class="col-sm-8" t-field="template.name"/>
+                                        
+                                        <dt class="col-sm-4">Catégorie :</dt>
+                                        <dd class="col-sm-8">
+                                            <span class="badge badge-info" t-field="template.category"/>
+                                        </dd>
+                                        
+                                        <dt class="col-sm-4">Type :</dt>
+                                        <dd class="col-sm-8">
+                                            <span t-if="template.is_premium" class="badge badge-warning">Premium</span>
+                                            <span t-else="" class="badge badge-success">Gratuit</span>
+                                        </dd>
+                                        
+                                        <dt class="col-sm-4">Utilisations :</dt>
+                                        <dd class="col-sm-8" t-field="template.usage_count"/>
+                                    </dl>
+                                    
+                                    <hr/>
+                                    <p class="mb-0">
+                                        <strong>Description :</strong><br/>
+                                        <span t-field="template.description"/>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Couleurs du template -->
+                            <div class="card shadow">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-palette me-2"/>
+                                        Couleurs par Défaut
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <div class="color-sample mx-auto mb-2" 
+                                                 t-attf-style="background-color: #{template.default_primary_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
+                                            <small class="text-muted">Primaire</small>
+                                            <br/>
+                                            <code t-field="template.default_primary_color"/>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="color-sample mx-auto mb-2" 
+                                                 t-attf-style="background-color: #{template.default_secondary_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
+                                            <small class="text-muted">Secondaire</small>
+                                            <br/>
+                                            <code t-field="template.default_secondary_color"/>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="color-sample mx-auto mb-2" 
+                                                 t-attf-style="background-color: #{template.default_text_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
+                                            <small class="text-muted">Texte</small>
+                                            <br/>
+                                            <code t-field="template.default_text_color"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template pour aperçu carte seulement -->
+    <template id="card_preview_only" name="Aperçu Carte Seulement">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6">
+                            <!-- Routeur vers le bon template -->
+                            <t t-set="template_name" t-value="template_name"/>
+                            
+                            <t t-if="template_name == 'modern'">
+                                <t t-call="sama_carte.design_modern_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'prestige'">
+                                <t t-call="sama_carte.design_prestige_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'dynamic'">
+                                <t t-call="sama_carte.design_dynamic_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'corporate'">
+                                <t t-call="sama_carte.design_corporate_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'nature'">
+                                <t t-call="sama_carte.design_nature_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'tech'">
+                                <t t-call="sama_carte.design_tech_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'artistic'">
+                                <t t-call="sama_carte.design_artistic_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'minimalist'">
+                                <t t-call="sama_carte.design_minimalist_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'retro'">
+                                <t t-call="sama_carte.design_retro_layout"/>
+                            </t>
+                            <t t-elif="template_name == 'photographic'">
+                                <t t-call="sama_carte.design_photographic_layout"/>
+                            </t>
+                            <t t-else="">
+                                <t t-call="sama_carte.design_modern_layout"/>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Galerie de templates -->
+    <template id="template_gallery_page" name="Galerie Templates">
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container py-5">
+                    <div class="row">
+                        <div class="col-12 text-center mb-5">
+                            <h1>Galerie des Templates de Cartes</h1>
+                            <p class="lead text-muted">Découvrez tous nos designs disponibles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <t t-foreach="templates" t-as="template">
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                        <img t-if="template.thumbnail" 
+                                             t-att-src="'/web/image/membership.card.template/' + str(template.id) + '/thumbnail'" 
+                                             class="img-fluid" 
+                                             style="max-height: 180px; max-width: 100%; object-fit: cover;"/>
+                                        <i t-else="" class="fa fa-picture-o fa-3x text-muted"/>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <span t-field="template.name"/>
+                                            <span t-if="template.is_premium" class="badge badge-warning float-right">Premium</span>
+                                        </h5>
+                                        <p class="card-text text-muted" t-field="template.description"/>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <span class="badge badge-info" t-field="template.category"/>
+                                            </small>
+                                            <a t-attf-href="/template/preview/#{template.technical_name}" 
+                                               class="btn btn-primary btn-sm">
+                                                <i class="fa fa-eye me-1"/>Prévisualiser
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

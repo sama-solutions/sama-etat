@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+    ================================================================
+    10 DESIGNS DE CARTES DYNAMIQUES POUR SAMA_CARTE V2.0
+    Chaque design utilise les couleurs personnalisées de l'organisation
+    ================================================================
+    -->
+
+    <!-- DESIGN 1: Moderne & Épuré -->
+    <template id="design_modern_layout" name="Design Moderne">
+        <section class="s_title pt96 pb96" t-attf-style="background-color: #{company.secondary_color or '#f8f9fa'};">
+            <div class="container text-center">
+                <img t-if="member.image_1920" 
+                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                     class="img rounded-circle shadow-sm mb-4" 
+                     style="width: 180px; height: 180px; object-fit: cover; border: 4px solid white;"/>
+                <img t-else="" 
+                     src="/web/static/src/img/placeholder.png" 
+                     class="img rounded-circle shadow-sm mb-4" 
+                     style="width: 180px; height: 180px; object-fit: cover; border: 4px solid white;"/>
+                
+                <h1 t-field="member.name" t-attf-style="color: #{company.primary_color or '#212529'};"/>
+                <p class="text-muted" t-field="member.membership_number"/>
+                
+                <div t-if="is_valid" class="badge fs-6 p-2" style="background-color: #198754; color: white;">
+                    <i class="fa fa-check me-1"/>VALIDE
+                </div>
+                <div t-else="" class="badge fs-6 p-2" style="background-color: #dc3545; color: white;">
+                    <i class="fa fa-times me-1"/>EXPIRÉE
+                </div>
+                
+                <p class="mt-3">Expire le : <span t-esc="member.expiration_date.strftime('%d/%m/%Y')"/></p>
+                
+                <!-- QR Code -->
+                <div class="mt-4">
+                    <img t-if="member.barcode_qr" 
+                         t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                         style="width: 100px; height: 100px;"/>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 2: Prestige & Doré -->
+    <template id="design_prestige_layout" name="Design Prestige">
+        <div t-attf-style="background-color: #{company.primary_color or '#111'}; color: #{company.text_color or '#fff'}; min-height: 500px;">
+            <section class="s_text_block pt96 pb96">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 text-center">
+                            <img t-if="member.image_1920" 
+                                 t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                 class="img-fluid rounded-circle" 
+                                 t-attf-style="border: 3px solid #{company.secondary_color or '#D4AF37'}; width: 200px; height: 200px; object-fit: cover;"/>
+                            <img t-else="" 
+                                 src="/web/static/src/img/placeholder.png" 
+                                 class="img-fluid rounded-circle" 
+                                 t-attf-style="border: 3px solid #{company.secondary_color or '#D4AF37'}; width: 200px; height: 200px; object-fit: cover;"/>
+                        </div>
+                        <div class="col-lg-7 pt-4 pt-lg-0">
+                            <h1 class="border-bottom pb-2" 
+                                t-attf-style="border-color: #{company.secondary_color or '#D4AF37'} !important;" 
+                                t-field="member.name"/>
+                            <h3 class="mt-3" 
+                                t-attf-style="color: #{company.secondary_color or '#D4AF37'};" 
+                                t-field="member.membership_number"/>
+                            
+                            <div t-if="is_valid" class="alert mt-4" 
+                                 t-attf-style="background-color: rgba(212, 175, 55, 0.2); color: #{company.secondary_color or '#D4AF37'}; border-color: #{company.secondary_color or '#D4AF37'};">
+                                <i class="fa fa-shield-alt me-2"/> Statut : Membre Actif
+                            </div>
+                            <div t-else="" class="alert alert-secondary mt-4">Statut : Inactif</div>
+                            
+                            <!-- QR Code -->
+                            <div class="mt-4">
+                                <img t-if="member.barcode_qr" 
+                                     t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                     style="width: 80px; height: 80px; border: 2px solid gold;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <!-- DESIGN 3: Dynamique & Géométrique -->
+    <template id="design_dynamic_layout" name="Design Dynamique">
+        <section class="s_banner" t-attf-style="background-color: #{company.secondary_color or '#f0f3f5'}; min-height: 500px;">
+            <div class="container">
+                <div class="row align-items-center" style="min-height: 80vh;">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <img t-if="member.image_1920" 
+                             t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                             class="img rounded-circle shadow-lg mb-4" 
+                             style="width: 220px; height: 220px; object-fit: cover;"/>
+                        <img t-else="" 
+                             src="/web/static/src/img/placeholder.png" 
+                             class="img rounded-circle shadow-lg mb-4" 
+                             style="width: 220px; height: 220px; object-fit: cover;"/>
+                        
+                        <h1 class="display-3" t-field="member.name" t-attf-style="color: #{company.primary_color or '#333'};"/>
+                        <p class="lead" t-field="member.membership_number"/>
+                    </div>
+                    <div class="col-lg-6 text-center bg-white p-5 shadow rounded-3">
+                        <h2>Vérification du Statut</h2>
+                        <hr/>
+                        <div t-if="is_valid" class="text-success">
+                            <i class="fa fa-5x fa-check-circle mb-3"/>
+                            <h3>Membre Confirmé</h3>
+                        </div>
+                        <div t-else="" class="text-danger">
+                            <i class="fa fa-5x fa-exclamation-triangle mb-3"/>
+                            <h3>Adhésion Expirée</h3>
+                        </div>
+                        <p class="text-muted mt-3">Date d'expiration : <t t-esc="member.expiration_date.strftime('%d %B %Y')"/></p>
+                        
+                        <!-- QR Code -->
+                        <div class="mt-4">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="width: 100px; height: 100px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 4: Corporate & Structuré -->
+    <template id="design_corporate_layout" name="Design Corporate">
+        <section class="pt96 pb96 bg-light">
+            <div class="container">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header text-white p-4" t-attf-style="background-color: #{company.primary_color or '#0d6efd'};">
+                        <img t-if="company.logo" 
+                             t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
+                             style="max-height: 40px;" 
+                             class="float-end"/>
+                        <h4 class="m-0" t-field="company.name"/>
+                    </div>
+                    <div class="card-body p-5">
+                        <div class="row">
+                            <div class="col-md-4 text-center">
+                                <img t-if="member.image_1920" 
+                                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                     class="img-thumbnail rounded-circle mb-3" 
+                                     style="width: 150px; height: 150px; object-fit: cover;"/>
+                                <img t-else="" 
+                                     src="/web/static/src/img/placeholder.png" 
+                                     class="img-thumbnail rounded-circle mb-3" 
+                                     style="width: 150px; height: 150px; object-fit: cover;"/>
+                                
+                                <div t-if="is_valid" class="badge p-2" 
+                                     t-attf-style="background-color: #{company.primary_color or '#0d6efd'}; color: white;">VALIDE</div>
+                                <div t-else="" class="badge text-bg-secondary p-2">EXPIRÉE</div>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 t-field="member.name"/>
+                                <table class="table table-borderless mt-3">
+                                    <tr><th style="width: 200px;">Numéro de membre :</th><td t-esc="member.membership_number"/></tr>
+                                    <tr><th>Date d'expiration :</th><td t-esc="member.expiration_date.strftime('%d/%m/%Y')"/></tr>
+                                </table>
+                                
+                                <!-- QR Code -->
+                                <div class="mt-4">
+                                    <img t-if="member.barcode_qr" 
+                                         t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                         style="width: 80px; height: 80px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 5: Nature & Organique -->
+    <template id="design_nature_layout" name="Design Nature">
+        <section class="pt96 pb96" t-attf-style="background-color: #{company.secondary_color or '#F0F3E8'};">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <img t-if="member.image_1920" 
+                             t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                             class="img rounded-circle shadow mb-4" 
+                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                        <img t-else="" 
+                             src="/web/static/src/img/placeholder.png" 
+                             class="img rounded-circle shadow mb-4" 
+                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                        
+                        <h1 t-field="member.name" t-attf-style="color: #{company.primary_color or '#224B0C'};"/>
+                        <p class="text-muted" t-field="member.membership_number"/>
+                        
+                        <div t-if="is_valid" class="alert d-inline-block" 
+                             t-attf-style="background-color: #{company.primary_color or '#224B0C'}; color: white;">
+                            <i class="fa fa-leaf me-2"/>Membre Actif
+                        </div>
+                        <div t-else="" class="alert alert-light d-inline-block">Adhésion terminée</div>
+                        
+                        <!-- QR Code -->
+                        <div class="mt-4">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="width: 100px; height: 100px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 6: Tech & Futuriste -->
+    <template id="design_tech_layout" name="Design Tech">
+        <div class="text-white" 
+             t-attf-style="background: linear-gradient(45deg, #{company.primary_color or '#0f0c29'}, #{company.secondary_color or '#302b63'}, #{company.primary_color or '#24243e'}); min-height: 500px;">
+            <section class="s_text_block pt96 pb96">
+                <div class="container text-center">
+                    <img t-if="member.image_1920" 
+                         t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                         class="img rounded-circle mb-4" 
+                         style="width: 180px; height: 180px; object-fit: cover; border: 3px solid rgba(255,255,255,0.5);"/>
+                    <img t-else="" 
+                         src="/web/static/src/img/placeholder.png" 
+                         class="img rounded-circle mb-4" 
+                         style="width: 180px; height: 180px; object-fit: cover; border: 3px solid rgba(255,255,255,0.5);"/>
+                    
+                    <h1 class="display-4" style="font-family: 'monospace';" t-field="member.name"/>
+                    <p class="lead" style="font-family: 'monospace';" t-field="member.membership_number"/>
+                    
+                    <div t-if="is_valid" class="mt-3 p-2 rounded-pill d-inline-block" 
+                         style="border: 1px solid #00FF00; color: #00FF00;">
+                        <i class="fa fa-rss me-2"/> STATUS: ONLINE
+                    </div>
+                    <div t-else="" class="mt-3 p-2 rounded-pill d-inline-block" 
+                         style="border: 1px solid #FF0000; color: #FF0000;">
+                        <i class="fa fa-power-off me-2"/> STATUS: OFFLINE
+                    </div>
+                    
+                    <!-- QR Code -->
+                    <div class="mt-4">
+                        <img t-if="member.barcode_qr" 
+                             t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                             style="width: 100px; height: 100px; border: 2px solid #00FF00;"/>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <!-- DESIGN 7: Artistique & Créatif -->
+    <template id="design_artistic_layout" name="Design Artistique">
+        <section class="s_cover pt96 pb96" t-attf-style="background-color: #{company.secondary_color or '#f4f4f4'};">
+            <div class="container">
+                <div class="card shadow-lg border-0" style="overflow: hidden;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img t-if="member.image_1920" 
+                                 t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                 class="img-fluid h-100" 
+                                 style="object-fit: cover; min-height: 300px;"/>
+                            <div t-else="" class="bg-light h-100 d-flex align-items-center justify-content-center" 
+                                 style="min-height: 300px;">
+                                <i class="fa fa-user fa-5x text-muted"/>
+                            </div>
+                        </div>
+                        <div class="col-md-8 d-flex flex-column justify-content-center p-5">
+                            <h1 class="display-5" t-field="member.name" style="font-family: 'Georgia', serif;"/>
+                            <p class="text-muted" t-field="member.membership_number"/>
+                            
+                            <div t-if="is_valid" class="alert mt-3" 
+                                 t-attf-style="background-color: #{company.primary_color or '#6a0dad'}; color: white;">
+                                <i class="fa fa-paint-brush me-2"/> Statut : Artiste Confirmé
+                            </div>
+                            <div t-else="" class="alert alert-secondary mt-3">Statut : Inactif</div>
+                            
+                            <!-- QR Code -->
+                            <div class="mt-4">
+                                <img t-if="member.barcode_qr" 
+                                     t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                     style="width: 80px; height: 80px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 8: Minimaliste Extrême -->
+    <template id="design_minimalist_layout" name="Design Minimaliste">
+        <section class="pt96 pb96 bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <img t-if="member.image_1920" 
+                             t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                             class="img-fluid mb-3" 
+                             style="width: 200px; height: 200px; object-fit: cover;"/>
+                        <div t-else="" class="bg-light mb-3 d-flex align-items-center justify-content-center" 
+                             style="width: 200px; height: 200px;">
+                            <i class="fa fa-user fa-3x text-muted"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <h1 class="display-1" t-field="member.name" 
+                            style="font-family: 'Helvetica Neue', sans-serif; font-weight: 300;"/>
+                        <p class="fs-4 text-muted" t-field="member.membership_number" 
+                           style="font-family: 'Helvetica Neue', sans-serif;"/>
+                        <hr/>
+                        <p t-if="is_valid" class="fs-5">Statut: Valide</p>
+                        <p t-else="" class="fs-5 text-muted">Statut: Expiré</p>
+                        <p class="fs-5">Expire le <span t-esc="member.expiration_date.strftime('%Y-%m-%d')"/></p>
+                        
+                        <!-- QR Code -->
+                        <div class="mt-4">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="width: 80px; height: 80px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN 9: Rétro & Vintage -->
+    <template id="design_retro_layout" name="Design Rétro">
+        <div t-attf-style="background-color: #{company.secondary_color or '#FDF5E6'};">
+            <section class="pt96 pb96">
+                <div class="container text-center" style="font-family: 'Courier New', monospace;">
+                    <div class="p-5" 
+                         t-attf-style="border: 2px dashed #{company.primary_color or '#8B4513'}; background-color: white;">
+                        <h2 t-field="company.name" t-attf-style="color: #{company.primary_color or '#8B4513'};"/>
+                        <p>*** CARTE DE MEMBRE ***</p>
+                        
+                        <img t-if="member.image_1920" 
+                             t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                             class="img my-4" 
+                             style="width: 150px; height: 150px; object-fit: cover; filter: sepia(70%);"/>
+                        <div t-else="" class="my-4">
+                            <i class="fa fa-user fa-5x text-muted" style="filter: sepia(70%);"/>
+                        </div>
+                        
+                        <h1 t-field="member.name"/>
+                        <p t-field="member.membership_number"/>
+                        <p t-if="is_valid">STATUT: APPROUVÉ</p>
+                        <p t-else="">STATUT: EXPIRÉ</p>
+                        
+                        <!-- QR Code -->
+                        <div class="mt-4">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="width: 80px; height: 80px; filter: sepia(70%);"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <!-- DESIGN 10: Photographique Plein Écran -->
+    <template id="design_photographic_layout" name="Design Photographique">
+        <section class="s_cover parallax text-white" 
+                 data-scroll-background-ratio="0.3" 
+                 t-attf-style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/web/static/src/img/library.jpg'); background-size: cover; background-position: center; min-height: 500px;">
+            <div class="container">
+                <div class="row align-items-center" style="min-height: 80vh;">
+                    <div class="col-12 text-center">
+                        <img t-if="member.image_1920" 
+                             t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                             class="img rounded-circle shadow-lg mb-4" 
+                             style="width: 200px; height: 200px; object-fit: cover; border: 4px solid white;"/>
+                        <img t-else="" 
+                             src="/web/static/src/img/placeholder.png" 
+                             class="img rounded-circle shadow-lg mb-4" 
+                             style="width: 200px; height: 200px; object-fit: cover; border: 4px solid white;"/>
+                        
+                        <h1 class="display-2 text-white text-shadow" t-field="member.name"/>
+                        <p class="lead text-white" t-field="member.membership_number"/>
+                        
+                        <div t-if="is_valid" class="badge fs-5 p-3 mt-3" 
+                             style="background-color: rgba(255,255,255,0.9); color: #28a745;">
+                            <i class="fa fa-check-circle me-2"/>MEMBRE ACTIF
+                        </div>
+                        <div t-else="" class="badge fs-5 p-3 mt-3" 
+                             style="background-color: rgba(255,255,255,0.9); color: #dc3545;">
+                            <i class="fa fa-times-circle me-2"/>MEMBRE INACTIF
+                        </div>
+                        
+                        <!-- QR Code -->
+                        <div class="mt-4">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="width: 100px; height: 100px; background: white; padding: 10px;"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>
