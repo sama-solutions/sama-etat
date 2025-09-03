@@ -1,71 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!-- Membres de démonstration sans photos -->
+        <!-- Membres de démonstration associés à SAMA -->
         <record id="demo_member_01" model="membership.member">
             <field name="name">Jean-Baptiste DIALLO</field>
             <field name="membership_number">SN-MBR-00001</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_02" model="membership.member">
             <field name="name">Fatou NDIAYE</field>
             <field name="membership_number">SN-MBR-00002</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_03" model="membership.member">
             <field name="name">Mamadou FALL</field>
             <field name="membership_number">SN-MBR-00003</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_04" model="membership.member">
             <field name="name">Aïssatou SARR</field>
             <field name="membership_number">SN-MBR-00004</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_05" model="membership.member">
             <field name="name">Ousmane KANE</field>
             <field name="membership_number">SN-MBR-00005</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_06" model="membership.member">
             <field name="name">Mariama SECK</field>
             <field name="membership_number">SN-MBR-00006</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_07" model="membership.member">
             <field name="name">Ibrahima GUEYE</field>
             <field name="membership_number">SN-MBR-00007</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_08" model="membership.member">
             <field name="name">Aminata DIOUF</field>
             <field name="membership_number">SN-MBR-00008</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_09" model="membership.member">
             <field name="name">Cheikh THIAM</field>
             <field name="membership_number">SN-MBR-00009</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_10" model="membership.member">
             <field name="name">Khadija MBAYE</field>
             <field name="membership_number">SN-MBR-00010</field>
             <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
 
         <record id="demo_member_11" model="membership.member">
             <field name="name">Modou KANE</field>
             <field name="membership_number">SN-MBR-00011</field>
             <field name="expiration_date" eval="(datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')"/>
+            <field name="company_id" ref="company_sama"/>
         </record>
     </data>
 </odoo>
