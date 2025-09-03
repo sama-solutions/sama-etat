@@ -170,16 +170,10 @@
                         }
                     </style>
                     
-                    <!-- Navigation et contrôles -->
+                    <!-- Navigation -->
                     <div style="text-align: center; margin-top: 30px;">
-                        <a href="/background/fullsize/gallery" style="background: #0d6efd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            ← Retour à la galerie
-                        </a>
-                        <a href="/background/test/with-image/modern/jokkoo" style="background: #198754; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Jokkoo
-                        </a>
-                        <a href="/background/test/with-image/modern/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Teranga
+                        <a href="/background/real/gallery" style="background: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500;">
+                            <i class="fa fa-arrow-left me-2"/>Retour à la galerie
                         </a>
                     </div>
                     
@@ -337,14 +331,8 @@
                     
                     <!-- Navigation -->
                     <div style="text-align: center; margin-top: 30px;">
-                        <a href="/background/fullsize/gallery" style="background: #0d6efd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            ← Retour à la galerie
-                        </a>
-                        <a href="/background/test/with-image/corporate/dakar_gazelles" style="background: #198754; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Dakar
-                        </a>
-                        <a href="/background/test/with-image/corporate/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Teranga
+                        <a href="/background/real/gallery" style="background: #0d6efd; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 500;">
+                            <i class="fa fa-arrow-left me-2"/>Retour à la galerie
                         </a>
                     </div>
                 </div>
@@ -504,14 +492,8 @@
                     
                     <!-- Navigation -->
                     <div style="text-align: center; margin-top: 30px;">
-                        <a href="/background/fullsize/gallery" style="background: #D4AF37; color: #1a1a1a; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px; font-weight: bold;">
-                            ← Retour à la galerie
-                        </a>
-                        <a href="/background/test/with-image/prestige/dakar_gazelles" style="background: #198754; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Dakar
-                        </a>
-                        <a href="/background/test/with-image/prestige/jokkoo" style="background: #0d6efd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
-                            Tester avec Jokkoo
+                        <a href="/background/real/gallery" style="background: #D4AF37; color: #1a1a1a; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                            <i class="fa fa-arrow-left me-2"/>Retour à la galerie
                         </a>
                     </div>
                 </div>

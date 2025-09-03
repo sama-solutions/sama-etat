@@ -122,3 +122,48 @@ class BackgroundImageController(http.Controller):
     def real_background_gallery(self, **kwargs):
         """Galerie des designs avec vraies images"""
         return request.render('sama_carte.real_background_gallery', {})
+
+    @http.route('/background/portrait/<string:background>', type='http', auth='public', website=True)
+    def test_portrait_background(self, background, **kwargs):
+        """Test d'un background en version portrait optimisée"""
+        
+        from datetime import datetime, timedelta
+        
+        # Données de test statiques
+        class MockMember:
+            def __init__(self):
+                self.id = 1
+                self.name = 'Jean Dupont'
+                self.membership_number = 'SN-MBR-00001'
+                self.image_1920 = None
+                self.barcode_qr = None
+                self.expiration_date = datetime.now().date() + timedelta(days=365)
+        
+        class MockCompany:
+            def __init__(self):
+                self.id = 1
+                self.name = 'SAMA - Société Africaine de Management'
+                self.logo = None
+                self.primary_color = '#0d6efd'
+                self.secondary_color = '#6c757d'
+                self.text_color = '#ffffff'
+        
+        member = MockMember()
+        company = MockCompany()
+        
+        values = {
+            'member': member,
+            'company': company,
+            'is_valid': True,
+        }
+        
+        # Sélectionner le template selon le background
+        template_map = {
+            'dakar_gazelles': 'sama_carte.design_modern_portrait_dakar',
+            'jokkoo': 'sama_carte.design_modern_portrait_jokkoo',
+            'teranga_corp': 'sama_carte.design_modern_portrait_teranga',
+        }
+        
+        template = template_map.get(background, 'sama_carte.design_modern_portrait_dakar')
+        
+        return request.render(template, values)

@@ -29,15 +29,12 @@
                                 <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
                                     Design moderne avec grille intelligente et effets glassmorphism
                                 </p>
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <a href="/background/test/with-image/modern/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <a href="/background/test/with-image/modern/dakar_gazelles" style="background: #198754; color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.9rem;">
+                                        <i class="fa fa-desktop me-1"/>Paysage - Dakar Gazelles
                                     </a>
-                                    <a href="/background/test/with-image/modern/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
-                                    </a>
-                                    <a href="/background/test/with-image/modern/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                    <a href="/background/portrait/dakar_gazelles" style="background: #20c997; color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.9rem;">
+                                        <i class="fa fa-mobile me-1"/>Portrait - Dakar Gazelles
                                     </a>
                                 </div>
                             </div>
@@ -55,15 +52,12 @@
                                 <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
                                     Design professionnel avec header/footer et QR flottant
                                 </p>
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <a href="/background/test/with-image/corporate/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <a href="/background/test/with-image/corporate/jokkoo" style="background: #0d6efd; color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.9rem;">
+                                        <i class="fa fa-desktop me-1"/>Paysage - Jokkoo
                                     </a>
-                                    <a href="/background/test/with-image/corporate/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
-                                    </a>
-                                    <a href="/background/test/with-image/corporate/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                    <a href="/background/portrait/jokkoo" style="background: #17a2b8; color: white; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 500; font-size: 0.9rem;">
+                                        <i class="fa fa-mobile me-1"/>Portrait - Jokkoo
                                     </a>
                                 </div>
                             </div>
@@ -81,15 +75,12 @@
                                 <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
                                     Design luxueux avec effets dorés et coins décoratifs
                                 </p>
-                                <div style="display: flex; flex-direction: column; gap: 10px;">
-                                    <a href="/background/test/with-image/prestige/teranga_corp" style="background: #D4AF37; color: #1a1a1a; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600;">
-                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <a href="/background/test/with-image/prestige/teranga_corp" style="background: #D4AF37; color: #1a1a1a; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 600; font-size: 0.9rem;">
+                                        <i class="fa fa-desktop me-1"/>Paysage - Teranga Corp
                                     </a>
-                                    <a href="/background/test/with-image/prestige/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
-                                    </a>
-                                    <a href="/background/test/with-image/prestige/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
-                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
+                                    <a href="/background/portrait/teranga_corp" style="background: #FFD700; color: #1a1a1a; padding: 8px 12px; text-decoration: none; border-radius: 6px; text-align: center; font-weight: 600; font-size: 0.9rem;">
+                                        <i class="fa fa-mobile me-1"/>Portrait - Teranga Corp
                                     </a>
                                 </div>
                             </div>
