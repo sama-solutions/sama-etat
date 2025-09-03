@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <form string="Membre">
                 <header>
-                    <button name="action_open_public_page" type="object" class="oe_highlight" string="Voir la carte publique" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
+                    <button name="action_open_public_page" type="object" class="oe_highlight" string="Voir profil public" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
                 </header>
                 <sheet>
                     <field name="image_1920" widget="image" class="oe_avatar"/>

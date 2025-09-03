@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <form string="Template de Carte">
                 <header>
-                    <button name="preview_template" type="object" string="Prévisualiser" class="btn-primary"/>
+                    <button name="preview_template" type="object" string="Carte à imprimer" class="btn-primary" icon="fa-print"/>
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">

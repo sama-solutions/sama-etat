@@ -42,7 +42,7 @@
                                 <div class="text-center">
                                     <button name="preview_card_design" 
                                             type="object" 
-                                            string="🔍 Prévisualiser la Carte"
+                                            string="🖨️ Carte à imprimer"
                                             class="btn-primary btn-lg"/>
                                     <p class="text-muted mt-2">
                                         Cliquez pour voir un aperçu de votre carte avec les paramètres actuels

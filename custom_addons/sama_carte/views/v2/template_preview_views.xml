@@ -246,7 +246,7 @@
                                             </small>
                                             <a t-attf-href="/template/preview/#{template.technical_name}" 
                                                class="btn btn-primary btn-sm">
-                                                <i class="fa fa-eye me-1"/>Prévisualiser
+                                                <i class="fa fa-print me-1"/>Carte à imprimer
                                             </a>
                                         </div>
                                     </div>

@@ -26,10 +26,10 @@
             <form string="Fond d'écran">
                 <header>
                     <button type="object" name="action_preview_portrait" 
-                            string="Prévisualiser Portrait" 
+                            string="Carte Portrait" 
                             class="btn-primary" icon="fa-mobile"/>
                     <button type="object" name="action_preview_landscape" 
-                            string="Prévisualiser Paysage" 
+                            string="Carte Paysage" 
                             class="btn-secondary" icon="fa-desktop"/>
                 </header>
                 <sheet>
