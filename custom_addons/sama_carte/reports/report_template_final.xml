@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rapport final fonctionnel -->
+    <record id="action_report_template_final" model="ir.actions.report">
+        <field name="name">Carte Template Final</field>
+        <field name="model">membership.card.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_template_final_template</field>
+        <field name="report_file">sama_carte.report_template_final_template</field>
+        <field name="print_report_name">'Carte-Template'</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card_landscape"/>
+    </record>
+
+    <!-- Template final -->
+    <template id="report_template_final_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="template">
+                <div class="page" style="margin: 0; padding: 0;">
+                    <div style="
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(135deg, #004a99, #f7f32d);
+                        border-radius: 10px;
+                        position: relative;
+                        overflow: hidden;
+                        font-family: Arial, sans-serif;
+                    ">
+                        <!-- Overlay pour lisibilité -->
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(0,0,0,0.2);
+                            border-radius: 10px;
+                        "></div>
+                        
+                        <!-- Badge template -->
+                        <div style="
+                            position: absolute;
+                            top: 8px;
+                            left: 8px;
+                            background: #004a99;
+                            color: white;
+                            padding: 4px 8px;
+                            border-radius: 10px;
+                            font-size: 8px;
+                            font-weight: bold;
+                            z-index: 20;
+                        ">
+                            <t t-esc="template.name or 'Template'"/>
+                        </div>
+                        
+                        <!-- Contenu principal -->
+                        <div style="
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 15px;
+                            color: white;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        ">
+                            <!-- Header -->
+                            <div style="
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                margin-bottom: 10px;
+                            ">
+                                <div style="font-size: 10px;">LOGO</div>
+                                <div style="
+                                    text-align: center;
+                                    font-weight: bold;
+                                    font-size: 14px;
+                                    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+                                ">CARTE DE MEMBRE</div>
+                                <div style="font-size: 10px;">QR</div>
+                            </div>
+                            
+                            <!-- Info membre -->
+                            <div style="
+                                background: rgba(255,255,255,0.95);
+                                border-radius: 8px;
+                                padding: 15px;
+                                text-align: center;
+                                color: #004a99;
+                            ">
+                                <!-- Photo placeholder -->
+                                <div style="
+                                    width: 60px;
+                                    height: 60px;
+                                    border-radius: 50%;
+                                    background: #f0f0f0;
+                                    border: 2px solid #004a99;
+                                    margin: 0 auto 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 10px;
+                                    color: #666;
+                                ">
+                                    PHOTO
+                                </div>
+                                
+                                <!-- Nom -->
+                                <div style="
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    margin-bottom: 8px;
+                                ">
+                                    Jean Dupont
+                                </div>
+                                
+                                <!-- Numéro -->
+                                <div style="
+                                    font-size: 12px;
+                                    background: #f7f32d;
+                                    color: #333;
+                                    padding: 6px 12px;
+                                    border-radius: 15px;
+                                    display: inline-block;
+                                    font-weight: bold;
+                                ">
+                                    SN-MBR-00001
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VERSO -->
+                <div class="page" style="page-break-before: always; margin: 0; padding: 0;">
+                    <div style="
+                        height: 100%;
+                        border-radius: 10px;
+                        background: linear-gradient(135deg, #f7f32d, #004a99);
+                        position: relative;
+                        overflow: hidden;
+                        font-family: Arial, sans-serif;
+                    ">
+                        <!-- Overlay blanc -->
+                        <div style="
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(255,255,255,0.9);
+                            border-radius: 10px;
+                        "></div>
+                        
+                        <!-- Contenu verso -->
+                        <div style="
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        ">
+                            <div>
+                                <!-- Titre -->
+                                <div style="
+                                    text-align: center;
+                                    font-size: 12px;
+                                    font-weight: bold;
+                                    color: #004a99;
+                                    margin-bottom: 15px;
+                                ">
+                                    CONDITIONS D'UTILISATION
+                                </div>
+                                
+                                <!-- Texte -->
+                                <div style="
+                                    font-size: 10px;
+                                    line-height: 1.4;
+                                    text-align: justify;
+                                    color: #333;
+                                ">
+                                    Cette carte est personnelle, non transférable et reste la propriété de l'organisation. 
+                                    Elle doit être restituée sur demande. L'utilisation de cette carte est soumise aux 
+                                    conditions générales de l'organisation.
+                                </div>
+                            </div>
+                            
+                            <!-- Footer -->
+                            <div style="
+                                text-align: center;
+                                font-weight: bold;
+                                color: #004a99;
+                                border-top: 2px solid #004a99;
+                                padding-top: 10px;
+                                margin-top: 15px;
+                            ">
+                                <div>Expire le: 31/12/2024</div>
+                                <div style="font-size: 8px; color: #666; margin-top: 8px;">
+                                    Template: <t t-esc="template.name or 'Inconnu'"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -7,7 +7,7 @@
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">sama_carte.report_template_working_template</field>
         <field name="report_file">sama_carte.report_template_working_template</field>
-        <field name="print_report_name">'Carte-' + (object.name or 'Template').replace(' ', '-')</field>
+        <field name="print_report_name">'Carte-Template'</field>
         <field name="paperformat_id" ref="sama_carte.paperformat_member_card_landscape"/>
     </record>
 
