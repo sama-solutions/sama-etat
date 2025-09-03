@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+    ================================================================
+    TEMPLATE ULTRA-SIMPLE - SAMA_CARTE V2.1
+    Solution directe pour photo visible et background fonctionnel
+    ================================================================
+    -->
+
+    <!-- TEMPLATE ULTRA-SIMPLE - Garantit photo visible -->
+    <template id="design_ultra_simple_member" name="Ultra Simple - Photo Visible">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="padding: 20px; background: #f8f9fa; min-height: 100vh;">
+                    <h1 style="text-align: center; color: #333; margin-bottom: 30px;">
+                        <i class="fa fa-id-card me-3"/>Carte ULTRA SIMPLE - <span t-esc="member.name"/>
+                    </h1>
+                    
+                    <!-- Carte ultra-simple avec photo GARANTIE visible -->
+                    <div style="
+                        max-width: 1200px; 
+                        margin: 0 auto; 
+                        position: relative;
+                        box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+                        aspect-ratio: 16/9;
+                        min-height: 500px;
+                        border-radius: 25px;
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        overflow: hidden;
+                    ">
+                        <!-- Background image en CSS inline direct -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&amp;h=675&amp;fit=crop');
+                            background-size: cover;
+                            background-position: center;
+                            opacity: 0.8;
+                        "/>
+                        
+                        <!-- Overlay simple -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            background: rgba(0,0,0,0.5);
+                        "/>
+                        
+                        <!-- Contenu simple en 3 zones -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            padding: 40px;
+                            color: white;
+                        ">
+                            <!-- Zone 1: Header simple -->
+                            <div style="
+                                display: flex; 
+                                justify-content: space-between; 
+                                align-items: flex-start;
+                                margin-bottom: 40px;
+                            ">
+                                <div style="
+                                    background: rgba(255,255,255,0.9); 
+                                    color: #333;
+                                    padding: 15px 20px; 
+                                    border-radius: 10px; 
+                                    font-weight: bold;
+                                ">
+                                    <span t-esc="company.name or 'SAMA CARTE'"/>
+                                </div>
+                                
+                                <div style="
+                                    width: 80px; height: 80px;
+                                    background: white; 
+                                    border-radius: 10px;
+                                    display: flex; 
+                                    align-items: center; 
+                                    justify-content: center;
+                                    font-weight: bold;
+                                    color: #333;
+                                ">
+                                    QR
+                                </div>
+                            </div>
+                            
+                            <!-- Zone 2: Centre avec nom -->
+                            <div style="
+                                text-align: center;
+                                margin: 60px 0;
+                            ">
+                                <div style="
+                                    background: rgba(0,0,0,0.8);
+                                    padding: 30px;
+                                    border-radius: 20px;
+                                    display: inline-block;
+                                    min-width: 400px;
+                                ">
+                                    <h2 style="
+                                        margin: 0 0 15px 0; 
+                                        font-size: 2.5rem; 
+                                        font-weight: 700; 
+                                        color: white;
+                                    " t-esc="member.name"/>
+                                    <p style="
+                                        margin: 0; 
+                                        font-size: 1.5rem; 
+                                        color: #f8f9fa;
+                                    " t-esc="member.membership_number"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Zone 3: Footer avec PHOTO GARANTIE VISIBLE -->
+                            <div style="
+                                position: absolute;
+                                bottom: 40px;
+                                left: 40px;
+                                right: 40px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: flex-end;
+                            ">
+                                <!-- PHOTO MEMBRE - POSITION ABSOLUE GARANTIE -->
+                                <div style="
+                                    width: 180px; 
+                                    height: 180px;
+                                    background: white;
+                                    border-radius: 50%;
+                                    border: 6px solid white;
+                                    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+                                    overflow: hidden;
+                                    position: relative;
+                                ">
+                                    <img t-if="member.image_1920" 
+                                         t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                         style="
+                                            width: 100%; 
+                                            height: 100%;
+                                            object-fit: cover;
+                                         "
+                                         alt="Photo membre"/>
+                                    <div t-else="" style="
+                                        width: 100%; 
+                                        height: 100%;
+                                        background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+                                        color: #495057;
+                                        display: flex; 
+                                        align-items: center; 
+                                        justify-content: center;
+                                        font-size: 1.5rem; 
+                                        font-weight: bold;
+                                    ">PHOTO</div>
+                                </div>
+                                
+                                <!-- Statut -->
+                                <div style="text-align: right;">
+                                    <div t-if="is_valid" style="
+                                        background: #198754;
+                                        color: white;
+                                        padding: 15px 25px; 
+                                        border-radius: 25px;
+                                        font-size: 1.2rem; 
+                                        font-weight: 700;
+                                        margin-bottom: 15px;
+                                        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                    ">
+                                        ✓ CARTE VALIDE
+                                    </div>
+                                    <div t-else="" style="
+                                        background: #dc3545;
+                                        color: white;
+                                        padding: 15px 25px; 
+                                        border-radius: 25px;
+                                        font-size: 1.2rem; 
+                                        font-weight: 700;
+                                        margin-bottom: 15px;
+                                        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                    ">
+                                        ✗ CARTE EXPIRÉE
+                                    </div>
+                                    
+                                    <div style="
+                                        background: rgba(0,0,0,0.8);
+                                        color: white;
+                                        padding: 12px 20px;
+                                        border-radius: 15px;
+                                        font-size: 1.1rem; 
+                                        font-weight: 600;
+                                    ">
+                                        Expire le <span t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <div t-if="is_preview" style="margin-bottom: 30px;">
+                            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                                <a t-attf-href="/member/#{member.id}/preview/ultra_simple/#{background_name or 'default'}" style="
+                                    background: #28a745; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 500;
+                                ">
+                                    🎯 ULTRA SIMPLE
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/modern_fixed/#{background_name or 'dakar_gazelles'}" style="
+                                    background: #198754; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 500;
+                                ">
+                                    🔧 Moderne Corrigé
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/corporate/#{background_name or 'jokkoo'}" style="
+                                    background: #0d6efd; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 500;
+                                ">
+                                    🏢 Corporate
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/members/gallery" style="
+                            background: #0d6efd; 
+                            color: white; 
+                            padding: 15px 30px; 
+                            text-decoration: none; 
+                            border-radius: 10px; 
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+                        ">
+                            ← Retour à la galerie
+                        </a>
+                    </div>
+                    
+                    <!-- Diagnostic -->
+                    <div style="
+                        margin-top: 40px; 
+                        padding: 25px; 
+                        background: white; 
+                        border-radius: 15px; 
+                        max-width: 1200px; 
+                        margin-left: auto; 
+                        margin-right: auto;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    ">
+                        <h4 style="color: #333; margin-bottom: 20px;">
+                            🎯 Template Ultra-Simple - Diagnostic
+                        </h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div>
+                                <strong>✅ Photo :</strong> Position absolue garantie (180px)
+                            </div>
+                            <div>
+                                <strong>✅ Background :</strong> Image Unsplash + dégradé fallback
+                            </div>
+                            <div>
+                                <strong>✅ Structure :</strong> 3 zones simples
+                            </div>
+                            <div>
+                                <strong>✅ Layers :</strong> Background + Overlay + Contenu
+                            </div>
+                            <div>
+                                <strong>✅ CSS :</strong> Inline direct (pas de conflits)
+                            </div>
+                            <div>
+                                <strong>✅ Test :</strong> Membre <span t-esc="member.name"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

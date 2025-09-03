@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+    ================================================================
+    TEMPLATE UNIFIÉ SIMPLE - SAMA_CARTE V2.1
+    Une seule approche pour tous les designs
+    Pas de layers complexes, structure CSS simple
+    ================================================================
+    -->
+
+    <!-- TEMPLATE UNIFIÉ - Une seule structure pour tout -->
+    <template id="unified_simple_card" name="Carte Unifiée Simple">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <!-- Container principal avec background intégré -->
+                <div class="card-container" style="
+                    min-height: 100vh;
+                    padding: 20px;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                ">
+                    <!-- Titre -->
+                    <h1 style="text-align: center; color: white; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                        <i class="fa fa-id-card me-3"/>Carte de <span t-esc="member.name"/>
+                    </h1>
+                    
+                    <!-- CARTE SIMPLE - UNE SEULE DIV -->
+                    <div class="membership-card" style="
+                        max-width: 1000px;
+                        margin: 0 auto;
+                        background: white;
+                        border-radius: 20px;
+                        padding: 40px;
+                        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                        display: grid;
+                        grid-template-columns: auto 1fr auto;
+                        gap: 30px;
+                        align-items: center;
+                        min-height: 400px;
+                    ">
+                        <!-- PHOTO - Simple et directe -->
+                        <div class="member-photo" style="text-align: center;">
+                            <img t-if="member.image_1920" 
+                                 t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                 style="
+                                    width: 200px; 
+                                    height: 200px;
+                                    border-radius: 50%; 
+                                    border: 5px solid #0d6efd;
+                                    object-fit: cover;
+                                    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                                 "
+                                 alt="Photo membre"/>
+                            <div t-else="" style="
+                                width: 200px; 
+                                height: 200px;
+                                background: #f8f9fa; 
+                                color: #666;
+                                border-radius: 50%; 
+                                border: 5px solid #0d6efd;
+                                display: flex; 
+                                align-items: center; 
+                                justify-content: center;
+                                font-size: 1.5rem; 
+                                font-weight: bold;
+                                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+                                margin: 0 auto;
+                            ">PHOTO</div>
+                        </div>
+                        
+                        <!-- INFORMATIONS - Centre -->
+                        <div class="member-info" style="text-align: center;">
+                            <h2 style="color: #333; margin-bottom: 15px; font-size: 2.5rem; font-weight: 700;" t-esc="member.name"/>
+                            <p style="color: #666; font-size: 1.5rem; margin-bottom: 20px; font-weight: 600;" t-esc="member.membership_number"/>
+                            
+                            <div t-if="is_valid" style="
+                                background: #198754; 
+                                color: white;
+                                padding: 12px 25px; 
+                                border-radius: 25px;
+                                font-size: 1.2rem; 
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-bottom: 15px;
+                                box-shadow: 0 4px 10px rgba(25, 135, 84, 0.3);
+                            ">
+                                <i class="fa fa-check-circle me-2"/>CARTE VALIDE
+                            </div>
+                            <div t-else="" style="
+                                background: #dc3545; 
+                                color: white;
+                                padding: 12px 25px; 
+                                border-radius: 25px;
+                                font-size: 1.2rem; 
+                                font-weight: 700;
+                                display: inline-block;
+                                margin-bottom: 15px;
+                                box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+                            ">
+                                <i class="fa fa-times-circle me-2"/>CARTE EXPIRÉE
+                            </div>
+                            
+                            <div style="color: #666; font-size: 1.1rem; font-weight: 500;">
+                                Expire le <strong t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                            </div>
+                            <div style="color: #666; font-size: 1.1rem; margin-top: 8px; font-weight: 500;">
+                                Organisation : <strong t-esc="company.name"/>
+                            </div>
+                        </div>
+                        
+                        <!-- QR CODE - Simple -->
+                        <div class="member-qr" style="text-align: center;">
+                            <img t-if="member.barcode_qr" 
+                                 t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                 style="
+                                    width: 150px; 
+                                    height: 150px; 
+                                    background: white; 
+                                    padding: 10px; 
+                                    border-radius: 15px; 
+                                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                                    border: 2px solid #e9ecef;
+                                 "
+                                 alt="QR Code"/>
+                            <div t-else="" style="
+                                width: 150px; 
+                                height: 150px;
+                                background: #f8f9fa; 
+                                color: #666;
+                                border-radius: 15px;
+                                display: flex; 
+                                align-items: center; 
+                                justify-content: center;
+                                font-size: 1.2rem; 
+                                font-weight: bold;
+                                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                                border: 2px solid #e9ecef;
+                                margin: 0 auto;
+                            ">QR CODE</div>
+                            <p style="color: #666; font-size: 0.9rem; margin-top: 10px; font-weight: 500;">
+                                Scannez pour vérifier
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation simple -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <div t-if="is_preview" style="margin-bottom: 20px;">
+                            <a t-attf-href="/member/#{member.id}/preview/unified/default" style="
+                                background: #28a745; color: white; padding: 12px 25px; text-decoration: none; 
+                                border-radius: 8px; font-weight: 600; margin: 0 10px;
+                            ">
+                                🎯 Carte Unifiée
+                            </a>
+                        </div>
+                        <a href="/members/gallery" style="
+                            background: #0d6efd; 
+                            color: white; 
+                            padding: 15px 30px; 
+                            text-decoration: none; 
+                            border-radius: 10px; 
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+                        ">
+                            <i class="fa fa-arrow-left me-2"/>Retour à la galerie
+                        </a>
+                    </div>
+                    
+                    <!-- Diagnostic simple -->
+                    <div style="
+                        margin-top: 40px; 
+                        padding: 25px; 
+                        background: rgba(255,255,255,0.9); 
+                        border-radius: 15px; 
+                        max-width: 1000px; 
+                        margin-left: auto; 
+                        margin-right: auto;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    ">
+                        <h4 style="color: #333; margin-bottom: 20px;">
+                            ✅ Template Unifié - Solution Simple
+                        </h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <div><strong>Structure :</strong> Grid simple 3 colonnes</div>
+                            <div><strong>Photo :</strong> 200px centrée automatiquement</div>
+                            <div><strong>Background :</strong> Dégradé CSS simple</div>
+                            <div><strong>Layers :</strong> Aucun conflit</div>
+                            <div><strong>CSS :</strong> Inline direct</div>
+                            <div><strong>Responsive :</strong> Grid auto-adapt</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- TEMPLATE POUR PRÉVISUALISATION - Identique mais avec navigation -->
+    <template id="unified_preview_card" name="Prévisualisation Unifiée">
+        <t t-call="sama_carte.unified_simple_card"/>
+    </template>
+
+    <!-- TEMPLATE POUR PAGE PUBLIQUE - Identique -->
+    <template id="unified_public_card" name="Page Publique Unifiée">
+        <t t-call="sama_carte.unified_simple_card"/>
+    </template>
+</odoo>

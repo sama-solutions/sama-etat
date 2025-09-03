@@ -52,15 +52,9 @@ class RealMemberCardsController(http.Controller):
             'background_name': background,
         }
         
-        # Sélectionner le template selon le design
-        template_map = {
-            'modern': 'sama_carte.design_modern_real_member',
-            'modern_fixed': 'sama_carte.design_modern_real_member_fixed',
-            'corporate': 'sama_carte.design_corporate_real_member',
-            'prestige': 'sama_carte.design_prestige_real_member',
-        }
-        
-        template = template_map.get(design, 'sama_carte.design_modern_real_member')
+        # APPROCHE SIMPLIFIÉE - Un seul template pour tout
+        # Plus de complexité, plus de layers, plus de problèmes
+        template = 'sama_carte.unified_simple_card'
         
         return request.render(template, values)
 
@@ -131,15 +125,8 @@ class RealMemberCardsController(http.Controller):
                 'is_preview': True,
             }
             
-            # Sélectionner le template selon le design
-            template_map = {
-                'modern': 'sama_carte.design_modern_real_member',
-                'modern_fixed': 'sama_carte.design_modern_real_member_fixed',
-                'corporate': 'sama_carte.design_corporate_real_member',
-                'prestige': 'sama_carte.design_prestige_real_member',
-            }
-            
-            template = template_map.get(design, 'sama_carte.design_modern_real_member')
+            # APPROCHE SIMPLIFIÉE - Un seul template uniforme
+            template = 'sama_carte.unified_simple_card'
             
             return request.render(template, values)
             
