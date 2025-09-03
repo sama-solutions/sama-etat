@@ -12,12 +12,36 @@
     <template id="unified_simple_card" name="Carte Unifiée Simple">
         <t t-call="website.layout">
             <div id="wrap">
-                <!-- Container principal avec background intégré -->
+                <!-- Container principal avec background dynamique -->
                 <div class="card-container" style="
                     min-height: 100vh;
                     padding: 20px;
+                    position: relative;
                     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background-image: url('/background/image/dakar_gazelles/landscape');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                " t-attf-style="
+                    min-height: 100vh;
+                    padding: 20px;
+                    position: relative;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background-image: url('/background/image/#{background_name or 'dakar_gazelles'}/landscape');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
                 ">
+                    <!-- Overlay léger pour améliorer la lisibilité -->
+                    <div style="
+                        position: absolute;
+                        top: 0; left: 0; right: 0; bottom: 0;
+                        background: rgba(0,0,0,0.3);
+                        z-index: 1;
+                    "/>
+                    
+                    <!-- Contenu principal -->
+                    <div style="position: relative; z-index: 2;">
                     <!-- Titre -->
                     <h1 style="text-align: center; color: white; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                         <i class="fa fa-id-card me-3"/>Carte de <span t-esc="member.name"/>
@@ -144,8 +168,33 @@
                     
                     <!-- Navigation simple -->
                     <div style="text-align: center; margin-top: 40px;">
-                        <div t-if="is_preview" style="margin-bottom: 20px;">
-                            <a t-attf-href="/member/#{member.id}/preview/unified/default" style="
+                        <div t-if="is_preview" style="margin-bottom: 30px;">
+                            <!-- Boutons de background -->
+                            <div style="margin-bottom: 15px;">
+                                <h4 style="color: white; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">
+                                    🆼️ Tester les backgrounds
+                                </h4>
+                                <a t-attf-href="/member/#{member.id}/preview/unified/dakar_gazelles" style="
+                                    background: #fd7e14; color: white; padding: 10px 20px; text-decoration: none; 
+                                    border-radius: 8px; font-weight: 600; margin: 0 5px; font-size: 0.9rem;
+                                ">
+                                    🏃 Dakar Gazelles
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/unified/jokkoo" style="
+                                    background: #6f42c1; color: white; padding: 10px 20px; text-decoration: none; 
+                                    border-radius: 8px; font-weight: 600; margin: 0 5px; font-size: 0.9rem;
+                                ">
+                                    🏢 Jokkoo
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/unified/teranga_corp" style="
+                                    background: #20c997; color: white; padding: 10px 20px; text-decoration: none; 
+                                    border-radius: 8px; font-weight: 600; margin: 0 5px; font-size: 0.9rem;
+                                ">
+                                    🏛️ Teranga Corp
+                                </a>
+                            </div>
+                            <!-- Bouton principal -->
+                            <a t-attf-href="/member/#{member.id}/preview/unified/#{background_name or 'default'}" style="
                                 background: #28a745; color: white; padding: 12px 25px; text-decoration: none; 
                                 border-radius: 8px; font-weight: 600; margin: 0 10px;
                             ">
@@ -178,17 +227,18 @@
                         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                     ">
                         <h4 style="color: #333; margin-bottom: 20px;">
-                            ✅ Template Unifié - Solution Simple
+                            ✅ Template Unifié avec Background Dynamique
                         </h4>
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                             <div><strong>Structure :</strong> Grid simple 3 colonnes</div>
                             <div><strong>Photo :</strong> 200px centrée automatiquement</div>
-                            <div><strong>Background :</strong> Dégradé CSS simple</div>
-                            <div><strong>Layers :</strong> Aucun conflit</div>
+                            <div><strong>Background :</strong> <span t-esc="background_name or 'dakar_gazelles'"/> + dégradé fallback</div>
+                            <div><strong>Overlay :</strong> rgba(0,0,0,0.3) pour lisibilité</div>
                             <div><strong>CSS :</strong> Inline direct</div>
                             <div><strong>Responsive :</strong> Grid auto-adapt</div>
                         </div>
                     </div>
+                    </div> <!-- Fin contenu principal -->
                 </div>
             </div>
         </t>
