@@ -9,24 +9,28 @@ class FullsizeBackgroundTestController(http.Controller):
     def test_fullsize_background_design(self, design_name, **kwargs):
         """Test des designs avec fonds d'écran pleine taille"""
         
-        # Données de test
-        company = request.env.company
+        # Données de test statiques pour éviter les problèmes d'accès
+        from datetime import datetime, timedelta
         
-        # Membre de test (premier membre SAMA)
-        member = request.env['membership.member'].search([
-            ('company_id', '=', company.id)
-        ], limit=1)
+        # Données de test statiques
+        class MockMember:
+            def __init__(self):
+                self.id = 1
+                self.name = 'Jean Dupont'
+                self.membership_number = 'SN-MBR-00001'
+                self.image_1920 = None
+                self.barcode_qr = None
+                self.expiration_date = datetime.now().date() + timedelta(days=365)
         
-        if not member:
-            # Créer un membre de test si aucun n'existe
-            member = request.env['membership.member'].create({
-                'name': 'Test Fullsize Background User',
-                'membership_number': 'TEST-FULL-001',
-                'company_id': company.id,
-            })
+        class MockCompany:
+            def __init__(self):
+                self.id = 1
+                self.name = 'SAMA - Société Africaine de Management'
+                self.logo = None
         
-        # Vérifier la validité
-        is_valid = member.is_card_valid() if hasattr(member, 'is_card_valid') else True
+        member = MockMember()
+        company = MockCompany()
+        is_valid = True
         
         # Sélectionner le template selon le design
         template_map = {
@@ -50,12 +54,26 @@ class FullsizeBackgroundTestController(http.Controller):
     def fullsize_background_gallery(self, **kwargs):
         """Galerie des designs avec fonds pleine taille"""
         
-        company = request.env.company
+        # Données de test statiques
+        from datetime import datetime, timedelta
         
-        # Membre de test
-        member = request.env['membership.member'].search([
-            ('company_id', '=', company.id)
-        ], limit=1)
+        class MockMember:
+            def __init__(self):
+                self.id = 1
+                self.name = 'Jean Dupont'
+                self.membership_number = 'SN-MBR-00001'
+                self.image_1920 = None
+                self.barcode_qr = None
+                self.expiration_date = datetime.now().date() + timedelta(days=365)
+        
+        class MockCompany:
+            def __init__(self):
+                self.id = 1
+                self.name = 'SAMA - Société Africaine de Management'
+                self.logo = None
+        
+        member = MockMember()
+        company = MockCompany()
         
         designs = [
             {
@@ -93,12 +111,26 @@ class FullsizeBackgroundTestController(http.Controller):
     def compare_background_modes(self, **kwargs):
         """Comparaison entre mode crop et mode fullsize"""
         
-        company = request.env.company
+        # Données de test statiques
+        from datetime import datetime, timedelta
         
-        # Membre de test
-        member = request.env['membership.member'].search([
-            ('company_id', '=', company.id)
-        ], limit=1)
+        class MockMember:
+            def __init__(self):
+                self.id = 1
+                self.name = 'Jean Dupont'
+                self.membership_number = 'SN-MBR-00001'
+                self.image_1920 = None
+                self.barcode_qr = None
+                self.expiration_date = datetime.now().date() + timedelta(days=365)
+        
+        class MockCompany:
+            def __init__(self):
+                self.id = 1
+                self.name = 'SAMA - Société Africaine de Management'
+                self.logo = None
+        
+        member = MockMember()
+        company = MockCompany()
         
         values = {
             'member': member,
