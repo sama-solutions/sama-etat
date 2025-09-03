@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_membership_member_tree" model="ir.ui.view">
+        <field name="name">membership.member.tree</field>
+        <field name="model">membership.member</field>
+        <field name="arch" type="xml">
+            <list string="Membres">
+                <field name="membership_number"/>
+                <field name="name"/>
+                <field name="expiration_date"/>
+                <field name="card_status" widget="badge" decoration-success="card_status == 'valid'" decoration-danger="card_status == 'expired'"/>
+                <button name="action_open_public_page" type="object" string="" icon="fa-external-link" help="Ouvrir la page publique" class="btn-link"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_membership_member_form" model="ir.ui.view">
+        <field name="name">membership.member.form</field>
+        <field name="model">membership.member</field>
+        <field name="arch" type="xml">
+            <form string="Membre">
+                <header>
+                    <button name="action_open_public_page" type="object" string="Voir Page Publique" class="btn-primary" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
+                </header>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Nom du membre"/></h1>
+                        <h3>
+                            <label for="membership_number" class="oe_edit_only"/>
+                            <field name="membership_number" readonly="1"/>
+                        </h3>
+                    </div>
+                    <notebook>
+                        <page string="Informations Principales">
+                            <group>
+                                <group>
+                                    <field name="expiration_date"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="QR Code &amp; Accès Public">
+                            <group>
+                                <group>
+                                    <field name="barcode_qr" widget="image" nolabel="1"/>
+                                </group>
+                                <group>
+                                    <label for="public_url" string="Page Publique"/>
+                                    <div class="o_row">
+                                        <field name="public_url" widget="url" readonly="1" class="oe_inline"/>
+                                        <button name="action_open_public_page" type="object" string="Ouvrir" class="btn-link" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
+                                    </div>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Termes &amp; Conditions">
+                            <group>
+                                <field name="terms_and_conditions" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_membership_member" model="ir.actions.act_window">
+        <field name="name">Membres</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_membership_member_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Créez votre premier membre !</p>
+        </field>
+    </record>
+
+    <menuitem id="menu_membership_root" name="Gestion des Membres" sequence="10"/>
+    <menuitem id="menu_membership_member" name="Membres" parent="menu_membership_root" action="action_membership_member" sequence="10"/>
+</odoo>

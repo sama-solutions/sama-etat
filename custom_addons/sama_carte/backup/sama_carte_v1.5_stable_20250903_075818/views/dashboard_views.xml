@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Graphique en secteurs pour les statuts -->
+    <record id="view_membership_status_pie" model="ir.ui.view">
+        <field name="name">membership.status.pie</field>
+        <field name="model">membership.member</field>
+        <field name="arch" type="xml">
+            <graph string="Répartition par Statut" type="pie">
+                <field name="card_status" type="row"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Timeline des expirations -->
+    <record id="view_membership_expiration_timeline" model="ir.ui.view">
+        <field name="name">membership.expiration.timeline</field>
+        <field name="model">membership.member</field>
+        <field name="arch" type="xml">
+            <graph string="Timeline des Expirations" type="line">
+                <field name="expiration_date" type="row" interval="month"/>
+                <field name="id" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Actions pour les analyses -->
+    <record id="action_membership_graph" model="ir.actions.act_window">
+        <field name="name">Graphiques Membres</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_membership_member_graph"/>
+    </record>
+    
+    <record id="action_membership_pivot" model="ir.actions.act_window">
+        <field name="name">Tableau Croisé Membres</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="view_membership_member_pivot"/>
+    </record>
+    
+    <record id="action_membership_status_pie" model="ir.actions.act_window">
+        <field name="name">Répartition par Statut</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_membership_status_pie"/>
+    </record>
+    
+    <record id="action_membership_expiration_timeline" model="ir.actions.act_window">
+        <field name="name">Timeline des Expirations</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_membership_expiration_timeline"/>
+    </record>
+
+    <!-- Action Dashboard -->
+    <record id="action_membership_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard Membres</field>
+        <field name="res_model">membership.member</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="view_id" ref="view_membership_member_graph"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Tableau de bord des membres</p>
+            <p>Analysez vos données de membres avec :</p>
+            <ul>
+                <li><strong>Graphiques</strong> : Visualisations interactives</li>
+                <li><strong>Tableaux croisés</strong> : Analyses multidimensionnelles</li>
+                <li><strong>Tendances</strong> : Évolution dans le temps</li>
+                <li><strong>Répartitions</strong> : Analyses par catégories</li>
+            </ul>
+        </field>
+    </record>
+
+    <!-- Vue de recherche avancée avec filtres et groupements -->
+    <record id="view_membership_member_search" model="ir.ui.view">
+        <field name="name">membership.member.search</field>
+        <field name="model">membership.member</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Membres">
+                <!-- Champs de recherche -->
+                <field name="name" string="Nom" filter_domain="[('name','ilike',self)]"/>
+                <field name="membership_number" string="Numéro"/>
+                <field name="company_id" string="Société"/>
+                
+                <!-- Filtres prédéfinis -->
+                <separator/>
+                <filter string="Cartes Valides" name="valid_cards" domain="[('card_status','=','valid')]"/>
+                <filter string="Cartes Expirées" name="expired_cards" domain="[('card_status','=','expired')]"/>
+                <filter string="Expire ce mois" name="expiring_this_month" 
+                        domain="[('expiration_date','&gt;=',datetime.date.today().replace(day=1)),('expiration_date','&lt;',(datetime.date.today().replace(day=1) + datetime.timedelta(days=32)).replace(day=1))]"/>
+                <filter string="Avec Photo" name="with_photo" domain="[('image_1920','!=',False)]"/>
+                <filter string="Sans Photo" name="without_photo" domain="[('image_1920','=',False)]"/>
+                
+                <!-- Séparateur -->
+                <separator/>
+                
+                <!-- Filtres par date -->
+                <filter string="Créés cette semaine" name="created_this_week"
+                        domain="[('create_date','&gt;=',datetime.date.today() - datetime.timedelta(days=7))]"/>
+                <filter string="Créés ce mois" name="created_this_month"
+                        domain="[('create_date','&gt;=',datetime.date.today().replace(day=1))]"/>
+                
+                <!-- Groupements -->
+                <separator/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Statut" name="group_by_status" context="{'group_by':'card_status'}"/>
+                    <filter string="Société" name="group_by_company" context="{'group_by':'company_id'}"/>
+                    <filter string="Mois d'expiration" name="group_by_expiration_month" context="{'group_by':'expiration_date:month'}"/>
+                    <filter string="Année d'expiration" name="group_by_expiration_year" context="{'group_by':'expiration_date:year'}"/>
+                    <filter string="Date de création" name="group_by_create_date" context="{'group_by':'create_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Mise à jour de l'action principale pour inclure la vue de recherche -->
+    <record id="action_membership_member" model="ir.actions.act_window">
+        <field name="search_view_id" ref="view_membership_member_search"/>
+        <field name="context">{'search_default_valid_cards': 1}</field>
+    </record>
+
+    <!-- Menus pour les analyses -->
+    <menuitem id="menu_membership_analytics" 
+              name="📊 Analyses" 
+              parent="menu_membership_root" 
+              sequence="5"/>
+              
+    <menuitem id="menu_membership_dashboard" 
+              name="Dashboard" 
+              parent="menu_membership_analytics" 
+              action="action_membership_dashboard" 
+              sequence="10"/>
+              
+    <menuitem id="menu_membership_graphs" 
+              name="Graphiques" 
+              parent="menu_membership_analytics" 
+              action="action_membership_graph" 
+              sequence="20"/>
+              
+    <menuitem id="menu_membership_pivot" 
+              name="Tableaux Croisés" 
+              parent="menu_membership_analytics" 
+              action="action_membership_pivot" 
+              sequence="30"/>
+              
+    <menuitem id="menu_membership_status_pie" 
+              name="Répartition Statuts" 
+              parent="menu_membership_analytics" 
+              action="action_membership_status_pie" 
+              sequence="40"/>
+              
+    <menuitem id="menu_membership_timeline" 
+              name="Timeline Expirations" 
+              parent="menu_membership_analytics" 
+              action="action_membership_expiration_timeline" 
+              sequence="50"/>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_membership_member" model="ir.sequence">
+            <field name="name">Séquence Carte de Membre</field>
+            <field name="code">membership.member.sequence</field>
+            <field name="prefix">SN-MBR-</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

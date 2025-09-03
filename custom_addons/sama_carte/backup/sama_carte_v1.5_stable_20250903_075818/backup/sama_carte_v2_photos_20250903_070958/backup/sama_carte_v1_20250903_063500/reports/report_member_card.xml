@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_member_card" model="ir.actions.report">
+        <field name="name">Carte de Membre</field>
+        <field name="model">membership.member</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_member_card_template</field>
+        <field name="report_file">sama_carte.report_member_card_template</field>
+        <field name="print_report_name">'Carte - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_membership_member"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card"/>
+    </record>
+
+    <template id="report_member_card_template">
+        <t t-call="web.html_container">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <t t-foreach="docs" t-as="o">
+                <!-- RECTO -->
+                <div class="page">
+                    <style>
+                        :root {
+                            --primary-color: #004a99;
+                            --secondary-color: #f7f32d;
+                            --accent-color: #2d7a7d;
+                            --text-color: #333333;
+                            --card-bg: white;
+                        }
+                        .card-container {
+                            font-family: 'Montserrat', sans-serif;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            overflow: hidden;
+                            background-color: var(--card-bg);
+                        }
+                        .card-header { display: flex; justify-content: space-between; align-items: center; padding: 10px; }
+                        .card-header img { max-height: 35px; max-width: 70px; }
+                        .card-title { text-align: center; font-weight: 700; font-size: 14px; margin-top: 5px; color: var(--text-color); }
+                        .profile-picture-container { text-align: center; margin-top: 15px; }
+                        .profile-picture { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 5; position: relative; }
+                        .shape-background { position: absolute; width: 150%; height: 200px; left: -25%; z-index: 0; }
+                        .shape-teal { background-color: var(--accent-color); transform: skewY(-10deg); bottom: 20px; }
+                        .shape-yellow { background-color: var(--secondary-color); transform: skewY(-10deg); bottom: 0px; height: 150px; }
+                        .card-content { position: absolute; bottom: 60px; width: 100%; z-index: 1; text-align: center; color: #000; }
+                        .member-name { font-size: 18px; font-weight: 700; color: var(--primary-color); }
+                        .member-id { font-size: 16px; font-weight: 700; background-color: var(--secondary-color); padding: 5px 10px; display: inline-block; margin-top: 5px; }
+                        .qr-code-container { position: absolute; bottom: 100px; right: 20px; z-index: 2; background: white; padding: 5px; border: 1px solid #ddd; }
+                        .qr-code { width: 70px; height: 70px; }
+                    </style>
+                    <div class="card-container recto">
+                        <div class="card-header">
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo Organisation"/>
+                        </div>
+                        <div class="card-title">CARTE DE MEMBRE</div>
+                        <div class="profile-picture-container">
+                            <img t-if="o.image_1920" t-att-src="image_data_uri(o.image_1920)" class="profile-picture" alt="Photo"/>
+                            <img t-else="" t-att-src="'/web/static/src/img/placeholder.png'" class="profile-picture" alt="Pas d'image"/>
+                        </div>
+                        <div class="shape-background shape-teal"></div>
+                        <div class="shape-background shape-yellow"></div>
+                        <div class="qr-code-container">
+                            <img t-if="o.barcode_qr" t-att-src="image_data_uri(o.barcode_qr)" class="qr-code" alt="QR Code"/>
+                        </div>
+                        <div class="card-content">
+                            <div class="member-name" t-field="o.name"/>
+                            <div class="member-id" t-field="o.membership_number"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VERSO -->
+                <div class="page" style="page-break-before: always;">
+                    <style>
+                        .verso { background-color: #f5f5f5; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; font-size: 8px; height: 100%; }
+                        .verso h4 { font-size: 12px; font-weight: 700; text-align: center; margin-bottom: 10px; color: var(--primary-color); }
+                        .verso .terms { text-align: justify; line-height: 1.4; }
+                        .verso .footer { text-align: center; margin-top: 15px; font-weight: 700; }
+                    </style>
+                    <div class="card-container verso">
+                        <div>
+                            <h4>CONDITIONS D'UTILISATION</h4>
+                            <div class="terms" t-field="o.terms_and_conditions"/>
+                        </div>
+                        <div class="footer">
+                            <span>Expire le: <t t-esc="o.expiration_date.strftime('%d/%m/%Y')"/></span>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Membre 1: Directeur Général -->
+        <record id="demo_member_01" model="membership.member">
+            <field name="name">Jean-Baptiste DIALLO</field>
+            <field name="membership_number">SN-MBR-00001</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=365)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 2: Responsable Marketing -->
+        <record id="demo_member_02" model="membership.member">
+            <field name="name">Fatou NDIAYE</field>
+            <field name="membership_number">SN-MBR-00002</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=300)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 3: Développeur Senior -->
+        <record id="demo_member_03" model="membership.member">
+            <field name="name">Amadou FALL</field>
+            <field name="membership_number">SN-MBR-00003</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=400)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 4: Consultante RH -->
+        <record id="demo_member_04" model="membership.member">
+            <field name="name">Aïssatou BA</field>
+            <field name="membership_number">SN-MBR-00004</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=250)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 5: Chef de Projet -->
+        <record id="demo_member_05" model="membership.member">
+            <field name="name">Moussa SARR</field>
+            <field name="membership_number">SN-MBR-00005</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=350)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 6: Analyste Financier -->
+        <record id="demo_member_06" model="membership.member">
+            <field name="name">Mariama CISSÉ</field>
+            <field name="membership_number">SN-MBR-00006</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=280)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 7: Responsable Commercial -->
+        <record id="demo_member_07" model="membership.member">
+            <field name="name">Ousmane DIOUF</field>
+            <field name="membership_number">SN-MBR-00007</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=320)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 8: Designer UX/UI -->
+        <record id="demo_member_08" model="membership.member">
+            <field name="name">Khady MBAYE</field>
+            <field name="membership_number">SN-MBR-00008</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=290)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 9: Ingénieur Système -->
+        <record id="demo_member_09" model="membership.member">
+            <field name="name">Ibrahima SECK</field>
+            <field name="membership_number">SN-MBR-00009</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=380)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 10: Responsable Qualité -->
+        <record id="demo_member_10" model="membership.member">
+            <field name="name">Bineta THIAM</field>
+            <field name="membership_number">SN-MBR-00010</field>
+            <field name="expiration_date" eval="(datetime.now() + timedelta(days=310)).strftime('%Y-%m-%d')"/>
+        </record>
+
+        <!-- Membre 11: Stagiaire (carte expirée pour test) -->
+        <record id="demo_member_11" model="membership.member">
+            <field name="name">Modou KANE</field>
+            <field name="membership_number">SN-MBR-00011</field>
+            <field name="expiration_date" eval="(datetime.now() - timedelta(days=30)).strftime('%Y-%m-%d')"/>
+        </record>
+
+    </data>
+</odoo>
