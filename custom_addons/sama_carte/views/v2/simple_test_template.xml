@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template de test simple pour diagnostiquer -->
+    <template id="simple_test_template" name="Test Simple">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="padding: 50px; background: red; color: white; text-align: center;">
+                    <h1>TEST SIMPLE - CECI DEVRAIT ÊTRE VISIBLE</h1>
+                    <p>Nom du membre: <span t-esc="member.name"/></p>
+                    <p>Numéro: <span t-esc="member.membership_number"/></p>
+                    <p>Société: <span t-esc="company.name"/></p>
+                    <div style="background: blue; padding: 20px; margin: 20px;">
+                        <h2>ZONE BLEUE DE TEST</h2>
+                        <p>Si vous voyez ceci, le template fonctionne !</p>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

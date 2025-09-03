@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template moderne simplifié pour diagnostiquer -->
+    <template id="simple_modern_template" name="Moderne Simplifié">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="padding: 20px; background: #f8f9fa; min-height: 100vh;">
+                    <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Design Moderne - Test Simplifié</h1>
+                    
+                    <!-- Carte simplifiée -->
+                    <div style="
+                        max-width: 800px; 
+                        margin: 0 auto; 
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        border-radius: 20px;
+                        padding: 40px;
+                        color: white;
+                        text-align: center;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    ">
+                        <h2 style="margin-bottom: 20px;">Carte de Membre</h2>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                            <div style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px;">
+                                LOGO SAMA
+                            </div>
+                            <div style="background: white; color: #333; padding: 10px; border-radius: 10px;">
+                                QR CODE
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 20px 0;">
+                            <h3 style="margin: 0 0 10px 0;" t-esc="member.name"/>
+                            <p style="margin: 0; font-size: 1.2rem;" t-esc="member.membership_number"/>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="background: #ddd; color: #666; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                PHOTO
+                            </div>
+                            <div style="background: #198754; padding: 10px 20px; border-radius: 20px;">
+                                ✓ VALIDE
+                            </div>
+                        </div>
+                        
+                        <p style="margin-top: 20px; opacity: 0.8;">
+                            Expire le <span t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                        </p>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="/background/fullsize/gallery" style="background: #0d6efd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                            ← Retour à la galerie
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
