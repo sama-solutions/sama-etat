@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rapport simple pour diagnostiquer les problèmes -->
+    <record id="action_report_template_simple" model="ir.actions.report">
+        <field name="name">Test Template Simple</field>
+        <field name="model">membership.card.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_template_simple_template</field>
+        <field name="report_file">sama_carte.report_template_simple_template</field>
+        <field name="print_report_name">'Test - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card_landscape"/>
+    </record>
+
+    <!-- Template simple pour test -->
+    <template id="report_template_simple_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="template">
+                <div class="page">
+                    <style>
+                        .test-card {
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(45deg, #004a99, #f7f32d);
+                            padding: 20px;
+                            color: white;
+                            font-family: Arial, sans-serif;
+                        }
+                        .test-title {
+                            font-size: 24px;
+                            font-weight: bold;
+                            text-align: center;
+                            margin-bottom: 20px;
+                        }
+                        .test-content {
+                            font-size: 16px;
+                            line-height: 1.5;
+                        }
+                    </style>
+                    
+                    <div class="test-card">
+                        <div class="test-title">
+                            TEST TEMPLATE: <t t-esc="template.name"/>
+                        </div>
+                        <div class="test-content">
+                            <p>Template ID: <t t-esc="template.id"/></p>
+                            <p>Nom technique: <t t-esc="template.technical_name"/></p>
+                            <p>Catégorie: <t t-esc="template.category"/></p>
+                            <p>Actif: <t t-esc="template.active"/></p>
+                            <p>Couleur primaire: <t t-esc="template.default_primary_color"/></p>
+                            <p>Couleur secondaire: <t t-esc="template.default_secondary_color"/></p>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

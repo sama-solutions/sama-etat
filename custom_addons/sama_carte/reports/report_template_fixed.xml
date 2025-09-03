@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rapport corrigé pour les templates avec background -->
+    <record id="action_report_template_fixed" model="ir.actions.report">
+        <field name="name">Template avec Background (Corrigé)</field>
+        <field name="model">membership.card.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_template_fixed_template</field>
+        <field name="report_file">sama_carte.report_template_fixed_template</field>
+        <field name="print_report_name">'Carte - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card_landscape"/>
+    </record>
+
+    <!-- Template corrigé -->
+    <template id="report_template_fixed_template">
+        <t t-call="web.html_container">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <t t-foreach="docs" t-as="template">
+                <!-- Variables simplifiées -->
+                <t t-set="company" t-value="env.company"/>
+                <t t-set="background" t-value="company.card_background_id"/>
+                
+                <!-- Données de démonstration -->
+                <t t-set="demo_member" t-value="env['membership.member'].search([('name', '!=', False)], limit=1)"/>
+                <t t-set="demo_name" t-value="demo_member.name if demo_member else 'Jean Dupont'"/>
+                <t t-set="demo_number" t-value="demo_member.membership_number if demo_member else 'SN-MBR-00001'"/>
+                
+                <!-- Couleurs -->
+                <t t-set="primary_color" t-value="template.default_primary_color or '#004a99'"/>
+                <t t-set="secondary_color" t-value="template.default_secondary_color or '#f7f32d'"/>
+                
+                <!-- Background URL -->
+                <t t-set="background_url" t-value="''"/>
+                <t t-if="background">
+                    <t t-set="background_url" t-value="'/web/image/membership.card.background/%s/image_landscape' % background.id"/>
+                </t>
+                
+                <!-- RECTO -->
+                <div class="page">
+                    <style>
+                        .card-container {
+                            font-family: 'Montserrat', sans-serif;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            overflow: hidden;
+                            border-radius: 15px;
+                            <t t-if="background_url">
+                                background-image: url('<t t-esc="background_url"/>');
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            </t>
+                            <t t-else="">
+                                background: linear-gradient(135deg, <t t-esc="primary_color"/>, <t t-esc="secondary_color"/>);
+                            </t>
+                        }
+                        
+                        .card-overlay {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(0,0,0,0.3);
+                            border-radius: 15px;
+                        }
+                        
+                        .card-content {
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            color: white;
+                        }
+                        
+                        .card-header {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            margin-bottom: 20px;
+                        }
+                        
+                        .card-title {
+                            text-align: center;
+                            font-weight: bold;
+                            font-size: 16px;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+                        }
+                        
+                        .card-info {
+                            background: rgba(255,255,255,0.95);
+                            border-radius: 12px;
+                            padding: 20px;
+                            text-align: center;
+                        }
+                        
+                        .member-name {
+                            font-size: 18px;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .member-number {
+                            font-size: 14px;
+                            color: #333;
+                            padding: 8px 15px;
+                            border-radius: 20px;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+                        
+                        .template-badge {
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            color: white;
+                            padding: 5px 10px;
+                            border-radius: 15px;
+                            font-size: 10px;
+                            font-weight: bold;
+                            z-index: 20;
+                        }
+                    </style>
+                    
+                    <div class="card-container">
+                        <t t-if="background_url">
+                            <div class="card-overlay"></div>
+                        </t>
+                        
+                        <div class="template-badge" t-attf-style="background: {{primary_color}};">
+                            <t t-esc="template.name"/>
+                        </div>
+                        
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div style="font-size: 12px;">LOGO</div>
+                                <div class="card-title">CARTE DE MEMBRE</div>
+                                <div style="font-size: 12px;">QR</div>
+                            </div>
+                            
+                            <div class="card-info" t-attf-style="color: {{primary_color}};">
+                                <div t-attf-style="width: 80px; height: 80px; background: #f0f0f0; border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; color: #666; border: 3px solid {{primary_color}};">
+                                    PHOTO
+                                </div>
+                                
+                                <div class="member-name">
+                                    <t t-esc="demo_name"/>
+                                </div>
+                                
+                                <div class="member-number" t-attf-style="background: {{secondary_color}};">
+                                    <t t-esc="demo_number"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VERSO -->
+                <div class="page" style="page-break-before: always;">
+                    <style>
+                        .verso-container {
+                            height: 100%;
+                            border-radius: 15px;
+                            <t t-if="background_url">
+                                background-image: url('<t t-esc="background_url"/>');
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            </t>
+                            <t t-else="">
+                                background: linear-gradient(135deg, <t t-esc="secondary_color"/>, <t t-esc="primary_color"/>);
+                            </t>
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        
+                        .verso-overlay {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(255,255,255,0.9);
+                            border-radius: 15px;
+                        }
+                        
+                        .verso-content {
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        }
+                        
+                        .verso-header {
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: bold;
+                            margin-bottom: 20px;
+                        }
+                        
+                        .verso-terms {
+                            font-size: 11px;
+                            line-height: 1.5;
+                            text-align: justify;
+                            color: #333;
+                            flex: 1;
+                        }
+                        
+                        .verso-footer {
+                            text-align: center;
+                            font-weight: bold;
+                            padding-top: 15px;
+                            margin-top: 20px;
+                        }
+                    </style>
+                    
+                    <div class="verso-container">
+                        <t t-if="background_url">
+                            <div class="verso-overlay"></div>
+                        </t>
+                        
+                        <div class="verso-content">
+                            <div>
+                                <div class="verso-header" t-attf-style="color: {{primary_color}};">
+                                    CONDITIONS D'UTILISATION
+                                </div>
+                                <div class="verso-terms">
+                                    Cette carte est personnelle, non transférable et reste la propriété de l'organisation. 
+                                    Elle doit être restituée sur demande. L'utilisation de cette carte est soumise aux 
+                                    conditions générales de l'organisation.
+                                </div>
+                            </div>
+                            
+                            <div class="verso-footer" t-attf-style="color: {{primary_color}}; border-top: 2px solid {{primary_color}};">
+                                <div>Expire le: 31/12/2024</div>
+                                <div style="font-size: 10px; color: #666; margin-top: 10px;">
+                                    Template: <t t-esc="template.name"/>
+                                    <t t-if="background"> | Background: <t t-esc="background.name"/></t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

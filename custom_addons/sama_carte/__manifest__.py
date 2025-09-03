@@ -50,6 +50,8 @@ Fonctionnalités :
         'reports/report_member_card.xml',
         'reports/report_template_preview.xml',
         'reports/report_template_with_background.xml',
+        'reports/report_template_simple.xml',
+        'reports/report_template_fixed.xml',
         'views/website_member_views.xml',
     ],
     'demo': [
