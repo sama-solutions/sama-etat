@@ -12,279 +12,149 @@
     <template id="design_modern_fullsize_background" name="Moderne - Fond Pleine Taille">
         <t t-call="website.layout">
             <div id="wrap">
-                <section class="modern-fullsize-container">
-                    <style>
-                        .modern-fullsize-container {
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            min-height: 100vh;
-                            padding: 20px;
-                            background: #f8f9fa;
-                        }
-                        .modern-fullsize-card {
-                            position: relative;
-                            max-width: 90vw;
-                            max-height: 80vh;
-                            /* Fond temporaire en attendant les vraies images */
-                            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            background-position: center;
-                            aspect-ratio: 9/16; /* Portrait par défaut */
-                            border-radius: 20px;
-                            overflow: hidden;
-                            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-                            animation: cardAppear 1s ease-out;
-                        }
-                        
-                        /* Responsive : Paysage pour desktop */
-                        @media (min-width: 768px) {
-                            .modern-fullsize-card {
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                aspect-ratio: 16/9;
-                                max-width: 80vw;
-                                max-height: 70vh;
-                            }
-                        }
-                        
-                        /* Overlay pour lisibilité */
-                        .modern-overlay {
+                <div style="padding: 20px; background: #f8f9fa; min-height: 100vh;">
+                    <h1 style="text-align: center; color: #333; margin-bottom: 30px;">
+                        <i class="fa fa-expand me-3"/>Design Moderne - Fond Pleine Taille
+                    </h1>
+                    
+                    <!-- Carte moderne fullsize -->
+                    <div style="
+                        max-width: 1000px; 
+                        margin: 0 auto; 
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        border-radius: 20px;
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+                        aspect-ratio: 16/9;
+                        min-height: 400px;
+                    ">
+                        <!-- Overlay pour lisibilité -->
+                        <div style="
                             position: absolute;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
-                            background: linear-gradient(
-                                135deg, 
-                                rgba(0,0,0,0.3) 0%, 
-                                rgba(0,0,0,0.1) 30%, 
-                                rgba(0,0,0,0.1) 70%, 
-                                rgba(0,0,0,0.4) 100%
-                            );
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.4) 100%);
                             z-index: 1;
-                        }
+                        "/>
                         
-                        /* Grille de positionnement */
-                        .modern-content-grid {
+                        <!-- Grille de contenu -->
+                        <div style="
                             position: absolute;
-                            top: 0;
-                            left: 0;
-                            right: 0;
-                            bottom: 0;
+                            top: 0; left: 0; right: 0; bottom: 0;
                             display: grid;
                             grid-template-columns: 1fr 1fr 1fr;
                             grid-template-rows: 1fr 1fr 1fr;
                             gap: 10px;
                             padding: 20px;
                             z-index: 2;
-                        }
-                        
-                        /* Zones de contenu */
-                        .modern-zone {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: white;
-                            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-                        }
-                        
-                        .modern-logo-zone {
-                            grid-column: 1;
-                            grid-row: 1;
-                            justify-content: flex-start;
-                            align-items: flex-start;
-                        }
-                        
-                        .modern-qr-zone {
-                            grid-column: 3;
-                            grid-row: 1;
-                            justify-content: flex-end;
-                            align-items: flex-start;
-                        }
-                        
-                        .modern-photo-zone {
-                            grid-column: 1;
-                            grid-row: 3;
-                            justify-content: flex-start;
-                            align-items: flex-end;
-                        }
-                        
-                        .modern-info-zone {
-                            grid-column: 2 / 4;
-                            grid-row: 3;
-                            justify-content: flex-end;
-                            align-items: flex-end;
-                            flex-direction: column;
-                            text-align: right;
-                        }
-                        
-                        .modern-name-zone {
-                            grid-column: 1 / 4;
-                            grid-row: 2;
-                            flex-direction: column;
-                            background: rgba(255,255,255,0.1);
-                            backdrop-filter: blur(10px);
-                            border-radius: 15px;
-                            margin: 0 20px;
-                            padding: 20px;
-                        }
-                        
-                        /* Éléments */
-                        .modern-photo {
-                            width: 80px;
-                            height: 80px;
-                            border-radius: 50%;
-                            object-fit: cover;
-                            border: 3px solid white;
-                            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-                            animation: photoZoom 1s ease-out 0.5s both;
-                        }
-                        
-                        .modern-qr {
-                            width: 60px;
-                            height: 60px;
-                            background: white;
-                            padding: 5px;
-                            border-radius: 10px;
-                            animation: qrSpin 1s ease-out 0.8s both;
-                        }
-                        
-                        .modern-name {
-                            font-size: 1.8rem;
-                            font-weight: 700;
-                            margin-bottom: 10px;
-                            animation: nameSlide 1s ease-out 0.3s both;
-                        }
-                        
-                        .modern-number {
-                            font-size: 1.2rem;
-                            font-weight: 500;
-                            opacity: 0.9;
-                            animation: numberFade 1s ease-out 0.6s both;
-                        }
-                        
-                        .modern-status {
-                            background: linear-gradient(135deg, #198754, #20c997);
-                            padding: 8px 16px;
-                            border-radius: 20px;
-                            font-size: 0.9rem;
-                            font-weight: 600;
-                            margin-top: 10px;
-                            animation: statusBounce 1s ease-out 1s both;
-                        }
-                        
-                        /* Animations */
-                        @keyframes cardAppear {
-                            from { transform: scale(0.8) rotateY(20deg); opacity: 0; }
-                            to { transform: scale(1) rotateY(0deg); opacity: 1; }
-                        }
-                        
-                        @keyframes photoZoom {
-                            from { transform: scale(0); }
-                            to { transform: scale(1); }
-                        }
-                        
-                        @keyframes qrSpin {
-                            from { transform: rotate(-180deg) scale(0); }
-                            to { transform: rotate(0deg) scale(1); }
-                        }
-                        
-                        @keyframes nameSlide {
-                            from { transform: translateY(-30px); opacity: 0; }
-                            to { transform: translateY(0); opacity: 1; }
-                        }
-                        
-                        @keyframes numberFade {
-                            from { opacity: 0; }
-                            to { opacity: 0.9; }
-                        }
-                        
-                        @keyframes statusBounce {
-                            0% { transform: scale(0); }
-                            50% { transform: scale(1.1); }
-                            100% { transform: scale(1); }
-                        }
-                        
-                        /* Mobile adjustments */
-                        @media (max-width: 767px) {
-                            .modern-fullsize-card {
-                                aspect-ratio: 9/16;
-                                max-width: 95vw;
-                                max-height: 85vh;
-                            }
-                            .modern-content-grid {
-                                padding: 15px;
-                                gap: 8px;
-                            }
-                            .modern-photo {
-                                width: 60px;
-                                height: 60px;
-                            }
-                            .modern-qr {
-                                width: 50px;
-                                height: 50px;
-                            }
-                            .modern-name {
-                                font-size: 1.4rem;
-                            }
-                            .modern-number {
-                                font-size: 1rem;
-                            }
-                        }
-                    </style>
-                    
-                    <div class="modern-fullsize-card">
-                        <div class="modern-overlay"></div>
-                        <div class="modern-content-grid">
-                            <!-- Logo zone -->
-                            <div class="modern-zone modern-logo-zone">
+                        ">
+                            <!-- Logo coin haut-gauche -->
+                            <div style="
+                                grid-column: 1; grid-row: 1;
+                                display: flex; align-items: flex-start; justify-content: flex-start;
+                                color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+                            ">
                                 <img t-if="company.logo" 
                                      t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
                                      style="max-height: 40px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));"
                                      alt="Logo"/>
-                                <div t-else="" style="color: white; font-weight: bold;">SAMA</div>
+                                <div t-else="" style="background: rgba(255,255,255,0.2); padding: 10px; border-radius: 10px; font-weight: bold;">
+                                    SAMA
+                                </div>
                             </div>
                             
-                            <!-- QR Code zone -->
-                            <div class="modern-zone modern-qr-zone">
+                            <!-- QR coin haut-droit -->
+                            <div style="
+                                grid-column: 3; grid-row: 1;
+                                display: flex; align-items: flex-start; justify-content: flex-end;
+                            ">
                                 <img t-if="member.barcode_qr" 
                                      t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
-                                     class="modern-qr"
+                                     style="width: 60px; height: 60px; background: white; padding: 5px; border-radius: 10px;"
                                      alt="QR Code"/>
-                                <div t-else="" class="modern-qr" style="display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #666;">QR</div>
-                            </div>
-                            
-                            <!-- Photo zone -->
-                            <div class="modern-zone modern-photo-zone">
-                                <img t-if="member.image_1920" 
-                                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
-                                     class="modern-photo"
-                                     alt="Photo membre"/>
-                                <div t-else="" class="modern-photo" style="background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666;">PHOTO</div>
+                                <div t-else="" style="
+                                    width: 60px; height: 60px;
+                                    background: white; color: #666;
+                                    padding: 5px; border-radius: 10px;
+                                    display: flex; align-items: center; justify-content: center;
+                                    font-size: 0.7rem;
+                                ">QR</div>
                             </div>
                             
                             <!-- Nom central -->
-                            <div class="modern-zone modern-name-zone">
-                                <div class="modern-name" t-esc="member.name"/>
-                                <div class="modern-number" t-esc="member.membership_number"/>
+                            <div style="
+                                grid-column: 1 / 4; grid-row: 2;
+                                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                                background: rgba(255,255,255,0.1);
+                                backdrop-filter: blur(10px);
+                                border-radius: 15px;
+                                margin: 0 20px; padding: 20px;
+                                color: white; text-align: center;
+                            ">
+                                <h3 style="margin: 0 0 10px 0; font-size: 1.8rem; font-weight: 700;" t-esc="member.name"/>
+                                <p style="margin: 0; font-size: 1.2rem; opacity: 0.9;" t-esc="member.membership_number"/>
                             </div>
                             
-                            <!-- Informations zone -->
-                            <div class="modern-zone modern-info-zone">
-                                <div t-if="is_valid" class="modern-status">
+                            <!-- Photo coin bas-gauche -->
+                            <div style="
+                                grid-column: 1; grid-row: 3;
+                                display: flex; align-items: flex-end; justify-content: flex-start;
+                            ">
+                                <img t-if="member.image_1920" 
+                                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                     style="
+                                        width: 80px; height: 80px;
+                                        border-radius: 50%; border: 3px solid white;
+                                        object-fit: cover;
+                                        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                                     "
+                                     alt="Photo membre"/>
+                                <div t-else="" style="
+                                    width: 80px; height: 80px;
+                                    background: #ddd; color: #666;
+                                    border-radius: 50%; border: 3px solid white;
+                                    display: flex; align-items: center; justify-content: center;
+                                    font-size: 0.8rem;
+                                    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                                ">PHOTO</div>
+                            </div>
+                            
+                            <!-- Informations coin bas-droit -->
+                            <div style="
+                                grid-column: 2 / 4; grid-row: 3;
+                                display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-end;
+                                color: white; text-align: right;
+                            ">
+                                <div t-if="is_valid" style="
+                                    background: linear-gradient(135deg, #198754, #20c997);
+                                    padding: 8px 16px; border-radius: 20px;
+                                    font-size: 0.9rem; font-weight: 600;
+                                    margin-bottom: 10px;
+                                ">
                                     <i class="fa fa-check me-1"/>VALIDE
                                 </div>
-                                <div t-else="" class="modern-status" style="background: linear-gradient(135deg, #dc3545, #fd7e14);">
+                                <div t-else="" style="
+                                    background: linear-gradient(135deg, #dc3545, #fd7e14);
+                                    padding: 8px 16px; border-radius: 20px;
+                                    font-size: 0.9rem; font-weight: 600;
+                                    margin-bottom: 10px;
+                                ">
                                     <i class="fa fa-times me-1"/>EXPIRÉE
                                 </div>
-                                <div style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">
+                                <div style="font-size: 0.8rem; opacity: 0.8;">
                                     Expire le <span t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
+                    
+                    <!-- Navigation -->
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="/background/fullsize/gallery" style="background: #0d6efd; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin: 0 10px;">
+                            ← Retour à la galerie
+                        </a>
+                    </div>
+                </div>
             </div>
         </t>
     </template>
