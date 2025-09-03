@@ -27,6 +27,9 @@ class BackgroundTestController(http.Controller):
                 self.id = 1
                 self.name = 'SAMA - Société Africaine de Management'
                 self.logo = None
+                self.primary_color = '#0d6efd'
+                self.secondary_color = '#6c757d'
+                self.text_color = '#ffffff'
         
         member = MockMember()
         company = MockCompany()
@@ -70,6 +73,9 @@ class BackgroundTestController(http.Controller):
                 self.id = 1
                 self.name = 'SAMA - Société Africaine de Management'
                 self.logo = None
+                self.primary_color = '#0d6efd'
+                self.secondary_color = '#6c757d'
+                self.text_color = '#ffffff'
         
         backgrounds = [
             MockBackground('Dakar Gazelles', 'dakar_gazelles', 'Sport'),

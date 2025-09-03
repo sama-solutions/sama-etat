@@ -30,6 +30,9 @@ class FullsizeBackgroundTestController(http.Controller):
                 self.primary_color = '#0d6efd'
                 self.secondary_color = '#6c757d'
                 self.text_color = '#ffffff'
+                self.primary_color = '#0d6efd'
+                self.secondary_color = '#6c757d'
+                self.text_color = '#ffffff'
         
         member = MockMember()
         company = MockCompany()
@@ -74,9 +77,6 @@ class FullsizeBackgroundTestController(http.Controller):
                 self.id = 1
                 self.name = 'SAMA - Société Africaine de Management'
                 self.logo = None
-                self.primary_color = '#0d6efd'
-                self.secondary_color = '#6c757d'
-                self.text_color = '#ffffff'
         
         member = MockMember()
         company = MockCompany()
@@ -134,9 +134,6 @@ class FullsizeBackgroundTestController(http.Controller):
                 self.id = 1
                 self.name = 'SAMA - Société Africaine de Management'
                 self.logo = None
-                self.primary_color = '#0d6efd'
-                self.secondary_color = '#6c757d'
-                self.text_color = '#ffffff'
         
         member = MockMember()
         company = MockCompany()
