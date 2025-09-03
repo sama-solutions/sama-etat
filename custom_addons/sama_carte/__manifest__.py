@@ -52,6 +52,8 @@ Fonctionnalités :
         'reports/report_template_with_background.xml',
         'reports/report_template_simple.xml',
         'reports/report_template_fixed.xml',
+        'reports/report_template_ultra_simple.xml',
+        'reports/report_template_working.xml',
         'views/website_member_views.xml',
     ],
     'demo': [

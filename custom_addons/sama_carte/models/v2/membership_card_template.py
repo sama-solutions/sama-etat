@@ -108,7 +108,7 @@ class MembershipCardTemplate(models.Model):
         self.ensure_one()
         return {
             'type': 'ir.actions.report',
-            'report_name': 'sama_carte.action_report_template_fixed',
+            'report_name': 'sama_carte.action_report_template_working',
             'report_type': 'qweb-pdf',
             'data': {'ids': [self.id]},
             'context': self.env.context,
