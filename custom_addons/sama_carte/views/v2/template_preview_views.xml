@@ -95,11 +95,11 @@
                                 <div class="card-body">
                                     <dl class="row">
                                         <dt class="col-sm-4">Nom :</dt>
-                                        <dd class="col-sm-8" t-field="template.name"/>
+                                        <dd class="col-sm-8" t-esc="template.name"/>
                                         
                                         <dt class="col-sm-4">Catégorie :</dt>
                                         <dd class="col-sm-8">
-                                            <span class="badge badge-info" t-field="template.category"/>
+                                            <span class="badge badge-info" t-esc="template.category"/>
                                         </dd>
                                         
                                         <dt class="col-sm-4">Type :</dt>
@@ -109,13 +109,13 @@
                                         </dd>
                                         
                                         <dt class="col-sm-4">Utilisations :</dt>
-                                        <dd class="col-sm-8" t-field="template.usage_count"/>
+                                        <dd class="col-sm-8" t-esc="template.usage_count"/>
                                     </dl>
                                     
                                     <hr/>
                                     <p class="mb-0">
                                         <strong>Description :</strong><br/>
-                                        <span t-field="template.description"/>
+                                        <span t-esc="template.description"/>
                                     </p>
                                 </div>
                             </div>
@@ -135,21 +135,21 @@
                                                  t-attf-style="background-color: #{template.default_primary_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
                                             <small class="text-muted">Primaire</small>
                                             <br/>
-                                            <code t-field="template.default_primary_color"/>
+                                            <code t-esc="template.default_primary_color"/>
                                         </div>
                                         <div class="col-4">
                                             <div class="color-sample mx-auto mb-2" 
                                                  t-attf-style="background-color: #{template.default_secondary_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
                                             <small class="text-muted">Secondaire</small>
                                             <br/>
-                                            <code t-field="template.default_secondary_color"/>
+                                            <code t-esc="template.default_secondary_color"/>
                                         </div>
                                         <div class="col-4">
                                             <div class="color-sample mx-auto mb-2" 
                                                  t-attf-style="background-color: #{template.default_text_color}; width: 50px; height: 50px; border-radius: 50%; border: 2px solid #ddd;"></div>
                                             <small class="text-muted">Texte</small>
                                             <br/>
-                                            <code t-field="template.default_text_color"/>
+                                            <code t-esc="template.default_text_color"/>
                                         </div>
                                     </div>
                                 </div>
@@ -236,13 +236,13 @@
                                     </div>
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            <span t-field="template.name"/>
+                                            <span t-esc="template.name"/>
                                             <span t-if="template.is_premium" class="badge badge-warning float-right">Premium</span>
                                         </h5>
-                                        <p class="card-text text-muted" t-field="template.description"/>
+                                        <p class="card-text text-muted" t-esc="template.description"/>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <small class="text-muted">
-                                                <span class="badge badge-info" t-field="template.category"/>
+                                                <span class="badge badge-info" t-esc="template.category"/>
                                             </small>
                                             <a t-attf-href="/template/preview/#{template.technical_name}" 
                                                class="btn btn-primary btn-sm">
