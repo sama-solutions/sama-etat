@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template pour la galerie des designs fullsize -->
+    <template id="fullsize_background_gallery_template" name="Galerie Designs Fullsize">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-5">
+                                <i class="fa fa-expand me-3"/>
+                                Designs avec Fonds Pleine Taille
+                            </h1>
+                            
+                            <div class="alert alert-info text-center mb-5">
+                                <h5><i class="fa fa-info-circle me-2"/>Nouvelle Approche</h5>
+                                <p class="mb-0">
+                                    L'image de fond détermine maintenant la taille de la carte.<br/>
+                                    Toute l'image est visible avec les informations positionnées intelligemment par-dessus.
+                                </p>
+                            </div>
+                            
+                            <!-- Navigation des tests -->
+                            <div class="text-center mb-5">
+                                <div class="btn-group" role="group">
+                                    <a href="/background/fullsize/modern" class="btn btn-primary">
+                                        <i class="fa fa-mobile me-2"/>Moderne Fullsize
+                                    </a>
+                                    <a href="/background/fullsize/corporate" class="btn btn-info">
+                                        <i class="fa fa-building me-2"/>Corporate Fullsize
+                                    </a>
+                                    <a href="/background/fullsize/prestige" class="btn btn-warning">
+                                        <i class="fa fa-crown me-2"/>Prestige Fullsize
+                                    </a>
+                                    <a href="/background/compare" class="btn btn-secondary">
+                                        <i class="fa fa-exchange me-2"/>Comparer
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <t t-foreach="designs" t-as="design">
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100 shadow">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fa fa-expand me-2"/>
+                                            <span t-esc="design['name']"/>
+                                        </h5>
+                                    </div>
+                                    
+                                    <div class="card-body">
+                                        <p class="card-text" t-esc="design['description']"/>
+                                        
+                                        <h6 class="mt-3">Fond d'écran :</h6>
+                                        <span class="badge bg-secondary" t-esc="design['background']"/>
+                                        
+                                        <h6 class="mt-3">Fonctionnalités :</h6>
+                                        <ul class="list-unstyled">
+                                            <t t-foreach="design['features']" t-as="feature">
+                                                <li><i class="fa fa-check text-success me-2"/><span t-esc="feature"/></li>
+                                            </t>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="card-footer">
+                                        <a t-attf-href="/background/fullsize/#{design['technical_name']}" 
+                                           class="btn btn-primary w-100">
+                                            <i class="fa fa-eye me-2"/>Tester ce design
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Avantages du mode fullsize -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="text-center mb-4">Avantages du Mode Pleine Taille</h3>
+                            <div class="row">
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa fa-expand fa-3x text-primary mb-3"/>
+                                    <h5>Image Complète</h5>
+                                    <p>Toute l'image de fond est visible sans recadrage</p>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa fa-magic fa-3x text-success mb-3"/>
+                                    <h5>Positionnement Intelligent</h5>
+                                    <p>Les informations sont placées automatiquement aux meilleurs endroits</p>
+                                </div>
+                                <div class="col-md-4 text-center mb-3">
+                                    <i class="fa fa-mobile fa-3x text-info mb-3"/>
+                                    <h5>Responsive Parfait</h5>
+                                    <p>S'adapte automatiquement à tous les écrans</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Template de comparaison -->
+    <template id="background_comparison_template" name="Comparaison Modes Background">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container-fluid mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-5">
+                                <i class="fa fa-exchange me-3"/>
+                                Comparaison : Mode Crop vs Mode Pleine Taille
+                            </h1>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <!-- Mode Crop (ancien) -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-warning text-dark">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-crop me-2"/>
+                                        Mode Crop (Ancien)
+                                    </h5>
+                                </div>
+                                <div class="card-body p-0">
+                                    <iframe src="/background/test/modern" 
+                                            style="width: 100%; height: 400px; border: none;"></iframe>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Caractéristiques :</h6>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-minus text-warning me-2"/>Image recadrée</li>
+                                        <li><i class="fa fa-minus text-warning me-2"/>Parties perdues</li>
+                                        <li><i class="fa fa-plus text-success me-2"/>Taille fixe</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mode Fullsize (nouveau) -->
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    <h5 class="mb-0">
+                                        <i class="fa fa-expand me-2"/>
+                                        Mode Pleine Taille (Nouveau)
+                                    </h5>
+                                </div>
+                                <div class="card-body p-0">
+                                    <iframe src="/background/fullsize/modern" 
+                                            style="width: 100%; height: 400px; border: none;"></iframe>
+                                </div>
+                                <div class="card-footer">
+                                    <h6>Caractéristiques :</h6>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-plus text-success me-2"/>Image complète visible</li>
+                                        <li><i class="fa fa-plus text-success me-2"/>Aucune perte</li>
+                                        <li><i class="fa fa-plus text-success me-2"/>Taille adaptative</li>
+                                        <li><i class="fa fa-plus text-success me-2"/>Positionnement intelligent</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tests rapides -->
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <h3 class="text-center mb-4">Tests Rapides</h3>
+                            <div class="text-center">
+                                <div class="btn-group mb-3" role="group">
+                                    <button class="btn btn-outline-primary" onclick="testDesign('modern')">
+                                        Moderne
+                                    </button>
+                                    <button class="btn btn-outline-info" onclick="testDesign('corporate')">
+                                        Corporate
+                                    </button>
+                                    <button class="btn btn-outline-warning" onclick="testDesign('prestige')">
+                                        Prestige
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                function testDesign(design) {
+                    // Mettre à jour les iframes
+                    const cropFrame = document.querySelector('.col-md-6:first-child iframe');
+                    const fullsizeFrame = document.querySelector('.col-md-6:last-child iframe');
+                    
+                    cropFrame.src = '/background/test/' + design;
+                    fullsizeFrame.src = '/background/fullsize/' + design;
+                }
+            </script>
+        </t>
+    </template>
+</odoo>
