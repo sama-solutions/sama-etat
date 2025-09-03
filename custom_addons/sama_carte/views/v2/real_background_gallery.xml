@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Galerie pour tester les designs avec vraies images -->
+    <template id="real_background_gallery" name="Galerie Vraies Images">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="padding: 40px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh;">
+                    <div style="max-width: 1200px; margin: 0 auto;">
+                        <h1 style="text-align: center; color: white; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                            <i class="fa fa-image me-3"/>Galerie des Designs avec Vraies Images
+                        </h1>
+                        <p style="text-align: center; color: rgba(255,255,255,0.9); font-size: 1.1rem; margin-bottom: 40px;">
+                            Testez les designs avec les vraies images de fond Dakar Gazelles, Jokkoo et Teranga Corp
+                        </p>
+                        
+                        <!-- Designs disponibles -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 40px;">
+                            
+                            <!-- Design Moderne -->
+                            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2);">
+                                <h3 style="color: white; margin-bottom: 15px; text-align: center;">
+                                    <i class="fa fa-magic me-2"/>Design Moderne
+                                </h3>
+                                <div style="background: url('/background/image/dakar_gazelles/landscape'); background-size: cover; background-position: center; height: 150px; border-radius: 10px; margin-bottom: 15px; position: relative;">
+                                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                        Aperçu Dakar Gazelles
+                                    </div>
+                                </div>
+                                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
+                                    Design moderne avec grille intelligente et effets glassmorphism
+                                </p>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <a href="/background/test/with-image/modern/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
+                                    </a>
+                                    <a href="/background/test/with-image/modern/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
+                                    </a>
+                                    <a href="/background/test/with-image/modern/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Design Corporate -->
+                            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2);">
+                                <h3 style="color: white; margin-bottom: 15px; text-align: center;">
+                                    <i class="fa fa-building me-2"/>Design Corporate
+                                </h3>
+                                <div style="background: url('/background/image/jokkoo/landscape'); background-size: cover; background-position: center; height: 150px; border-radius: 10px; margin-bottom: 15px; position: relative;">
+                                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 110, 253, 0.6); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">
+                                        Aperçu Jokkoo
+                                    </div>
+                                </div>
+                                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
+                                    Design professionnel avec header/footer et QR flottant
+                                </p>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <a href="/background/test/with-image/corporate/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
+                                    </a>
+                                    <a href="/background/test/with-image/corporate/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
+                                    </a>
+                                    <a href="/background/test/with-image/corporate/teranga_corp" style="background: #fd7e14; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Design Prestige -->
+                            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2);">
+                                <h3 style="color: white; margin-bottom: 15px; text-align: center;">
+                                    <i class="fa fa-crown me-2"/>Design Prestige
+                                </h3>
+                                <div style="background: url('/background/image/teranga_corp/landscape'); background-size: cover; background-position: center; height: 150px; border-radius: 10px; margin-bottom: 15px; position: relative;">
+                                    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(212, 175, 55, 0.3)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #D4AF37; font-weight: bold;">
+                                        Aperçu Teranga Corp
+                                    </div>
+                                </div>
+                                <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 20px;">
+                                    Design luxueux avec effets dorés et coins décoratifs
+                                </p>
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <a href="/background/test/with-image/prestige/teranga_corp" style="background: #D4AF37; color: #1a1a1a; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600;">
+                                        <i class="fa fa-play me-2"/>Tester avec Teranga Corp
+                                    </a>
+                                    <a href="/background/test/with-image/prestige/dakar_gazelles" style="background: #198754; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Dakar Gazelles
+                                    </a>
+                                    <a href="/background/test/with-image/prestige/jokkoo" style="background: #0d6efd; color: white; padding: 10px 15px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 500;">
+                                        <i class="fa fa-play me-2"/>Tester avec Jokkoo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Informations sur les images -->
+                        <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 30px;">
+                            <h3 style="color: white; margin-bottom: 20px; text-align: center;">
+                                <i class="fa fa-info-circle me-2"/>Images de Fond Disponibles
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                                <div style="text-align: center;">
+                                    <h4 style="color: #198754; margin-bottom: 10px;">Dakar Gazelles</h4>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                                        Thème sportif et dynamique<br/>
+                                        Parfait pour les organisations sportives
+                                    </p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <h4 style="color: #0d6efd; margin-bottom: 10px;">Jokkoo</h4>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                                        Style moderne et professionnel<br/>
+                                        Idéal pour les entreprises
+                                    </p>
+                                </div>
+                                <div style="text-align: center;">
+                                    <h4 style="color: #fd7e14; margin-bottom: 10px;">Teranga Corp</h4>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">
+                                        Design corporate et institutionnel<br/>
+                                        Adapté aux organisations officielles
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fonctionnalités -->
+                        <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 30px;">
+                            <h3 style="color: white; margin-bottom: 20px; text-align: center;">
+                                <i class="fa fa-cogs me-2"/>Fonctionnalités Avancées
+                            </h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                                <div>
+                                    <i class="fa fa-mobile fa-2x" style="color: #198754; margin-bottom: 10px;"/>
+                                    <h5 style="color: white; margin-bottom: 5px;">Responsive</h5>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">
+                                        Portrait mobile<br/>Paysage desktop
+                                    </p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-eye fa-2x" style="color: #0d6efd; margin-bottom: 10px;"/>
+                                    <h5 style="color: white; margin-bottom: 5px;">Lisibilité</h5>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">
+                                        Overlays adaptatifs<br/>Contraste optimisé
+                                    </p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-magic fa-2x" style="color: #fd7e14; margin-bottom: 10px;"/>
+                                    <h5 style="color: white; margin-bottom: 5px;">Effets</h5>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">
+                                        Glassmorphism<br/>Ombres et dégradés
+                                    </p>
+                                </div>
+                                <div>
+                                    <i class="fa fa-expand fa-2x" style="color: #D4AF37; margin-bottom: 10px;"/>
+                                    <h5 style="color: white; margin-bottom: 5px;">Pleine Taille</h5>
+                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.8rem;">
+                                        Image entière visible<br/>Aucun recadrage
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation -->
+                        <div style="text-align: center;">
+                            <a href="/background/fullsize/gallery" style="background: rgba(255,255,255,0.2); color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; margin: 0 10px; font-weight: 500; border: 1px solid rgba(255,255,255,0.3);">
+                                <i class="fa fa-arrow-left me-2"/>Retour aux dégradés
+                            </a>
+                            <a href="/web" style="background: #198754; color: white; padding: 15px 30px; text-decoration: none; border-radius: 10px; margin: 0 10px; font-weight: 500;">
+                                <i class="fa fa-home me-2"/>Interface Odoo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
