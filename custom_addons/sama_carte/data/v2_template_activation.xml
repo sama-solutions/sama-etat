@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Désactiver tous les templates d'abord -->
+        <record id="template_prestige" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_corporate" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_nature" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_tech" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_artistic" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_minimalist" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_retro" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <record id="template_photographic" model="membership.card.template">
+            <field name="active" eval="False"/>
+        </record>
+        
+        <!-- Activer seulement les 3 templates principaux -->
+        <record id="template_modern" model="membership.card.template">
+            <field name="active" eval="True"/>
+            <field name="sequence">1</field>
+        </record>
+        
+        <record id="template_dynamic" model="membership.card.template">
+            <field name="active" eval="True"/>
+            <field name="sequence">2</field>
+        </record>
+        
+        <!-- Créer un nouveau template unifié basé sur notre travail -->
+        <record id="template_unified" model="membership.card.template">
+            <field name="name">Unifié &amp; Élégant</field>
+            <field name="technical_name">unified</field>
+            <field name="description">Design unifié avec photo et QR code en haut, informations centrées. Background personnalisable dans un cadre élégant.</field>
+            <field name="category">modern</field>
+            <field name="sequence">3</field>
+            <field name="is_premium" eval="False"/>
+            <field name="active" eval="True"/>
+            <field name="default_primary_color">#004a99</field>
+            <field name="default_secondary_color">#f7f32d</field>
+            <field name="default_text_color">#ffffff</field>
+        </record>
+    </data>
+</odoo>

@@ -20,6 +20,7 @@ Fonctionnalités :
         'security/ir.model.access.csv',
         'data/sequence.xml',
         'data/v2_card_templates.xml',
+        'data/v2_template_activation.xml',
         'data/sama_company.xml',
         'data/v2_backgrounds.xml',
         'data/v2_post_install.xml',

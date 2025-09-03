@@ -139,16 +139,60 @@
         </field>
     </record>
 
+    <!-- Vue de recherche pour les Templates -->
+    <record id="view_membership_card_template_search" model="ir.ui.view">
+        <field name="name">membership.card.template.search</field>
+        <field name="model">membership.card.template</field>
+        <field name="arch" type="xml">
+            <search string="Recherche Templates">
+                <field name="name" string="Nom" filter_domain="[('name','ilike',self)]"/>
+                <field name="technical_name" string="Nom technique"/>
+                <field name="category" string="Catégorie"/>
+                
+                <separator/>
+                <filter string="Actifs" name="active" domain="[('active','=',True)]"/>
+                <filter string="Inactifs" name="inactive" domain="[('active','=',False)]"/>
+                <filter string="Gratuits" name="free" domain="[('is_premium','=',False)]"/>
+                <filter string="Premium" name="premium" domain="[('is_premium','=',True)]"/>
+                
+                <separator/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Catégorie" name="group_by_category" context="{'group_by':'category'}"/>
+                    <filter string="Type" name="group_by_premium" context="{'group_by':'is_premium'}"/>
+                    <filter string="Statut" name="group_by_active" context="{'group_by':'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
     <!-- Action pour les Templates -->
     <record id="action_membership_card_template" model="ir.actions.act_window">
         <field name="name">Templates de Cartes</field>
         <field name="res_model">membership.card.template</field>
         <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('active', '=', True)]</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="search_view_id" ref="view_membership_card_template_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Créez votre premier template de carte !</p>
             <p>
                 Les templates définissent l'apparence des cartes de membre.<br/>
                 Vous pouvez créer des designs personnalisés ou utiliser les templates prédéfinis.
+            </p>
+        </field>
+    </record>
+
+    <!-- Action pour gérer tous les templates (admin) -->
+    <record id="action_membership_card_template_admin" model="ir.actions.act_window">
+        <field name="name">Gestion Complète des Templates</field>
+        <field name="res_model">membership.card.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="view_membership_card_template_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Gérez tous les templates de cartes !</p>
+            <p>
+                Interface d'administration pour activer/désactiver les templates.<br/>
+                Utilisez le filtre "Actifs" pour voir les templates disponibles aux utilisateurs.
             </p>
         </field>
     </record>
@@ -159,4 +203,12 @@
               parent="menu_membership_root" 
               action="action_membership_card_template" 
               sequence="20"/>
+              
+    <!-- Sous-menu pour l'administration des templates -->
+    <menuitem id="menu_membership_card_templates_admin" 
+              name="⚙️ Administration Templates" 
+              parent="menu_membership_root" 
+              action="action_membership_card_template_admin" 
+              sequence="25"
+              groups="base.group_system"/>
 </odoo>
