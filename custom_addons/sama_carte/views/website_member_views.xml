@@ -1,171 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Template pour la page publique du membre -->
+    <!-- Template pour la page publique du membre avec design dynamique V2.0 -->
     <template id="member_public_page" name="Page Publique Membre">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure oe_empty">
                 <div class="container mt-5">
                     <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6">
-                            <!-- Carte de membre stylisée -->
-                            <div class="member-card-container">
-                                <style>
-                                    .member-card-container {
-                                        background: linear-gradient(135deg, #004a99 0%, #2d7a7d 100%);
-                                        border-radius: 20px;
-                                        padding: 30px;
-                                        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-                                        color: white;
-                                        position: relative;
-                                        overflow: hidden;
-                                    }
-                                    .member-card-container::before {
-                                        content: '';
-                                        position: absolute;
-                                        top: -50%;
-                                        right: -50%;
-                                        width: 100%;
-                                        height: 100%;
-                                        background: rgba(247, 243, 45, 0.1);
-                                        border-radius: 50%;
-                                        z-index: 1;
-                                    }
-                                    .card-content {
-                                        position: relative;
-                                        z-index: 2;
-                                    }
-                                    .member-photo {
-                                        width: 120px;
-                                        height: 120px;
-                                        border-radius: 50%;
-                                        object-fit: cover;
-                                        border: 4px solid white;
-                                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-                                        margin: 0 auto 20px;
-                                        display: block;
-                                    }
-                                    .member-name {
-                                        font-size: 2rem;
-                                        font-weight: 700;
-                                        text-align: center;
-                                        margin-bottom: 10px;
-                                        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-                                    }
-                                    .member-number {
-                                        background: #f7f32d;
-                                        color: #333;
-                                        padding: 10px 20px;
-                                        border-radius: 25px;
-                                        font-weight: 700;
-                                        text-align: center;
-                                        margin: 20px 0;
-                                        font-size: 1.2rem;
-                                    }
-                                    .validity-status {
-                                        text-align: center;
-                                        margin-top: 20px;
-                                        padding: 15px;
-                                        border-radius: 10px;
-                                        font-weight: 600;
-                                    }
-                                    .status-valid {
-                                        background: rgba(40, 167, 69, 0.2);
-                                        border: 2px solid #28a745;
-                                    }
-                                    .status-expired {
-                                        background: rgba(220, 53, 69, 0.2);
-                                        border: 2px solid #dc3545;
-                                    }
-                                    .company-info {
-                                        text-align: center;
-                                        margin-top: 30px;
-                                        padding-top: 20px;
-                                        border-top: 1px solid rgba(255,255,255,0.3);
-                                    }
-                                    .company-logo {
-                                        max-height: 60px;
-                                        margin-bottom: 10px;
-                                    }
-                                    .back-link {
-                                        text-align: center;
-                                        margin-top: 30px;
-                                    }
-                                    .back-link a {
-                                        color: #f7f32d;
-                                        text-decoration: none;
-                                        font-weight: 600;
-                                    }
-                                    .back-link a:hover {
-                                        text-decoration: underline;
-                                    }
-                                    @media (max-width: 768px) {
-                                        .member-card-container {
-                                            margin: 20px;
-                                            padding: 20px;
-                                        }
-                                        .member-name {
-                                            font-size: 1.5rem;
-                                        }
-                                        .member-photo {
-                                            width: 100px;
-                                            height: 100px;
-                                        }
-                                    }
-                                </style>
-                                
-                                <div class="card-content">
-                                    <!-- Photo du membre -->
-                                    <img t-if="member.image_1920" 
-                                         t-attf-src="/web/image/membership.member/{{member.id}}/image_1920" 
-                                         class="member-photo" 
-                                         alt="Photo du membre"/>
-                                    <img t-else="" 
-                                         src="/web/static/src/img/placeholder.png" 
-                                         class="member-photo" 
-                                         alt="Pas de photo"/>
+                        <div class="col-md-10 col-lg-8">
+                            <!-- Header avec informations de l'organisation -->
+                            <div class="text-center mb-4">
+                                <img t-if="company.logo" 
+                                     t-att-src="image_data_uri(company.logo)" 
+                                     style="max-height: 80px;" 
+                                     class="mb-3"/>
+                                <h2 t-esc="company.name" class="mb-2"/>
+                                <p t-if="company.membership_slogan" 
+                                   class="text-muted" 
+                                   t-esc="company.membership_slogan"/>
+                            </div>
+                            
+                            <!-- Carte de membre avec design dynamique -->
+                            <div class="card shadow-lg border-0 mb-4">
+                                <div class="card-body p-0">
+                                    <!-- Routeur vers le bon template selon la configuration de l'organisation -->
+                                    <t t-set="template_name" t-value="company.card_template_id.technical_name if company.card_template_id else 'modern'"/>
                                     
-                                    <!-- Nom du membre -->
-                                    <h1 class="member-name" t-field="member.name"/>
-                                    
-                                    <!-- Numéro de membre -->
-                                    <div class="member-number">
-                                        Membre N° <span t-field="member.membership_number"/>
-                                    </div>
-                                    
-                                    <!-- Statut de validité -->
-                                    <div t-if="is_valid" class="validity-status status-valid">
-                                        <i class="fa fa-check-circle fa-2x mb-2"></i><br/>
-                                        <strong>Carte Valide</strong><br/>
-                                        Expire le <span t-field="member.expiration_date" t-options="{'widget': 'date'}"/>
-                                    </div>
-                                    <div t-else="" class="validity-status status-expired">
-                                        <i class="fa fa-times-circle fa-2x mb-2"></i><br/>
-                                        <strong>Carte Expirée</strong><br/>
-                                        Expirée le <span t-field="member.expiration_date" t-options="{'widget': 'date'}"/>
-                                    </div>
-                                    
-                                    <!-- Informations de l'organisation -->
-                                    <div class="company-info">
-                                        <img t-if="company.logo" 
-                                             t-att-src="image_data_uri(company.logo)" 
-                                             class="company-logo" 
-                                             alt="Logo organisation"/>
-                                        <div>
-                                            <strong t-field="company.name"/>
+                                    <!-- Appel du design correspondant -->
+                                    <t t-if="template_name == 'modern'">
+                                        <t t-call="sama_carte.design_modern_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'prestige'">
+                                        <t t-call="sama_carte.design_prestige_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'dynamic'">
+                                        <t t-call="sama_carte.design_dynamic_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'corporate'">
+                                        <t t-call="sama_carte.design_corporate_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'nature'">
+                                        <t t-call="sama_carte.design_nature_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'tech'">
+                                        <t t-call="sama_carte.design_tech_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'artistic'">
+                                        <t t-call="sama_carte.design_artistic_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'minimalist'">
+                                        <t t-call="sama_carte.design_minimalist_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'retro'">
+                                        <t t-call="sama_carte.design_retro_layout"/>
+                                    </t>
+                                    <t t-elif="template_name == 'photographic'">
+                                        <t t-call="sama_carte.design_photographic_layout"/>
+                                    </t>
+                                    <t t-else="">
+                                        <!-- Template par défaut si aucun n'est configuré -->
+                                        <t t-call="sama_carte.design_modern_layout"/>
+                                    </t>
+                                </div>
+                            </div>
+                            
+                            <!-- Informations supplémentaires -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-0 bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <i class="fa fa-info-circle me-2"/>
+                                                Informations
+                                            </h5>
+                                            <dl class="row mb-0">
+                                                <dt class="col-sm-5">Statut :</dt>
+                                                <dd class="col-sm-7">
+                                                    <span t-if="is_valid" class="badge bg-success">
+                                                        <i class="fa fa-check me-1"/>Valide
+                                                    </span>
+                                                    <span t-else="" class="badge bg-danger">
+                                                        <i class="fa fa-times me-1"/>Expirée
+                                                    </span>
+                                                </dd>
+                                                <dt class="col-sm-5">Expire le :</dt>
+                                                <dd class="col-sm-7" t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                                                <dt class="col-sm-5">Template :</dt>
+                                                <dd class="col-sm-7" t-esc="company.card_template_id.name if company.card_template_id else 'Moderne'"/>
+                                            </dl>
                                         </div>
-                                        <div t-if="company.website">
-                                            <a t-att-href="company.website" target="_blank" style="color: #f7f32d;">
-                                                <t t-esc="company.website"/>
-                                            </a>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card border-0 bg-light">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                <i class="fa fa-building me-2"/>
+                                                Organisation
+                                            </h5>
+                                            <p class="mb-2">
+                                                <strong t-esc="company.name"/>
+                                            </p>
+                                            <p t-if="company.street" class="text-muted small mb-1">
+                                                <i class="fa fa-map-marker-alt me-1"/>
+                                                <span t-esc="company.street"/>
+                                                <span t-if="company.city">, <span t-esc="company.city"/></span>
+                                            </p>
+                                            <p t-if="company.phone" class="text-muted small mb-1">
+                                                <i class="fa fa-phone me-1"/>
+                                                <span t-esc="company.phone"/>
+                                            </p>
+                                            <p t-if="company.website" class="text-muted small mb-0">
+                                                <i class="fa fa-globe me-1"/>
+                                                <a t-att-href="company.website" target="_blank" class="text-decoration-none">
+                                                    <span t-esc="company.website"/>
+                                                </a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- Termes et conditions -->
-                            <div class="mt-4 p-3" style="background: #f8f9fa; border-radius: 10px;">
-                                <h5 class="text-center mb-3">Conditions d'utilisation</h5>
-                                <p class="text-muted small text-justify" t-field="member.terms_and_conditions"/>
+                            <div class="card border-0 bg-light mt-4">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <i class="fa fa-file-text me-2"/>
+                                        Conditions d'utilisation
+                                    </h5>
+                                    <p class="text-muted small text-justify mb-0" t-esc="member.terms_and_conditions"/>
+                                </div>
+                            </div>
+                            
+                            <!-- Footer avec powered by -->
+                            <div class="text-center mt-4 mb-5">
+                                <small class="text-muted">
+                                    Carte générée par 
+                                    <strong>SAMA_CARTE V2.0</strong>
+                                    • Design: <span t-esc="company.card_template_id.name if company.card_template_id else 'Moderne'"/>
+                                </small>
                             </div>
                         </div>
                     </div>
@@ -181,11 +154,22 @@
                 <div class="container mt-5">
                     <div class="row justify-content-center">
                         <div class="col-md-6 text-center">
-                            <div class="alert alert-warning">
-                                <i class="fa fa-exclamation-triangle fa-3x mb-3"></i>
-                                <h3>Carte non trouvée</h3>
-                                <p>Le lien que vous avez suivi ne correspond à aucune carte de membre valide.</p>
-                                <p class="text-muted">Veuillez vérifier le QR code ou contacter l'organisation.</p>
+                            <div class="card border-0 shadow">
+                                <div class="card-body p-5">
+                                    <i class="fa fa-exclamation-triangle fa-4x text-warning mb-4"></i>
+                                    <h3 class="card-title">Carte non trouvée</h3>
+                                    <p class="card-text">
+                                        Le lien que vous avez suivi ne correspond à aucune carte de membre valide.
+                                    </p>
+                                    <p class="text-muted">
+                                        Veuillez vérifier le QR code ou contacter l'organisation.
+                                    </p>
+                                    <div class="mt-4">
+                                        <small class="text-muted">
+                                            Powered by <strong>SAMA_CARTE V2.0</strong>
+                                        </small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
