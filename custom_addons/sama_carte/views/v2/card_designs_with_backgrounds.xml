@@ -12,7 +12,7 @@
         <section class="modern-bg-section" style="min-height: 100vh; position: relative; overflow: hidden;">
             <style>
                 .modern-bg-section {
-                    background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles portrait.png');
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -62,7 +62,7 @@
                 }
                 @media (min-width: 769px) {
                     .modern-bg-section {
-                        background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles paysage.png');
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                     }
                 }
             </style>
@@ -116,7 +116,7 @@
         <section class="corporate-bg-section" style="min-height: 100vh; position: relative;">
             <style>
                 .corporate-bg-section {
-                    background-image: url('/sama_carte/static/backgrounds/Jokkoo_portrait.png');
+                    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -174,7 +174,7 @@
                 }
                 @media (min-width: 769px) {
                     .corporate-bg-section {
-                        background-image: url('/sama_carte/static/backgrounds/Jokkoo_paysage.png');
+                        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
                     }
                 }
             </style>
@@ -242,7 +242,7 @@
         <section class="prestige-bg-section" style="min-height: 100vh; position: relative;">
             <style>
                 .prestige-bg-section {
-                    background-image: url('/sama_carte/static/backgrounds/Teranga Corp portrait.png');
+                    background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #2c1810 100%);
                     background-size: cover;
                     background-position: center;
                     background-repeat: no-repeat;
@@ -299,7 +299,7 @@
                 }
                 @media (min-width: 769px) {
                     .prestige-bg-section {
-                        background-image: url('/sama_carte/static/backgrounds/Teranga Corp paysage.png');
+                        background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #2c1810 100%);
                     }
                 }
             </style>

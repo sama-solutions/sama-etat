@@ -1,0 +1,13 @@
+# Images de test pour les fonds d'écran
+
+Pour le moment, nous utilisons des images de test.
+Les vraies images doivent être placées ici avec les noms suivants :
+
+1. Dakar_Gazelles_portrait.png
+2. Dakar_Gazelles_paysage.png
+3. Jokkoo_portrait.png
+4. Jokkoo_paysage.png
+5. Teranga_Corp_portrait.png
+6. Teranga_Corp_paysage.png
+
+En attendant, nous utilisons des couleurs de fond pour simuler les images.

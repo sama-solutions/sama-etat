@@ -6,7 +6,7 @@ import json
 
 class BackgroundTestController(http.Controller):
 
-    @http.route('/background/test/<string:design_name>', type='http', auth='user', website=True)
+    @http.route('/background/test/<string:design_name>', type='http', auth='public', website=True)
     def test_background_design(self, design_name, **kwargs):
         """Test des designs avec fonds d'écran"""
         
@@ -47,7 +47,7 @@ class BackgroundTestController(http.Controller):
         
         return request.render(template_name, values)
 
-    @http.route('/background/gallery', type='http', auth='user', website=True)
+    @http.route('/background/gallery', type='http', auth='public', website=True)
     def background_gallery(self, **kwargs):
         """Galerie des fonds d'écran disponibles"""
         
@@ -62,7 +62,7 @@ class BackgroundTestController(http.Controller):
         return request.render('sama_carte.background_gallery_template', values)
 
     @http.route('/background/preview/<int:background_id>/<string:orientation>', 
-                type='http', auth='user', website=True)
+                type='http', auth='public', website=True)
     def preview_background(self, background_id, orientation='portrait', **kwargs):
         """Prévisualisation d'un fond d'écran spécifique"""
         

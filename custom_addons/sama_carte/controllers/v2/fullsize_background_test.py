@@ -5,7 +5,7 @@ from odoo.http import request
 
 class FullsizeBackgroundTestController(http.Controller):
 
-    @http.route('/background/fullsize/<string:design_name>', type='http', auth='user', website=True)
+    @http.route('/background/fullsize/<string:design_name>', type='http', auth='public', website=True)
     def test_fullsize_background_design(self, design_name, **kwargs):
         """Test des designs avec fonds d'écran pleine taille"""
         
@@ -46,7 +46,7 @@ class FullsizeBackgroundTestController(http.Controller):
         
         return request.render(template_name, values)
 
-    @http.route('/background/fullsize/gallery', type='http', auth='user', website=True)
+    @http.route('/background/fullsize/gallery', type='http', auth='public', website=True)
     def fullsize_background_gallery(self, **kwargs):
         """Galerie des designs avec fonds pleine taille"""
         
@@ -89,7 +89,7 @@ class FullsizeBackgroundTestController(http.Controller):
         
         return request.render('sama_carte.fullsize_background_gallery_template', values)
 
-    @http.route('/background/compare', type='http', auth='user', website=True)
+    @http.route('/background/compare', type='http', auth='public', website=True)
     def compare_background_modes(self, **kwargs):
         """Comparaison entre mode crop et mode fullsize"""
         

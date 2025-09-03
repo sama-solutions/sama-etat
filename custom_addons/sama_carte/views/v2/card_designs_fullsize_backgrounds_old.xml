@@ -2,7 +2,7 @@
 <odoo>
     <!-- 
     ================================================================
-    DESIGNS AVEC FONDS D'ÉCRAN PLEINE TAILLE - SAMA_CARTE V2.1 CORRIGÉ
+    DESIGNS AVEC FONDS D'ÉCRAN PLEINE TAILLE - SAMA_CARTE V2.1
     L'image de fond détermine la taille de la carte
     Informations positionnées intelligemment par-dessus
     ================================================================
@@ -24,9 +24,8 @@
                     position: relative;
                     max-width: 90vw;
                     max-height: 80vh;
-                    /* Fond temporaire en attendant les vraies images */
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    background-size: cover;
+                    background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles portrait.png');
+                    background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
                     aspect-ratio: 9/16; /* Portrait par défaut */
@@ -39,7 +38,7 @@
                 /* Responsive : Paysage pour desktop */
                 @media (min-width: 768px) {
                     .modern-fullsize-card {
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles paysage.png');
                         aspect-ratio: 16/9;
                         max-width: 80vw;
                         max-height: 70vh;
@@ -241,7 +240,6 @@
                              t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
                              style="max-height: 40px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));"
                              alt="Logo"/>
-                        <div t-else="" style="color: white; font-weight: bold;">LOGO</div>
                     </div>
                     
                     <!-- QR Code zone -->
@@ -250,7 +248,6 @@
                              t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
                              class="modern-qr"
                              alt="QR Code"/>
-                        <div t-else="" class="modern-qr" style="display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #666;">QR</div>
                     </div>
                     
                     <!-- Photo zone -->
@@ -259,7 +256,10 @@
                              t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
                              class="modern-photo"
                              alt="Photo membre"/>
-                        <div t-else="" class="modern-photo" style="background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666;">PHOTO</div>
+                        <img t-else="" 
+                             src="/web/static/src/img/placeholder.png" 
+                             class="modern-photo"
+                             alt="Photo membre"/>
                     </div>
                     
                     <!-- Nom central -->
@@ -301,9 +301,8 @@
                     position: relative;
                     max-width: 90vw;
                     max-height: 80vh;
-                    /* Fond temporaire corporate */
-                    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-                    background-size: cover;
+                    background-image: url('/sama_carte/static/backgrounds/Jokkoo_portrait.png');
+                    background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
                     aspect-ratio: 9/16;
@@ -315,7 +314,7 @@
                 
                 @media (min-width: 768px) {
                     .corporate-fullsize-card {
-                        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                        background-image: url('/sama_carte/static/backgrounds/Jokkoo_paysage.png');
                         aspect-ratio: 16/9;
                         max-width: 80vw;
                         max-height: 70vh;
@@ -486,7 +485,6 @@
                          t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
                          style="max-height: 30px;"
                          alt="Logo"/>
-                    <div t-else="" style="color: white; font-size: 0.8rem;">LOGO</div>
                 </div>
                 
                 <!-- QR Code flottant -->
@@ -495,7 +493,6 @@
                          t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
                          class="corporate-qr"
                          alt="QR Code"/>
-                    <div t-else="" class="corporate-qr" style="display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666;">QR</div>
                 </div>
                 
                 <!-- Contenu bas -->
@@ -505,7 +502,10 @@
                              t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
                              class="corporate-photo"
                              alt="Photo membre"/>
-                        <div t-else="" class="corporate-photo" style="background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #666;">PHOTO</div>
+                        <img t-else="" 
+                             src="/web/static/src/img/placeholder.png" 
+                             class="corporate-photo"
+                             alt="Photo membre"/>
                         
                         <div class="corporate-details">
                             <div class="corporate-name" t-esc="member.name"/>
@@ -542,9 +542,8 @@
                     position: relative;
                     max-width: 90vw;
                     max-height: 80vh;
-                    /* Fond temporaire prestige */
-                    background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #2c1810 100%);
-                    background-size: cover;
+                    background-image: url('/sama_carte/static/backgrounds/Teranga Corp portrait.png');
+                    background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
                     aspect-ratio: 9/16;
@@ -557,7 +556,7 @@
                 
                 @media (min-width: 768px) {
                     .prestige-fullsize-card {
-                        background: linear-gradient(135deg, #2c1810 0%, #8b4513 50%, #2c1810 100%);
+                        background-image: url('/sama_carte/static/backgrounds/Teranga Corp paysage.png');
                         aspect-ratio: 16/9;
                         max-width: 80vw;
                         max-height: 70vh;
@@ -761,7 +760,6 @@
                          t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
                          class="prestige-qr"
                          alt="QR Code"/>
-                    <div t-else="" class="prestige-qr" style="display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #666;">QR</div>
                 </div>
                 
                 <!-- Contenu central -->
@@ -770,7 +768,10 @@
                          t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
                          class="prestige-photo"
                          alt="Photo membre"/>
-                    <div t-else="" class="prestige-photo" style="background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666;">PHOTO</div>
+                    <img t-else="" 
+                         src="/web/static/src/img/placeholder.png" 
+                         class="prestige-photo"
+                         alt="Photo membre"/>
                     
                     <div class="prestige-name" t-esc="member.name"/>
                     <div class="prestige-number" t-esc="member.membership_number"/>
