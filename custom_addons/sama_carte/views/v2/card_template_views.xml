@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vue Liste des Templates -->
+    <record id="view_membership_card_template_tree" model="ir.ui.view">
+        <field name="name">membership.card.template.tree</field>
+        <field name="model">membership.card.template</field>
+        <field name="arch" type="xml">
+            <list string="Templates de Cartes">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="technical_name"/>
+                <field name="category"/>
+                <field name="is_premium" widget="boolean_toggle"/>
+                <field name="usage_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire des Templates -->
+    <record id="view_membership_card_template_form" model="ir.ui.view">
+        <field name="name">membership.card.template.form</field>
+        <field name="model">membership.card.template</field>
+        <field name="arch" type="xml">
+            <form string="Template de Carte">
+                <header>
+                    <button name="preview_template" type="object" string="Prévisualiser" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(action_membership_member)d" type="action" 
+                                context="{'search_default_template_filter': technical_name}"
+                                class="oe_stat_button" icon="fa-users">
+                            <field name="usage_count" widget="statinfo" string="Utilisations"/>
+                        </button>
+                    </div>
+                    
+                    <field name="thumbnail" widget="image" class="oe_avatar"/>
+                    
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Nom du template"/></h1>
+                        <h3>
+                            <field name="technical_name" placeholder="nom_technique"/>
+                        </h3>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="category"/>
+                            <field name="sequence"/>
+                            <field name="is_premium"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="default_primary_color" widget="color"/>
+                            <field name="default_secondary_color" widget="color"/>
+                            <field name="default_text_color" widget="color"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" placeholder="Description détaillée du style et de l'ambiance..."/>
+                        </page>
+                        <page string="Aperçu">
+                            <div class="text-center">
+                                <field name="thumbnail" widget="image" options="{'size': [400, 300]}"/>
+                            </div>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Kanban des Templates -->
+    <record id="view_membership_card_template_kanban" model="ir.ui.view">
+        <field name="name">membership.card.template.kanban</field>
+        <field name="model">membership.card.template</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="name"/>
+                <field name="technical_name"/>
+                <field name="description"/>
+                <field name="category"/>
+                <field name="is_premium"/>
+                <field name="thumbnail"/>
+                <field name="usage_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-if="record.thumbnail.raw_value" 
+                                     t-att-src="`/web/image/membership.card.template/${record.id.raw_value}/thumbnail`" 
+                                     alt="Aperçu template" 
+                                     style="width: 100%; height: 150px; object-fit: cover;"/>
+                                <div t-else="" class="o_kanban_image_placeholder" 
+                                     style="height: 150px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa fa-picture-o fa-3x text-muted"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                        <small class="o_kanban_record_subtitle text-muted">
+                                            <field name="technical_name"/>
+                                        </small>
+                                    </div>
+                                    <div class="o_kanban_record_top_right">
+                                        <span t-if="record.is_premium.raw_value" 
+                                              class="badge badge-warning">Premium</span>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <field name="description"/>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span class="badge badge-pill badge-info">
+                                            <field name="category"/>
+                                        </span>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span class="text-muted">
+                                            <field name="usage_count"/> utilisations
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action pour les Templates -->
+    <record id="action_membership_card_template" model="ir.actions.act_window">
+        <field name="name">Templates de Cartes</field>
+        <field name="res_model">membership.card.template</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Créez votre premier template de carte !</p>
+            <p>
+                Les templates définissent l'apparence des cartes de membre.<br/>
+                Vous pouvez créer des designs personnalisés ou utiliser les templates prédéfinis.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu pour les Templates -->
+    <menuitem id="menu_membership_card_templates" 
+              name="🎨 Templates de Cartes" 
+              parent="menu_membership_root" 
+              action="action_membership_card_template" 
+              sequence="20"/>
+</odoo>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extension de la vue formulaire de res.company -->
+    <record id="view_company_card_customization_form" model="ir.ui.view">
+        <field name="name">company.card.customization.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="🎨 Personnalisation Cartes" name="card_customization">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <group string="Design de la Carte">
+                                <field name="card_template_id" 
+                                       widget="selection"
+                                       options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="membership_slogan" placeholder="Slogan de votre organisation"/>
+                                <field name="show_logo_on_card"/>
+                                <field name="show_slogan_on_card"/>
+                            </group>
+                            
+                            <group string="Couleurs Personnalisées">
+                                <field name="primary_color" widget="color"/>
+                                <field name="secondary_color" widget="color"/>
+                                <field name="text_color" widget="color"/>
+                                <button name="reset_to_template_colors" 
+                                        type="object" 
+                                        string="Réinitialiser aux couleurs du template"
+                                        class="btn-link"/>
+                            </group>
+                            
+                            <group string="Paramètres Avancés">
+                                <field name="card_background_image" widget="image"/>
+                                <field name="use_custom_fonts"/>
+                                <field name="custom_font_family" 
+                                       invisible="use_custom_fonts == False"/>
+                            </group>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <group string="Aperçu de la Carte">
+                                <div class="text-center">
+                                    <button name="preview_card_design" 
+                                            type="object" 
+                                            string="🔍 Prévisualiser la Carte"
+                                            class="btn-primary btn-lg"/>
+                                    <p class="text-muted mt-2">
+                                        Cliquez pour voir un aperçu de votre carte avec les paramètres actuels
+                                    </p>
+                                </div>
+                            </group>
+                            
+                            <group string="Statistiques">
+                                <field name="total_members" readonly="1"/>
+                                <field name="active_members" readonly="1"/>
+                            </group>
+                            
+                            <group string="Informations Template">
+                                <field name="card_template_id" readonly="1" string="Template Sélectionné"/>
+                                <div invisible="card_template_id == False">
+                                    <p class="text-muted">
+                                        <strong>Description:</strong><br/>
+                                        <field name="card_template_id" readonly="1" options="{'no_open': True}" string=""/>
+                                    </p>
+                                </div>
+                            </group>
+                        </div>
+                    </div>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <!-- Vue Kanban pour sélection de template -->
+    <record id="view_company_template_selection_kanban" model="ir.ui.view">
+        <field name="name">company.template.selection.kanban</field>
+        <field name="model">membership.card.template</field>
+        <field name="arch" type="xml">
+            <kanban create="false" edit="false" delete="false">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_premium"/>
+                <field name="thumbnail"/>
+                <field name="default_primary_color"/>
+                <field name="default_secondary_color"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card oe_kanban_global_click template-selection-card"
+                             style="cursor: pointer; border: 2px solid transparent;"
+                             data-template-id="${record.id.raw_value}">
+                            <div class="o_kanban_image">
+                                <img t-if="record.thumbnail.raw_value" 
+                                     t-att-src="`/web/image/membership.card.template/${record.id.raw_value}/thumbnail`" 
+                                     alt="Aperçu template" 
+                                     style="width: 100%; height: 120px; object-fit: cover;"/>
+                                <div t-else="" class="o_kanban_image_placeholder" 
+                                     style="height: 120px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fa fa-picture-o fa-2x text-muted"/>
+                                </div>
+                            </div>
+                            <div class="oe_kanban_details p-2">
+                                <div class="o_kanban_record_top">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <span t-if="record.is_premium.raw_value" 
+                                          class="badge badge-warning float-right">Premium</span>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <small class="text-muted">
+                                        <field name="description"/>
+                                    </small>
+                                </div>
+                                <div class="o_kanban_record_bottom mt-2">
+                                    <div class="color-preview d-flex">
+                                        <div class="color-sample" 
+                                             t-attf-style="background-color: #{record.default_primary_color.raw_value}; width: 20px; height: 20px; border-radius: 50%; margin-right: 5px;"></div>
+                                        <div class="color-sample" 
+                                             t-attf-style="background-color: #{record.default_secondary_color.raw_value}; width: 20px; height: 20px; border-radius: 50%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action pour sélection de template -->
+    <record id="action_select_card_template" model="ir.actions.act_window">
+        <field name="name">Choisir un Template</field>
+        <field name="res_model">membership.card.template</field>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="view_company_template_selection_kanban"/>
+        <field name="domain">[('active', '=', True)]</field>
+        <field name="context">{'template_selection_mode': True}</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

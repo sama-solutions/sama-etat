@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Template 1: Moderne & Épuré -->
+        <record id="template_modern" model="membership.card.template">
+            <field name="name">Moderne &amp; Épuré</field>
+            <field name="technical_name">modern</field>
+            <field name="description">Design moderne avec lignes épurées et couleurs douces. Parfait pour les organisations contemporaines.</field>
+            <field name="category">modern</field>
+            <field name="sequence">1</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#004a99</field>
+            <field name="default_secondary_color">#f8f9fa</field>
+            <field name="default_text_color">#212529</field>
+        </record>
+
+        <!-- Template 2: Prestige & Doré -->
+        <record id="template_prestige" model="membership.card.template">
+            <field name="name">Prestige &amp; Doré</field>
+            <field name="technical_name">prestige</field>
+            <field name="description">Design luxueux avec bordures dorées et fond sombre. Idéal pour les organisations prestigieuses.</field>
+            <field name="category">luxury</field>
+            <field name="sequence">2</field>
+            <field name="is_premium" eval="True"/>
+            <field name="default_primary_color">#111111</field>
+            <field name="default_secondary_color">#D4AF37</field>
+            <field name="default_text_color">#ffffff</field>
+        </record>
+
+        <!-- Template 3: Dynamique & Géométrique -->
+        <record id="template_dynamic" model="membership.card.template">
+            <field name="name">Dynamique &amp; Géométrique</field>
+            <field name="technical_name">dynamic</field>
+            <field name="description">Formes géométriques dynamiques avec couleurs vives. Pour les organisations innovantes.</field>
+            <field name="category">modern</field>
+            <field name="sequence">3</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#333333</field>
+            <field name="default_secondary_color">#f0f3f5</field>
+            <field name="default_text_color">#333333</field>
+        </record>
+
+        <!-- Template 4: Corporate & Structuré -->
+        <record id="template_corporate" model="membership.card.template">
+            <field name="name">Corporate &amp; Structuré</field>
+            <field name="technical_name">corporate</field>
+            <field name="description">Design professionnel avec structure claire. Parfait pour les entreprises et institutions.</field>
+            <field name="category">corporate</field>
+            <field name="sequence">4</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#0d6efd</field>
+            <field name="default_secondary_color">#ffffff</field>
+            <field name="default_text_color">#333333</field>
+        </record>
+
+        <!-- Template 5: Nature & Organique -->
+        <record id="template_nature" model="membership.card.template">
+            <field name="name">Nature &amp; Organique</field>
+            <field name="technical_name">nature</field>
+            <field name="description">Couleurs naturelles et formes organiques. Idéal pour les associations environnementales.</field>
+            <field name="category">nature</field>
+            <field name="sequence">5</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#224B0C</field>
+            <field name="default_secondary_color">#F0F3E8</field>
+            <field name="default_text_color">#224B0C</field>
+        </record>
+
+        <!-- Template 6: Tech & Futuriste -->
+        <record id="template_tech" model="membership.card.template">
+            <field name="name">Tech &amp; Futuriste</field>
+            <field name="technical_name">tech</field>
+            <field name="description">Design futuriste avec dégradés et effets néon. Pour les organisations technologiques.</field>
+            <field name="category">tech</field>
+            <field name="sequence">6</field>
+            <field name="is_premium" eval="True"/>
+            <field name="default_primary_color">#0f0c29</field>
+            <field name="default_secondary_color">#302b63</field>
+            <field name="default_text_color">#ffffff</field>
+        </record>
+
+        <!-- Template 7: Artistique & Créatif -->
+        <record id="template_artistic" model="membership.card.template">
+            <field name="name">Artistique &amp; Créatif</field>
+            <field name="technical_name">artistic</field>
+            <field name="description">Layout asymétrique avec typographie créative. Pour les organisations artistiques.</field>
+            <field name="category">artistic</field>
+            <field name="sequence">7</field>
+            <field name="is_premium" eval="True"/>
+            <field name="default_primary_color">#6a0dad</field>
+            <field name="default_secondary_color">#f4f4f4</field>
+            <field name="default_text_color">#333333</field>
+        </record>
+
+        <!-- Template 8: Minimaliste Extrême -->
+        <record id="template_minimalist" model="membership.card.template">
+            <field name="name">Minimaliste Extrême</field>
+            <field name="technical_name">minimalist</field>
+            <field name="description">Design ultra-épuré avec beaucoup d'espace blanc. Pour les amateurs de simplicité.</field>
+            <field name="category">minimalist</field>
+            <field name="sequence">8</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#000000</field>
+            <field name="default_secondary_color">#ffffff</field>
+            <field name="default_text_color">#000000</field>
+        </record>
+
+        <!-- Template 9: Rétro & Vintage -->
+        <record id="template_retro" model="membership.card.template">
+            <field name="name">Rétro &amp; Vintage</field>
+            <field name="technical_name">retro</field>
+            <field name="description">Style vintage avec couleurs sépia et bordures pointillées. Pour un look nostalgique.</field>
+            <field name="category">retro</field>
+            <field name="sequence">9</field>
+            <field name="is_premium" eval="False"/>
+            <field name="default_primary_color">#8B4513</field>
+            <field name="default_secondary_color">#FDF5E6</field>
+            <field name="default_text_color">#8B4513</field>
+        </record>
+
+        <!-- Template 10: Photographique Plein Écran -->
+        <record id="template_photographic" model="membership.card.template">
+            <field name="name">Photographique Plein Écran</field>
+            <field name="technical_name">photographic</field>
+            <field name="description">Image en arrière-plan avec overlay de texte. Pour un impact visuel maximal.</field>
+            <field name="category">artistic</field>
+            <field name="sequence">10</field>
+            <field name="is_premium" eval="True"/>
+            <field name="default_primary_color">#ffffff</field>
+            <field name="default_secondary_color">#000000</field>
+            <field name="default_text_color">#ffffff</field>
+        </record>
+    </data>
+</odoo>

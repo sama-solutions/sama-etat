@@ -19,8 +19,12 @@ Fonctionnalités :
     'data': [
         'security/ir.model.access.csv',
         'data/sequence.xml',
+        'data/v2_card_templates.xml',
+        'data/v2_post_install.xml',
         'views/membership_views.xml',
         'views/dashboard_views.xml',
+        'views/v2/card_template_views.xml',
+        'views/v2/company_customization_views.xml',
         'reports/paper_format.xml',
         'reports/report_member_card.xml',
         'views/website_member_views.xml',
