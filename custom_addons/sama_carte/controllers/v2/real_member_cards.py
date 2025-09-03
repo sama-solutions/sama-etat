@@ -55,6 +55,7 @@ class RealMemberCardsController(http.Controller):
         # Sélectionner le template selon le design
         template_map = {
             'modern': 'sama_carte.design_modern_real_member',
+            'modern_fixed': 'sama_carte.design_modern_real_member_fixed',
             'corporate': 'sama_carte.design_corporate_real_member',
             'prestige': 'sama_carte.design_prestige_real_member',
         }
@@ -133,6 +134,7 @@ class RealMemberCardsController(http.Controller):
             # Sélectionner le template selon le design
             template_map = {
                 'modern': 'sama_carte.design_modern_real_member',
+                'modern_fixed': 'sama_carte.design_modern_real_member_fixed',
                 'corporate': 'sama_carte.design_corporate_real_member',
                 'prestige': 'sama_carte.design_prestige_real_member',
             }

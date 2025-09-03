@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+    ================================================================
+    TEMPLATE MODERNE CORRIGÉ - SAMA_CARTE V2.1
+    Structure simplifiée, background fixé, photo centrée
+    ================================================================
+    -->
+
+    <!-- DESIGN MODERNE CORRIGÉ - Structure simplifiée -->
+    <template id="design_modern_real_member_fixed" name="Moderne - Vrai Membre CORRIGÉ">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div style="padding: 20px; background: #f8f9fa; min-height: 100vh;">
+                    <h1 style="text-align: center; color: #333; margin-bottom: 30px;">
+                        <i class="fa fa-id-card me-3"/>Carte de <span t-esc="member.name"/>
+                    </h1>
+                    
+                    <!-- Carte moderne CORRIGÉE avec structure simplifiée -->
+                    <div style="
+                        max-width: 1200px; 
+                        margin: 0 auto; 
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+                        aspect-ratio: 16/9;
+                        min-height: 500px;
+                        border-radius: 25px;
+                        background: #000;
+                    ">
+                        <!-- Background image avec fallback -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            background-image: url('/background/image/dakar_gazelles/landscape');
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            z-index: 1;
+                        " t-attf-style="background-image: url('/background/image/#{background_name or 'dakar_gazelles'}/landscape');">
+                            <!-- Fallback si l'image ne charge pas -->
+                            <div style="
+                                position: absolute;
+                                top: 0; left: 0; right: 0; bottom: 0;
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                z-index: -1;
+                            "/>
+                        </div>
+                        
+                        <!-- Overlay sombre pour contraste -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            background: rgba(0,0,0,0.6);
+                            z-index: 2;
+                        "/>
+                        
+                        <!-- Contenu de la carte -->
+                        <div style="
+                            position: absolute;
+                            top: 0; left: 0; right: 0; bottom: 0;
+                            z-index: 3;
+                            padding: 30px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        ">
+                            <!-- Header avec logo et QR -->
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                                <!-- Logo -->
+                                <div>
+                                    <img t-if="company.logo" 
+                                         t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
+                                         style="max-height: 60px; filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.9)) brightness(1.2);"
+                                         alt="Logo"/>
+                                    <div t-else="" style="
+                                        background: rgba(255,255,255,0.95); 
+                                        color: #333;
+                                        padding: 15px 20px; 
+                                        border-radius: 12px; 
+                                        font-weight: bold; 
+                                        font-size: 1.1rem;
+                                        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                                    ">
+                                        <span t-esc="company.name"/>
+                                    </div>
+                                </div>
+                                
+                                <!-- QR Code -->
+                                <div>
+                                    <img t-if="member.barcode_qr" 
+                                         t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                         style="
+                                            width: 100px; height: 100px; 
+                                            background: white; 
+                                            padding: 8px; 
+                                            border-radius: 15px; 
+                                            box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                            border: 2px solid rgba(255,255,255,0.9);
+                                         "
+                                         alt="QR Code"/>
+                                    <div t-else="" style="
+                                        width: 100px; height: 100px;
+                                        background: white; color: #666;
+                                        padding: 8px; border-radius: 15px;
+                                        display: flex; align-items: center; justify-content: center;
+                                        font-size: 1rem; font-weight: bold;
+                                        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                        border: 2px solid rgba(255,255,255,0.9);
+                                    ">QR</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Centre avec nom et numéro -->
+                            <div style="
+                                text-align: center;
+                                background: rgba(0,0,0,0.8);
+                                backdrop-filter: blur(20px);
+                                border-radius: 20px;
+                                padding: 30px;
+                                color: white;
+                                border: 2px solid rgba(255,255,255,0.3);
+                                box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+                                margin: 0 50px;
+                            ">
+                                <h2 style="
+                                    margin: 0 0 15px 0; 
+                                    font-size: 2.5rem; 
+                                    font-weight: 700; 
+                                    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+                                    color: #ffffff;
+                                " t-esc="member.name"/>
+                                <p style="
+                                    margin: 0; 
+                                    font-size: 1.6rem; 
+                                    font-weight: 600;
+                                    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+                                    color: #f8f9fa;
+                                    background: rgba(255,255,255,0.1);
+                                    padding: 8px 16px;
+                                    border-radius: 10px;
+                                    display: inline-block;
+                                " t-esc="member.membership_number"/>
+                            </div>
+                            
+                            <!-- Footer avec photo et statut -->
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                                <!-- Photo membre - CENTRÉE et VISIBLE -->
+                                <div style="
+                                    display: flex; 
+                                    align-items: center; 
+                                    justify-content: center;
+                                    flex: 0 0 auto;
+                                ">
+                                    <img t-if="member.image_1920" 
+                                         t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                         style="
+                                            width: 160px; height: 160px;
+                                            border-radius: 50%; 
+                                            border: 5px solid white;
+                                            object-fit: cover;
+                                            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+                                            filter: brightness(1.1) contrast(1.1);
+                                         "
+                                         alt="Photo membre"/>
+                                    <div t-else="" style="
+                                        width: 160px; height: 160px;
+                                        background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
+                                        color: #495057;
+                                        border-radius: 50%; 
+                                        border: 5px solid white;
+                                        display: flex; align-items: center; justify-content: center;
+                                        font-size: 1.3rem; font-weight: bold;
+                                        box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+                                    ">PHOTO</div>
+                                </div>
+                                
+                                <!-- Statut et expiration -->
+                                <div style="text-align: right; flex: 1; margin-left: 30px;">
+                                    <div t-if="is_valid" style="
+                                        background: linear-gradient(135deg, #198754, #20c997);
+                                        color: white;
+                                        padding: 12px 24px; 
+                                        border-radius: 25px;
+                                        font-size: 1.1rem; 
+                                        font-weight: 700;
+                                        margin-bottom: 15px;
+                                        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+                                        border: 2px solid rgba(255,255,255,0.3);
+                                        display: inline-block;
+                                    ">
+                                        <i class="fa fa-check-circle me-2"/>CARTE VALIDE
+                                    </div>
+                                    <div t-else="" style="
+                                        background: linear-gradient(135deg, #dc3545, #fd7e14);
+                                        color: white;
+                                        padding: 12px 24px; 
+                                        border-radius: 25px;
+                                        font-size: 1.1rem; 
+                                        font-weight: 700;
+                                        margin-bottom: 15px;
+                                        box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+                                        text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+                                        border: 2px solid rgba(255,255,255,0.3);
+                                        display: inline-block;
+                                    ">
+                                        <i class="fa fa-times-circle me-2"/>CARTE EXPIRÉE
+                                    </div>
+                                    
+                                    <div style="
+                                        background: rgba(0,0,0,0.8);
+                                        color: white;
+                                        padding: 10px 20px;
+                                        border-radius: 15px;
+                                        font-size: 1rem; 
+                                        font-weight: 600;
+                                        text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                                        border: 1px solid rgba(255,255,255,0.3);
+                                        backdrop-filter: blur(10px);
+                                        display: inline-block;
+                                    ">
+                                        Expire le <span t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation et informations -->
+                    <div style="text-align: center; margin-top: 40px;">
+                        <div t-if="is_preview" style="margin-bottom: 30px;">
+                            <!-- Boutons de design -->
+                            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                                <a t-attf-href="/member/#{member.id}/preview/modern_fixed/#{background_name or 'dakar_gazelles'}" style="
+                                    background: #198754; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 500;
+                                ">
+                                    <i class="fa fa-magic me-2"/>Moderne CORRIGÉ
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/corporate/#{background_name or 'jokkoo'}" style="
+                                    background: #0d6efd; color: white; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 500;
+                                ">
+                                    <i class="fa fa-building me-2"/>Corporate
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/prestige/#{background_name or 'teranga_corp'}" style="
+                                    background: #D4AF37; color: #1a1a1a; padding: 12px 20px; text-decoration: none; border-radius: 8px; font-weight: 600;
+                                ">
+                                    <i class="fa fa-crown me-2"/>Prestige
+                                </a>
+                            </div>
+                            <!-- Boutons de background -->
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                                <a t-attf-href="/member/#{member.id}/preview/modern_fixed/dakar_gazelles" style="
+                                    background: #fd7e14; color: white; padding: 8px 15px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem;
+                                ">
+                                    <i class="fa fa-image me-1"/>Dakar Gazelles
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/modern_fixed/jokkoo" style="
+                                    background: #6f42c1; color: white; padding: 8px 15px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem;
+                                ">
+                                    <i class="fa fa-image me-1"/>Jokkoo
+                                </a>
+                                <a t-attf-href="/member/#{member.id}/preview/modern_fixed/teranga_corp" style="
+                                    background: #20c997; color: white; padding: 8px 15px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem;
+                                ">
+                                    <i class="fa fa-image me-1"/>Teranga Corp
+                                </a>
+                            </div>
+                        </div>
+                        <a href="/members/gallery" style="
+                            background: #0d6efd; 
+                            color: white; 
+                            padding: 15px 30px; 
+                            text-decoration: none; 
+                            border-radius: 10px; 
+                            font-weight: 600;
+                            font-size: 1.1rem;
+                            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+                        ">
+                            <i class="fa fa-arrow-left me-2"/>Retour à la galerie des membres
+                        </a>
+                    </div>
+                    
+                    <!-- Informations sur la carte -->
+                    <div style="
+                        margin-top: 40px; 
+                        padding: 25px; 
+                        background: white; 
+                        border-radius: 15px; 
+                        max-width: 1200px; 
+                        margin-left: auto; 
+                        margin-right: auto;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                    ">
+                        <h4 style="color: #333; margin-bottom: 20px;">
+                            <i class="fa fa-info-circle me-2"/>Template Moderne CORRIGÉ
+                        </h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                            <div>
+                                <strong>✅ Background :</strong> Image de fond visible
+                            </div>
+                            <div>
+                                <strong>✅ Photo :</strong> Centrée et visible (160px)
+                            </div>
+                            <div>
+                                <strong>✅ Structure :</strong> Flexbox simplifiée
+                            </div>
+                            <div>
+                                <strong>✅ Layers :</strong> Background + Overlay + Contenu
+                            </div>
+                            <div>
+                                <strong>✅ Navigation :</strong> Boutons fonctionnels
+                            </div>
+                            <div>
+                                <strong>✅ Fallback :</strong> Dégradé si image manque
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
