@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Format papier paysage pour les cartes avec background -->
+    <record id="paperformat_member_card_landscape" model="report.paperformat">
+        <field name="name">Format Carte Paysage (85x55mm)</field>
+        <field name="default" eval="False" />
+        <field name="format">custom</field>
+        <field name="page_height">55</field>
+        <field name="page_width">85</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">2</field>
+        <field name="margin_bottom">2</field>
+        <field name="margin_left">2</field>
+        <field name="margin_right">2</field>
+        <field name="header_line" eval="False" />
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <!-- Rapport pour prévisualiser les templates avec background -->
+    <record id="action_report_template_with_background" model="ir.actions.report">
+        <field name="name">Aperçu Template avec Background</field>
+        <field name="model">membership.card.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_template_with_background_template</field>
+        <field name="report_file">sama_carte.report_template_with_background_template</field>
+        <field name="print_report_name">'Carte Template - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card_landscape"/>
+    </record>
+
+    <!-- Template pour l'aperçu avec background -->
+    <template id="report_template_with_background_template">
+        <t t-call="web.html_container">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <t t-foreach="docs" t-as="template">
+                <!-- Récupérer la société et ses paramètres -->
+                <t t-set="company" t-value="env.company"/>
+                <t t-set="background" t-value="company.card_background_id"/>
+                <t t-set="orientation" t-value="company.card_background_orientation or 'landscape'"/>
+                
+                <!-- Récupérer un membre de démonstration -->
+                <t t-set="demo_member" t-value="env['membership.member'].search([('name', '!=', False)], limit=1)"/>
+                <t t-if="not demo_member">
+                    <t t-set="demo_name" t-value="'Jean Dupont'"/>
+                    <t t-set="demo_number" t-value="'SN-MBR-00001'"/>
+                    <t t-set="demo_expiry" t-value="'31/12/2024'"/>
+                    <t t-set="demo_terms" t-value="'Cette carte est personnelle, non transférable et reste la propriété de l\'organisation.'"/>
+                    <t t-set="demo_logo" t-value="company.logo"/>
+                </t>
+                <t t-else="">
+                    <t t-set="demo_name" t-value="demo_member.name"/>
+                    <t t-set="demo_number" t-value="demo_member.membership_number"/>
+                    <t t-set="demo_expiry" t-value="demo_member.expiration_date.strftime('%d/%m/%Y') if demo_member.expiration_date else '31/12/2024'"/>
+                    <t t-set="demo_terms" t-value="demo_member.terms_and_conditions or 'Cette carte est personnelle, non transférable et reste la propriété de l\'organisation.'"/>
+                    <t t-set="demo_logo" t-value="demo_member.company_id.logo"/>
+                    <t t-set="demo_photo" t-value="demo_member.image_1920"/>
+                    <t t-set="demo_qr" t-value="demo_member.barcode_qr"/>
+                </t>
+                
+                <!-- Couleurs du template ou de la société -->
+                <t t-set="primary_color" t-value="company.primary_color or template.default_primary_color or '#004a99'"/>
+                <t t-set="secondary_color" t-value="company.secondary_color or template.default_secondary_color or '#f7f32d'"/>
+                <t t-set="text_color" t-value="company.text_color or template.default_text_color or '#333333'"/>
+                
+                <!-- URL du background selon l'orientation -->
+                <t t-set="background_url" t-value="False"/>
+                <t t-if="background">
+                    <t t-if="orientation == 'landscape'">
+                        <t t-set="background_url" t-value="'/web/image/membership.card.background/%s/image_landscape' % background.id"/>
+                    </t>
+                    <t t-else="">
+                        <t t-set="background_url" t-value="'/web/image/membership.card.background/%s/image_portrait' % background.id"/>
+                    </t>
+                </t>
+                
+                <!-- RECTO -->
+                <div class="page">
+                    <style>
+                        :root {
+                            --primary-color: <t t-esc="primary_color"/>;
+                            --secondary-color: <t t-esc="secondary_color"/>;
+                            --text-color: <t t-esc="text_color"/>;
+                            --accent-color: #2d7a7d;
+                            --card-bg: white;
+                        }
+                        
+                        .card-container {
+                            font-family: 'Montserrat', sans-serif;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            overflow: hidden;
+                            border-radius: 15px;
+                            <t t-if="background_url">
+                                background-image: url('<t t-esc="background_url"/>');
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            </t>
+                            <t t-else="">
+                                background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                            </t>
+                        }
+                        
+                        .card-overlay {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(0,0,0,0.3);
+                            border-radius: 15px;
+                        }
+                        
+                        .card-content {
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 15px;
+                            display: grid;
+                            grid-template-columns: auto 1fr auto;
+                            grid-template-rows: auto 1fr;
+                            gap: 15px;
+                            align-items: start;
+                        }
+                        
+                        .card-logo {
+                            grid-column: 1;
+                            grid-row: 1;
+                            max-width: 60px;
+                            max-height: 40px;
+                            background: rgba(255,255,255,0.9);
+                            padding: 5px;
+                            border-radius: 8px;
+                        }
+                        
+                        .card-title {
+                            grid-column: 2;
+                            grid-row: 1;
+                            text-align: center;
+                            color: white;
+                            font-weight: bold;
+                            font-size: 12px;
+                            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+                            align-self: center;
+                        }
+                        
+                        .card-qr {
+                            grid-column: 3;
+                            grid-row: 1;
+                            width: 50px;
+                            height: 50px;
+                            background: rgba(255,255,255,0.9);
+                            border-radius: 8px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        
+                        .card-info {
+                            grid-column: 1 / 4;
+                            grid-row: 2;
+                            background: rgba(255,255,255,0.95);
+                            border-radius: 12px;
+                            padding: 15px;
+                            text-align: center;
+                            align-self: end;
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                        }
+                        
+                        .member-photo {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 3px solid var(--primary-color);
+                            margin: 0 auto 10px;
+                            display: block;
+                        }
+                        
+                        .photo-placeholder {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 50%;
+                            background: #f0f0f0;
+                            border: 3px solid var(--primary-color);
+                            margin: 0 auto 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 10px;
+                            color: #666;
+                        }
+                        
+                        .member-name {
+                            font-size: 14px;
+                            font-weight: bold;
+                            color: var(--primary-color);
+                            margin-bottom: 5px;
+                        }
+                        
+                        .member-number {
+                            font-size: 12px;
+                            background: var(--secondary-color);
+                            color: var(--text-color);
+                            padding: 4px 8px;
+                            border-radius: 15px;
+                            display: inline-block;
+                            font-weight: bold;
+                        }
+                        
+                        .qr-placeholder {
+                            width: 40px;
+                            height: 40px;
+                            background: #f0f0f0;
+                            border: 2px dashed #ccc;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 8px;
+                            color: #666;
+                            border-radius: 4px;
+                        }
+                        
+                        .template-badge {
+                            position: absolute;
+                            top: 10px;
+                            left: 10px;
+                            background: var(--primary-color);
+                            color: white;
+                            padding: 4px 8px;
+                            border-radius: 12px;
+                            font-size: 8px;
+                            font-weight: bold;
+                            z-index: 20;
+                        }
+                        
+                        /* Styles spécifiques selon le template */
+                        .template-modern .card-info {
+                            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(247,243,45,0.1));
+                        }
+                        
+                        .template-dynamic .card-content::before {
+                            content: '';
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            width: 30px;
+                            height: 30px;
+                            background: var(--secondary-color);
+                            transform: rotate(45deg);
+                            opacity: 0.7;
+                            z-index: 5;
+                        }
+                        
+                        .template-unified .card-content {
+                            grid-template-columns: auto auto 1fr auto;
+                            gap: 10px;
+                        }
+                        
+                        .template-unified .member-photo,
+                        .template-unified .photo-placeholder {
+                            grid-column: 1;
+                            grid-row: 1;
+                            width: 50px;
+                            height: 50px;
+                            margin: 0;
+                        }
+                        
+                        .template-unified .card-qr {
+                            grid-column: 2;
+                            grid-row: 1;
+                            width: 45px;
+                            height: 45px;
+                        }
+                        
+                        .template-unified .card-info {
+                            grid-column: 3 / 5;
+                            grid-row: 1;
+                            align-self: center;
+                            margin: 0;
+                        }
+                    </style>
+                    
+                    <div t-att-class="'card-container template-' + template.technical_name">
+                        <t t-if="background_url">
+                            <div class="card-overlay"></div>
+                        </t>
+                        
+                        <div class="template-badge">
+                            <t t-esc="template.name"/>
+                        </div>
+                        
+                        <div class="card-content">
+                            <!-- Logo -->
+                            <div class="card-logo">
+                                <img t-if="demo_logo" t-att-src="image_data_uri(demo_logo)" style="max-width: 100%; max-height: 100%;"/>
+                                <div t-else="" style="font-size: 8px; color: #666; text-align: center;">LOGO</div>
+                            </div>
+                            
+                            <!-- Titre -->
+                            <div class="card-title">
+                                CARTE DE MEMBRE
+                            </div>
+                            
+                            <!-- QR Code -->
+                            <div class="card-qr">
+                                <img t-if="demo_qr" t-att-src="image_data_uri(demo_qr)" style="max-width: 100%; max-height: 100%;"/>
+                                <div t-else="" class="qr-placeholder">QR</div>
+                            </div>
+                            
+                            <!-- Informations membre -->
+                            <div class="card-info">
+                                <t t-if="demo_photo">
+                                    <img t-att-src="image_data_uri(demo_photo)" class="member-photo"/>
+                                </t>
+                                <t t-else="">
+                                    <div class="photo-placeholder">PHOTO</div>
+                                </t>
+                                
+                                <div class="member-name">
+                                    <t t-esc="demo_name"/>
+                                </div>
+                                
+                                <div class="member-number">
+                                    <t t-esc="demo_number"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VERSO -->
+                <div class="page" style="page-break-before: always;">
+                    <style>
+                        .verso-container {
+                            height: 100%;
+                            border-radius: 15px;
+                            <t t-if="background_url">
+                                background-image: url('<t t-esc="background_url"/>');
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            </t>
+                            <t t-else="">
+                                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+                            </t>
+                            position: relative;
+                            overflow: hidden;
+                        }
+                        
+                        .verso-overlay {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background: rgba(255,255,255,0.9);
+                            border-radius: 15px;
+                        }
+                        
+                        .verso-content {
+                            position: relative;
+                            z-index: 10;
+                            height: 100%;
+                            padding: 20px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                        }
+                        
+                        .verso-header {
+                            text-align: center;
+                            font-size: 12px;
+                            font-weight: bold;
+                            color: var(--primary-color);
+                            margin-bottom: 15px;
+                        }
+                        
+                        .verso-terms {
+                            font-size: 9px;
+                            line-height: 1.4;
+                            text-align: justify;
+                            color: #333;
+                            flex: 1;
+                        }
+                        
+                        .verso-footer {
+                            text-align: center;
+                            font-weight: bold;
+                            color: var(--primary-color);
+                            border-top: 2px solid var(--primary-color);
+                            padding-top: 10px;
+                            margin-top: 15px;
+                        }
+                        
+                        .verso-info {
+                            font-size: 8px;
+                            color: #666;
+                            margin-top: 5px;
+                        }
+                    </style>
+                    
+                    <div class="verso-container">
+                        <t t-if="background_url">
+                            <div class="verso-overlay"></div>
+                        </t>
+                        
+                        <div class="verso-content">
+                            <div>
+                                <div class="verso-header">CONDITIONS D'UTILISATION</div>
+                                <div class="verso-terms">
+                                    <t t-esc="demo_terms"/>
+                                </div>
+                            </div>
+                            
+                            <div class="verso-footer">
+                                <div>Expire le: <t t-esc="demo_expiry"/></div>
+                                <div class="verso-info">
+                                    Template: <t t-esc="template.name"/> | 
+                                    <t t-if="background">Background: <t t-esc="background.name"/></t>
+                                    <t t-else="">Sans background</t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Rapport pour prévisualiser les templates -->
+    <record id="action_report_template_preview" model="ir.actions.report">
+        <field name="name">Aperçu Template de Carte</field>
+        <field name="model">membership.card.template</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sama_carte.report_template_preview_template</field>
+        <field name="report_file">sama_carte.report_template_preview_template</field>
+        <field name="print_report_name">'Aperçu Template - %s' % (object.name)</field>
+        <field name="paperformat_id" ref="sama_carte.paperformat_member_card"/>
+    </record>
+
+    <!-- Template pour l'aperçu des templates -->
+    <template id="report_template_preview_template">
+        <t t-call="web.html_container">
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+            <t t-foreach="docs" t-as="template">
+                <!-- Récupérer un membre de démonstration ou créer des données fictives -->
+                <t t-set="demo_member" t-value="env['membership.member'].search([('name', '!=', False)], limit=1)"/>
+                <t t-if="not demo_member">
+                    <!-- Données fictives si aucun membre n'existe -->
+                    <t t-set="demo_name" t-value="'Jean Dupont'"/>
+                    <t t-set="demo_number" t-value="'SN-MBR-00001'"/>
+                    <t t-set="demo_expiry" t-value="'31/12/2024'"/>
+                    <t t-set="demo_terms" t-value="'Cette carte est personnelle, non transférable et reste la propriété de l\'organisation. Elle doit être restituée sur demande.'"/>
+                </t>
+                <t t-else="">
+                    <t t-set="demo_name" t-value="demo_member.name"/>
+                    <t t-set="demo_number" t-value="demo_member.membership_number"/>
+                    <t t-set="demo_expiry" t-value="demo_member.expiration_date.strftime('%d/%m/%Y') if demo_member.expiration_date else '31/12/2024'"/>
+                    <t t-set="demo_terms" t-value="demo_member.terms_and_conditions or 'Cette carte est personnelle, non transférable et reste la propriété de l\'organisation.'"/>
+                </t>
+                
+                <!-- RECTO -->
+                <div class="page">
+                    <style>
+                        :root {
+                            --primary-color: <t t-esc="template.default_primary_color or '#004a99'"/>;
+                            --secondary-color: <t t-esc="template.default_secondary_color or '#f7f32d'"/>;
+                            --text-color: <t t-esc="template.default_text_color or '#333333'"/>;
+                            --accent-color: #2d7a7d;
+                            --card-bg: white;
+                        }
+                        
+                        .card-container {
+                            font-family: 'Montserrat', sans-serif;
+                            width: 100%;
+                            height: 100%;
+                            position: relative;
+                            overflow: hidden;
+                            background-color: var(--card-bg);
+                            border: 2px solid #ddd;
+                            border-radius: 15px;
+                        }
+                        
+                        /* Template Moderne */
+                        .template-modern .card-header { 
+                            display: flex; 
+                            justify-content: space-between; 
+                            align-items: center; 
+                            padding: 15px; 
+                            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                        }
+                        .template-modern .card-title { 
+                            text-align: center; 
+                            font-weight: 700; 
+                            font-size: 16px; 
+                            margin: 10px 0; 
+                            color: var(--primary-color); 
+                        }
+                        .template-modern .profile-picture-container { 
+                            text-align: center; 
+                            margin: 20px 0; 
+                        }
+                        .template-modern .profile-picture { 
+                            width: 100px; 
+                            height: 100px; 
+                            border-radius: 50%; 
+                            object-fit: cover; 
+                            border: 4px solid var(--primary-color); 
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+                        }
+                        .template-modern .card-content { 
+                            text-align: center; 
+                            padding: 20px; 
+                            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9));
+                        }
+                        .template-modern .member-name { 
+                            font-size: 20px; 
+                            font-weight: 700; 
+                            color: var(--primary-color); 
+                            margin-bottom: 10px;
+                        }
+                        .template-modern .member-id { 
+                            font-size: 16px; 
+                            font-weight: 600; 
+                            background-color: var(--secondary-color); 
+                            color: var(--text-color);
+                            padding: 8px 15px; 
+                            border-radius: 20px;
+                            display: inline-block; 
+                        }
+                        .template-modern .qr-code-container { 
+                            position: absolute; 
+                            top: 20px; 
+                            right: 20px; 
+                            background: white; 
+                            padding: 8px; 
+                            border-radius: 10px;
+                            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                        }
+                        
+                        /* Template Dynamique */
+                        .template-dynamic {
+                            background: linear-gradient(45deg, #f0f3f5, #ffffff);
+                        }
+                        .template-dynamic .geometric-shape {
+                            position: absolute;
+                            background: var(--primary-color);
+                            opacity: 0.1;
+                        }
+                        .template-dynamic .shape-1 {
+                            width: 100px;
+                            height: 100px;
+                            top: 10px;
+                            left: 10px;
+                            transform: rotate(45deg);
+                        }
+                        .template-dynamic .shape-2 {
+                            width: 60px;
+                            height: 60px;
+                            bottom: 20px;
+                            right: 30px;
+                            border-radius: 50%;
+                        }
+                        
+                        /* Template Unifié */
+                        .template-unified {
+                            background: linear-gradient(135deg, rgba(0,74,153,0.1), rgba(247,243,45,0.1));
+                        }
+                        .template-unified .unified-grid {
+                            display: grid;
+                            grid-template-columns: auto 1fr auto;
+                            grid-template-rows: auto 1fr;
+                            gap: 20px;
+                            padding: 20px;
+                            min-height: 300px;
+                            align-items: start;
+                        }
+                        .template-unified .unified-photo {
+                            grid-column: 1;
+                            grid-row: 1;
+                            width: 120px;
+                            height: 120px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            border: 4px solid rgba(255,255,255,0.9);
+                            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                        }
+                        .template-unified .unified-qr {
+                            grid-column: 3;
+                            grid-row: 1;
+                            width: 100px;
+                            height: 100px;
+                            background: white;
+                            border: 2px solid rgba(255,255,255,0.9);
+                            border-radius: 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        .template-unified .unified-info {
+                            grid-column: 1 / 4;
+                            grid-row: 2;
+                            text-align: center;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            background: rgba(255,255,255,0.8);
+                            padding: 20px;
+                            border-radius: 15px;
+                        }
+                        
+                        .qr-placeholder {
+                            width: 80px;
+                            height: 80px;
+                            background: #f0f0f0;
+                            border: 2px dashed #ccc;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 10px;
+                            color: #666;
+                        }
+                        
+                        .template-header {
+                            text-align: center;
+                            margin-bottom: 20px;
+                            padding: 10px;
+                            background: var(--primary-color);
+                            color: white;
+                            font-weight: bold;
+                        }
+                    </style>
+                    
+                    <!-- En-tête du template -->
+                    <div class="template-header">
+                        APERÇU TEMPLATE: <t t-esc="template.name"/>
+                    </div>
+                    
+                    <!-- Contenu selon le template -->
+                    <div t-att-class="'card-container template-' + template.technical_name">
+                        
+                        <!-- Template Moderne -->
+                        <t t-if="template.technical_name == 'modern'">
+                            <div class="card-header">
+                                <div style="color: white; font-weight: bold;">ORGANISATION</div>
+                            </div>
+                            <div class="card-title">CARTE DE MEMBRE</div>
+                            <div class="profile-picture-container">
+                                <div class="profile-picture" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #666;">
+                                    PHOTO
+                                </div>
+                            </div>
+                            <div class="qr-code-container">
+                                <div class="qr-placeholder">QR</div>
+                            </div>
+                            <div class="card-content">
+                                <div class="member-name"><t t-esc="demo_name"/></div>
+                                <div class="member-id"><t t-esc="demo_number"/></div>
+                            </div>
+                        </t>
+                        
+                        <!-- Template Dynamique -->
+                        <t t-if="template.technical_name == 'dynamic'">
+                            <div class="geometric-shape shape-1"></div>
+                            <div class="geometric-shape shape-2"></div>
+                            <div style="padding: 30px; position: relative; z-index: 2;">
+                                <div style="text-align: center; font-size: 18px; font-weight: bold; color: var(--primary-color); margin-bottom: 20px;">
+                                    CARTE MEMBRE DYNAMIQUE
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 20px;">
+                                    <div class="profile-picture" style="width: 100px; height: 100px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #666;">
+                                        PHOTO
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 20px; font-weight: bold; color: var(--primary-color);"><t t-esc="demo_name"/></div>
+                                        <div style="font-size: 16px; margin-top: 10px; background: var(--secondary-color); padding: 5px 10px; border-radius: 5px; display: inline-block;">
+                                            <t t-esc="demo_number"/>
+                                        </div>
+                                    </div>
+                                    <div class="qr-placeholder">QR</div>
+                                </div>
+                            </div>
+                        </t>
+                        
+                        <!-- Template Unifié -->
+                        <t t-if="template.technical_name == 'unified'">
+                            <div class="unified-grid">
+                                <div class="unified-photo" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #666; font-size: 12px;">
+                                    PHOTO
+                                </div>
+                                <div class="unified-qr">
+                                    <div class="qr-placeholder">QR</div>
+                                </div>
+                                <div class="unified-info">
+                                    <div style="font-size: 18px; font-weight: bold; color: var(--primary-color); margin-bottom: 10px;">
+                                        CARTE DE MEMBRE
+                                    </div>
+                                    <div style="font-size: 20px; font-weight: bold; color: var(--text-color); margin-bottom: 10px;">
+                                        <t t-esc="demo_name"/>
+                                    </div>
+                                    <div style="font-size: 16px; background: var(--secondary-color); color: var(--text-color); padding: 8px 15px; border-radius: 20px; display: inline-block;">
+                                        <t t-esc="demo_number"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                        
+                        <!-- Template par défaut pour les autres -->
+                        <t t-if="template.technical_name not in ['modern', 'dynamic', 'unified']">
+                            <div style="padding: 30px; text-align: center;">
+                                <div style="font-size: 18px; font-weight: bold; color: var(--primary-color); margin-bottom: 20px;">
+                                    CARTE DE MEMBRE
+                                </div>
+                                <div style="margin: 20px 0;">
+                                    <div style="width: 100px; height: 100px; background: #f0f0f0; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; color: #666;">
+                                        PHOTO
+                                    </div>
+                                </div>
+                                <div style="font-size: 20px; font-weight: bold; color: var(--text-color); margin: 15px 0;">
+                                    <t t-esc="demo_name"/>
+                                </div>
+                                <div style="font-size: 16px; background: var(--secondary-color); color: var(--text-color); padding: 8px 15px; border-radius: 20px; display: inline-block; margin: 10px 0;">
+                                    <t t-esc="demo_number"/>
+                                </div>
+                                <div style="position: absolute; top: 20px; right: 20px;">
+                                    <div class="qr-placeholder">QR</div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- VERSO -->
+                <div class="page" style="page-break-before: always;">
+                    <style>
+                        .verso-container { 
+                            background-color: #f8f9fa; 
+                            padding: 30px; 
+                            height: 100%; 
+                            display: flex; 
+                            flex-direction: column; 
+                            justify-content: space-between;
+                            border: 2px solid #ddd;
+                            border-radius: 15px;
+                        }
+                        .verso-header { 
+                            text-align: center; 
+                            font-size: 16px; 
+                            font-weight: bold; 
+                            color: var(--primary-color); 
+                            margin-bottom: 20px; 
+                        }
+                        .verso-content { 
+                            font-size: 12px; 
+                            line-height: 1.6; 
+                            text-align: justify; 
+                            color: #333;
+                        }
+                        .verso-footer { 
+                            text-align: center; 
+                            font-weight: bold; 
+                            color: var(--primary-color); 
+                            margin-top: 20px;
+                            padding-top: 20px;
+                            border-top: 2px solid var(--primary-color);
+                        }
+                        .template-info {
+                            background: var(--primary-color);
+                            color: white;
+                            padding: 10px;
+                            border-radius: 10px;
+                            margin-bottom: 20px;
+                            text-align: center;
+                        }
+                    </style>
+                    <div class="verso-container">
+                        <div class="template-info">
+                            VERSO - TEMPLATE: <t t-esc="template.name"/>
+                        </div>
+                        <div>
+                            <div class="verso-header">CONDITIONS D'UTILISATION</div>
+                            <div class="verso-content">
+                                <t t-esc="demo_terms"/>
+                            </div>
+                        </div>
+                        <div class="verso-footer">
+                            <div>Expire le: <t t-esc="demo_expiry"/></div>
+                            <div style="margin-top: 10px; font-size: 10px; color: #666;">
+                                Template: <t t-esc="template.technical_name"/> | Catégorie: <t t-esc="template.category"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

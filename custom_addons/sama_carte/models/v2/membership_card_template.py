@@ -104,12 +104,14 @@ class MembershipCardTemplate(models.Model):
         return default
     
     def preview_template(self):
-        """Action pour prévisualiser le template"""
+        """Action pour prévisualiser le template en PDF avec background"""
         self.ensure_one()
         return {
-            'type': 'ir.actions.act_url',
-            'url': f'/template/preview/{self.technical_name}',
-            'target': 'new',
+            'type': 'ir.actions.report',
+            'report_name': 'sama_carte.action_report_template_with_background',
+            'report_type': 'qweb-pdf',
+            'data': {'ids': [self.id]},
+            'context': self.env.context,
         }
     
     @api.model

@@ -48,10 +48,13 @@ Fonctionnalités :
         'views/v2/working_modern_fullsize.xml',
         'reports/paper_format.xml',
         'reports/report_member_card.xml',
+        'reports/report_template_preview.xml',
+        'reports/report_template_with_background.xml',
         'views/website_member_views.xml',
     ],
     'demo': [
         'data/demo_members_simple.xml',
+        'data/demo_backgrounds.xml',
     ],
     'assets': {},
     'installable': True,
