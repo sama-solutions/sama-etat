@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+    ================================================================
+    DESIGNS DE TEST AVEC FONDS D'ÉCRAN - SAMA_CARTE V2.1
+    Tests avec les 3 premiers fonds en portrait et paysage
+    ================================================================
+    -->
+
+    <!-- DESIGN TEST 1: Moderne avec fond Dakar Gazelles -->
+    <template id="design_modern_with_background" name="Moderne avec Fond">
+        <section class="modern-bg-section" style="min-height: 100vh; position: relative; overflow: hidden;">
+            <style>
+                .modern-bg-section {
+                    background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles portrait.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                .modern-bg-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%);
+                    z-index: 1;
+                }
+                .modern-bg-content {
+                    position: relative;
+                    z-index: 2;
+                    color: white;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                }
+                .modern-bg-card {
+                    background: rgba(255,255,255,0.95);
+                    backdrop-filter: blur(10px);
+                    border-radius: 20px;
+                    padding: 2rem;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                    animation: slideUp 1s ease-out;
+                    color: #333;
+                    text-shadow: none;
+                }
+                .modern-bg-photo {
+                    border: 4px solid white;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                    animation: zoomIn 1s ease-out 0.3s both;
+                }
+                @keyframes slideUp {
+                    from { transform: translateY(50px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                @keyframes zoomIn {
+                    from { transform: scale(0.8); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+                @media (max-width: 768px) {
+                    .modern-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles portrait.png');
+                    }
+                }
+                @media (min-width: 769px) {
+                    .modern-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Dakar Gazelles paysage.png');
+                    }
+                }
+            </style>
+            
+            <div class="modern-bg-overlay"></div>
+            <div class="modern-bg-content d-flex align-items-center justify-content-center min-vh-100">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="modern-bg-card text-center">
+                                <img t-if="member.image_1920" 
+                                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                     class="modern-bg-photo rounded-circle mb-4" 
+                                     style="width: 150px; height: 150px; object-fit: cover;"/>
+                                <img t-else="" 
+                                     src="/web/static/src/img/placeholder.png" 
+                                     class="modern-bg-photo rounded-circle mb-4" 
+                                     style="width: 150px; height: 150px; object-fit: cover;"/>
+                                
+                                <h1 class="mb-3" t-esc="member.name" 
+                                    t-attf-style="color: #{company.primary_color or '#212529'};"/>
+                                <p class="text-muted mb-4" t-esc="member.membership_number"/>
+                                
+                                <div t-if="is_valid" class="badge fs-6 p-3 mb-4" 
+                                     style="background: linear-gradient(135deg, #198754, #20c997); color: white;">
+                                    <i class="fa fa-check me-2"/>MEMBRE VALIDE
+                                </div>
+                                <div t-else="" class="badge fs-6 p-3 mb-4" 
+                                     style="background: linear-gradient(135deg, #dc3545, #fd7e14); color: white;">
+                                    <i class="fa fa-times me-2"/>CARTE EXPIRÉE
+                                </div>
+                                
+                                <p class="text-muted">Expire le : <span t-esc="member.expiration_date.strftime('%d/%m/%Y')" class="fw-bold"/></p>
+                                
+                                <!-- QR Code -->
+                                <div class="mt-4">
+                                    <img t-if="member.barcode_qr" 
+                                         t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                         style="width: 80px; height: 80px; background: white; padding: 5px; border-radius: 10px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN TEST 2: Corporate avec fond Jokkoo -->
+    <template id="design_corporate_with_background" name="Corporate avec Fond">
+        <section class="corporate-bg-section" style="min-height: 100vh; position: relative;">
+            <style>
+                .corporate-bg-section {
+                    background-image: url('/sama_carte/static/backgrounds/Jokkoo_portrait.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                .corporate-bg-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, rgba(13, 110, 253, 0.8) 0%, rgba(108, 117, 125, 0.8) 100%);
+                    z-index: 1;
+                }
+                .corporate-bg-content {
+                    position: relative;
+                    z-index: 2;
+                }
+                .corporate-bg-card {
+                    background: white;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+                    animation: slideInFromBottom 1s ease-out;
+                }
+                .corporate-bg-header {
+                    background: linear-gradient(135deg, var(--primary-color), var(--primary-color-dark));
+                    color: white;
+                    padding: 1.5rem;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .corporate-bg-header::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    right: -50%;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(255,255,255,0.1);
+                    border-radius: 50%;
+                    animation: rotate 10s linear infinite;
+                }
+                @keyframes slideInFromBottom {
+                    from { transform: translateY(100px); opacity: 0; }
+                    to { transform: translateY(0); opacity: 1; }
+                }
+                @keyframes rotate {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                @media (max-width: 768px) {
+                    .corporate-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Jokkoo_portrait.png');
+                    }
+                }
+                @media (min-width: 769px) {
+                    .corporate-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Jokkoo_paysage.png');
+                    }
+                }
+            </style>
+            
+            <div class="corporate-bg-overlay"></div>
+            <div class="corporate-bg-content d-flex align-items-center justify-content-center min-vh-100 p-4">
+                <div class="corporate-bg-card" style="max-width: 800px; width: 100%; --primary-color: #{company.primary_color or '#0d6efd'}; --primary-color-dark: #{company.primary_color or '#0b5ed7'};">
+                    <div class="corporate-bg-header">
+                        <div class="d-flex justify-content-between align-items-center position-relative" style="z-index: 2;">
+                            <h4 class="m-0" t-esc="company.name"/>
+                            <img t-if="company.logo" 
+                                 t-att-src="'/web/image/res.company/' + str(company.id) + '/logo'" 
+                                 style="max-height: 40px;"/>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <img t-if="member.image_1920" 
+                                     t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                     class="rounded-circle mb-3" 
+                                     style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #e9ecef;"/>
+                                <img t-else="" 
+                                     src="/web/static/src/img/placeholder.png" 
+                                     class="rounded-circle mb-3" 
+                                     style="width: 120px; height: 120px; object-fit: cover; border: 3px solid #e9ecef;"/>
+                                
+                                <div t-if="is_valid" class="badge p-2" 
+                                     t-attf-style="background-color: #{company.primary_color or '#0d6efd'}; color: white;">
+                                     <i class="fa fa-check-circle me-1"/>AUTORISÉ
+                                </div>
+                                <div t-else="" class="badge bg-secondary p-2">
+                                    <i class="fa fa-times-circle me-1"/>EXPIRÉ
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h2 class="mb-3" t-esc="member.name"/>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <th style="width: 150px;">Numéro :</th>
+                                        <td class="fw-bold" t-esc="member.membership_number"/>
+                                    </tr>
+                                    <tr>
+                                        <th>Expiration :</th>
+                                        <td t-esc="member.expiration_date.strftime('%d/%m/%Y')"/>
+                                    </tr>
+                                </table>
+                                
+                                <!-- QR Code -->
+                                <div class="mt-3">
+                                    <img t-if="member.barcode_qr" 
+                                         t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                                         style="width: 70px; height: 70px; border: 1px solid #ddd; border-radius: 5px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- DESIGN TEST 3: Prestige avec fond Teranga Corp -->
+    <template id="design_prestige_with_background" name="Prestige avec Fond">
+        <section class="prestige-bg-section" style="min-height: 100vh; position: relative;">
+            <style>
+                .prestige-bg-section {
+                    background-image: url('/sama_carte/static/backgrounds/Teranga Corp portrait.png');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+                .prestige-bg-overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.8) 100%);
+                    z-index: 1;
+                }
+                .prestige-bg-content {
+                    position: relative;
+                    z-index: 2;
+                    color: white;
+                }
+                .prestige-bg-card {
+                    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,0.9) 100%);
+                    backdrop-filter: blur(15px);
+                    border: 2px solid rgba(212, 175, 55, 0.3);
+                    border-radius: 20px;
+                    padding: 3rem;
+                    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+                    animation: fadeInScale 1.2s ease-out;
+                }
+                .prestige-bg-photo {
+                    border: 3px solid #D4AF37;
+                    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+                    animation: glowPulse 2s ease-in-out infinite alternate;
+                }
+                .prestige-bg-title {
+                    background: linear-gradient(45deg, #D4AF37, #FFD700);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    font-family: 'Playfair Display', serif;
+                    font-weight: 700;
+                    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+                }
+                @keyframes fadeInScale {
+                    from { transform: scale(0.9); opacity: 0; }
+                    to { transform: scale(1); opacity: 1; }
+                }
+                @keyframes glowPulse {
+                    from { box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); }
+                    to { box-shadow: 0 0 40px rgba(212, 175, 55, 0.8); }
+                }
+                @media (max-width: 768px) {
+                    .prestige-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Teranga Corp portrait.png');
+                    }
+                }
+                @media (min-width: 769px) {
+                    .prestige-bg-section {
+                        background-image: url('/sama_carte/static/backgrounds/Teranga Corp paysage.png');
+                    }
+                }
+            </style>
+            
+            <div class="prestige-bg-overlay"></div>
+            <div class="prestige-bg-content d-flex align-items-center justify-content-center min-vh-100 p-4">
+                <div class="prestige-bg-card text-center" style="max-width: 600px;">
+                    <img t-if="member.image_1920" 
+                         t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                         class="prestige-bg-photo rounded-circle mb-4" 
+                         style="width: 180px; height: 180px; object-fit: cover;"/>
+                    <img t-else="" 
+                         src="/web/static/src/img/placeholder.png" 
+                         class="prestige-bg-photo rounded-circle mb-4" 
+                         style="width: 180px; height: 180px; object-fit: cover;"/>
+                    
+                    <h1 class="prestige-bg-title mb-3" t-esc="member.name" style="font-size: 2.5rem;"/>
+                    <h3 class="mb-4" style="color: #D4AF37; font-family: 'Cinzel', serif;" t-esc="member.membership_number"/>
+                    
+                    <div t-if="is_valid" class="alert p-3 mb-4" 
+                         style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(255, 215, 0, 0.3)); 
+                                border: 2px solid #D4AF37; color: #D4AF37;">
+                        <i class="fa fa-crown me-2"/> MEMBRE PRIVILÉGIÉ
+                    </div>
+                    <div t-else="" class="alert alert-secondary p-3 mb-4">
+                        <i class="fa fa-exclamation-triangle me-2"/> STATUT SUSPENDU
+                    </div>
+                    
+                    <p class="text-light mb-4">Expire le : <span t-esc="member.expiration_date.strftime('%d/%m/%Y')" class="text-warning fw-bold"/></p>
+                    
+                    <!-- QR Code -->
+                    <div class="mt-4">
+                        <img t-if="member.barcode_qr" 
+                             t-att-src="'data:image/png;base64,' + member.barcode_qr.decode('utf-8')" 
+                             style="width: 90px; height: 90px; border: 2px solid #D4AF37; border-radius: 10px; background: white; padding: 5px;"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</odoo>

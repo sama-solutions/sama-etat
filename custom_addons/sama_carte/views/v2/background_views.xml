@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vues simplifiées pour la gestion des fonds d'écran -->
+    
+    <!-- Vue Liste des fonds d'écran -->
+    <record id="view_membership_card_background_tree" model="ir.ui.view">
+        <field name="name">membership.card.background.tree</field>
+        <field name="model">membership.card.background</field>
+        <field name="arch" type="xml">
+            <list string="Fonds d'écran">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="technical_name"/>
+                <field name="category"/>
+                <field name="is_premium"/>
+                <field name="usage_count"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vue Formulaire des fonds d'écran -->
+    <record id="view_membership_card_background_form" model="ir.ui.view">
+        <field name="name">membership.card.background.form</field>
+        <field name="model">membership.card.background</field>
+        <field name="arch" type="xml">
+            <form string="Fond d'écran">
+                <header>
+                    <button type="object" name="action_preview_portrait" 
+                            string="Prévisualiser Portrait" 
+                            class="btn-primary" icon="fa-mobile"/>
+                    <button type="object" name="action_preview_landscape" 
+                            string="Prévisualiser Paysage" 
+                            class="btn-secondary" icon="fa-desktop"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="Nom du fond d'écran"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="technical_name"/>
+                            <field name="category"/>
+                            <field name="sequence"/>
+                        </group>
+                        <group>
+                            <field name="is_premium"/>
+                            <field name="usage_count" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Images">
+                            <group>
+                                <group string="Portrait">
+                                    <field name="image_portrait" widget="image" class="oe_avatar"/>
+                                </group>
+                                <group string="Paysage">
+                                    <field name="image_landscape" widget="image" class="oe_avatar"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour les fonds d'écran -->
+    <record id="action_membership_card_background" model="ir.actions.act_window">
+        <field name="name">Fonds d'écran des cartes</field>
+        <field name="res_model">membership.card.background</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Ajoutez votre premier fond d'écran !</p>
+            <p>
+                Les fonds d'écran permettent de personnaliser l'apparence des cartes de membres.
+                Vous pouvez uploader des images en format portrait et paysage.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu pour les fonds d'écran -->
+    <menuitem id="menu_membership_card_background" 
+              name="🖼️ Fonds d'écran" 
+              parent="menu_membership_root" 
+              action="action_membership_card_background" 
+              sequence="30"/>
+
+
+</odoo>

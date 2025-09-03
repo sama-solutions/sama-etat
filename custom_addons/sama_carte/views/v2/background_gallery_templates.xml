@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template pour la galerie des fonds d'écran -->
+    <template id="background_gallery_template" name="Galerie des Fonds d'écran">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="text-center mb-5">
+                                <i class="fa fa-picture-o me-3"/>
+                                Galerie des Fonds d'écran
+                            </h1>
+                            
+                            <!-- Navigation des tests -->
+                            <div class="text-center mb-5">
+                                <div class="btn-group" role="group">
+                                    <a href="/background/test/modern" class="btn btn-outline-primary">
+                                        <i class="fa fa-mobile me-2"/>Test Moderne
+                                    </a>
+                                    <a href="/background/test/corporate" class="btn btn-outline-info">
+                                        <i class="fa fa-building me-2"/>Test Corporate
+                                    </a>
+                                    <a href="/background/test/prestige" class="btn btn-outline-warning">
+                                        <i class="fa fa-crown me-2"/>Test Prestige
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <t t-foreach="backgrounds" t-as="bg">
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title mb-0" t-esc="bg.name"/>
+                                        <span t-if="bg.is_premium" class="badge bg-warning">Premium</span>
+                                        <span t-else="" class="badge bg-success">Gratuit</span>
+                                    </div>
+                                    
+                                    <!-- Aperçus des images -->
+                                    <div class="row g-0">
+                                        <div class="col-6">
+                                            <img t-att-src="'/web/image/membership.card.background/' + str(bg.id) + '/image_portrait'" 
+                                                 class="img-fluid" 
+                                                 style="height: 200px; object-fit: cover; width: 100%;"
+                                                 alt="Portrait"/>
+                                            <div class="text-center p-2 bg-light">
+                                                <small class="text-muted">Portrait</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <img t-att-src="'/web/image/membership.card.background/' + str(bg.id) + '/image_landscape'" 
+                                                 class="img-fluid" 
+                                                 style="height: 200px; object-fit: cover; width: 100%;"
+                                                 alt="Paysage"/>
+                                            <div class="text-center p-2 bg-light">
+                                                <small class="text-muted">Paysage</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-body">
+                                        <p class="card-text" t-esc="bg.description"/>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted">
+                                                <i class="fa fa-tag me-1"/>
+                                                <span t-esc="bg.category"/>
+                                            </small>
+                                            <small class="text-muted">
+                                                <i class="fa fa-users me-1"/>
+                                                <span t-esc="bg.usage_count"/> utilisations
+                                            </small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card-footer">
+                                        <div class="btn-group w-100" role="group">
+                                            <a t-attf-href="/background/preview/#{bg.id}/portrait" 
+                                               class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-mobile me-1"/>Portrait
+                                            </a>
+                                            <a t-attf-href="/background/preview/#{bg.id}/landscape" 
+                                               class="btn btn-outline-secondary btn-sm">
+                                                <i class="fa fa-desktop me-1"/>Paysage
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Message si aucun fond d'écran -->
+                    <div t-if="not backgrounds" class="text-center py-5">
+                        <i class="fa fa-picture-o fa-5x text-muted mb-3"/>
+                        <h3 class="text-muted">Aucun fond d'écran disponible</h3>
+                        <p class="text-muted">Les fonds d'écran par défaut seront chargés automatiquement.</p>
+                        <button class="btn btn-primary" onclick="loadDefaultBackgrounds()">
+                            <i class="fa fa-download me-2"/>Charger les fonds par défaut
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                function loadDefaultBackgrounds() {
+                    fetch('/api/background/load_defaults', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({})
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            location.reload();
+                        } else {
+                            alert('Erreur: ' + data.error);
+                        }
+                    });
+                }
+            </script>
+        </t>
+    </template>
+
+    <!-- Template pour la prévisualisation d'un fond spécifique -->
+    <template id="background_preview_template" name="Prévisualisation Fond d'écran">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container-fluid p-0">
+                    <!-- Header de navigation -->
+                    <div class="bg-dark text-white p-3">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-6">
+                                    <h4 class="mb-0">
+                                        <i class="fa fa-picture-o me-2"/>
+                                        Prévisualisation : <span t-esc="background.name"/>
+                                    </h4>
+                                    <small class="text-muted">
+                                        Format : <span t-esc="orientation.title()"/>
+                                    </small>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <a href="/background/gallery" class="btn btn-outline-light btn-sm me-2">
+                                        <i class="fa fa-arrow-left me-1"/>Retour à la galerie
+                                    </a>
+                                    <div class="btn-group" role="group">
+                                        <a t-attf-href="/background/preview/#{background.id}/portrait" 
+                                           t-attf-class="btn btn-sm #{'btn-primary' if orientation == 'portrait' else 'btn-outline-light'}">
+                                            <i class="fa fa-mobile me-1"/>Portrait
+                                        </a>
+                                        <a t-attf-href="/background/preview/#{background.id}/landscape" 
+                                           t-attf-class="btn btn-sm #{'btn-primary' if orientation == 'landscape' else 'btn-outline-light'}">
+                                            <i class="fa fa-desktop me-1"/>Paysage
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Prévisualisation plein écran -->
+                    <div class="position-relative" style="min-height: 100vh;">
+                        <div t-attf-style="
+                            background-image: url('/web/image/membership.card.background/#{background.id}/image_#{orientation}');
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            min-height: 100vh;
+                            position: relative;
+                        ">
+                            <!-- Overlay pour la lisibilité -->
+                            <div style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                right: 0;
+                                bottom: 0;
+                                background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+                                z-index: 1;
+                            "></div>
+                            
+                            <!-- Contenu de test -->
+                            <div class="d-flex align-items-center justify-content-center min-vh-100 position-relative" style="z-index: 2;">
+                                <div class="text-center text-white p-4">
+                                    <div class="card bg-white text-dark shadow-lg" style="max-width: 400px; border-radius: 15px;">
+                                        <div class="card-body p-4">
+                                            <img t-if="member and member.image_1920" 
+                                                 t-att-src="'/web/image/membership.member/' + str(member.id) + '/image_1920'" 
+                                                 class="rounded-circle mb-3" 
+                                                 style="width: 100px; height: 100px; object-fit: cover;"/>
+                                            <img t-else="" 
+                                                 src="/web/static/src/img/placeholder.png" 
+                                                 class="rounded-circle mb-3" 
+                                                 style="width: 100px; height: 100px; object-fit: cover;"/>
+                                            
+                                            <h5 t-esc="member.name if member else 'Membre Test'"/>
+                                            <p class="text-muted" t-esc="member.membership_number if member else 'TEST-001'"/>
+                                            
+                                            <div class="badge bg-success p-2 mb-3">
+                                                <i class="fa fa-check me-1"/>CARTE VALIDE
+                                            </div>
+                                            
+                                            <p class="small text-muted mb-0">
+                                                Fond d'écran : <strong t-esc="background.name"/>
+                                            </p>
+                                            <p class="small text-muted">
+                                                Orientation : <strong t-esc="orientation.title()"/>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
