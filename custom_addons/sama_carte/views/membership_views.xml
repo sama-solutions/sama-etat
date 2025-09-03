@@ -24,7 +24,7 @@
         <field name="arch" type="xml">
             <form string="Membre">
                 <header>
-                    <button name="action_open_public_page" type="object" string="Voir Page Publique" class="btn-primary" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
+                    <button name="action_open_public_page" type="object" class="oe_highlight" string="Voir la carte publique" icon="fa-external-link" help="Ouvrir la page publique du membre"/>
                 </header>
                 <sheet>
                     <field name="image_1920" widget="image" class="oe_avatar"/>
@@ -251,6 +251,14 @@
         </field>
     </record>
 
-    <menuitem id="menu_membership_root" name="Gestion des Membres" sequence="10"/>
+    <!-- Action pour ouvrir la galerie des cartes -->
+    <record id="action_open_member_gallery" model="ir.actions.act_url">
+        <field name="name">Galerie des Cartes</field>
+        <field name="url">/members/gallery</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_membership_root" name="Gestion des Membres" sequence="10" web_icon="sama_carte,static/description/icon.png"/>
     <menuitem id="menu_membership_member" name="Membres" parent="menu_membership_root" action="action_membership_member" sequence="10"/>
+    <menuitem id="menu_membership_gallery" name="Galerie des Cartes" parent="menu_membership_root" action="action_open_member_gallery" sequence="20"/>
 </odoo>

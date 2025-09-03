@@ -33,6 +33,8 @@ Fonctionnalités :
         'views/v2/card_designs_fullsize_backgrounds.xml',
         'views/v2/card_designs_with_real_backgrounds.xml',
         'views/v2/card_designs_portrait_backgrounds.xml',
+        'views/v2/real_member_card_templates.xml',
+        'views/v2/real_member_portrait_templates.xml',
         'views/v2/real_background_gallery.xml',
         'views/v2/background_views.xml',
         'views/v2/background_gallery_templates.xml',
