@@ -36,60 +36,16 @@ Fonctionnalités :
         'hr',
     ],
     'data': [
-        # Security
-        'security/security_groups.xml',
         'security/ir.model.access.csv',
-        
-        # Data
-        'data/information_request_stages.xml',
-        'data/refusal_reasons.xml',
-        'data/whistleblowing_stages.xml',
-        'data/sequences.xml',
-        'data/analytics/cron_jobs.xml',
-        
-        # Views - Information Request
+        'security/security.xml',
+        'data/ir_sequence.xml',
+        'data/demo_content_enriched.xml',
         'views/information_request_views.xml',
         'views/information_request_stage_views.xml',
-        'views/refusal_reason_views.xml',
-        
-        # Views - Whistleblowing
         'views/whistleblowing_alert_views.xml',
-        'views/whistleblowing_stage_views.xml',
-        
-        # Views - Analytics
-        'views/analytics/executive_dashboard_views.xml',
-        'views/analytics/auto_report_generator_views.xml',
-        
-        # Views - Dashboard & KPI
-        'views/dashboard_views.xml',
-        'views/dashboard_neumorphic_views.xml',  # Dashboard neumorphique activé
-        'views/public_dashboard_actions.xml',
-        
-        # Views - Administration
-        'views/administration_views.xml',
-        'views/analytics_filtered_views.xml',
-        
-        # Views - User Preferences & Themes
-        'views/user_preferences_views.xml',
-        
-        # Views - Mobile (temporairement désactivé)
-        # 'views/mobile_views.xml',
-        
-        # Portal Templates
-        'templates/portal_templates.xml',
-        'templates/transparency_dashboard_template.xml',
-        'templates/help_contact_template.xml',
-        
-        # Dashboard Templates
-        'templates/dashboard/dashboard_template.xml',
-        'templates/dashboard/sama_conai_dashboard_neumorphic.xml',  # Templates neumorphiques activés
-        # 'templates/dashboard/dashboard_client_action_template.xml',  # Temporairement désactivé
-        
-        # Assets (CSS et JS)
-        'views/assets.xml',
-        
-        # Menus
-        'views/menus.xml',
+        'views/whistleblowing_alert_stage_views.xml',
+        'views/menu_views.xml',
+        'data/email_templates.xml',
     ],
     'demo': [
         # Données de démo par vagues progressives
