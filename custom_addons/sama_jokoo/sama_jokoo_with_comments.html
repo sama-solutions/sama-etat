@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Sama Jokoo - Application Neumorphique avec Commentaires</title>
+    <style>
+        /* Variables CSS neumorphiques */
+        :root {
+            --bg-primary: #f0f0f3;
+            --bg-secondary: #e6e6e9;
+            --shadow-light: #ffffff;
+            --shadow-dark: #d1d1d4;
+            --accent-primary: #667eea;
+            --accent-secondary: #764ba2;
+            --accent-success: #4ecdc4;
+            --accent-error: #ff6b6b;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --text-muted: #a0aec0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 50%;
+            --transition-normal: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Composants neumorphiques */
+        .neu-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-md);
+            transition: all var(--transition-normal);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .neu-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                12px 12px 24px var(--shadow-dark),
+                -12px -12px 24px var(--shadow-light);
+        }
+
+        .neu-card.inset {
+            box-shadow: 
+                inset 4px 4px 8px var(--shadow-dark),
+                inset -4px -4px 8px var(--shadow-light);
+        }
+
+        .neu-button {
+            background: var(--bg-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: var(--text-primary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            box-shadow: 
+                6px 6px 12px var(--shadow-dark),
+                -6px -6px 12px var(--shadow-light);
+            margin: var(--spacing-sm);
+            font-size: 0.875rem;
+        }
+
+        .neu-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 
+                8px 8px 16px var(--shadow-dark),
+                -8px -8px 16px var(--shadow-light);
+        }
+
+        .neu-button:active {
+            transform: translateY(0);
+            box-shadow: 
+                inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .neu-button.primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+        }
+
+        .neu-button.small {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.75rem;
+        }
+
+        .neu-input {
+            background: var(--bg-primary);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md) var(--spacing-lg);
+            color: var(--text-primary);
+            font-size: 1rem;
+            width: 100%;
+            transition: all var(--transition-normal);
+            box-shadow: 
+                inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .neu-input:focus {
+            outline: none;
+            box-shadow: 
+                inset 3px 3px 6px var(--shadow-dark),
+                inset -3px -3px 6px var(--shadow-light),
+                0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Layout */
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .app-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .login-section, .feed-section {
+            display: none;
+        }
+
+        .login-section.active, .feed-section.active {
+            display: block;
+        }
+
+        .user-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-right: var(--spacing-md);
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+        }
+
+        .user-avatar.small {
+            width: 36px;
+            height: 36px;
+            font-size: 1rem;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .post-content {
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .post-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--bg-secondary);
+        }
+
+        .post-actions .neu-button {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            flex: 1;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .create-post {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-full);
+            background: var(--accent-success);
+            margin-right: var(--spacing-sm);
+            box-shadow: 0 0 8px rgba(78, 205, 196, 0.5);
+        }
+
+        .demo-banner {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+        }
+
+        /* Système de commentaires */
+        .comments-section {
+            margin-top: var(--spacing-lg);
+            border-top: 1px solid var(--bg-secondary);
+            padding-top: var(--spacing-lg);
+        }
+
+        .comments-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .comments-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .comment-create {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .comment-create-header {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .comment-create-input {
+            flex: 1;
+        }
+
+        .comment-create-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .comment-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            box-shadow: 
+                4px 4px 8px var(--shadow-dark),
+                -4px -4px 8px var(--shadow-light);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .comment-author {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+
+        .comment-author-info h5 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .comment-author-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .comment-content {
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .comment-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .comment-actions .neu-button {
+            padding: var(--spacing-xs) var(--spacing-sm);
+            font-size: 0.75rem;
+            margin: 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .liked {
+            color: var(--accent-error);
+        }
+
+        @media (max-width: 768px) {
+            .app-container {
+                padding: var(--spacing-sm);
+            }
+            .app-title {
+                font-size: 2rem;
+            }
+            .post-actions {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- En-tête -->
+        <div class="header">
+            <h1 class="app-title">🎨 Sama Jokoo</h1>
+            <p class="app-subtitle">Application sociale neumorphique avec commentaires</p>
+        </div>
+
+        <!-- Bannière démo -->
+        <div class="demo-banner">
+            <span class="status-indicator"></span>
+            <strong>Mode Démo Actif</strong> - Application neumorphique avec système de commentaires
+        </div>
+
+        <!-- Section de connexion -->
+        <div id="loginSection" class="login-section active">
+            <div class="neu-card">
+                <h2 style="text-align: center; margin-bottom: var(--spacing-lg);">Connexion</h2>
+                
+                <input type="text" id="username" class="neu-input" placeholder="Nom d'utilisateur" value="admin">
+                <input type="password" id="password" class="neu-input" placeholder="Mot de passe" value="admin">
+                
+                <div style="text-align: center;">
+                    <button class="neu-button primary" onclick="login()">
+                        Se connecter
+                    </button>
+                </div>
+                
+                <div style="text-align: center; margin-top: var(--spacing-lg); color: var(--text-muted);">
+                    <small>Utilisez admin / admin pour vous connecter</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section feed -->
+        <div id="feedSection" class="feed-section">
+            <!-- Création de post -->
+            <div class="neu-card">
+                <div class="create-post">
+                    <div class="user-avatar">A</div>
+                    <input type="text" id="newPost" class="neu-input" placeholder="Quoi de neuf ?" style="margin-bottom: 0;">
+                </div>
+                <div style="text-align: right;">
+                    <button class="neu-button primary" onclick="createPost()">
+                        Publier
+                    </button>
+                </div>
+            </div>
+
+            <!-- Liste des posts -->
+            <div id="postsList">
+                <!-- Les posts seront ajoutés ici dynamiquement -->
+            </div>
+
+            <!-- Bouton de déconnexion -->
+            <div style="text-align: center; margin-top: var(--spacing-xl);">
+                <button class="neu-button" onclick="logout()">
+                    Déconnexion
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Données de démonstration
+        let posts = [
+            {
+                id: 1,
+                content: "Bienvenue sur Sama Jokoo ! 🎉 Découvrez notre design neumorphique unique avec système de commentaires.",
+                author: "Admin",
+                likes: 5,
+                time: "Il y a 2h",
+                comments: []
+            },
+            {
+                id: 2,
+                content: "Interface moderne avec effets d'ombres et de reliefs ✨ Testez les commentaires !",
+                author: "Admin", 
+                likes: 12,
+                time: "Il y a 4h",
+                comments: [
+                    {
+                        id: 1,
+                        content: "Super application ! 👍",
+                        author: "Utilisateur Demo",
+                        time: "Il y a 1h",
+                        likes: 2
+                    }
+                ]
+            },
+            {
+                id: 3,
+                content: "Application responsive et PWA ready ! 📱 Commentaires neumorphiques inclus.",
+                author: "Admin",
+                likes: 8,
+                time: "Il y a 6h",
+                comments: []
+            }
+        ];
+
+        let currentUser = null;
+
+        // Fonction de connexion
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === 'admin') {
+                currentUser = { name: 'Admin', username: 'admin' };
+                
+                // Masquer la section de connexion
+                document.getElementById('loginSection').classList.remove('active');
+                
+                // Afficher le feed
+                document.getElementById('feedSection').classList.add('active');
+                
+                // Charger les posts
+                renderPosts();
+                
+                // Animation de succès
+                showNotification('✅ Connexion réussie !', 'success');
+            } else {
+                showNotification('❌ Identifiants incorrects', 'error');
+            }
+        }
+
+        // Fonction de déconnexion
+        function logout() {
+            currentUser = null;
+            
+            // Masquer le feed
+            document.getElementById('feedSection').classList.remove('active');
+            
+            // Afficher la connexion
+            document.getElementById('loginSection').classList.add('active');
+            
+            showNotification('👋 Déconnexion réussie', 'info');
+        }
+
+        // Fonction de création de post
+        function createPost() {
+            const content = document.getElementById('newPost').value.trim();
+            
+            if (!content) {
+                showNotification('⚠️ Veuillez saisir du contenu', 'warning');
+                return;
+            }
+
+            const newPost = {
+                id: posts.length + 1,
+                content: content,
+                author: currentUser.name,
+                likes: 0,
+                time: "À l'instant",
+                comments: []
+            };
+
+            posts.unshift(newPost);
+            document.getElementById('newPost').value = '';
+            renderPosts();
+            
+            showNotification('✅ Post publié !', 'success');
+        }
+
+        // Fonction de like
+        function likePost(postId) {
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                post.likes++;
+                renderPosts();
+                showNotification('❤️ Post aimé !', 'success');
+            }
+        }
+
+        // Fonction pour basculer les commentaires
+        function toggleComments(postId) {
+            const commentsSection = document.getElementById(`comments-${postId}`);
+            if (commentsSection.classList.contains('hidden')) {
+                commentsSection.classList.remove('hidden');
+            } else {
+                commentsSection.classList.add('hidden');
+            }
+        }
+
+        // Fonction pour créer un commentaire
+        function createComment(postId) {
+            const input = document.getElementById(`comment-input-${postId}`);
+            const content = input.value.trim();
+            
+            if (!content) {
+                showNotification('⚠️ Veuillez saisir un commentaire', 'warning');
+                return;
+            }
+
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                const newComment = {
+                    id: post.comments.length + 1,
+                    content: content,
+                    author: currentUser.name,
+                    time: "À l'instant",
+                    likes: 0
+                };
+
+                post.comments.push(newComment);
+                input.value = '';
+                renderPosts();
+                showNotification('✅ Commentaire ajouté !', 'success');
+            }
+        }
+
+        // Fonction pour liker un commentaire
+        function likeComment(postId, commentId) {
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                const comment = post.comments.find(c => c.id === commentId);
+                if (comment) {
+                    comment.likes++;
+                    renderPosts();
+                    showNotification('❤️ Commentaire aimé !', 'success');
+                }
+            }
+        }
+
+        // Rendu des posts
+        function renderPosts() {
+            const postsList = document.getElementById('postsList');
+            postsList.innerHTML = '';
+
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'neu-card';
+                
+                const commentsHtml = post.comments.map(comment => `
+                    <div class="comment-card">
+                        <div class="comment-header">
+                            <div class="comment-author">
+                                <div class="user-avatar small">${comment.author.charAt(0)}</div>
+                                <div class="comment-author-info">
+                                    <h5>${comment.author}</h5>
+                                    <p>${comment.time}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-content">${comment.content}</div>
+                        <div class="comment-actions">
+                            <button class="neu-button small" onclick="likeComment(${post.id}, ${comment.id})">
+                                ❤️ ${comment.likes}
+                            </button>
+                            <button class="neu-button small">
+                                💬 Répondre
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+
+                postElement.innerHTML = `
+                    <div class="post-header">
+                        <div class="user-avatar">${post.author.charAt(0)}</div>
+                        <div>
+                            <strong>${post.author}</strong><br>
+                            <small style="color: var(--text-muted);">${post.time}</small>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        ${post.content}
+                    </div>
+                    <div class="post-actions">
+                        <button class="neu-button" onclick="likePost(${post.id})">
+                            ❤️ ${post.likes}
+                        </button>
+                        <button class="neu-button" onclick="toggleComments(${post.id})">
+                            💬 ${post.comments.length}
+                        </button>
+                        <button class="neu-button">
+                            🔗 Partager
+                        </button>
+                    </div>
+                    
+                    <div id="comments-${post.id}" class="comments-section hidden">
+                        <div class="comments-header">
+                            <h3 class="comments-title">💬 Commentaires (${post.comments.length})</h3>
+                        </div>
+                        
+                        <div class="comment-create neu-card inset">
+                            <div class="comment-create-header">
+                                <div class="user-avatar small">A</div>
+                                <div class="comment-create-input">
+                                    <input type="text" id="comment-input-${post.id}" class="neu-input" placeholder="Écrivez un commentaire..." style="margin-bottom: 0;">
+                                </div>
+                            </div>
+                            <div class="comment-create-actions">
+                                <button class="neu-button primary small" onclick="createComment(${post.id})">
+                                    Commenter
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="comments-list">
+                            ${commentsHtml}
+                        </div>
+                    </div>
+                `;
+                postsList.appendChild(postElement);
+            });
+        }
+
+        // Fonction de notification
+        function showNotification(message, type) {
+            // Créer l'élément de notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--bg-primary);
+                color: var(--text-primary);
+                padding: var(--spacing-md);
+                border-radius: var(--radius-md);
+                box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+                z-index: 1000;
+                transition: all 0.3s ease;
+                transform: translateX(100%);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            // Animation d'entrée
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            // Suppression automatique
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Gestion des touches
+        document.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                if (document.getElementById('loginSection').classList.contains('active')) {
+                    login();
+                } else if (document.getElementById('newPost') === document.activeElement) {
+                    createPost();
+                } else if (e.target.id && e.target.id.startsWith('comment-input-')) {
+                    const postId = parseInt(e.target.id.replace('comment-input-', ''));
+                    createComment(postId);
+                }
+            }
+        });
+
+        // Initialisation
+        console.log('🎨 Sama Jokoo - Application neumorphique avec commentaires chargée');
+        console.log('✅ Système de commentaires fonctionnel');
+        console.log('🎯 Prêt pour le développement');
+        showNotification('🎨 Sama Jokoo avec commentaires chargé !', 'success');
+    </script>
+</body>
+</html>
