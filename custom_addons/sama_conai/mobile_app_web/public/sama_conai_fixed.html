@@ -63,6 +63,54 @@
             --accent-success: #30D158;
         }
 
+        /* Thème Ocean */
+        body[data-theme="ocean"] {
+            --background-color: #E8F4F8;
+            --text-color: #1B4F72;
+            --shadow-dark: #D5E8ED;
+            --shadow-light: #FFFFFF;
+            --accent-action: #2E86AB;
+            --accent-alert: #F39C12;
+            --accent-danger: #E74C3C;
+            --accent-success: #16A085;
+        }
+
+        /* Thème Forest */
+        body[data-theme="forest"] {
+            --background-color: #F0F4F0;
+            --text-color: #2D5016;
+            --shadow-dark: #E1E8E1;
+            --shadow-light: #FFFFFF;
+            --accent-action: #27AE60;
+            --accent-alert: #F39C12;
+            --accent-danger: #E74C3C;
+            --accent-success: #229954;
+        }
+
+        /* Thème Sunset */
+        body[data-theme="sunset"] {
+            --background-color: #FDF2E9;
+            --text-color: #8B4513;
+            --shadow-dark: #F4E4D6;
+            --shadow-light: #FFFFFF;
+            --accent-action: #E67E22;
+            --accent-alert: #F39C12;
+            --accent-danger: #E74C3C;
+            --accent-success: #27AE60;
+        }
+
+        /* Thème Purple */
+        body[data-theme="purple"] {
+            --background-color: #F4F1F8;
+            --text-color: #4A148C;
+            --shadow-dark: #E8DDF0;
+            --shadow-light: #FFFFFF;
+            --accent-action: #8E24AA;
+            --accent-alert: #FF9800;
+            --accent-danger: #E91E63;
+            --accent-success: #4CAF50;
+        }
+
         /* ========================================= */
         /* RESET ET BASE                             */
         /* ========================================= */
@@ -733,6 +781,18 @@
                         <div class="theme-option" onclick="changeTheme('dark', event)">
                             <span class="theme-icon">🌙</span> Dark Mode
                         </div>
+                        <div class="theme-option" onclick="changeTheme('ocean', event)">
+                            <span class="theme-icon">🌊</span> Ocean
+                        </div>
+                        <div class="theme-option" onclick="changeTheme('forest', event)">
+                            <span class="theme-icon">🌲</span> Forest
+                        </div>
+                        <div class="theme-option" onclick="changeTheme('sunset', event)">
+                            <span class="theme-icon">🌅</span> Sunset
+                        </div>
+                        <div class="theme-option" onclick="changeTheme('purple', event)">
+                            <span class="theme-icon">🔮</span> Purple
+                        </div>
                     </div>
                 </button>
             </div>
@@ -938,7 +998,11 @@
                 'default': 'Institutionnel',
                 'terre': 'Terre',
                 'moderne': 'Moderne',
-                'dark': 'Dark Mode'
+                'dark': 'Dark Mode',
+                'ocean': 'Ocean',
+                'forest': 'Forest',
+                'sunset': 'Sunset',
+                'purple': 'Purple'
             };
             
             // Afficher une notification temporaire

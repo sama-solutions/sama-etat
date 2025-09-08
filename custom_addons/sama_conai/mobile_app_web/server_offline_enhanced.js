@@ -177,79 +177,242 @@ app.get('/correct', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sama_conai_fixed.html'));
 });
 
+// Route pour la version avancée avec navigation 3 niveaux
+app.get('/advanced', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'sama_conai_advanced.html'));
+});
+
+// ========================================= //
+// API ENDPOINTS POUR DONNÉES RÉELLES        //
+// ========================================= //
+
+// Dashboard data endpoint
+app.get('/api/mobile/dashboard', authenticateToken, async (req, res) => {
+  try {
+    // Simuler les données du module SAMA CONAI
+    const dashboardData = {
+      info_requests: 15,
+      alerts: 8,
+      overdue: 3,
+      completed: 42,
+      recent_activity: [
+        {
+          id: 1,
+          type: 'info_request',
+          title: 'Nouvelle demande d\'information',
+          subtitle: 'REQ-2025-001 - Amadou Diallo',
+          date: new Date().toISOString(),
+          status: 'new'
+        },
+        {
+          id: 2,
+          type: 'alert',
+          title: 'Alerte en cours de traitement',
+          subtitle: 'ALT-2025-002 - Signalement de fraude',
+          date: new Date(Date.now() - 4 * 60 * 60 * 1000).toISOString(),
+          status: 'in_progress'
+        }
+      ]
+    };
+    
+    res.json(dashboardData);
+  } catch (error) {
+    console.error('Erreur lors du chargement du dashboard:', error);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
+  }
+});
+
+// Information requests endpoint
+app.get('/api/mobile/info-requests', authenticateToken, async (req, res) => {
+  try {
+    const infoRequests = [
+      {
+        id: 1,
+        name: 'REQ-2025-001',
+        partner_name: 'Amadou Diallo',
+        partner_email: 'amadou.diallo@email.com',
+        request_date: '2025-01-15T10:30:00Z',
+        state: 'submitted',
+        description: 'Demande d\'accès aux documents budgétaires 2024',
+        deadline_date: '2025-02-14',
+        is_overdue: false
+      },
+      {
+        id: 2,
+        name: 'REQ-2025-002',
+        partner_name: 'Fatou Sall',
+        partner_email: 'fatou.sall@email.com',
+        request_date: '2025-01-14T14:20:00Z',
+        state: 'in_progress',
+        description: 'Information sur les marchés publics',
+        deadline_date: '2025-02-13',
+        is_overdue: false
+      },
+      {
+        id: 3,
+        name: 'REQ-2025-003',
+        partner_name: 'Moussa Ba',
+        partner_email: 'moussa.ba@email.com',
+        request_date: '2025-01-13T09:15:00Z',
+        state: 'responded',
+        description: 'Accès aux rapports d\'audit',
+        deadline_date: '2025-02-12',
+        is_overdue: false
+      },
+      {
+        id: 4,
+        name: 'REQ-2025-004',
+        partner_name: 'Aissatou Diop',
+        partner_email: 'aissatou.diop@email.com',
+        request_date: '2024-12-20T16:45:00Z',
+        state: 'in_progress',
+        description: 'Documents de planification urbaine',
+        deadline_date: '2025-01-19',
+        is_overdue: true
+      }
+    ];
+    
+    res.json(infoRequests);
+  } catch (error) {
+    console.error('Erreur lors du chargement des demandes:', error);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
+  }
+});
+
+// Alerts endpoint
+app.get('/api/mobile/alerts', authenticateToken, async (req, res) => {
+  try {
+    const alerts = [
+      {
+        id: 1,
+        name: 'ALT-2025-001',
+        category: 'corruption',
+        alert_date: '2025-01-15T11:30:00Z',
+        state: 'new',
+        priority: 'high',
+        description: 'Signalement de corruption dans un marché public',
+        is_anonymous: true
+      },
+      {
+        id: 2,
+        name: 'ALT-2025-002',
+        category: 'fraud',
+        alert_date: '2025-01-14T15:20:00Z',
+        state: 'investigation',
+        priority: 'medium',
+        description: 'Fraude présumée dans la gestion des fonds',
+        is_anonymous: false
+      },
+      {
+        id: 3,
+        name: 'ALT-2025-003',
+        category: 'abuse_of_power',
+        alert_date: '2025-01-13T08:45:00Z',
+        state: 'resolved',
+        priority: 'low',
+        description: 'Abus de pouvoir signalé',
+        is_anonymous: true
+      }
+    ];
+    
+    res.json(alerts);
+  } catch (error) {
+    console.error('Erreur lors du chargement des alertes:', error);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
+  }
+});
+
+// Individual info request endpoint
+app.get('/api/mobile/info-requests/:id', authenticateToken, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    // Simuler la récupération d'une demande spécifique
+    const request = {
+      id: id,
+      name: `REQ-2025-${id.toString().padStart(3, '0')}`,
+      partner_name: 'Amadou Diallo',
+      partner_email: 'amadou.diallo@email.com',
+      request_date: '2025-01-15T10:30:00Z',
+      state: 'submitted',
+      description: 'Demande d\'accès aux documents budgétaires 2024 pour analyse journalistique',
+      deadline_date: '2025-02-14',
+      is_overdue: false,
+      stage: 'Nouvelle demande',
+      user_assigned: 'Agent SAMA CONAI',
+      department: 'Ministère des Finances'
+    };
+    
+    res.json(request);
+  } catch (error) {
+    console.error('Erreur lors du chargement de la demande:', error);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
+  }
+});
+
+// Individual alert endpoint
+app.get('/api/mobile/alerts/:id', authenticateToken, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    // Simuler la récupération d'une alerte spécifique
+    const alert = {
+      id: id,
+      name: `ALT-2025-${id.toString().padStart(3, '0')}`,
+      category: 'corruption',
+      alert_date: '2025-01-15T11:30:00Z',
+      state: 'new',
+      priority: 'high',
+      description: 'Signalement de corruption dans un marché public. Des irrégularités ont été observées dans le processus d\'attribution.',
+      is_anonymous: true,
+      stage: 'Nouveau signalement',
+      manager_assigned: 'Référent Alerte SAMA CONAI',
+      investigation_notes: 'Évaluation préliminaire en cours'
+    };
+    
+    res.json(alert);
+  } catch (error) {
+    console.error('Erreur lors du chargement de l\'alerte:', error);
+    res.status(500).json({ error: 'Erreur interne du serveur' });
+  }
+});
+
 // Authentification avec JWT
 app.post('/api/mobile/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    if (!email || !password) {
-      return res.json({
-        success: false,
-        error: 'Email et mot de passe requis'
-      });
-    }
-    
-    let isValidUser = false;
-    let userData = null;
-    
-    // Authentification admin uniquement
+    // Vérification simple pour la démo
     if (email === 'admin' && password === 'admin') {
-      isValidUser = true;
-      userData = {
-        id: 'admin_001',
-        name: 'Administrateur SAMA CONAI',
-        email: 'admin@sama-conai.sn',
-        role: 'admin'
-      };
-    }
-    
-    if (isValidUser && userData) {
-      // Générer le token JWT
-      const sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
       const token = jwt.sign(
-        { userId: userData.id, sessionId },
+        { 
+          userId: 1, 
+          email: 'admin@sama-conai.sn',
+          role: 'admin'
+        },
         JWT_SECRET,
         { expiresIn: '24h' }
       );
-
-      // Créer la session
-      userSessions.set(sessionId, {
-        userId: userData.id,
-        userName: userData.name,
-        userEmail: userData.email,
-        role: userData.role,
-        loginTime: new Date(),
-        lastActivity: new Date(),
-        isAdmin: true,
-        isOdooUser: isOdooConnected
-      });
       
       res.json({
         success: true,
-        data: {
-          token,
-          sessionId,
-          user: {
-            id: userData.id,
-            name: userData.name,
-            email: userData.email,
-            role: userData.role,
-            isAdmin: true
-          }
+        token: token,
+        user: {
+          id: 1,
+          name: 'Administrateur SAMA CONAI',
+          email: 'admin@sama-conai.sn',
+          role: 'admin'
         }
       });
     } else {
-      res.json({
+      res.status(401).json({
         success: false,
-        error: 'Identifiants incorrects'
+        message: 'Identifiants invalides'
       });
     }
-    
   } catch (error) {
-    logger.error('❌ Erreur login:', error.message);
-    res.json({
+    console.error('Erreur lors de l\'authentification:', error);
+    res.status(500).json({
       success: false,
-      error: 'Erreur lors de la connexion'
+      message: 'Erreur interne du serveur'
     });
   }
 });

@@ -1,0 +1,5 @@
+🇸🇳 SAMA CONAI - Serveur Enrichi démarré sur le port 3007
+📱 Interface enrichie: http://localhost:3007/enriched
+🔥 Interface layers corrigés: http://localhost:3007/fixed-layers
+📊 API Analytics: http://localhost:3007/api/mobile/analytics
+🔔 API Notifications: http://localhost:3007/api/mobile/notifications

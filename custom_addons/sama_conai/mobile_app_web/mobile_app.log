@@ -323,3 +323,31 @@
 ❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
 ❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
 ❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+📊 Chargement dashboard pour utilisateur ID: 2
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur recherche request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur recherche request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+⚠️ Erreur authentification Odoo: odooAPI.authenticateUser is not a function
+✅ Authentification démo pour: Administrateur
+📊 Chargement dashboard pour utilisateur ID: 2
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur recherche request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur recherche request.information: Request failed with status code 404
+❌ Erreur comptage request.information: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
+❌ Erreur comptage whistleblowing.alert: Request failed with status code 404
