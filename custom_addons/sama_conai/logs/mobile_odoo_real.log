@@ -1,0 +1,12 @@
+
+> sama-conai-mobile-web@1.0.0 start
+> node server.js
+
+🔄 Connexion à Odoo pour données réelles...
+🚀 Serveur mobile SAMA CONAI avec données réelles Odoo démarré sur http://localhost:3005
+📊 Source de données: DÉMO (Odoo non disponible)
+🔗 Intégration backend Odoo: STANDBY
+👤 Credentials: admin/admin ou demo@sama-conai.sn/demo123
+📱 Interface neumorphique avec données réelles d'Odoo
+✅ Authentification Odoo réussie
+✅ Connexion Odoo établie - Données réelles disponibles

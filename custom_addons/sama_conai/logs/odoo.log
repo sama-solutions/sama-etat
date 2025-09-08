@@ -1,0 +1,44 @@
+2025-09-07 20:59:22,054 21374 INFO ? odoo: Odoo version 18.0 
+2025-09-07 20:59:22,055 21374 INFO ? odoo: Using configuration file at /home/grand-as/.odoorc 
+2025-09-07 20:59:22,055 21374 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/var/odoo/odoo18/addons', '/home/grand-as/psagsn/custom_addons'] 
+2025-09-07 20:59:22,055 21374 INFO ? odoo: database: odoo@localhost:default 
+2025-09-07 20:59:22,302 21374 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 20:59:22,327 21374 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 20:59:22,748 21374 INFO ? odoo.service.server: HTTP service (werkzeug) running on grand-as-ThinkPad-T560:8077 
+2025-09-07 20:59:22,777 21374 INFO sama_conai_test odoo.modules.loading: loading 1 modules... 
+2025-09-07 20:59:22,787 21374 INFO sama_conai_test odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2025-09-07 20:59:22,805 21374 INFO sama_conai_test odoo.modules.loading: loading 34 modules... 
+2025-09-07 20:59:23,699 21374 INFO sama_conai_test odoo.modules.loading: 34 modules loaded in 0.89s, 0 queries (+0 extra) 
+2025-09-07 20:59:23,793 21374 INFO sama_conai_test odoo.modules.loading: Modules loaded. 
+2025-09-07 20:59:23,797 21374 INFO sama_conai_test odoo.modules.registry: Registry loaded in 1.047s 
+2025-09-07 20:59:23,800 21374 INFO sama_conai_test odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-09-07 20:59:23,855 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:59:23] "GET / HTTP/1.1" 303 - 5 0.003 0.941
+2025-09-07 20:59:25,921 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:59:25] "GET / HTTP/1.1" 303 - 1 0.001 0.006
+2025-09-07 20:59:26,487 21374 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 20:59:26,488 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:59:26] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.336
+2025-09-07 20:59:28,009 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:59:28] "GET / HTTP/1.1" 303 - 1 0.001 0.003
+2025-09-07 21:00:20,272 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:20] "GET / HTTP/1.1" 303 - 1 0.002 0.009
+2025-09-07 21:00:20,588 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:20] "GET /sama_conai/dashboard HTTP/1.1" 404 - 82 0.061 0.221
+2025-09-07 21:00:25,854 21374 INFO sama_conai_test odoo.addons.base.models.res_device: User 2 inserts device log (oTjmj25t9Nxc0uxnbyXeqn54Lo1UsE2ZzSM2_sbYjN) 
+2025-09-07 21:00:25,901 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:25] "GET / HTTP/1.1" 303 - 4 0.005 0.050
+2025-09-07 21:00:26,378 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:26] "GET /odoo HTTP/1.1" 200 - 86 0.060 0.383
+2025-09-07 21:00:26,919 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:26] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 9 0.011 0.017
+2025-09-07 21:00:26,937 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:26] "GET /bus/websocket_worker_bundle?v=18.0-5 HTTP/1.1" 304 - 4 0.004 0.012
+2025-09-07 21:00:27,145 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "POST /web/action/load HTTP/1.1" 200 - 6 0.023 0.078
+2025-09-07 21:00:27,148 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 17 0.041 0.064
+2025-09-07 21:00:27,164 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.005 0.012
+2025-09-07 21:00:27,216 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "POST /mail/data HTTP/1.1" 200 - 27 0.042 0.077
+2025-09-07 21:00:27,366 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "POST /mail/data HTTP/1.1" 200 - 40 0.037 0.041
+2025-09-07 21:00:27,667 21374 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2025-09-07 21:00:27,744 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:27] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.004 0.011
+2025-09-07 21:00:29,508 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:00:29] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.002 0.012
+2025-09-07 21:01:02,750 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:01:02] "GET /sama_conai/dashboard HTTP/1.1" 404 - 8 0.008 0.035
+2025-09-07 21:01:02,816 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:01:02] "GET /logo.png?company=1 HTTP/1.1" 200 - 2 0.002 0.009
+2025-09-07 21:01:04,664 21374 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9ef007a/web.assets_frontend.min.css (id:36) 
+2025-09-07 21:01:04,689 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:01:04] "GET /web_editor/shape/http_routing/404.svg?c2=o-color-2 HTTP/1.1" 200 - 12 0.030 1.869
+2025-09-07 21:02:13,505 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:02:13] "GET / HTTP/1.1" 303 - 1 0.001 0.002
+2025-09-07 21:02:13,527 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:02:13] "GET /sama_conai/dashboard HTTP/1.1" 404 - 9 0.005 0.009
+2025-09-07 21:02:13,548 21374 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:02:13] "GET /sama_conai/theme_selector HTTP/1.1" 404 - 9 0.004 0.008
+2025-09-07 21:03:38,927 21374 INFO sama_conai_test odoo.service.server: Initiating shutdown 
+2025-09-07 21:03:38,927 21374 INFO sama_conai_test odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+Forced shutdown.

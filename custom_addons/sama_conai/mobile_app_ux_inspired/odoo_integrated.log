@@ -1,0 +1,83 @@
+
+🎨 SAMA CONAI UX RÉVOLUTIONNAIRE v6.0 - SERVEUR AVEC INTÉGRATION ODOO
+=====================================================================
+
+🔄 Initialisation du connecteur Odoo...
+❌ Erreur appel XML-RPC: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OdooConnector.xmlrpcCall (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/odoo_connector.js:54:30)
+    at async OdooConnector.authenticate (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/odoo_connector.js:20:30)
+    at async initializeOdooConnector (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/server_odoo_integrated.js:74:31)
+    at async startServer (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/server_odoo_integrated.js:448:27) {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8069
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8069
+  }
+}
+❌ Erreur authentification Odoo: TypeError: fetch failed
+    at node:internal/deps/undici/undici:13510:13
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async OdooConnector.xmlrpcCall (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/odoo_connector.js:54:30)
+    at async OdooConnector.authenticate (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/odoo_connector.js:20:30)
+    at async initializeOdooConnector (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/server_odoo_integrated.js:74:31)
+    at async startServer (/home/grand-as/psagsn/custom_addons/sama_conai/mobile_app_ux_inspired/server_odoo_integrated.js:448:27) {
+  [cause]: Error: connect ECONNREFUSED 127.0.0.1:8069
+      at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1637:16) {
+    errno: -111,
+    code: 'ECONNREFUSED',
+    syscall: 'connect',
+    address: '127.0.0.1',
+    port: 8069
+  }
+}
+⚠️ Échec authentification Odoo, utilisation des données de fallback
+
+🌐 URL: http://localhost:3004
+🎯 Design: UX Inspiré des Meilleurs Designs
+📱 Interface: Mobile-First Révolutionnaire avec Drilldown
+✨ Animations: Micro-interactions Fluides
+🎨 Thème: Design System Moderne
+🚀 Performance: Optimisée pour Mobile
+📊 Données: ⚠️ FALLBACK MODE
+
+🔧 CONFIGURATION ODOO:
+   🌐 URL: http://localhost:8069
+   🗄️ Base: sama_conai_db
+   👤 User: admin
+   🔗 Status: DÉCONNECTÉ
+
+🔑 COMPTES DE TEST:
+   👑 Admin: admin@sama-conai.sn / admin123
+   🛡️ Agent: agent@sama-conai.sn / agent123
+   👤 Citoyen: citoyen@email.com / citoyen123
+
+🎉 FONCTIONNALITÉS RÉVOLUTIONNAIRES:
+   ✨ Glassmorphism et Neumorphism
+   🎭 Micro-interactions avancées
+   🌊 Animations fluides 60fps
+   🎨 Design system sophistiqué
+   📱 Navigation gestuelle avec drilldown
+   🌙 Mode sombre élégant
+   🎯 Transitions seamless
+   📊 Statistiques de fallback
+   🔍 Détails complets avec historique
+
+📊 API ENDPOINTS DISPONIBLES:
+   🔐 POST /api/auth/login - Authentification
+   📊 GET /api/dashboard - Dashboard avec stats fallback
+   📄 GET /api/requests - Liste des demandes fallback
+   📄 GET /api/requests/:id - Détail d'une demande fallback
+   🚨 GET /api/alerts - Liste des alertes fallback
+   🚨 GET /api/alerts/:id - Détail d'une alerte fallback
+   🔧 GET /api/test-odoo - Test de connexion Odoo
+
+🚀 SERVEUR AVEC INTÉGRATION ODOO EN MODE FALLBACK !
+        
+
+👋 Arrêt du serveur SAMA CONAI UX...
+✅ Serveur arrêté proprement

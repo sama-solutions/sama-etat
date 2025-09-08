@@ -1,0 +1,103 @@
+[H[2J[3J
+[0;35m[1m╔══════════════════════════════════════════════════════════════════════╗[0m
+[0;35m[1m║                        SAMA CONAI STACK                              ║[0m
+[0;35m[1m║              Plateforme de Transparence du Sénégal                  ║[0m
+[0;35m[1m║                                                                      ║[0m
+[0;35m[1m║  🇸🇳 République du Sénégal - Transparence et Gouvernance Numérique  ║[0m
+[0;35m[1m║                           Version 1.0.0                            ║[0m
+[0;35m[1m╚══════════════════════════════════════════════════════════════════════╝[0m
+
+
+[0;36m[1m🔧 VÉRIFICATION DES PRÉREQUIS[0m
+==================================================================
+[0;32m✅[0m Python3 détecté: Python 3.12.3
+[0;32m✅[0m Node.js détecté: v22.17.0
+[0;32m✅[0m npm détecté: 11.5.1
+[0;32m✅[0m PostgreSQL détecté: psql (PostgreSQL) 16.9 (Ubuntu 16.9-0ubuntu0.24.04.1)
+[0;32m✅[0m curl détecté
+[0;32m✅[0m Tous les prérequis sont satisfaits
+
+[0;36m[1m🔧 VÉRIFICATION DE L'ENVIRONNEMENT[0m
+==================================================================
+[0;32m✅[0m Environnement virtuel Python trouvé: /home/grand-as/odoo18-venv
+[0;32m✅[0m Installation Odoo trouvée: /var/odoo/odoo18
+[0;32m✅[0m Module SAMA CONAI trouvé
+[0;32m✅[0m Application mobile web trouvée
+
+[0;36m[1m🔧 VÉRIFICATION DES PORTS[0m
+==================================================================
+[0;32m✅[0m Port 8077 disponible
+[1;33m⚠️[0m Port 3005 utilisé par node (PID: 20997)
+[0;32m✅[0m Port 5432 disponible
+
+
+[0;36m[1m🔧 DÉMARRAGE DE POSTGRESQL[0m
+==================================================================
+[0;32m✅[0m PostgreSQL déjà en cours d'exécution
+
+[0;36m[1m🔧 CONFIGURATION DE LA BASE DE DONNÉES[0m
+==================================================================
+[0;32m✅[0m Base de données sama_conai_test existe déjà
+
+[0;36m[1m🔧 DÉMARRAGE D'ODOO[0m
+==================================================================
+[0;34mℹ️[0m Démarrage d'Odoo sur le port 8077...
+[0;34mℹ️[0m Odoo démarré avec PID: 21372
+[0;34mℹ️[0m Logs disponibles dans: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log
+[0;34mℹ️[0m Attente du démarrage d'Odoo (peut prendre 1-2 minutes)...
+.[0;32m✅[0m Odoo est prêt et accessible sur http://localhost:8077
+
+[0;36m[1m🔧 DÉMARRAGE DE L'APPLICATION MOBILE[0m
+==================================================================
+[0;34mℹ️[0m Arrêt des processus mobile existants...
+[0;34mℹ️[0m Vérification du backend Odoo...
+[1;33m⚠️[0m Backend Odoo non accessible - l'application fonctionnera en mode démonstration
+[0;34mℹ️[0m Démarrage du serveur mobile sur le port 3005...
+[0;34mℹ️[0m Application mobile démarrée avec PID: 21394
+[0;34mℹ️[0m Logs disponibles dans: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log
+[0;34mℹ️[0m Attente du démarrage de l'application mobile...
+[0;32m✅[0m Application mobile prête sur http://localhost:3005
+
+[0;36m[1m🔧 TEST DES SERVICES[0m
+==================================================================
+[0;34mℹ️[0m Test de l'accès à Odoo...
+[0;32m✅[0m ✅ Odoo accessible sur http://localhost:8077
+[0;34mℹ️[0m Test de l'application mobile...
+[0;32m✅[0m ✅ Application mobile accessible sur http://localhost:3005
+[0;34mℹ️[0m Test de la connexion à la base de données...
+[0;32m✅[0m ✅ Base de données accessible
+
+
+[0;36m[1m🔧 🎉 SAMA CONAI STACK DÉMARRÉ AVEC SUCCÈS ![0m
+==================================================================
+
+[0;32m[1m🌐 ACCÈS AUX SERVICES:[0m
+[1;37m   📊 Interface Odoo:[0m [0;36mhttp://localhost:8077[0m
+[1;37m   📱 Application Mobile:[0m [0;36mhttp://localhost:3005[0m
+[1;37m   🗄️ Base de données:[0m [0;36msama_conai_test[0m (PostgreSQL:5432)
+
+[0;32m[1m🔑 COMPTES DE CONNEXION:[0m
+[1;37m   👑 Administrateur Odoo:[0m admin / admin
+[1;37m   📱 Application Mobile:[0m admin / admin
+[1;37m   📱 Compte de démonstration:[0m demo@sama-conai.sn / demo123
+
+[0;32m[1m📊 SERVICES ACTIFS:[0m
+[1;37m   🔧 Odoo:[0m PID 21372 - Port 8077
+[1;37m   📱 Mobile:[0m PID 21394 - Port 3005
+[1;37m   🗄️ PostgreSQL:[0m Port 5432
+
+[0;32m[1m📁 LOGS:[0m
+[1;37m   📋 Logs Odoo:[0m /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log
+[1;37m   📋 Logs Mobile:[0m /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log
+
+[0;32m[1m🛠️ COMMANDES UTILES:[0m
+[1;37m   🔄 Redémarrer:[0m /home/grand-as/psagsn/custom_addons/sama_conai/startup_sama_conai_stack.sh restart
+[1;37m   🛑 Arrêter:[0m /home/grand-as/psagsn/custom_addons/sama_conai/startup_sama_conai_stack.sh stop
+[1;37m   📊 Statut:[0m /home/grand-as/psagsn/custom_addons/sama_conai/startup_sama_conai_stack.sh status
+[1;37m   📋 Logs Odoo:[0m tail -f /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log
+[1;37m   📋 Logs Mobile:[0m tail -f /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log
+
+[0;32m[1m🎉 💡 [1;37mOuvrez http://localhost:3005 dans votre navigateur[0m[0m
+[0;32m[1m🎉 🇸🇳 [1;37mPlateforme de transparence du Sénégal opérationnelle ![0m[0m
+
+[0;34mℹ️[0m Appuyez sur Ctrl+C pour arrêter tous les services

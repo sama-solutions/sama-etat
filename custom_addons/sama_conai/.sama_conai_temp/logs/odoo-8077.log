@@ -1,0 +1,1296 @@
+2025-09-07 18:42:04,690 10548 INFO ? odoo: Odoo version 18.0 
+2025-09-07 18:42:04,690 10548 INFO ? odoo: Using configuration file at /home/grand-as/psagsn/custom_addons/sama_conai/.sama_conai_temp/conf/odoo-8077.conf 
+2025-09-07 18:42:04,690 10548 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/home/grand-as/psagsn/custom_addons', '/var/odoo/odoo18/addons'] 
+2025-09-07 18:42:04,690 10548 INFO ? odoo: database: odoo@localhost:5432 
+2025-09-07 18:42:04,987 10548 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 18:42:05,015 10548 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 18:42:05,498 10548 INFO ? odoo.service.server: HTTP service (werkzeug) running on grand-as-ThinkPad-T560:8077 
+2025-09-07 18:42:05,524 10548 INFO sama_conai_test odoo.modules.loading: init db 
+2025-09-07 18:42:13,983 10548 INFO sama_conai_test odoo.modules.loading: loading 1 modules... 
+2025-09-07 18:42:13,984 10548 INFO sama_conai_test odoo.modules.loading: Loading module base (1/1) 
+2025-09-07 18:42:14,020 10548 INFO sama_conai_test odoo.modules.registry: module base: creating or updating database tables 
+2025-09-07 18:42:18,866 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.module.module.menus_by_module 
+2025-09-07 18:42:18,867 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.module.module.reports_by_module 
+2025-09-07 18:42:18,867 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.module.module.views_by_module 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.user_id 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.commercial_partner_id 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.complete_name 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.company_registry 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.commercial_company_name 
+2025-09-07 18:42:20,413 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.partner_share 
+2025-09-07 18:42:20,790 10548 INFO sama_conai_test odoo.models: Prepare computation of res.currency.decimal_places 
+2025-09-07 18:42:21,058 10548 INFO sama_conai_test odoo.models: Prepare computation of res.company.uses_default_logo 
+2025-09-07 18:42:21,059 10548 INFO sama_conai_test odoo.models: Prepare computation of res.company.logo_web 
+2025-09-07 18:42:21,089 10548 INFO sama_conai_test odoo.models: Computing parent_path for table res_company... 
+2025-09-07 18:42:21,359 10548 INFO sama_conai_test odoo.models: Prepare computation of res.users.signature 
+2025-09-07 18:42:21,359 10548 INFO sama_conai_test odoo.models: Prepare computation of res.users.share 
+2025-09-07 18:42:28,812 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_bank.xml 
+2025-09-07 18:42:28,878 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res.lang.csv 
+2025-09-07 18:42:28,947 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-09-07 18:42:29,086 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-09-07 18:42:29,186 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-09-07 18:42:30,196 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-09-07 18:42:30,225 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-09-07 18:42:31,755 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-09-07 18:42:31,791 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-09-07 18:42:32,544 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-09-07 18:42:32,563 10548 INFO sama_conai_test odoo.modules.loading: loading base/security/base_groups.xml 
+2025-09-07 18:42:32,793 10548 WARNING ? odoo.http: Logged into database 'sama_conai_analytics', but dbfilter rejects it; logging session out. 
+2025-09-07 18:42:34,966 10548 INFO sama_conai_test odoo.modules.loading: loading base/security/base_security.xml 
+2025-09-07 18:42:35,234 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/base_menus.xml 
+2025-09-07 18:42:35,486 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-09-07 18:42:35,545 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-09-07 18:42:35,559 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-09-07 18:42:36,564 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-09-07 18:42:36,800 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-09-07 18:42:36,845 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-09-07 18:42:36,875 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-09-07 18:42:36,930 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-09-07 18:42:36,959 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-09-07 18:42:36,992 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-09-07 18:42:37,023 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-09-07 18:42:37,281 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-09-07 18:42:37,328 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-09-07 18:42:37,369 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-09-07 18:42:37,403 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-09-07 18:42:37,452 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-09-07 18:42:37,529 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-09-07 18:42:37,557 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-09-07 18:42:37,588 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-09-07 18:42:37,606 10548 INFO sama_conai_test odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-09-07 18:42:37,612 10548 INFO sama_conai_test odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-09-07 18:42:37,627 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-09-07 18:42:37,659 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-09-07 18:42:37,678 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-09-07 18:42:37,774 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-09-07 18:42:37,901 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-09-07 18:42:38,012 10548 INFO sama_conai_test odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-09-07 18:42:38,020 10548 INFO sama_conai_test odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-09-07 18:42:38,029 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-09-07 18:42:38,072 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-09-07 18:42:38,091 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-09-07 18:42:38,109 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-09-07 18:42:38,142 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-09-07 18:42:38,158 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-09-07 18:42:38,180 10548 INFO sama_conai_test odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-09-07 18:42:38,206 10548 INFO sama_conai_test odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-09-07 18:42:38,243 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-09-07 18:42:38,281 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-09-07 18:42:38,319 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-09-07 18:42:38,372 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-09-07 18:42:38,536 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-09-07 18:42:38,587 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-09-07 18:42:38,659 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-09-07 18:42:38,734 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-09-07 18:42:38,924 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-09-07 18:42:38,956 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-09-07 18:42:38,968 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-09-07 18:42:38,978 10548 INFO sama_conai_test odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-09-07 18:42:39,020 10548 INFO sama_conai_test odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-09-07 18:42:39,282 10548 INFO sama_conai_test odoo.modules.loading: Module base loaded in 25.30s, 8181 queries (+8181 other) 
+2025-09-07 18:42:39,282 10548 INFO sama_conai_test odoo.modules.loading: 1 modules loaded in 25.30s, 8181 queries (+8181 extra) 
+2025-09-07 18:42:39,308 10548 INFO sama_conai_test odoo.modules.loading: updating modules list 
+2025-09-07 18:42:39,309 10548 INFO sama_conai_test odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-09-07 18:42:40,575 10548 INFO sama_conai_test odoo.addons.base.models.ir_module: ALLOW access to module.button_install on ['SAMA CONAI - Transparence Sénégal'] to user __system__ #1 via n/a 
+2025-09-07 18:42:40,728 10548 INFO sama_conai_test odoo.modules.loading: loading 36 modules... 
+2025-09-07 18:42:40,728 10548 INFO sama_conai_test odoo.modules.loading: Loading module web (2/36) 
+2025-09-07 18:42:40,768 10548 INFO sama_conai_test odoo.modules.registry: module web: creating or updating database tables 
+2025-09-07 18:42:41,886 10548 INFO sama_conai_test odoo.modules.loading: loading web/security/ir.model.access.csv 
+2025-09-07 18:42:41,925 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/webclient_templates.xml 
+2025-09-07 18:42:42,063 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/report_templates.xml 
+2025-09-07 18:42:42,202 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2025-09-07 18:42:42,224 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/partner_view.xml 
+2025-09-07 18:42:42,234 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/speedscope_template.xml 
+2025-09-07 18:42:42,241 10548 INFO sama_conai_test odoo.modules.loading: loading web/views/neutralize_views.xml 
+2025-09-07 18:42:42,250 10548 INFO sama_conai_test odoo.modules.loading: loading web/data/ir_attachment.xml 
+2025-09-07 18:42:42,269 10548 INFO sama_conai_test odoo.modules.loading: loading web/data/report_layout.xml 
+2025-09-07 18:42:42,369 10548 INFO sama_conai_test odoo.modules.loading: Module web loaded in 1.64s, 1101 queries (+1101 other) 
+2025-09-07 18:42:42,369 10548 INFO sama_conai_test odoo.modules.loading: Loading module auth_totp (3/36) 
+2025-09-07 18:42:42,528 10548 INFO sama_conai_test odoo.modules.registry: module auth_totp: creating or updating database tables 
+2025-09-07 18:42:42,778 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/security/security.xml 
+2025-09-07 18:42:42,840 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2025-09-07 18:42:42,854 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2025-09-07 18:42:42,872 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2025-09-07 18:42:42,937 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/views/templates.xml 
+2025-09-07 18:42:42,956 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2025-09-07 18:42:43,034 10548 INFO sama_conai_test odoo.modules.loading: Module auth_totp loaded in 0.66s, 188 queries (+188 other) 
+2025-09-07 18:42:43,034 10548 INFO sama_conai_test odoo.modules.loading: Loading module base_import (4/36) 
+2025-09-07 18:42:43,811 10548 INFO sama_conai_test odoo.modules.registry: module base_import: creating or updating database tables 
+2025-09-07 18:42:45,117 10548 INFO sama_conai_test odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2025-09-07 18:42:45,215 10548 INFO sama_conai_test odoo.modules.loading: Module base_import loaded in 2.18s, 878 queries (+878 other) 
+2025-09-07 18:42:45,216 10548 INFO sama_conai_test odoo.modules.loading: Loading module base_import_module (5/36) 
+2025-09-07 18:42:45,311 10548 INFO sama_conai_test odoo.modules.registry: module base_import_module: creating or updating database tables 
+2025-09-07 18:42:45,493 10548 INFO sama_conai_test odoo.modules.loading: loading base_import_module/security/ir.model.access.csv 
+2025-09-07 18:42:45,526 10548 INFO sama_conai_test odoo.modules.loading: loading base_import_module/views/base_import_module_view.xml 
+2025-09-07 18:42:45,569 10548 INFO sama_conai_test odoo.modules.loading: loading base_import_module/views/ir_module_views.xml 
+2025-09-07 18:42:45,655 10548 INFO sama_conai_test odoo.modules.loading: Module base_import_module loaded in 0.44s, 164 queries (+164 other) 
+2025-09-07 18:42:45,655 10548 INFO sama_conai_test odoo.modules.loading: Loading module base_setup (6/36) 
+2025-09-07 18:42:45,719 10548 INFO sama_conai_test odoo.modules.registry: module base_setup: creating or updating database tables 
+2025-09-07 18:42:45,803 10548 INFO sama_conai_test odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2025-09-07 18:42:45,815 10548 INFO sama_conai_test odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2025-09-07 18:42:45,882 10548 INFO sama_conai_test odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2025-09-07 18:42:45,922 10548 INFO sama_conai_test odoo.modules.loading: Module base_setup loaded in 0.27s, 150 queries (+150 other) 
+2025-09-07 18:42:45,922 10548 INFO sama_conai_test odoo.modules.loading: Loading module bus (7/36) 
+2025-09-07 18:42:46,045 10548 INFO sama_conai_test odoo.modules.registry: module bus: creating or updating database tables 
+2025-09-07 18:42:46,437 10548 INFO sama_conai_test odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2025-09-07 18:42:46,492 10548 INFO sama_conai_test odoo.modules.loading: Module bus loaded in 0.57s, 165 queries (+165 other) 
+2025-09-07 18:42:46,493 10548 INFO sama_conai_test odoo.modules.loading: Loading module http_routing (8/36) 
+2025-09-07 18:42:46,583 10548 INFO sama_conai_test odoo.modules.registry: module http_routing: creating or updating database tables 
+2025-09-07 18:42:46,627 10548 INFO sama_conai_test odoo.modules.loading: loading http_routing/views/http_routing_template.xml 
+2025-09-07 18:42:46,692 10548 INFO sama_conai_test odoo.modules.loading: loading http_routing/views/res_lang_views.xml 
+2025-09-07 18:42:46,811 10548 INFO sama_conai_test odoo.modules.loading: Module http_routing loaded in 0.32s, 100 queries (+100 other) 
+2025-09-07 18:42:46,812 10548 INFO sama_conai_test odoo.modules.loading: Loading module resource (9/36) 
+2025-09-07 18:42:47,030 10548 INFO sama_conai_test odoo.modules.registry: module resource: creating or updating database tables 
+2025-09-07 18:42:47,652 10548 INFO sama_conai_test odoo.modules.loading: loading resource/data/resource_data.xml 
+2025-09-07 18:42:47,708 10548 INFO sama_conai_test odoo.modules.loading: loading resource/security/ir.model.access.csv 
+2025-09-07 18:42:47,734 10548 INFO sama_conai_test odoo.modules.loading: loading resource/security/resource_security.xml 
+2025-09-07 18:42:47,779 10548 INFO sama_conai_test odoo.modules.loading: loading resource/views/resource_resource_views.xml 
+2025-09-07 18:42:47,830 10548 INFO sama_conai_test odoo.modules.loading: loading resource/views/resource_calendar_leaves_views.xml 
+2025-09-07 18:42:47,875 10548 INFO sama_conai_test odoo.modules.loading: loading resource/views/resource_calendar_attendance_views.xml 
+2025-09-07 18:42:47,901 10548 INFO sama_conai_test odoo.modules.loading: loading resource/views/resource_calendar_views.xml 
+2025-09-07 18:42:47,931 10548 INFO sama_conai_test odoo.modules.loading: loading resource/views/menuitems.xml 
+2025-09-07 18:42:48,004 10548 INFO sama_conai_test odoo.modules.loading: Module resource loaded in 1.19s, 406 queries (+406 other) 
+2025-09-07 18:42:48,004 10548 INFO sama_conai_test odoo.modules.loading: Loading module web_hierarchy (10/36) 
+2025-09-07 18:42:48,074 10548 INFO sama_conai_test odoo.modules.registry: module web_hierarchy: creating or updating database tables 
+2025-09-07 18:42:49,298 10548 INFO sama_conai_test odoo.modules.loading: Module web_hierarchy loaded in 1.29s, 894 queries (+894 other) 
+2025-09-07 18:42:49,299 10548 INFO sama_conai_test odoo.modules.loading: Loading module web_tour (11/36) 
+2025-09-07 18:42:49,383 10548 INFO sama_conai_test odoo.modules.registry: module web_tour: creating or updating database tables 
+2025-09-07 18:42:49,390 10548 INFO sama_conai_test odoo.models: Prepare computation of res.users.tour_enabled 
+2025-09-07 18:42:49,767 10548 INFO sama_conai_test odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2025-09-07 18:42:49,797 10548 INFO sama_conai_test odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2025-09-07 18:42:49,851 10548 INFO sama_conai_test odoo.modules.loading: loading web_tour/views/res_users_views.xml 
+2025-09-07 18:42:49,906 10548 INFO sama_conai_test odoo.modules.loading: Module web_tour loaded in 0.61s, 188 queries (+188 other) 
+2025-09-07 18:42:49,906 10548 INFO sama_conai_test odoo.modules.loading: Loading module html_editor (12/36) 
+2025-09-07 18:42:50,932 10548 INFO sama_conai_test odoo.modules.registry: module html_editor: creating or updating database tables 
+2025-09-07 18:42:51,043 10548 INFO sama_conai_test odoo.modules.loading: Module html_editor loaded in 1.14s, 46 queries (+46 other) 
+2025-09-07 18:42:51,044 10548 INFO sama_conai_test odoo.modules.loading: Loading module iap (13/36) 
+2025-09-07 18:42:51,074 10548 INFO sama_conai_test odoo.modules.registry: module iap: creating or updating database tables 
+2025-09-07 18:42:51,567 10548 INFO sama_conai_test odoo.modules.loading: loading iap/data/services.xml 
+2025-09-07 18:42:51,599 10548 INFO sama_conai_test odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2025-09-07 18:42:51,618 10548 INFO sama_conai_test odoo.modules.loading: loading iap/security/ir_rule.xml 
+2025-09-07 18:42:51,636 10548 INFO sama_conai_test odoo.modules.loading: loading iap/views/iap_views.xml 
+2025-09-07 18:42:51,701 10548 INFO sama_conai_test odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2025-09-07 18:42:51,801 10548 INFO sama_conai_test odoo.modules.loading: Module iap loaded in 0.76s, 183 queries (+183 other) 
+2025-09-07 18:42:51,801 10548 INFO sama_conai_test odoo.modules.loading: Loading module mail (14/36) 
+2025-09-07 18:42:51,881 10548 INFO sama_conai_test odoo.modules.registry: module mail: creating or updating database tables 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.partner_ids 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.template_id 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_type_id 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_date_deadline_range 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_user_id 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.mail_post_method 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_summary 
+2025-09-07 18:42:56,280 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_date_deadline_range_type 
+2025-09-07 18:42:56,281 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_user_type 
+2025-09-07 18:42:56,281 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_user_field_name 
+2025-09-07 18:42:56,281 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.activity_note 
+2025-09-07 18:42:56,281 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.mail_post_autofollow 
+2025-09-07 18:42:56,349 10548 INFO sama_conai_test odoo.models: Prepare computation of res.company.email_primary_color 
+2025-09-07 18:42:56,349 10548 INFO sama_conai_test odoo.models: Prepare computation of res.company.email_secondary_color 
+2025-09-07 18:42:56,371 10548 INFO sama_conai_test odoo.models: Prepare computation of res.users.notification_type 
+2025-09-07 18:42:57,383 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.email_normalized 
+2025-09-07 18:43:03,963 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_groups.xml 
+2025-09-07 18:43:04,188 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_activity_schedule_views.xml 
+2025-09-07 18:43:04,226 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_blacklist_remove_views.xml 
+2025-09-07 18:43:04,248 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_compose_message_views.xml 
+2025-09-07 18:43:04,279 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_resend_message_views.xml 
+2025-09-07 18:43:04,300 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_resend_partner_views.xml 
+2025-09-07 18:43:04,316 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_template_preview_views.xml 
+2025-09-07 18:43:04,333 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_wizard_invite_views.xml 
+2025-09-07 18:43:04,344 10548 INFO sama_conai_test odoo.modules.loading: loading mail/wizard/mail_template_reset_views.xml 
+2025-09-07 18:43:04,361 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/fetchmail_views.xml 
+2025-09-07 18:43:04,417 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_message_subtype_views.xml 
+2025-09-07 18:43:04,472 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_tracking_value_views.xml 
+2025-09-07 18:43:04,494 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_notification_views.xml 
+2025-09-07 18:43:04,515 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_message_views.xml 
+2025-09-07 18:43:04,563 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_message_schedule_views.xml 
+2025-09-07 18:43:04,589 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_mail_views.xml 
+2025-09-07 18:43:04,637 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_followers_views.xml 
+2025-09-07 18:43:04,666 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_ice_server_views.xml 
+2025-09-07 18:43:04,686 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/discuss_channel_member_views.xml 
+2025-09-07 18:43:04,710 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/discuss_channel_rtc_session_views.xml 
+2025-09-07 18:43:04,735 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_link_preview_views.xml 
+2025-09-07 18:43:04,758 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/discuss/discuss_gif_favorite_views.xml 
+2025-09-07 18:43:04,796 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/discuss_channel_views.xml 
+2025-09-07 18:43:04,850 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_canned_response_views.xml 
+2025-09-07 18:43:04,880 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_activity_views.xml 
+2025-09-07 18:43:05,502 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_activity_plan_views.xml 
+2025-09-07 18:43:05,565 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_activity_plan_template_views.xml 
+2025-09-07 18:43:05,583 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/res_config_settings_views.xml 
+2025-09-07 18:43:05,629 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/ir_config_parameter_data.xml 
+2025-09-07 18:43:05,652 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/res_partner_data.xml 
+2025-09-07 18:43:05,817 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_message_subtype_data.xml 
+2025-09-07 18:43:05,833 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_templates_chatter.xml 
+2025-09-07 18:43:05,861 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_templates_email_layouts.xml 
+2025-09-07 18:43:05,893 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_templates_mailgateway.xml 
+2025-09-07 18:43:05,917 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/discuss_channel_data.xml 
+2025-09-07 18:43:05,980 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_activity_data.xml 
+2025-09-07 18:43:06,003 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/security_notifications_templates.xml 
+2025-09-07 18:43:06,013 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/ir_cron_data.xml 
+2025-09-07 18:43:06,096 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/ir_actions_client.xml 
+2025-09-07 18:43:06,106 10548 INFO sama_conai_test odoo.modules.loading: loading mail/security/mail_security.xml 
+2025-09-07 18:43:06,393 10548 INFO sama_conai_test odoo.modules.loading: loading mail/security/ir.model.access.csv 
+2025-09-07 18:43:06,527 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/discuss_public_templates.xml 
+2025-09-07 18:43:06,550 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_alias_domain_views.xml 
+2025-09-07 18:43:06,583 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_alias_views.xml 
+2025-09-07 18:43:06,619 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_gateway_allowed_views.xml 
+2025-09-07 18:43:06,639 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_guest_views.xml 
+2025-09-07 18:43:06,660 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_message_reaction_views.xml 
+2025-09-07 18:43:06,684 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_templates_public.xml 
+2025-09-07 18:43:06,699 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/res_users_views.xml 
+2025-09-07 18:43:06,736 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/res_users_settings_views.xml 
+2025-09-07 18:43:06,773 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_template_views.xml 
+2025-09-07 18:43:06,814 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/ir_actions_server_views.xml 
+2025-09-07 18:43:06,833 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/ir_model_views.xml 
+2025-09-07 18:43:06,884 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/res_partner_views.xml 
+2025-09-07 18:43:06,972 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_blacklist_views.xml 
+2025-09-07 18:43:07,015 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_menus.xml 
+2025-09-07 18:43:07,280 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/res_company_views.xml 
+2025-09-07 18:43:07,297 10548 INFO sama_conai_test odoo.modules.loading: loading mail/views/mail_scheduled_message_views.xml 
+2025-09-07 18:43:07,309 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_canned_response_data.xml 
+2025-09-07 18:43:07,326 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/mail_templates_invite.xml 
+2025-09-07 18:43:07,338 10548 INFO sama_conai_test odoo.modules.loading: loading mail/data/web_tour_tour.xml 
+2025-09-07 18:43:07,435 10548 INFO sama_conai_test odoo.modules.loading: Module mail loaded in 15.63s, 4476 queries (+4477 other) 
+2025-09-07 18:43:07,436 10548 INFO sama_conai_test odoo.modules.loading: Loading module web_editor (15/36) 
+2025-09-07 18:43:07,641 10548 INFO sama_conai_test odoo.modules.registry: module web_editor: creating or updating database tables 
+2025-09-07 18:43:09,781 10548 INFO sama_conai_test odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2025-09-07 18:43:09,821 10548 INFO sama_conai_test odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2025-09-07 18:43:09,848 10548 INFO sama_conai_test odoo.modules.loading: loading web_editor/views/editor.xml 
+2025-09-07 18:43:09,895 10548 INFO sama_conai_test odoo.modules.loading: loading web_editor/views/snippets.xml 
+2025-09-07 18:43:09,995 10548 INFO sama_conai_test odoo.modules.loading: Module web_editor loaded in 2.56s, 1406 queries (+1406 other) 
+2025-09-07 18:43:09,995 10548 INFO sama_conai_test odoo.modules.loading: Loading module auth_signup (16/36) 
+2025-09-07 18:43:10,133 10548 INFO sama_conai_test odoo.modules.registry: module auth_signup: creating or updating database tables 
+2025-09-07 18:43:10,343 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/data/ir_config_parameter_data.xml 
+2025-09-07 18:43:10,374 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/data/ir_cron_data.xml 
+2025-09-07 18:43:10,388 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/data/mail_template_data.xml 
+2025-09-07 18:43:10,423 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/views/res_config_settings_views.xml 
+2025-09-07 18:43:10,470 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/views/res_users_views.xml 
+2025-09-07 18:43:10,507 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/views/auth_signup_login_templates.xml 
+2025-09-07 18:43:10,545 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/views/auth_signup_templates_email.xml 
+2025-09-07 18:43:10,562 10548 INFO sama_conai_test odoo.modules.loading: loading auth_signup/views/webclient_templates.xml 
+2025-09-07 18:43:10,610 10548 INFO sama_conai_test odoo.modules.loading: Module auth_signup loaded in 0.62s, 207 queries (+207 other) 
+2025-09-07 18:43:10,610 10548 INFO sama_conai_test odoo.modules.loading: Loading module auth_totp_mail (17/36) 
+2025-09-07 18:43:10,694 10548 INFO sama_conai_test odoo.modules.registry: module auth_totp_mail: creating or updating database tables 
+2025-09-07 18:43:10,754 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_mail/data/ir_action_data.xml 
+2025-09-07 18:43:10,803 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_mail/data/mail_template_data.xml 
+2025-09-07 18:43:10,815 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_mail/data/security_notifications_template.xml 
+2025-09-07 18:43:10,841 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_mail/views/res_users_views.xml 
+2025-09-07 18:43:10,943 10548 INFO sama_conai_test odoo.modules.loading: Module auth_totp_mail loaded in 0.33s, 121 queries (+121 other) 
+2025-09-07 18:43:10,943 10548 INFO sama_conai_test odoo.modules.loading: Loading module base_install_request (18/36) 
+2025-09-07 18:43:11,030 10548 INFO sama_conai_test odoo.modules.registry: module base_install_request: creating or updating database tables 
+2025-09-07 18:43:11,339 10548 INFO sama_conai_test odoo.modules.loading: loading base_install_request/security/ir.model.access.csv 
+2025-09-07 18:43:11,381 10548 INFO sama_conai_test odoo.modules.loading: loading base_install_request/wizard/base_module_install_request_views.xml 
+2025-09-07 18:43:11,413 10548 INFO sama_conai_test odoo.modules.loading: loading base_install_request/data/mail_template_data.xml 
+2025-09-07 18:43:11,426 10548 INFO sama_conai_test odoo.modules.loading: loading base_install_request/data/mail_templates_module_install.xml 
+2025-09-07 18:43:11,433 10548 INFO sama_conai_test odoo.modules.loading: loading base_install_request/views/ir_module_module_views.xml 
+2025-09-07 18:43:11,495 10548 INFO sama_conai_test odoo.modules.loading: Module base_install_request loaded in 0.55s, 153 queries (+153 other) 
+2025-09-07 18:43:11,495 10548 INFO sama_conai_test odoo.modules.loading: Loading module google_gmail (19/36) 
+2025-09-07 18:43:11,598 10548 INFO sama_conai_test odoo.modules.registry: module google_gmail: creating or updating database tables 
+2025-09-07 18:43:11,695 10548 INFO sama_conai_test odoo.modules.loading: loading google_gmail/views/fetchmail_server_views.xml 
+2025-09-07 18:43:11,745 10548 INFO sama_conai_test odoo.modules.loading: loading google_gmail/views/ir_mail_server_views.xml 
+2025-09-07 18:43:11,762 10548 INFO sama_conai_test odoo.modules.loading: loading google_gmail/views/res_config_settings_views.xml 
+2025-09-07 18:43:11,817 10548 INFO sama_conai_test odoo.modules.loading: Module google_gmail loaded in 0.32s, 124 queries (+124 other) 
+2025-09-07 18:43:11,817 10548 INFO sama_conai_test odoo.modules.loading: Loading module iap_mail (20/36) 
+2025-09-07 18:43:11,897 10548 INFO sama_conai_test odoo.modules.registry: module iap_mail: creating or updating database tables 
+2025-09-07 18:43:11,949 10548 INFO sama_conai_test odoo.modules.loading: loading iap_mail/data/mail_templates.xml 
+2025-09-07 18:43:11,982 10548 INFO sama_conai_test odoo.modules.loading: loading iap_mail/views/iap_views.xml 
+2025-09-07 18:43:12,028 10548 INFO sama_conai_test odoo.modules.loading: Module iap_mail loaded in 0.21s, 66 queries (+66 other) 
+2025-09-07 18:43:12,028 10548 INFO sama_conai_test odoo.modules.loading: Loading module mail_bot (21/36) 
+2025-09-07 18:43:12,129 10548 INFO sama_conai_test odoo.modules.registry: module mail_bot: creating or updating database tables 
+2025-09-07 18:43:12,247 10548 INFO sama_conai_test odoo.modules.loading: loading mail_bot/views/res_users_views.xml 
+2025-09-07 18:43:12,318 10548 INFO sama_conai_test odoo.modules.loading: loading mail_bot/data/mailbot_data.xml 
+2025-09-07 18:43:12,399 10548 INFO sama_conai_test odoo.modules.loading: Module mail_bot loaded in 0.37s, 131 queries (+131 other) 
+2025-09-07 18:43:12,399 10548 INFO sama_conai_test odoo.modules.loading: Loading module phone_validation (22/36) 
+2025-09-07 18:43:12,667 10548 INFO sama_conai_test odoo.modules.registry: module phone_validation: creating or updating database tables 
+2025-09-07 18:43:16,116 10548 INFO sama_conai_test odoo.modules.loading: loading phone_validation/security/ir.model.access.csv 
+2025-09-07 18:43:16,170 10548 INFO sama_conai_test odoo.modules.loading: loading phone_validation/views/phone_blacklist_views.xml 
+2025-09-07 18:43:16,262 10548 INFO sama_conai_test odoo.modules.loading: loading phone_validation/wizard/phone_blacklist_remove_view.xml 
+2025-09-07 18:43:16,323 10548 INFO sama_conai_test odoo.modules.loading: Module phone_validation loaded in 3.92s, 1446 queries (+1446 other) 
+2025-09-07 18:43:16,323 10548 INFO sama_conai_test odoo.modules.loading: Loading module privacy_lookup (23/36) 
+2025-09-07 18:43:16,473 10548 INFO sama_conai_test odoo.modules.registry: module privacy_lookup: creating or updating database tables 
+2025-09-07 18:43:17,018 10548 INFO sama_conai_test odoo.modules.loading: loading privacy_lookup/wizard/privacy_lookup_wizard_views.xml 
+2025-09-07 18:43:17,110 10548 INFO sama_conai_test odoo.modules.loading: loading privacy_lookup/views/privacy_log_views.xml 
+2025-09-07 18:43:17,180 10548 INFO sama_conai_test odoo.modules.loading: loading privacy_lookup/security/ir.model.access.csv 
+2025-09-07 18:43:17,253 10548 INFO sama_conai_test odoo.modules.loading: loading privacy_lookup/data/ir_actions_server_data.xml 
+2025-09-07 18:43:17,342 10548 INFO sama_conai_test odoo.modules.loading: Module privacy_lookup loaded in 1.02s, 247 queries (+247 other) 
+2025-09-07 18:43:17,342 10548 INFO sama_conai_test odoo.modules.loading: Loading module resource_mail (24/36) 
+2025-09-07 18:43:17,472 10548 INFO sama_conai_test odoo.modules.registry: module resource_mail: creating or updating database tables 
+2025-09-07 18:43:17,586 10548 INFO sama_conai_test odoo.modules.loading: Module resource_mail loaded in 0.24s, 35 queries (+35 other) 
+2025-09-07 18:43:17,587 10548 INFO sama_conai_test odoo.modules.loading: Loading module web_unsplash (25/36) 
+2025-09-07 18:43:17,745 10548 INFO sama_conai_test odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2025-09-07 18:43:17,958 10548 INFO sama_conai_test odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2025-09-07 18:43:18,083 10548 INFO sama_conai_test odoo.modules.loading: Module web_unsplash loaded in 0.50s, 106 queries (+106 other) 
+2025-09-07 18:43:18,083 10548 INFO sama_conai_test odoo.modules.loading: Loading module partner_autocomplete (26/36) 
+2025-09-07 18:43:18,271 10548 INFO sama_conai_test odoo.modules.registry: module partner_autocomplete: creating or updating database tables 
+2025-09-07 18:43:18,655 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/security/ir.model.access.csv 
+2025-09-07 18:43:18,695 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/views/res_partner_views.xml 
+2025-09-07 18:43:18,782 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/views/res_company_views.xml 
+2025-09-07 18:43:18,806 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/views/res_config_settings_views.xml 
+2025-09-07 18:43:18,834 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/data/cron.xml 
+2025-09-07 18:43:18,895 10548 INFO sama_conai_test odoo.modules.loading: loading partner_autocomplete/data/iap_service_data.xml 
+2025-09-07 18:43:18,948 10548 INFO sama_conai_test odoo.modules.loading: Module partner_autocomplete loaded in 0.87s, 207 queries (+207 other) 
+2025-09-07 18:43:18,948 10548 INFO sama_conai_test odoo.modules.loading: Loading module portal (27/36) 
+2025-09-07 18:43:19,331 10548 INFO sama_conai_test odoo.modules.registry: module portal: creating or updating database tables 
+2025-09-07 18:43:20,430 10548 INFO sama_conai_test odoo.modules.loading: loading portal/security/ir.model.access.csv 
+2025-09-07 18:43:20,467 10548 INFO sama_conai_test odoo.modules.loading: loading portal/data/mail_template_data.xml 
+2025-09-07 18:43:20,507 10548 INFO sama_conai_test odoo.modules.loading: loading portal/data/mail_templates.xml 
+2025-09-07 18:43:20,523 10548 INFO sama_conai_test odoo.modules.loading: loading portal/views/mail_templates_public.xml 
+2025-09-07 18:43:20,585 10548 INFO sama_conai_test odoo.modules.loading: loading portal/views/portal_templates.xml 
+2025-09-07 18:43:20,894 10548 INFO sama_conai_test odoo.modules.loading: loading portal/views/res_config_settings_views.xml 
+2025-09-07 18:43:20,942 10548 INFO sama_conai_test odoo.modules.loading: loading portal/wizard/portal_share_views.xml 
+2025-09-07 18:43:20,988 10548 INFO sama_conai_test odoo.modules.loading: loading portal/wizard/portal_wizard_views.xml 
+2025-09-07 18:43:21,081 10548 INFO sama_conai_test odoo.modules.loading: Module portal loaded in 2.13s, 486 queries (+486 other) 
+2025-09-07 18:43:21,082 10548 INFO sama_conai_test odoo.modules.loading: Loading module sms (28/36) 
+2025-09-07 18:43:21,407 10548 INFO sama_conai_test odoo.modules.registry: module sms: creating or updating database tables 
+2025-09-07 18:43:21,438 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.sms_template_id 
+2025-09-07 18:43:21,439 10548 INFO sama_conai_test odoo.models: Prepare computation of ir.actions.server.sms_method 
+2025-09-07 18:43:21,504 10548 INFO sama_conai_test odoo.models: Prepare computation of res.partner.phone_sanitized 
+2025-09-07 18:43:25,557 10548 INFO sama_conai_test odoo.modules.loading: loading sms/data/iap_service_data.xml 
+2025-09-07 18:43:25,607 10548 INFO sama_conai_test odoo.modules.loading: loading sms/data/ir_cron_data.xml 
+2025-09-07 18:43:25,634 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_account_code_views.xml 
+2025-09-07 18:43:25,666 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_account_phone_views.xml 
+2025-09-07 18:43:25,677 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_account_sender_views.xml 
+2025-09-07 18:43:25,690 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_composer_views.xml 
+2025-09-07 18:43:25,710 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_template_preview_views.xml 
+2025-09-07 18:43:25,735 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_resend_views.xml 
+2025-09-07 18:43:25,757 10548 INFO sama_conai_test odoo.modules.loading: loading sms/wizard/sms_template_reset_views.xml 
+2025-09-07 18:43:25,775 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/ir_actions_server_views.xml 
+2025-09-07 18:43:25,808 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/mail_notification_views.xml 
+2025-09-07 18:43:25,836 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/res_config_settings_views.xml 
+2025-09-07 18:43:25,862 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/res_partner_views.xml 
+2025-09-07 18:43:25,930 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/iap_account_views.xml 
+2025-09-07 18:43:25,952 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/sms_sms_views.xml 
+2025-09-07 18:43:25,993 10548 INFO sama_conai_test odoo.modules.loading: loading sms/views/sms_template_views.xml 
+2025-09-07 18:43:26,032 10548 INFO sama_conai_test odoo.modules.loading: loading sms/security/ir.model.access.csv 
+2025-09-07 18:43:26,118 10548 INFO sama_conai_test odoo.modules.loading: loading sms/security/sms_security.xml 
+2025-09-07 18:43:26,167 10548 INFO sama_conai_test odoo.modules.loading: Module sms loaded in 5.09s, 1948 queries (+1948 other) 
+2025-09-07 18:43:26,167 10548 INFO sama_conai_test odoo.modules.loading: Loading module snailmail (29/36) 
+2025-09-07 18:43:26,285 10548 INFO sama_conai_test odoo.modules.registry: module snailmail: creating or updating database tables 
+2025-09-07 18:43:27,098 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/data/iap_service_data.xml 
+2025-09-07 18:43:27,125 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/data/snailmail_data.xml 
+2025-09-07 18:43:27,140 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/views/report_assets.xml 
+2025-09-07 18:43:27,191 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/views/snailmail_views.xml 
+2025-09-07 18:43:27,227 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/wizard/snailmail_letter_format_error_views.xml 
+2025-09-07 18:43:27,245 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/wizard/snailmail_letter_missing_required_fields_views.xml 
+2025-09-07 18:43:27,263 10548 INFO sama_conai_test odoo.modules.loading: loading snailmail/security/ir.model.access.csv 
+2025-09-07 18:43:27,351 10548 INFO sama_conai_test odoo.modules.loading: Module snailmail loaded in 1.18s, 429 queries (+429 other) 
+2025-09-07 18:43:27,351 10548 INFO sama_conai_test odoo.modules.loading: Loading module auth_totp_portal (30/36) 
+2025-09-07 18:43:27,451 10548 INFO sama_conai_test odoo.modules.registry: module auth_totp_portal: creating or updating database tables 
+2025-09-07 18:43:27,507 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_portal/security/security.xml 
+2025-09-07 18:43:27,539 10548 INFO sama_conai_test odoo.modules.loading: loading auth_totp_portal/views/templates.xml 
+2025-09-07 18:43:27,594 10548 INFO sama_conai_test odoo.modules.loading: Module auth_totp_portal loaded in 0.24s, 66 queries (+66 other) 
+2025-09-07 18:43:27,594 10548 INFO sama_conai_test odoo.modules.loading: Loading module digest (31/36) 
+2025-09-07 18:43:27,721 10548 INFO sama_conai_test odoo.modules.registry: module digest: creating or updating database tables 
+2025-09-07 18:43:28,245 10548 INFO sama_conai_test odoo.modules.loading: loading digest/security/ir.model.access.csv 
+2025-09-07 18:43:28,277 10548 INFO sama_conai_test odoo.modules.loading: loading digest/data/digest_data.xml 
+2025-09-07 18:43:28,315 10548 INFO sama_conai_test odoo.modules.loading: loading digest/data/digest_tips_data.xml 
+2025-09-07 18:43:28,348 10548 INFO sama_conai_test odoo.modules.loading: loading digest/data/ir_cron_data.xml 
+2025-09-07 18:43:28,363 10548 INFO sama_conai_test odoo.modules.loading: loading digest/data/res_config_settings_data.xml 
+2025-09-07 18:43:28,375 10548 INFO sama_conai_test odoo.modules.loading: loading digest/views/digest_views.xml 
+2025-09-07 18:43:28,473 10548 INFO sama_conai_test odoo.modules.loading: loading digest/views/digest_templates.xml 
+2025-09-07 18:43:28,490 10548 INFO sama_conai_test odoo.modules.loading: loading digest/views/res_config_settings_views.xml 
+2025-09-07 18:43:28,560 10548 INFO sama_conai_test odoo.modules.loading: Module digest loaded in 0.97s, 305 queries (+305 other) 
+2025-09-07 18:43:28,560 10548 INFO sama_conai_test odoo.modules.loading: Loading module hr (32/36) 
+2025-09-07 18:43:28,919 10548 INFO sama_conai_test odoo.modules.registry: module hr: creating or updating database tables 
+2025-09-07 18:43:33,205 10548 INFO sama_conai_test odoo.modules.loading: loading hr/security/hr_security.xml 
+2025-09-07 18:43:33,496 10548 INFO sama_conai_test odoo.modules.loading: loading hr/security/ir.model.access.csv 
+2025-09-07 18:43:33,534 10548 INFO sama_conai_test odoo.modules.loading: loading hr/data/digest_data.xml 
+2025-09-07 18:43:33,549 10548 INFO sama_conai_test odoo.modules.loading: loading hr/data/report_paperformat.xml 
+2025-09-07 18:43:33,563 10548 INFO sama_conai_test odoo.modules.loading: loading hr/wizard/hr_departure_wizard_views.xml 
+2025-09-07 18:43:33,596 10548 INFO sama_conai_test odoo.modules.loading: loading hr/wizard/mail_activity_schedule_views.xml 
+2025-09-07 18:43:33,620 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/mail_activity_plan_views.xml 
+2025-09-07 18:43:33,717 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_departure_reason_views.xml 
+2025-09-07 18:43:33,749 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_contract_type_views.xml 
+2025-09-07 18:43:33,769 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_job_views.xml 
+2025-09-07 18:43:33,817 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_employee_category_views.xml 
+2025-09-07 18:43:33,838 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_employee_public_views.xml 
+2025-09-07 18:43:33,888 10548 INFO sama_conai_test odoo.modules.loading: loading hr/report/hr_employee_badge.xml 
+2025-09-07 18:43:33,910 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_employee_views.xml 
+2025-09-07 18:43:34,031 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_department_views.xml 
+2025-09-07 18:43:34,093 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_work_location_views.xml 
+2025-09-07 18:43:34,126 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_views.xml 
+2025-09-07 18:43:34,276 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/res_config_settings_views.xml 
+2025-09-07 18:43:34,317 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/res_partner_views.xml 
+2025-09-07 18:43:34,350 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/discuss_channel_views.xml 
+2025-09-07 18:43:34,375 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/res_users.xml 
+2025-09-07 18:43:34,487 10548 INFO sama_conai_test odoo.modules.loading: loading hr/views/hr_templates.xml 
+2025-09-07 18:43:34,520 10548 INFO sama_conai_test odoo.modules.loading: loading hr/data/hr_data.xml 
+2025-09-07 18:43:34,777 10548 INFO sama_conai_test odoo.modules.loading: Module hr loaded in 6.22s, 2925 queries (+2925 other) 
+2025-09-07 18:43:34,777 10548 INFO sama_conai_test odoo.modules.loading: Loading module hr_org_chart (33/36) 
+2025-09-07 18:43:34,889 10548 INFO sama_conai_test odoo.modules.registry: module hr_org_chart: creating or updating database tables 
+2025-09-07 18:43:34,984 10548 INFO sama_conai_test odoo.modules.loading: loading hr_org_chart/views/hr_department_views.xml 
+2025-09-07 18:43:35,042 10548 INFO sama_conai_test odoo.modules.loading: loading hr_org_chart/views/hr_views.xml 
+2025-09-07 18:43:35,151 10548 INFO sama_conai_test odoo.modules.loading: loading hr_org_chart/views/hr_employee_public_views.xml 
+2025-09-07 18:43:35,161 10548 INFO sama_conai_test odoo.modules.loading: loading hr_org_chart/views/hr_org_chart_menus.xml 
+2025-09-07 18:43:35,205 10548 INFO sama_conai_test odoo.modules.loading: Module hr_org_chart loaded in 0.43s, 181 queries (+181 other) 
+2025-09-07 18:43:35,205 10548 INFO sama_conai_test odoo.modules.loading: Loading module hr_skills (34/36) 
+2025-09-07 18:43:35,379 10548 INFO sama_conai_test odoo.modules.registry: module hr_skills: creating or updating database tables 
+2025-09-07 18:43:35,459 10548 INFO sama_conai_test odoo.models: Prepare computation of hr.employee.skill_ids 
+2025-09-07 18:43:36,700 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/security/ir.model.access.csv 
+2025-09-07 18:43:36,746 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/security/hr_skills_security.xml 
+2025-09-07 18:43:36,825 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/views/hr_views.xml 
+2025-09-07 18:43:37,040 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/views/hr_employee_skill_log_views.xml 
+2025-09-07 18:43:37,074 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/data/hr_resume_data.xml 
+2025-09-07 18:43:37,099 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/data/hr_skill_data.xml 
+2025-09-07 18:43:37,249 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/data/ir_actions_server_data.xml 
+2025-09-07 18:43:37,275 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/data/report_paperformat.xml 
+2025-09-07 18:43:37,284 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/report/hr_employee_skill_report_views.xml 
+2025-09-07 18:43:37,332 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/report/hr_employee_cv_report.xml 
+2025-09-07 18:43:37,344 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/views/hr_department_views.xml 
+2025-09-07 18:43:37,361 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/views/hr_employee_cv_templates.xml 
+2025-09-07 18:43:37,390 10548 INFO sama_conai_test odoo.modules.loading: loading hr_skills/wizard/hr_employee_cv_wizard_views.xml 
+2025-09-07 18:43:37,451 10548 INFO sama_conai_test odoo.modules.loading: Module hr_skills loaded in 2.25s, 878 queries (+878 other) 
+2025-09-07 18:43:37,451 10548 INFO sama_conai_test odoo.modules.loading: Loading module mail_bot_hr (35/36) 
+2025-09-07 18:43:37,540 10548 INFO sama_conai_test odoo.modules.loading: loading mail_bot_hr/views/res_users_views.xml 
+2025-09-07 18:43:37,756 10548 INFO sama_conai_test odoo.modules.loading: Module mail_bot_hr loaded in 0.30s, 62 queries (+62 other) 
+2025-09-07 18:43:37,756 10548 INFO sama_conai_test odoo.modules.loading: Loading module sama_conai (36/36) 
+2025-09-07 18:43:37,836 10548 WARNING sama_conai_test py.warnings: /var/odoo/odoo18/odoo/api.py:484: DeprecationWarning: The model odoo.addons.sama_conai.models.information_request is not overriding the create method in batch
+  File "/var/odoo/odoo18/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/var/odoo/odoo18/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/var/odoo/odoo18/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/var/odoo/odoo18/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/home/grand-as/odoo18-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/var/odoo/odoo18/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/var/odoo/odoo18/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 489, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/var/odoo/odoo18/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/__init__.py", line 3, in <module>
+    from . import models
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/__init__.py", line 3, in <module>
+    from . import information_request
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/information_request.py", line 11, in <module>
+    class InformationRequest(models.Model):
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/information_request.py", line 147, in InformationRequest
+    @api.model
+  File "/var/odoo/odoo18/odoo/api.py", line 431, in model
+    return model_create_single(method)
+  File "/var/odoo/odoo18/odoo/api.py", line 484, in model_create_single
+    warnings.warn(
+ 
+2025-09-07 18:43:37,872 10548 WARNING sama_conai_test py.warnings: /var/odoo/odoo18/odoo/api.py:484: DeprecationWarning: The model odoo.addons.sama_conai.models.whistleblowing_alert is not overriding the create method in batch
+  File "/var/odoo/odoo18/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/var/odoo/odoo18/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/var/odoo/odoo18/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/var/odoo/odoo18/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/home/grand-as/odoo18-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/var/odoo/odoo18/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/var/odoo/odoo18/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 489, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/var/odoo/odoo18/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/__init__.py", line 3, in <module>
+    from . import models
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/__init__.py", line 6, in <module>
+    from . import whistleblowing_alert
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/whistleblowing_alert.py", line 12, in <module>
+    class WhistleblowingAlert(models.Model):
+  File "/home/grand-as/psagsn/custom_addons/sama_conai/models/whistleblowing_alert.py", line 155, in WhistleblowingAlert
+    @api.model
+  File "/var/odoo/odoo18/odoo/api.py", line 431, in model
+    return model_create_single(method)
+  File "/var/odoo/odoo18/odoo/api.py", line 484, in model_create_single
+    warnings.warn(
+ 
+2025-09-07 18:43:38,189 10548 INFO sama_conai_test odoo.modules.registry: module sama_conai: creating or updating database tables 
+2025-09-07 18:43:39,517 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/security/security_groups.xml 
+2025-09-07 18:43:39,662 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/security/ir.model.access.csv 
+2025-09-07 18:43:39,704 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/data/information_request_stages.xml 
+2025-09-07 18:43:39,741 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/data/refusal_reasons.xml 
+2025-09-07 18:43:39,773 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/data/whistleblowing_stages.xml 
+2025-09-07 18:43:39,804 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/data/sequences.xml 
+2025-09-07 18:43:39,819 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/data/analytics/cron_jobs.xml 
+2025-09-07 18:43:39,853 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/information_request_views.xml 
+2025-09-07 18:43:39,928 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/information_request_stage_views.xml 
+2025-09-07 18:43:39,962 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/refusal_reason_views.xml 
+2025-09-07 18:43:39,989 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/whistleblowing_alert_views.xml 
+2025-09-07 18:43:40,061 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/whistleblowing_stage_views.xml 
+2025-09-07 18:43:40,101 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/analytics/executive_dashboard_views.xml 
+2025-09-07 18:43:40,130 10548 WARNING sama_conai_test odoo.addons.base.models.ir_ui_view: 'kanban-box' is deprecated, define a 'card' template instead 
+2025-09-07 18:43:40,165 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/analytics/auto_report_generator_views.xml 
+2025-09-07 18:43:40,187 10548 WARNING sama_conai_test odoo.addons.base.models.ir_ui_view: 'kanban-box' is deprecated, define a 'card' template instead 
+2025-09-07 18:43:40,249 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/dashboard_views.xml 
+2025-09-07 18:43:40,282 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/public_dashboard_actions.xml 
+2025-09-07 18:43:40,298 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/administration_views.xml 
+2025-09-07 18:43:40,327 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/analytics_filtered_views.xml 
+2025-09-07 18:43:40,372 10548 INFO sama_conai_test odoo.modules.loading: loading sama_conai/views/user_preferences_views.xml 
+2025-09-07 18:43:40,464 10548 WARNING sama_conai_test odoo.modules.loading: Transient module states were reset 
+2025-09-07 18:43:40,477 10548 ERROR sama_conai_test odoo.modules.registry: Failed to load registry 
+2025-09-07 18:43:40,477 10548 CRITICAL sama_conai_test odoo.service.server: Failed to initialize database `sama_conai_test`. 
+Traceback (most recent call last):
+  File "/var/odoo/odoo18/odoo/tools/cache.py", line 103, in lookup
+    r = d[key]
+        ~^^^^^
+  File "/home/grand-as/odoo18-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/lru.py", line 33, in __getitem__
+    a = self.d[obj]
+        ~~~~~~^^^^^
+KeyError: ('ir.model.data', <function IrModelData._xmlid_lookup at 0x7990167aff60>, 'sama_conai.menu_analytics_dashboards')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 544, in _tag_root
+    f(rec)
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 280, in _tag_menuitem
+    values['parent_id'] = self.id_get(rec.attrib['parent'])
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 526, in id_get
+    res = self.model_id_get(id_str, raise_if_not_found)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 532, in model_id_get
+    return self.env['ir.model.data']._xmlid_to_res_model_res_id(id_str, raise_if_not_found=raise_if_not_found)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/addons/base/models/ir_model.py", line 2253, in _xmlid_to_res_model_res_id
+    return self._xmlid_lookup(xmlid)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/grand-as/odoo18-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/cache.py", line 110, in lookup
+    value = d[key] = self.method(*args, **kwargs)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/addons/base/models/ir_model.py", line 2246, in _xmlid_lookup
+    raise ValueError('External ID not found in the system: %s' % xmlid)
+ValueError: External ID not found in the system: sama_conai.menu_analytics_dashboards
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/odoo/odoo18/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/grand-as/odoo18-venv/lib/python3.12/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 489, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+                        ^^^^^^^^^^^^^^^^^^
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 228, in load_module_graph
+    load_data(env, idref, mode, kind='data', package=package)
+  File "/var/odoo/odoo18/odoo/modules/loading.py", line 72, in load_data
+    tools.convert_file(env, package.name, filename, idref, mode, noupdate, kind)
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 615, in convert_file
+    convert_xml_import(env, module, fp, idref, mode, noupdate)
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 686, in convert_xml_import
+    obj.parse(doc.getroot())
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 601, in parse
+    self._tag_root(de)
+  File "/var/odoo/odoo18/odoo/tools/convert.py", line 557, in _tag_root
+    raise ParseError('while parsing %s:%s, somewhere inside\n%s' % (
+odoo.tools.convert.ParseError: while parsing /home/grand-as/psagsn/custom_addons/sama_conai/views/user_preferences_views.xml:145, somewhere inside
+<menuitem id="menu_sama_conai_dashboard" name="Dashboard Mobile" parent="menu_analytics_dashboards" action="action_sama_conai_dashboard" sequence="5"/>
+2025-09-07 18:43:40,508 10548 INFO ? odoo.modules.loading: loading 1 modules... 
+2025-09-07 18:43:40,508 10548 INFO ? odoo.modules.loading: Loading module base (1/1) 
+2025-09-07 18:43:40,543 10548 INFO ? odoo.modules.registry: module base: creating or updating database tables 
+2025-09-07 18:43:41,553 10548 INFO ? odoo.modules.loading: loading base/data/res_bank.xml 
+2025-09-07 18:43:41,558 10548 INFO ? odoo.modules.loading: loading base/data/res.lang.csv 
+2025-09-07 18:43:41,897 10548 INFO ? odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-09-07 18:43:41,942 10548 INFO ? odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-09-07 18:43:42,049 10548 INFO ? odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-09-07 18:43:42,988 10548 INFO ? odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-09-07 18:43:43,003 10548 INFO ? odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-09-07 18:43:44,647 10548 INFO ? odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-09-07 18:43:44,655 10548 INFO ? odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-09-07 18:43:45,218 10548 INFO ? odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-09-07 18:43:45,239 10548 INFO ? odoo.modules.loading: loading base/security/base_groups.xml 
+2025-09-07 18:43:45,580 10548 INFO ? odoo.modules.loading: loading base/security/base_security.xml 
+2025-09-07 18:43:45,828 10548 INFO ? odoo.modules.loading: loading base/views/base_menus.xml 
+2025-09-07 18:43:45,921 10548 INFO ? odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-09-07 18:43:45,949 10548 INFO ? odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-09-07 18:43:45,961 10548 INFO ? odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-09-07 18:43:46,937 10548 INFO ? odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-09-07 18:43:47,182 10548 INFO ? odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-09-07 18:43:47,219 10548 INFO ? odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-09-07 18:43:47,254 10548 INFO ? odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-09-07 18:43:47,305 10548 INFO ? odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-09-07 18:43:47,339 10548 INFO ? odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-09-07 18:43:47,372 10548 INFO ? odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-09-07 18:43:47,412 10548 INFO ? odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-09-07 18:43:47,697 10548 INFO ? odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-09-07 18:43:47,739 10548 INFO ? odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-09-07 18:43:47,785 10548 INFO ? odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-09-07 18:43:47,828 10548 INFO ? odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-09-07 18:43:47,866 10548 INFO ? odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-09-07 18:43:47,956 10548 INFO ? odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-09-07 18:43:47,999 10548 INFO ? odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-09-07 18:43:48,003 10548 INFO ? odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-09-07 18:43:48,025 10548 INFO ? odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-09-07 18:43:48,031 10548 INFO ? odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-09-07 18:43:48,045 10548 INFO ? odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-09-07 18:43:48,080 10548 INFO ? odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-09-07 18:43:48,108 10548 INFO ? odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-09-07 18:43:48,205 10548 INFO ? odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-09-07 18:43:48,579 10548 INFO ? odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-09-07 18:43:48,639 10548 INFO ? odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-09-07 18:43:48,646 10548 INFO ? odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-09-07 18:43:48,658 10548 INFO ? odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-09-07 18:43:48,687 10548 INFO ? odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-09-07 18:43:48,708 10548 INFO ? odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-09-07 18:43:48,731 10548 INFO ? odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-09-07 18:43:48,764 10548 INFO ? odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-09-07 18:43:48,783 10548 INFO ? odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-09-07 18:43:48,806 10548 INFO ? odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-09-07 18:43:48,831 10548 INFO ? odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-09-07 18:43:48,858 10548 INFO ? odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-09-07 18:43:48,903 10548 INFO ? odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-09-07 18:43:48,944 10548 INFO ? odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-09-07 18:43:48,987 10548 INFO ? odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-09-07 18:43:49,174 10548 INFO ? odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-09-07 18:43:49,235 10548 INFO ? odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-09-07 18:43:49,318 10548 INFO ? odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-09-07 18:43:49,391 10548 INFO ? odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-09-07 18:43:49,632 10548 INFO ? odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-09-07 18:43:49,671 10548 INFO ? odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-09-07 18:43:49,684 10548 INFO ? odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-09-07 18:43:49,701 10548 INFO ? odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-09-07 18:43:49,748 10548 INFO ? odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-09-07 18:43:50,133 10548 INFO ? odoo.modules.loading: Module base loaded in 9.62s, 6882 queries (+6882 other) 
+2025-09-07 18:43:50,133 10548 INFO ? odoo.modules.loading: 1 modules loaded in 9.62s, 6882 queries (+6882 extra) 
+2025-09-07 18:43:50,137 10548 INFO ? odoo.modules.loading: loading 34 modules... 
+2025-09-07 18:43:50,138 10548 INFO ? odoo.modules.loading: Loading module web (2/34) 
+2025-09-07 18:43:50,201 10548 INFO ? odoo.modules.registry: module web: creating or updating database tables 
+2025-09-07 18:43:51,210 10548 INFO ? odoo.modules.loading: loading web/security/ir.model.access.csv 
+2025-09-07 18:43:51,221 10548 INFO ? odoo.modules.loading: loading web/views/webclient_templates.xml 
+2025-09-07 18:43:51,350 10548 INFO ? odoo.modules.loading: loading web/views/report_templates.xml 
+2025-09-07 18:43:51,536 10548 INFO ? odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2025-09-07 18:43:51,560 10548 INFO ? odoo.modules.loading: loading web/views/partner_view.xml 
+2025-09-07 18:43:51,566 10548 INFO ? odoo.modules.loading: loading web/views/speedscope_template.xml 
+2025-09-07 18:43:51,577 10548 INFO ? odoo.modules.loading: loading web/views/neutralize_views.xml 
+2025-09-07 18:43:51,589 10548 INFO ? odoo.modules.loading: loading web/data/ir_attachment.xml 
+2025-09-07 18:43:51,596 10548 INFO ? odoo.modules.loading: loading web/data/report_layout.xml 
+2025-09-07 18:43:51,696 10548 INFO ? odoo.modules.loading: Module web loaded in 1.56s, 1225 queries (+1225 other) 
+2025-09-07 18:43:51,696 10548 INFO ? odoo.modules.loading: Loading module auth_totp (3/34) 
+2025-09-07 18:43:51,750 10548 INFO ? odoo.modules.registry: module auth_totp: creating or updating database tables 
+2025-09-07 18:43:51,799 10548 INFO ? odoo.modules.loading: loading auth_totp/security/security.xml 
+2025-09-07 18:43:51,843 10548 INFO ? odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2025-09-07 18:43:51,854 10548 INFO ? odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2025-09-07 18:43:51,863 10548 INFO ? odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2025-09-07 18:43:51,928 10548 INFO ? odoo.modules.loading: loading auth_totp/views/templates.xml 
+2025-09-07 18:43:51,938 10548 INFO ? odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2025-09-07 18:43:51,982 10548 INFO ? odoo.modules.loading: Module auth_totp loaded in 0.29s, 185 queries (+185 other) 
+2025-09-07 18:43:51,982 10548 INFO ? odoo.modules.loading: Loading module base_import (4/34) 
+2025-09-07 18:43:52,051 10548 INFO ? odoo.modules.registry: module base_import: creating or updating database tables 
+2025-09-07 18:43:53,223 10548 INFO ? odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2025-09-07 18:43:53,329 10548 INFO ? odoo.modules.loading: Module base_import loaded in 1.35s, 855 queries (+855 other) 
+2025-09-07 18:43:53,329 10548 INFO ? odoo.modules.loading: Loading module base_import_module (5/34) 
+2025-09-07 18:43:53,384 10548 INFO ? odoo.modules.registry: module base_import_module: creating or updating database tables 
+2025-09-07 18:43:53,446 10548 INFO ? odoo.modules.loading: loading base_import_module/security/ir.model.access.csv 
+2025-09-07 18:43:53,464 10548 INFO ? odoo.modules.loading: loading base_import_module/views/base_import_module_view.xml 
+2025-09-07 18:43:53,494 10548 INFO ? odoo.modules.loading: loading base_import_module/views/ir_module_views.xml 
+2025-09-07 18:43:53,585 10548 INFO ? odoo.modules.loading: Module base_import_module loaded in 0.26s, 161 queries (+161 other) 
+2025-09-07 18:43:53,585 10548 INFO ? odoo.modules.loading: Loading module base_setup (6/34) 
+2025-09-07 18:43:53,641 10548 INFO ? odoo.modules.registry: module base_setup: creating or updating database tables 
+2025-09-07 18:43:53,690 10548 INFO ? odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2025-09-07 18:43:53,701 10548 INFO ? odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2025-09-07 18:43:53,756 10548 INFO ? odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2025-09-07 18:43:53,799 10548 INFO ? odoo.modules.loading: Module base_setup loaded in 0.21s, 131 queries (+131 other) 
+2025-09-07 18:43:53,800 10548 INFO ? odoo.modules.loading: Loading module bus (7/34) 
+2025-09-07 18:43:53,864 10548 INFO ? odoo.modules.registry: module bus: creating or updating database tables 
+2025-09-07 18:43:54,029 10548 INFO ? odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2025-09-07 18:43:54,071 10548 INFO ? odoo.modules.loading: Module bus loaded in 0.27s, 149 queries (+149 other) 
+2025-09-07 18:43:54,071 10548 INFO ? odoo.modules.loading: Loading module http_routing (8/34) 
+2025-09-07 18:43:54,130 10548 INFO ? odoo.modules.registry: module http_routing: creating or updating database tables 
+2025-09-07 18:43:54,165 10548 INFO ? odoo.modules.loading: loading http_routing/views/http_routing_template.xml 
+2025-09-07 18:43:54,233 10548 INFO ? odoo.modules.loading: loading http_routing/views/res_lang_views.xml 
+2025-09-07 18:43:54,293 10548 INFO ? odoo.modules.loading: Module http_routing loaded in 0.22s, 137 queries (+137 other) 
+2025-09-07 18:43:54,293 10548 INFO ? odoo.modules.loading: Loading module resource (9/34) 
+2025-09-07 18:43:54,351 10548 INFO ? odoo.modules.registry: module resource: creating or updating database tables 
+2025-09-07 18:43:54,464 10548 INFO ? odoo.modules.loading: loading resource/data/resource_data.xml 
+2025-09-07 18:43:54,476 10548 INFO ? odoo.modules.loading: loading resource/security/ir.model.access.csv 
+2025-09-07 18:43:54,508 10548 INFO ? odoo.modules.loading: loading resource/security/resource_security.xml 
+2025-09-07 18:43:54,548 10548 INFO ? odoo.modules.loading: loading resource/views/resource_resource_views.xml 
+2025-09-07 18:43:54,593 10548 INFO ? odoo.modules.loading: loading resource/views/resource_calendar_leaves_views.xml 
+2025-09-07 18:43:54,643 10548 INFO ? odoo.modules.loading: loading resource/views/resource_calendar_attendance_views.xml 
+2025-09-07 18:43:54,663 10548 INFO ? odoo.modules.loading: loading resource/views/resource_calendar_views.xml 
+2025-09-07 18:43:54,697 10548 INFO ? odoo.modules.loading: loading resource/views/menuitems.xml 
+2025-09-07 18:43:54,753 10548 INFO ? odoo.modules.loading: Module resource loaded in 0.46s, 330 queries (+330 other) 
+2025-09-07 18:43:54,753 10548 INFO ? odoo.modules.loading: Loading module web_hierarchy (10/34) 
+2025-09-07 18:43:54,827 10548 INFO ? odoo.modules.registry: module web_hierarchy: creating or updating database tables 
+2025-09-07 18:43:56,078 10548 INFO ? odoo.modules.loading: Module web_hierarchy loaded in 1.33s, 895 queries (+895 other) 
+2025-09-07 18:43:56,079 10548 INFO ? odoo.modules.loading: Loading module web_tour (11/34) 
+2025-09-07 18:43:56,136 10548 INFO ? odoo.modules.registry: module web_tour: creating or updating database tables 
+2025-09-07 18:43:56,199 10548 INFO ? odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2025-09-07 18:43:56,223 10548 INFO ? odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2025-09-07 18:43:56,275 10548 INFO ? odoo.modules.loading: loading web_tour/views/res_users_views.xml 
+2025-09-07 18:43:56,330 10548 INFO ? odoo.modules.loading: Module web_tour loaded in 0.25s, 157 queries (+157 other) 
+2025-09-07 18:43:56,330 10548 INFO ? odoo.modules.loading: Loading module html_editor (12/34) 
+2025-09-07 18:43:56,393 10548 INFO ? odoo.modules.registry: module html_editor: creating or updating database tables 
+2025-09-07 18:43:56,445 10548 INFO ? odoo.modules.loading: Module html_editor loaded in 0.11s, 36 queries (+36 other) 
+2025-09-07 18:43:56,446 10548 INFO ? odoo.modules.loading: Loading module iap (13/34) 
+2025-09-07 18:43:56,509 10548 INFO ? odoo.modules.registry: module iap: creating or updating database tables 
+2025-09-07 18:43:56,549 10548 INFO ? odoo.modules.loading: loading iap/data/services.xml 
+2025-09-07 18:43:56,560 10548 INFO ? odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2025-09-07 18:43:56,580 10548 INFO ? odoo.modules.loading: loading iap/security/ir_rule.xml 
+2025-09-07 18:43:56,593 10548 INFO ? odoo.modules.loading: loading iap/views/iap_views.xml 
+2025-09-07 18:43:56,634 10548 INFO ? odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2025-09-07 18:43:56,684 10548 INFO ? odoo.modules.loading: Module iap loaded in 0.24s, 151 queries (+151 other) 
+2025-09-07 18:43:56,684 10548 INFO ? odoo.modules.loading: Loading module mail (14/34) 
+2025-09-07 18:43:56,794 10548 INFO ? odoo.modules.registry: module mail: creating or updating database tables 
+2025-09-07 18:43:58,639 10548 INFO ? odoo.modules.loading: loading mail/data/mail_groups.xml 
+2025-09-07 18:43:58,724 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_activity_schedule_views.xml 
+2025-09-07 18:43:58,743 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_blacklist_remove_views.xml 
+2025-09-07 18:43:58,755 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_compose_message_views.xml 
+2025-09-07 18:43:58,783 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_resend_message_views.xml 
+2025-09-07 18:43:58,803 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_resend_partner_views.xml 
+2025-09-07 18:43:58,817 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_template_preview_views.xml 
+2025-09-07 18:43:58,833 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_wizard_invite_views.xml 
+2025-09-07 18:43:58,847 10548 INFO ? odoo.modules.loading: loading mail/wizard/mail_template_reset_views.xml 
+2025-09-07 18:43:58,863 10548 INFO ? odoo.modules.loading: loading mail/views/fetchmail_views.xml 
+2025-09-07 18:43:58,895 10548 INFO ? odoo.modules.loading: loading mail/views/mail_message_subtype_views.xml 
+2025-09-07 18:43:58,925 10548 INFO ? odoo.modules.loading: loading mail/views/mail_tracking_value_views.xml 
+2025-09-07 18:43:58,947 10548 INFO ? odoo.modules.loading: loading mail/views/mail_notification_views.xml 
+2025-09-07 18:43:58,969 10548 INFO ? odoo.modules.loading: loading mail/views/mail_message_views.xml 
+2025-09-07 18:43:59,024 10548 INFO ? odoo.modules.loading: loading mail/views/mail_message_schedule_views.xml 
+2025-09-07 18:43:59,061 10548 INFO ? odoo.modules.loading: loading mail/views/mail_mail_views.xml 
+2025-09-07 18:43:59,098 10548 INFO ? odoo.modules.loading: loading mail/views/mail_followers_views.xml 
+2025-09-07 18:43:59,121 10548 INFO ? odoo.modules.loading: loading mail/views/mail_ice_server_views.xml 
+2025-09-07 18:43:59,143 10548 INFO ? odoo.modules.loading: loading mail/views/discuss_channel_member_views.xml 
+2025-09-07 18:43:59,165 10548 INFO ? odoo.modules.loading: loading mail/views/discuss_channel_rtc_session_views.xml 
+2025-09-07 18:43:59,195 10548 INFO ? odoo.modules.loading: loading mail/views/mail_link_preview_views.xml 
+2025-09-07 18:43:59,217 10548 INFO ? odoo.modules.loading: loading mail/views/discuss/discuss_gif_favorite_views.xml 
+2025-09-07 18:43:59,237 10548 INFO ? odoo.modules.loading: loading mail/views/discuss_channel_views.xml 
+2025-09-07 18:43:59,286 10548 INFO ? odoo.modules.loading: loading mail/views/mail_canned_response_views.xml 
+2025-09-07 18:43:59,320 10548 INFO ? odoo.modules.loading: loading mail/views/mail_activity_views.xml 
+2025-09-07 18:43:59,940 10548 INFO ? odoo.modules.loading: loading mail/views/mail_activity_plan_views.xml 
+2025-09-07 18:44:00,012 10548 INFO ? odoo.modules.loading: loading mail/views/mail_activity_plan_template_views.xml 
+2025-09-07 18:44:00,031 10548 INFO ? odoo.modules.loading: loading mail/views/res_config_settings_views.xml 
+2025-09-07 18:44:00,067 10548 INFO ? odoo.modules.loading: loading mail/data/ir_config_parameter_data.xml 
+2025-09-07 18:44:00,077 10548 INFO ? odoo.modules.loading: loading mail/data/res_partner_data.xml 
+2025-09-07 18:44:00,180 10548 INFO ? odoo.modules.loading: loading mail/data/mail_message_subtype_data.xml 
+2025-09-07 18:44:00,191 10548 INFO ? odoo.modules.loading: loading mail/data/mail_templates_chatter.xml 
+2025-09-07 18:44:00,226 10548 INFO ? odoo.modules.loading: loading mail/data/mail_templates_email_layouts.xml 
+2025-09-07 18:44:00,265 10548 INFO ? odoo.modules.loading: loading mail/data/mail_templates_mailgateway.xml 
+2025-09-07 18:44:00,299 10548 INFO ? odoo.modules.loading: loading mail/data/discuss_channel_data.xml 
+2025-09-07 18:44:00,358 10548 INFO ? odoo.modules.loading: loading mail/data/mail_activity_data.xml 
+2025-09-07 18:44:00,372 10548 INFO ? odoo.modules.loading: loading mail/data/security_notifications_templates.xml 
+2025-09-07 18:44:00,381 10548 INFO ? odoo.modules.loading: loading mail/data/ir_cron_data.xml 
+2025-09-07 18:44:00,491 10548 INFO ? odoo.modules.loading: loading mail/data/ir_actions_client.xml 
+2025-09-07 18:44:00,496 10548 INFO ? odoo.modules.loading: loading mail/security/mail_security.xml 
+2025-09-07 18:44:00,723 10548 INFO ? odoo.modules.loading: loading mail/security/ir.model.access.csv 
+2025-09-07 18:44:00,895 10548 INFO ? odoo.modules.loading: loading mail/views/discuss_public_templates.xml 
+2025-09-07 18:44:00,907 10548 INFO ? odoo.modules.loading: loading mail/views/mail_alias_domain_views.xml 
+2025-09-07 18:44:00,932 10548 INFO ? odoo.modules.loading: loading mail/views/mail_alias_views.xml 
+2025-09-07 18:44:00,964 10548 INFO ? odoo.modules.loading: loading mail/views/mail_gateway_allowed_views.xml 
+2025-09-07 18:44:00,984 10548 INFO ? odoo.modules.loading: loading mail/views/mail_guest_views.xml 
+2025-09-07 18:44:01,007 10548 INFO ? odoo.modules.loading: loading mail/views/mail_message_reaction_views.xml 
+2025-09-07 18:44:01,027 10548 INFO ? odoo.modules.loading: loading mail/views/mail_templates_public.xml 
+2025-09-07 18:44:01,046 10548 INFO ? odoo.modules.loading: loading mail/views/res_users_views.xml 
+2025-09-07 18:44:01,095 10548 INFO ? odoo.modules.loading: loading mail/views/res_users_settings_views.xml 
+2025-09-07 18:44:01,122 10548 INFO ? odoo.modules.loading: loading mail/views/mail_template_views.xml 
+2025-09-07 18:44:01,161 10548 INFO ? odoo.modules.loading: loading mail/views/ir_actions_server_views.xml 
+2025-09-07 18:44:01,183 10548 INFO ? odoo.modules.loading: loading mail/views/ir_model_views.xml 
+2025-09-07 18:44:01,243 10548 INFO ? odoo.modules.loading: loading mail/views/res_partner_views.xml 
+2025-09-07 18:44:01,318 10548 INFO ? odoo.modules.loading: loading mail/views/mail_blacklist_views.xml 
+2025-09-07 18:44:01,349 10548 INFO ? odoo.modules.loading: loading mail/views/mail_menus.xml 
+2025-09-07 18:44:01,590 10548 INFO ? odoo.modules.loading: loading mail/views/res_company_views.xml 
+2025-09-07 18:44:01,609 10548 INFO ? odoo.modules.loading: loading mail/views/mail_scheduled_message_views.xml 
+2025-09-07 18:44:01,619 10548 INFO ? odoo.modules.loading: loading mail/data/mail_canned_response_data.xml 
+2025-09-07 18:44:01,629 10548 INFO ? odoo.modules.loading: loading mail/data/mail_templates_invite.xml 
+2025-09-07 18:44:01,645 10548 INFO ? odoo.modules.loading: loading mail/data/web_tour_tour.xml 
+2025-09-07 18:44:01,722 10548 INFO ? odoo.modules.loading: Module mail loaded in 5.04s, 3567 queries (+3568 other) 
+2025-09-07 18:44:01,723 10548 INFO ? odoo.modules.loading: Loading module web_editor (15/34) 
+2025-09-07 18:44:01,882 10548 INFO ? odoo.modules.registry: module web_editor: creating or updating database tables 
+2025-09-07 18:44:03,896 10548 INFO ? odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2025-09-07 18:44:03,991 10548 INFO ? odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2025-09-07 18:44:03,995 10548 INFO ? odoo.modules.loading: loading web_editor/views/editor.xml 
+2025-09-07 18:44:04,021 10548 INFO ? odoo.modules.loading: loading web_editor/views/snippets.xml 
+2025-09-07 18:44:04,121 10548 INFO ? odoo.modules.loading: Module web_editor loaded in 2.40s, 1418 queries (+1418 other) 
+2025-09-07 18:44:04,121 10548 INFO ? odoo.modules.loading: Loading module auth_signup (16/34) 
+2025-09-07 18:44:04,226 10548 INFO ? odoo.modules.registry: module auth_signup: creating or updating database tables 
+2025-09-07 18:44:04,345 10548 INFO ? odoo.modules.loading: loading auth_signup/data/ir_config_parameter_data.xml 
+2025-09-07 18:44:04,349 10548 INFO ? odoo.modules.loading: loading auth_signup/data/ir_cron_data.xml 
+2025-09-07 18:44:04,377 10548 INFO ? odoo.modules.loading: loading auth_signup/data/mail_template_data.xml 
+2025-09-07 18:44:04,400 10548 INFO ? odoo.modules.loading: loading auth_signup/views/res_config_settings_views.xml 
+2025-09-07 18:44:04,443 10548 INFO ? odoo.modules.loading: loading auth_signup/views/res_users_views.xml 
+2025-09-07 18:44:04,489 10548 INFO ? odoo.modules.loading: loading auth_signup/views/auth_signup_login_templates.xml 
+2025-09-07 18:44:04,529 10548 INFO ? odoo.modules.loading: loading auth_signup/views/auth_signup_templates_email.xml 
+2025-09-07 18:44:04,548 10548 INFO ? odoo.modules.loading: loading auth_signup/views/webclient_templates.xml 
+2025-09-07 18:44:04,595 10548 INFO ? odoo.modules.loading: Module auth_signup loaded in 0.47s, 250 queries (+250 other) 
+2025-09-07 18:44:04,595 10548 INFO ? odoo.modules.loading: Loading module auth_totp_mail (17/34) 
+2025-09-07 18:44:04,699 10548 INFO ? odoo.modules.registry: module auth_totp_mail: creating or updating database tables 
+2025-09-07 18:44:04,749 10548 INFO ? odoo.modules.loading: loading auth_totp_mail/data/ir_action_data.xml 
+2025-09-07 18:44:04,772 10548 INFO ? odoo.modules.loading: loading auth_totp_mail/data/mail_template_data.xml 
+2025-09-07 18:44:04,779 10548 INFO ? odoo.modules.loading: loading auth_totp_mail/data/security_notifications_template.xml 
+2025-09-07 18:44:04,795 10548 INFO ? odoo.modules.loading: loading auth_totp_mail/views/res_users_views.xml 
+2025-09-07 18:44:04,878 10548 INFO ? odoo.modules.loading: Module auth_totp_mail loaded in 0.28s, 133 queries (+133 other) 
+2025-09-07 18:44:04,878 10548 INFO ? odoo.modules.loading: Loading module base_install_request (18/34) 
+2025-09-07 18:44:04,983 10548 INFO ? odoo.modules.registry: module base_install_request: creating or updating database tables 
+2025-09-07 18:44:05,029 10548 INFO ? odoo.modules.loading: loading base_install_request/security/ir.model.access.csv 
+2025-09-07 18:44:05,059 10548 INFO ? odoo.modules.loading: loading base_install_request/wizard/base_module_install_request_views.xml 
+2025-09-07 18:44:05,091 10548 INFO ? odoo.modules.loading: loading base_install_request/data/mail_template_data.xml 
+2025-09-07 18:44:05,104 10548 INFO ? odoo.modules.loading: loading base_install_request/data/mail_templates_module_install.xml 
+2025-09-07 18:44:05,114 10548 INFO ? odoo.modules.loading: loading base_install_request/views/ir_module_module_views.xml 
+2025-09-07 18:44:05,169 10548 INFO ? odoo.modules.loading: Module base_install_request loaded in 0.29s, 135 queries (+135 other) 
+2025-09-07 18:44:05,169 10548 INFO ? odoo.modules.loading: Loading module google_gmail (19/34) 
+2025-09-07 18:44:05,274 10548 INFO ? odoo.modules.registry: module google_gmail: creating or updating database tables 
+2025-09-07 18:44:05,334 10548 INFO ? odoo.modules.loading: loading google_gmail/views/fetchmail_server_views.xml 
+2025-09-07 18:44:05,371 10548 INFO ? odoo.modules.loading: loading google_gmail/views/ir_mail_server_views.xml 
+2025-09-07 18:44:05,389 10548 INFO ? odoo.modules.loading: loading google_gmail/views/res_config_settings_views.xml 
+2025-09-07 18:44:05,445 10548 INFO ? odoo.modules.loading: Module google_gmail loaded in 0.28s, 116 queries (+116 other) 
+2025-09-07 18:44:05,445 10548 INFO ? odoo.modules.loading: Loading module iap_mail (20/34) 
+2025-09-07 18:44:05,548 10548 INFO ? odoo.modules.registry: module iap_mail: creating or updating database tables 
+2025-09-07 18:44:05,593 10548 INFO ? odoo.modules.loading: loading iap_mail/data/mail_templates.xml 
+2025-09-07 18:44:05,606 10548 INFO ? odoo.modules.loading: loading iap_mail/views/iap_views.xml 
+2025-09-07 18:44:05,654 10548 INFO ? odoo.modules.loading: Module iap_mail loaded in 0.21s, 72 queries (+72 other) 
+2025-09-07 18:44:05,654 10548 INFO ? odoo.modules.loading: Loading module mail_bot (21/34) 
+2025-09-07 18:44:05,760 10548 INFO ? odoo.modules.registry: module mail_bot: creating or updating database tables 
+2025-09-07 18:44:05,843 10548 INFO ? odoo.modules.loading: loading mail_bot/views/res_users_views.xml 
+2025-09-07 18:44:05,916 10548 INFO ? odoo.modules.loading: loading mail_bot/data/mailbot_data.xml 
+2025-09-07 18:44:05,995 10548 INFO ? odoo.modules.loading: Module mail_bot loaded in 0.34s, 133 queries (+133 other) 
+2025-09-07 18:44:05,995 10548 INFO ? odoo.modules.loading: Loading module phone_validation (22/34) 
+2025-09-07 18:44:06,138 10548 INFO ? odoo.modules.registry: module phone_validation: creating or updating database tables 
+2025-09-07 18:44:08,225 10548 INFO ? odoo.modules.loading: loading phone_validation/security/ir.model.access.csv 
+2025-09-07 18:44:08,252 10548 INFO ? odoo.modules.loading: loading phone_validation/views/phone_blacklist_views.xml 
+2025-09-07 18:44:08,306 10548 INFO ? odoo.modules.loading: loading phone_validation/wizard/phone_blacklist_remove_view.xml 
+2025-09-07 18:44:08,359 10548 INFO ? odoo.modules.loading: Module phone_validation loaded in 2.36s, 1432 queries (+1432 other) 
+2025-09-07 18:44:08,359 10548 INFO ? odoo.modules.loading: Loading module privacy_lookup (23/34) 
+2025-09-07 18:44:08,547 10548 INFO ? odoo.modules.registry: module privacy_lookup: creating or updating database tables 
+2025-09-07 18:44:08,672 10548 INFO ? odoo.modules.loading: loading privacy_lookup/wizard/privacy_lookup_wizard_views.xml 
+2025-09-07 18:44:08,734 10548 INFO ? odoo.modules.loading: loading privacy_lookup/views/privacy_log_views.xml 
+2025-09-07 18:44:08,770 10548 INFO ? odoo.modules.loading: loading privacy_lookup/security/ir.model.access.csv 
+2025-09-07 18:44:08,798 10548 INFO ? odoo.modules.loading: loading privacy_lookup/data/ir_actions_server_data.xml 
+2025-09-07 18:44:08,842 10548 INFO ? odoo.modules.loading: Module privacy_lookup loaded in 0.48s, 212 queries (+212 other) 
+2025-09-07 18:44:08,842 10548 INFO ? odoo.modules.loading: Loading module resource_mail (24/34) 
+2025-09-07 18:44:08,956 10548 INFO ? odoo.modules.registry: module resource_mail: creating or updating database tables 
+2025-09-07 18:44:09,010 10548 INFO ? odoo.modules.loading: Module resource_mail loaded in 0.17s, 35 queries (+35 other) 
+2025-09-07 18:44:09,010 10548 INFO ? odoo.modules.loading: Loading module web_unsplash (25/34) 
+2025-09-07 18:44:09,126 10548 INFO ? odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2025-09-07 18:44:09,217 10548 INFO ? odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2025-09-07 18:44:09,295 10548 INFO ? odoo.modules.loading: Module web_unsplash loaded in 0.29s, 105 queries (+105 other) 
+2025-09-07 18:44:09,295 10548 INFO ? odoo.modules.loading: Loading module partner_autocomplete (26/34) 
+2025-09-07 18:44:09,409 10548 INFO ? odoo.modules.registry: module partner_autocomplete: creating or updating database tables 
+2025-09-07 18:44:09,564 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/security/ir.model.access.csv 
+2025-09-07 18:44:09,592 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/views/res_partner_views.xml 
+2025-09-07 18:44:09,634 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/views/res_company_views.xml 
+2025-09-07 18:44:09,654 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/views/res_config_settings_views.xml 
+2025-09-07 18:44:09,689 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/data/cron.xml 
+2025-09-07 18:44:09,705 10548 INFO ? odoo.modules.loading: loading partner_autocomplete/data/iap_service_data.xml 
+2025-09-07 18:44:09,740 10548 INFO ? odoo.modules.loading: Module partner_autocomplete loaded in 0.44s, 214 queries (+214 other) 
+2025-09-07 18:44:09,740 10548 INFO ? odoo.modules.loading: Loading module portal (27/34) 
+2025-09-07 18:44:09,860 10548 INFO ? odoo.modules.registry: module portal: creating or updating database tables 
+2025-09-07 18:44:10,189 10548 INFO ? odoo.modules.loading: loading portal/security/ir.model.access.csv 
+2025-09-07 18:44:10,213 10548 INFO ? odoo.modules.loading: loading portal/data/mail_template_data.xml 
+2025-09-07 18:44:10,226 10548 INFO ? odoo.modules.loading: loading portal/data/mail_templates.xml 
+2025-09-07 18:44:10,237 10548 INFO ? odoo.modules.loading: loading portal/views/mail_templates_public.xml 
+2025-09-07 18:44:10,250 10548 INFO ? odoo.modules.loading: loading portal/views/portal_templates.xml 
+2025-09-07 18:44:10,510 10548 INFO ? odoo.modules.loading: loading portal/views/res_config_settings_views.xml 
+2025-09-07 18:44:10,554 10548 INFO ? odoo.modules.loading: loading portal/wizard/portal_share_views.xml 
+2025-09-07 18:44:10,571 10548 INFO ? odoo.modules.loading: loading portal/wizard/portal_wizard_views.xml 
+2025-09-07 18:44:10,632 10548 INFO ? odoo.modules.loading: Module portal loaded in 0.89s, 585 queries (+585 other) 
+2025-09-07 18:44:10,632 10548 INFO ? odoo.modules.loading: Loading module sms (28/34) 
+2025-09-07 18:44:10,790 10548 INFO ? odoo.modules.registry: module sms: creating or updating database tables 
+2025-09-07 18:44:13,257 10548 INFO ? odoo.modules.loading: loading sms/data/iap_service_data.xml 
+2025-09-07 18:44:13,261 10548 INFO ? odoo.modules.loading: loading sms/data/ir_cron_data.xml 
+2025-09-07 18:44:13,280 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_account_code_views.xml 
+2025-09-07 18:44:13,300 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_account_phone_views.xml 
+2025-09-07 18:44:13,312 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_account_sender_views.xml 
+2025-09-07 18:44:13,325 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_composer_views.xml 
+2025-09-07 18:44:13,344 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_template_preview_views.xml 
+2025-09-07 18:44:13,358 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_resend_views.xml 
+2025-09-07 18:44:13,378 10548 INFO ? odoo.modules.loading: loading sms/wizard/sms_template_reset_views.xml 
+2025-09-07 18:44:13,393 10548 INFO ? odoo.modules.loading: loading sms/views/ir_actions_server_views.xml 
+2025-09-07 18:44:13,416 10548 INFO ? odoo.modules.loading: loading sms/views/mail_notification_views.xml 
+2025-09-07 18:44:13,442 10548 INFO ? odoo.modules.loading: loading sms/views/res_config_settings_views.xml 
+2025-09-07 18:44:13,479 10548 INFO ? odoo.modules.loading: loading sms/views/res_partner_views.xml 
+2025-09-07 18:44:13,526 10548 INFO ? odoo.modules.loading: loading sms/views/iap_account_views.xml 
+2025-09-07 18:44:13,545 10548 INFO ? odoo.modules.loading: loading sms/views/sms_sms_views.xml 
+2025-09-07 18:44:13,590 10548 INFO ? odoo.modules.loading: loading sms/views/sms_template_views.xml 
+2025-09-07 18:44:13,628 10548 INFO ? odoo.modules.loading: loading sms/security/ir.model.access.csv 
+2025-09-07 18:44:13,693 10548 INFO ? odoo.modules.loading: loading sms/security/sms_security.xml 
+2025-09-07 18:44:13,741 10548 INFO ? odoo.modules.loading: Module sms loaded in 3.11s, 1830 queries (+1830 other) 
+2025-09-07 18:44:13,741 10548 INFO ? odoo.modules.loading: Loading module snailmail (29/34) 
+2025-09-07 18:44:13,870 10548 INFO ? odoo.modules.registry: module snailmail: creating or updating database tables 
+2025-09-07 18:44:14,217 10548 INFO ? odoo.modules.loading: loading snailmail/data/iap_service_data.xml 
+2025-09-07 18:44:14,229 10548 INFO ? odoo.modules.loading: loading snailmail/data/snailmail_data.xml 
+2025-09-07 18:44:14,250 10548 INFO ? odoo.modules.loading: loading snailmail/views/report_assets.xml 
+2025-09-07 18:44:14,277 10548 INFO ? odoo.modules.loading: loading snailmail/views/snailmail_views.xml 
+2025-09-07 18:44:14,312 10548 INFO ? odoo.modules.loading: loading snailmail/wizard/snailmail_letter_format_error_views.xml 
+2025-09-07 18:44:14,328 10548 INFO ? odoo.modules.loading: loading snailmail/wizard/snailmail_letter_missing_required_fields_views.xml 
+2025-09-07 18:44:14,345 10548 INFO ? odoo.modules.loading: loading snailmail/security/ir.model.access.csv 
+2025-09-07 18:44:14,408 10548 INFO ? odoo.modules.loading: Module snailmail loaded in 0.67s, 350 queries (+350 other) 
+2025-09-07 18:44:14,408 10548 INFO ? odoo.modules.loading: Loading module auth_totp_portal (30/34) 
+2025-09-07 18:44:14,530 10548 INFO ? odoo.modules.registry: module auth_totp_portal: creating or updating database tables 
+2025-09-07 18:44:14,574 10548 INFO ? odoo.modules.loading: loading auth_totp_portal/security/security.xml 
+2025-09-07 18:44:14,590 10548 INFO ? odoo.modules.loading: loading auth_totp_portal/views/templates.xml 
+2025-09-07 18:44:14,638 10548 INFO ? odoo.modules.loading: Module auth_totp_portal loaded in 0.23s, 70 queries (+70 other) 
+2025-09-07 18:44:14,638 10548 INFO ? odoo.modules.loading: Loading module digest (31/34) 
+2025-09-07 18:44:14,764 10548 INFO ? odoo.modules.registry: module digest: creating or updating database tables 
+2025-09-07 18:44:14,856 10548 INFO ? odoo.modules.loading: loading digest/security/ir.model.access.csv 
+2025-09-07 18:44:14,886 10548 INFO ? odoo.modules.loading: loading digest/data/digest_data.xml 
+2025-09-07 18:44:14,924 10548 INFO ? odoo.modules.loading: loading digest/data/digest_tips_data.xml 
+2025-09-07 18:44:14,957 10548 INFO ? odoo.modules.loading: loading digest/data/ir_cron_data.xml 
+2025-09-07 18:44:14,976 10548 INFO ? odoo.modules.loading: loading digest/data/res_config_settings_data.xml 
+2025-09-07 18:44:14,985 10548 INFO ? odoo.modules.loading: loading digest/views/digest_views.xml 
+2025-09-07 18:44:15,071 10548 INFO ? odoo.modules.loading: loading digest/views/digest_templates.xml 
+2025-09-07 18:44:15,081 10548 INFO ? odoo.modules.loading: loading digest/views/res_config_settings_views.xml 
+2025-09-07 18:44:15,159 10548 INFO ? odoo.modules.loading: Module digest loaded in 0.52s, 303 queries (+303 other) 
+2025-09-07 18:44:15,159 10548 INFO ? odoo.modules.loading: Loading module hr (32/34) 
+2025-09-07 18:44:15,343 10548 INFO ? odoo.modules.registry: module hr: creating or updating database tables 
+2025-09-07 18:44:17,965 10548 INFO ? odoo.modules.loading: loading hr/security/hr_security.xml 
+2025-09-07 18:44:18,178 10548 INFO ? odoo.modules.loading: loading hr/security/ir.model.access.csv 
+2025-09-07 18:44:18,228 10548 INFO ? odoo.modules.loading: loading hr/data/digest_data.xml 
+2025-09-07 18:44:18,238 10548 INFO ? odoo.modules.loading: loading hr/data/report_paperformat.xml 
+2025-09-07 18:44:18,244 10548 INFO ? odoo.modules.loading: loading hr/wizard/hr_departure_wizard_views.xml 
+2025-09-07 18:44:18,264 10548 INFO ? odoo.modules.loading: loading hr/wizard/mail_activity_schedule_views.xml 
+2025-09-07 18:44:18,285 10548 INFO ? odoo.modules.loading: loading hr/views/mail_activity_plan_views.xml 
+2025-09-07 18:44:18,360 10548 INFO ? odoo.modules.loading: loading hr/views/hr_departure_reason_views.xml 
+2025-09-07 18:44:18,378 10548 INFO ? odoo.modules.loading: loading hr/views/hr_contract_type_views.xml 
+2025-09-07 18:44:18,404 10548 INFO ? odoo.modules.loading: loading hr/views/hr_job_views.xml 
+2025-09-07 18:44:18,442 10548 INFO ? odoo.modules.loading: loading hr/views/hr_employee_category_views.xml 
+2025-09-07 18:44:18,465 10548 INFO ? odoo.modules.loading: loading hr/views/hr_employee_public_views.xml 
+2025-09-07 18:44:18,516 10548 INFO ? odoo.modules.loading: loading hr/report/hr_employee_badge.xml 
+2025-09-07 18:44:18,531 10548 INFO ? odoo.modules.loading: loading hr/views/hr_employee_views.xml 
+2025-09-07 18:44:18,655 10548 INFO ? odoo.modules.loading: loading hr/views/hr_department_views.xml 
+2025-09-07 18:44:18,718 10548 INFO ? odoo.modules.loading: loading hr/views/hr_work_location_views.xml 
+2025-09-07 18:44:18,742 10548 INFO ? odoo.modules.loading: loading hr/views/hr_views.xml 
+2025-09-07 18:44:18,863 10548 INFO ? odoo.modules.loading: loading hr/views/res_config_settings_views.xml 
+2025-09-07 18:44:18,917 10548 INFO ? odoo.modules.loading: loading hr/views/res_partner_views.xml 
+2025-09-07 18:44:18,957 10548 INFO ? odoo.modules.loading: loading hr/views/discuss_channel_views.xml 
+2025-09-07 18:44:18,978 10548 INFO ? odoo.modules.loading: loading hr/views/res_users.xml 
+2025-09-07 18:44:19,108 10548 INFO ? odoo.modules.loading: loading hr/views/hr_templates.xml 
+2025-09-07 18:44:19,118 10548 INFO ? odoo.modules.loading: loading hr/data/hr_data.xml 
+2025-09-07 18:44:19,323 10548 INFO ? odoo.modules.loading: Module hr loaded in 4.16s, 2661 queries (+2661 other) 
+2025-09-07 18:44:19,323 10548 INFO ? odoo.modules.loading: Loading module hr_org_chart (33/34) 
+2025-09-07 18:44:19,477 10548 INFO ? odoo.modules.registry: module hr_org_chart: creating or updating database tables 
+2025-09-07 18:44:19,623 10548 INFO ? odoo.modules.loading: loading hr_org_chart/views/hr_department_views.xml 
+2025-09-07 18:44:19,659 10548 INFO ? odoo.modules.loading: loading hr_org_chart/views/hr_views.xml 
+2025-09-07 18:44:19,857 10548 INFO ? odoo.modules.loading: loading hr_org_chart/views/hr_employee_public_views.xml 
+2025-09-07 18:44:19,876 10548 INFO ? odoo.modules.loading: loading hr_org_chart/views/hr_org_chart_menus.xml 
+2025-09-07 18:44:19,926 10548 INFO ? odoo.modules.loading: Module hr_org_chart loaded in 0.60s, 202 queries (+202 other) 
+2025-09-07 18:44:19,927 10548 INFO ? odoo.modules.loading: Loading module hr_skills (34/34) 
+2025-09-07 18:44:20,124 10548 INFO ? odoo.modules.registry: module hr_skills: creating or updating database tables 
+2025-09-07 18:44:20,489 10548 INFO ? odoo.modules.loading: loading hr_skills/security/ir.model.access.csv 
+2025-09-07 18:44:20,579 10548 INFO ? odoo.modules.loading: loading hr_skills/security/hr_skills_security.xml 
+2025-09-07 18:44:20,683 10548 INFO ? odoo.modules.loading: loading hr_skills/views/hr_views.xml 
+2025-09-07 18:44:20,988 10548 INFO ? odoo.modules.loading: loading hr_skills/views/hr_employee_skill_log_views.xml 
+2025-09-07 18:44:21,039 10548 INFO ? odoo.modules.loading: loading hr_skills/data/hr_resume_data.xml 
+2025-09-07 18:44:21,048 10548 INFO ? odoo.modules.loading: loading hr_skills/data/hr_skill_data.xml 
+2025-09-07 18:44:21,173 10548 INFO ? odoo.modules.loading: loading hr_skills/data/ir_actions_server_data.xml 
+2025-09-07 18:44:21,191 10548 INFO ? odoo.modules.loading: loading hr_skills/data/report_paperformat.xml 
+2025-09-07 18:44:21,199 10548 INFO ? odoo.modules.loading: loading hr_skills/report/hr_employee_skill_report_views.xml 
+2025-09-07 18:44:21,263 10548 INFO ? odoo.modules.loading: loading hr_skills/report/hr_employee_cv_report.xml 
+2025-09-07 18:44:21,275 10548 INFO ? odoo.modules.loading: loading hr_skills/views/hr_department_views.xml 
+2025-09-07 18:44:21,305 10548 INFO ? odoo.modules.loading: loading hr_skills/views/hr_employee_cv_templates.xml 
+2025-09-07 18:44:21,361 10548 INFO ? odoo.modules.loading: loading hr_skills/wizard/hr_employee_cv_wizard_views.xml 
+2025-09-07 18:44:21,460 10548 INFO ? odoo.modules.loading: Module hr_skills loaded in 1.53s, 765 queries (+765 other) 
+2025-09-07 18:44:21,460 10548 INFO ? odoo.modules.loading: 34 modules loaded in 31.32s, 19000 queries (+19001 extra) 
+2025-09-07 18:44:21,952 10548 INFO ? odoo.modules.loading: Modules loaded. 
+2025-09-07 18:44:21,966 10548 INFO ? odoo.modules.registry: Caches invalidated, signaling through the database: ['assets', 'default', 'groups', 'templates'] 
+2025-09-07 18:44:21,968 10548 INFO ? odoo.modules.registry: Registry loaded in 41.486s 
+2025-09-07 18:44:21,972 10548 INFO sama_conai_test odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-09-07 18:44:22,031 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:44:22] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 26123 17.971 91.282
+2025-09-07 18:44:22,091 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:44:22] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 3 0.002 0.005
+2025-09-07 18:44:22,364 10548 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2025-09-07 18:44:40,717 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting 
+2025-09-07 18:44:40,810 10548 INFO sama_conai_test odoo.addons.base.models.ir_attachment: filestore gc 24 checked, 8 removed 
+2025-09-07 18:44:41,881 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC'd 0 user log entries 
+2025-09-07 18:44:41,894 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries 
+2025-09-07 18:44:41,900 10548 INFO sama_conai_test odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 18:44:41,901 10548 INFO sama_conai_test odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 18:44:41,923 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries 
+2025-09-07 18:44:42,041 10548 INFO sama_conai_test odoo.addons.sms.models.sms_sms: GC'd 0 sms marked for deletion 
+2025-09-07 18:44:42,084 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) done in 1.366s 
+2025-09-07 18:44:42,093 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,096 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) completed 
+2025-09-07 18:44:42,118 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Delete Notifications older than 6 Month' (5) starting 
+2025-09-07 18:44:42,127 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Delete Notifications older than 6 Month' (5) done in 0.009s 
+2025-09-07 18:44:42,134 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Delete Notifications older than 6 Month' (5) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,137 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Delete Notifications older than 6 Month' (5) completed 
+2025-09-07 18:44:42,160 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Post scheduled messages' (7) starting 
+2025-09-07 18:44:42,164 10548 INFO sama_conai_test odoo.addons.mail.models.mail_scheduled_message: Posting 0 scheduled messages 
+2025-09-07 18:44:42,165 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Post scheduled messages' (7) done in 0.005s 
+2025-09-07 18:44:42,176 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Post scheduled messages' (7) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,180 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Post scheduled messages' (7) completed 
+2025-09-07 18:44:42,202 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
+2025-09-07 18:44:42,207 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.005s 
+2025-09-07 18:44:42,218 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,222 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
+2025-09-07 18:44:42,243 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: send web push notification' (9) starting 
+2025-09-07 18:44:42,248 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: send web push notification' (9) done in 0.004s 
+2025-09-07 18:44:42,259 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: send web push notification' (9) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,262 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: send web push notification' (9) completed 
+2025-09-07 18:44:42,285 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: channel member unmute' (10) starting 
+2025-09-07 18:44:42,290 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: channel member unmute' (10) done in 0.005s 
+2025-09-07 18:44:42,301 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: channel member unmute' (10) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,304 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: channel member unmute' (10) completed 
+2025-09-07 18:44:42,327 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: users settings unmute' (11) starting 
+2025-09-07 18:44:42,330 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: users settings unmute' (11) done in 0.004s 
+2025-09-07 18:44:42,343 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: users settings unmute' (11) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,346 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Discuss: users settings unmute' (11) completed 
+2025-09-07 18:44:42,368 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) starting 
+2025-09-07 18:44:42,375 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) done in 0.006s 
+2025-09-07 18:44:42,384 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,388 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) completed 
+2025-09-07 18:44:42,410 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) starting 
+2025-09-07 18:44:42,414 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) done in 0.004s 
+2025-09-07 18:44:42,426 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,429 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) completed 
+2025-09-07 18:44:42,443 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (17) starting 
+2025-09-07 18:44:42,450 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (17) done in 0.007s 
+2025-09-07 18:44:42,459 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (17) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,463 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'HR Employee: check work permit validity' (17) completed 
+2025-09-07 18:44:42,485 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
+2025-09-07 18:44:42,493 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.008s 
+2025-09-07 18:44:42,501 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,504 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
+2025-09-07 18:44:42,526 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Users: Notify About Unregistered Users' (12) starting 
+2025-09-07 18:44:42,533 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Users: Notify About Unregistered Users' (12) done in 0.006s 
+2025-09-07 18:44:42,543 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Users: Notify About Unregistered Users' (12) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,546 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Users: Notify About Unregistered Users' (12) completed 
+2025-09-07 18:44:42,568 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) starting 
+2025-09-07 18:44:42,575 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) done in 0.007s 
+2025-09-07 18:44:42,584 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,588 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) completed 
+2025-09-07 18:44:42,610 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) starting 
+2025-09-07 18:44:42,615 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) done in 0.005s 
+2025-09-07 18:44:42,626 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) processed 0 records, 0 records remaining 
+2025-09-07 18:44:42,629 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) completed 
+2025-09-07 18:45:22,205 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:45:22] "GET / HTTP/1.1" 303 - 1 0.001 0.004
+2025-09-07 18:45:42,731 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting 
+2025-09-07 18:45:42,771 10548 INFO sama_conai_test odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed 
+2025-09-07 18:45:42,858 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC'd 0 user log entries 
+2025-09-07 18:45:42,870 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries 
+2025-09-07 18:45:42,877 10548 INFO sama_conai_test odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 18:45:42,879 10548 INFO sama_conai_test odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 18:45:42,899 10548 INFO sama_conai_test odoo.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries 
+2025-09-07 18:45:43,024 10548 INFO sama_conai_test odoo.addons.sms.models.sms_sms: GC'd 0 sms marked for deletion 
+2025-09-07 18:45:43,071 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) done in 0.340s 
+2025-09-07 18:45:43,081 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) processed 0 records, 0 records remaining 
+2025-09-07 18:45:43,085 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) completed 
+2025-09-07 18:45:57,328 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:45:57] "GET / HTTP/1.1" 303 - 1 0.002 0.005
+2025-09-07 18:45:57,377 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:45:57] "GET /odoo HTTP/1.1" 303 - 1 0.001 0.007
+2025-09-07 18:45:57,640 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:45:57] "GET /web/login?redirect=/odoo? HTTP/1.1" 200 - 52 0.030 0.222
+2025-09-07 18:45:57,771 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:45:57] "GET /web/binary/company_logo HTTP/1.1" 200 - 2 0.002 0.068
+2025-09-07 18:46:00,618 10548 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/83ae613/web.assets_frontend_lazy.min.js (id:31) 
+2025-09-07 18:46:00,640 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:00] "GET /web/assets/83ae613/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 11 0.083 2.538
+2025-09-07 18:46:03,656 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:46:03,676 10548 INFO sama_conai_test odoo.modules.registry: Caches invalidated, signaling through the database: ['default'] 
+2025-09-07 18:46:03,678 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:03] "POST /web/login HTTP/1.1" 303 - 63 0.044 0.846
+2025-09-07 18:46:03,689 10548 INFO sama_conai_test odoo.addons.base.models.res_device: User 2 inserts device log (oTjmj25t9Nxc0uxnbyXeqn54Lo1UsE2ZzSM2_sbYjN) 
+2025-09-07 18:46:04,221 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:04] "GET /odoo HTTP/1.1" 200 - 133 0.086 0.450
+2025-09-07 18:46:04,293 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:04] "GET /web/webclient/translations/b202dc9bf4b745e37db39ef48a46bbbb138b17c3?lang=en_US HTTP/1.1" 200 - 1 0.001 0.004
+2025-09-07 18:46:04,420 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:04] "GET /web/webclient/load_menus/a7bf85027b9cb341ec5fba7ea55cf6ae2f3f585e7916160d4e68d10579f0aeb3 HTTP/1.1" 200 - 102 0.059 0.073
+2025-09-07 18:46:04,853 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:04] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 9 0.008 0.018
+2025-09-07 18:46:04,918 10548 INFO sama_conai_test odoo.addons.partner_autocomplete.models.res_company: Starting enrich of company My Company (1) 
+2025-09-07 18:46:04,962 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:04] "POST /web/dataset/call_kw/res.company/iap_enrich_auto HTTP/1.1" 200 - 10 0.009 0.048
+2025-09-07 18:46:05,025 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /web/action/load HTTP/1.1" 200 - 6 0.014 0.014
+2025-09-07 18:46:05,085 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 - 13 0.031 0.038
+2025-09-07 18:46:05,085 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /web/image/res.partner/3/avatar_128?unique=1757270762000 HTTP/1.1" 200 - 15 0.040 0.050
+2025-09-07 18:46:05,092 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.004 0.038
+2025-09-07 18:46:05,110 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 2 0.003 0.006
+2025-09-07 18:46:05,136 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /mail/data HTTP/1.1" 200 - 27 0.036 0.063
+2025-09-07 18:46:05,211 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /mail/data HTTP/1.1" 200 - 33 0.022 0.036
+2025-09-07 18:46:05,224 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /bus/has_missed_notifications HTTP/1.1" 200 - 2 0.002 0.006
+2025-09-07 18:46:05,419 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "POST /mail/inbox/messages HTTP/1.1" 200 - 5 0.005 0.005
+2025-09-07 18:46:05,455 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /web/image/res.partner/2/avatar_128?unique=1757270655000 HTTP/1.1" 200 - 7 0.007 0.017
+2025-09-07 18:46:05,470 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /web/image/discuss.channel/2/avatar_128?unique=1b7787f7d889eae819eb91a01223f51c5a029fb599626fab8e172184eb6afa672b01522e192e3a58109f68887ac161079267c943114752d725e46c2a1f8679eb HTTP/1.1" 200 - 9 0.013 0.023
+2025-09-07 18:46:05,475 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:05] "GET /web/image/discuss.channel/1/avatar_128?unique=425d17a66f1b1f4022e608bd09afe70ff0f75bfe2f71f4ed298cffbd0bc2fc3a25a92bbb6739534e1d84d805cd220ec07a32a76ae43c0f1c55a4e9eae0042b54 HTTP/1.1" 200 - 9 0.013 0.028
+2025-09-07 18:46:10,584 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:10] "GET /odoo/discuss HTTP/1.1" 200 - 18 0.010 0.026
+2025-09-07 18:46:10,824 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:10] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 7 0.006 0.016
+2025-09-07 18:46:10,959 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:10] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 9 0.009 0.021
+2025-09-07 18:46:10,997 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:10] "POST /web/action/load HTTP/1.1" 200 - 7 0.030 0.031
+2025-09-07 18:46:11,042 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:11] "POST /mail/data HTTP/1.1" 200 - 17 0.045 0.027
+2025-09-07 18:46:11,305 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:11] "POST /mail/data HTTP/1.1" 200 - 33 0.038 0.064
+2025-09-07 18:46:11,539 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:46:11] "POST /mail/inbox/messages HTTP/1.1" 200 - 3 0.003 0.007
+2025-09-07 18:47:03,916 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:47:03] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.031
+2025-09-07 18:47:52,010 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:47:52] "GET /web/database/selector HTTP/1.1" 200 - 3 0.002 0.878
+2025-09-07 18:48:04,714 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 18:48:04,715 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:48:04] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.004
+2025-09-07 18:48:39,133 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:48:39,199 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:48:39] "POST /web/session/authenticate HTTP/1.1" 200 - 50 0.029 0.817
+2025-09-07 18:48:39,213 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:48:39] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 18:48:39,220 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:48:39] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 18:50:01,080 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:50:01,110 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:01] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.015 0.807
+2025-09-07 18:50:01,127 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:01] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 18:50:01,137 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:01] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 18:50:17,623 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:50:17,652 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:17] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.016 0.798
+2025-09-07 18:50:17,666 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:17] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 18:50:17,672 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:50:17] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 18:51:41,728 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:51:41,761 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:51:41] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.016 0.818
+2025-09-07 18:51:41,775 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:51:41] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 18:51:41,783 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:51:41] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 18:52:04,446 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 18:52:04,477 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:52:04] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.014 0.787
+2025-09-07 18:52:04,491 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:52:04] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 18:52:04,498 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 18:52:04] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 19:03:17,622 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 19:03:17,657 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:17] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.025 0.821
+2025-09-07 19:03:17,675 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:17] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.003
+2025-09-07 19:03:17,687 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:17] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.004
+2025-09-07 19:03:29,821 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:29] "GET / HTTP/1.1" 303 - 1 0.002 0.009
+2025-09-07 19:03:29,910 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:29] "GET /odoo HTTP/1.1" 200 - 18 0.012 0.035
+2025-09-07 19:03:30,497 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:30] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 7 0.005 0.010
+2025-09-07 19:03:30,657 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:30] "POST /web/action/load HTTP/1.1" 200 - 6 0.015 0.012
+2025-09-07 19:03:30,662 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:30] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 9 0.015 0.020
+2025-09-07 19:03:30,710 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:30] "POST /mail/data HTTP/1.1" 200 - 17 0.013 0.021
+2025-09-07 19:03:30,828 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:30] "POST /mail/data HTTP/1.1" 200 - 33 0.021 0.037
+2025-09-07 19:03:31,014 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:31] "POST /mail/inbox/messages HTTP/1.1" 200 - 3 0.003 0.005
+2025-09-07 19:03:32,861 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:32] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.004
+2025-09-07 19:03:57,116 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:57] "GET / HTTP/1.1" 303 - 1 0.001 0.009
+2025-09-07 19:03:57,160 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:57] "GET /odoo HTTP/1.1" 200 - 18 0.010 0.023
+2025-09-07 19:03:57,331 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:57] "GET /web/webclient/translations/b202dc9bf4b745e37db39ef48a46bbbb138b17c3?lang=en_US HTTP/1.1" 200 - 1 0.004 0.053
+2025-09-07 19:03:57,450 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:03:57] "GET /web/webclient/load_menus/a7bf85027b9cb341ec5fba7ea55cf6ae2f3f585e7916160d4e68d10579f0aeb3 HTTP/1.1" 200 - 101 0.063 0.115
+2025-09-07 19:04:02,798 10548 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d73f378/web.assets_web.min.css (id:32) 
+2025-09-07 19:04:02,875 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:02] "GET /web/assets/d73f378/web.assets_web.min.css HTTP/1.1" 200 - 14 0.039 5.632
+2025-09-07 19:04:05,216 10548 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7251b7f/web.assets_web_print.min.css (id:33) 
+2025-09-07 19:04:05,265 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:05] "GET /web/assets/7251b7f/web.assets_web_print.min.css HTTP/1.1" 200 - 8 0.065 2.302
+2025-09-07 19:04:09,370 10548 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5e139f0/web.assets_web.min.js (id:34) 
+2025-09-07 19:04:09,413 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:09] "GET /web/assets/5e139f0/web.assets_web.min.js HTTP/1.1" 200 - 11 0.013 12.194
+2025-09-07 19:04:10,144 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 7 0.008 0.033
+2025-09-07 19:04:10,194 10548 INFO sama_conai_test odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d469123/bus.websocket_worker_assets.min.js (id:35) 
+2025-09-07 19:04:10,209 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /bus/websocket_worker_bundle?v=18.0-5 HTTP/1.1" 200 - 8 0.008 0.062
+2025-09-07 19:04:10,213 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.007
+2025-09-07 19:04:10,272 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /odoo/offline HTTP/1.1" 200 - 6 0.005 0.031
+2025-09-07 19:04:10,420 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "POST /web/action/load HTTP/1.1" 200 - 6 0.040 0.032
+2025-09-07 19:04:10,429 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 - 9 0.054 0.029
+2025-09-07 19:04:10,431 10548 INFO ? werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/static/lib/odoo_ui_icons/fonts/odoo_ui_icons.woff2 HTTP/1.1" 200 - 0 0.000 0.035
+2025-09-07 19:04:10,445 10548 INFO ? werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/static/img/odoo-icon-192x192.png HTTP/1.1" 200 - 0 0.000 0.020
+2025-09-07 19:04:10,449 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/image/res.partner/3/avatar_128?unique=1757270762000 HTTP/1.1" 200 - 8 0.055 0.047
+2025-09-07 19:04:10,454 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.004 0.021
+2025-09-07 19:04:10,487 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "POST /mail/data HTTP/1.1" 200 - 17 0.035 0.037
+2025-09-07 19:04:10,631 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "POST /mail/data HTTP/1.1" 200 - 33 0.024 0.042
+2025-09-07 19:04:10,919 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "POST /mail/inbox/messages HTTP/1.1" 200 - 3 0.003 0.009
+2025-09-07 19:04:10,962 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/image/discuss.channel/2/avatar_128?unique=1b7787f7d889eae819eb91a01223f51c5a029fb599626fab8e172184eb6afa672b01522e192e3a58109f68887ac161079267c943114752d725e46c2a1f8679eb HTTP/1.1" 200 - 4 0.005 0.015
+2025-09-07 19:04:10,976 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/image/discuss.channel/1/avatar_128?unique=425d17a66f1b1f4022e608bd09afe70ff0f75bfe2f71f4ed298cffbd0bc2fc3a25a92bbb6739534e1d84d805cd220ec07a32a76ae43c0f1c55a4e9eae0042b54 HTTP/1.1" 200 - 4 0.008 0.023
+2025-09-07 19:04:10,986 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:04:10] "GET /web/image/res.partner/2/avatar_128?unique=1757270655000 HTTP/1.1" 200 - 7 0.019 0.020
+2025-09-07 19:08:11,953 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:08:11] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.001 0.004
+2025-09-07 19:10:40,138 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:10:40] "GET / HTTP/1.1" 303 - 1 0.001 0.004
+2025-09-07 19:10:48,576 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:10:48] "GET / HTTP/1.1" 303 - 1 0.001 0.002
+2025-09-07 19:12:16,365 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:12:16] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.001 0.004
+2025-09-07 19:12:19,395 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:12:19] "GET /web HTTP/1.1" 303 - 1 0.001 0.003
+2025-09-07 19:12:26,566 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 19:12:26,598 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:12:26] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.015 0.795
+2025-09-07 19:12:33,184 10548 INFO sama_conai_test odoo.addons.base.models.res_users: Login successful for db:sama_conai_test login:admin from 127.0.0.1 
+2025-09-07 19:12:33,216 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:12:33] "POST /web/session/authenticate HTTP/1.1" 200 - 29 0.014 0.818
+2025-09-07 19:12:33,225 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:12:33] "POST /web/dataset/call_kw HTTP/1.1" 200 - 1 0.001 0.002
+2025-09-07 19:16:23,236 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:16:23] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.001 0.006
+2025-09-07 19:34:31,867 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:34:31,869 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:34:31] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.003 0.009
+2025-09-07 19:34:57,655 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:34:57,655 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:34:57] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.005
+2025-09-07 19:35:48,046 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:35:48,047 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:35:48] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.008
+2025-09-07 19:39:34,301 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:39:34,301 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:39:34] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.005
+2025-09-07 19:41:52,207 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:41:52,207 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:41:52] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.006
+2025-09-07 19:42:33,917 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:42:33,918 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:42:33] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.002 0.006
+2025-09-07 19:43:46,871 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
+2025-09-07 19:43:46,879 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.008s 
+2025-09-07 19:43:46,895 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
+2025-09-07 19:43:46,899 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
+2025-09-07 19:43:46,923 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) starting 
+2025-09-07 19:43:46,931 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) done in 0.008s 
+2025-09-07 19:43:46,944 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) processed 0 records, 0 records remaining 
+2025-09-07 19:43:46,948 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) completed 
+2025-09-07 19:43:47,021 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) starting 
+2025-09-07 19:43:47,043 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) done in 0.021s 
+2025-09-07 19:43:47,061 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) processed 0 records, 0 records remaining 
+2025-09-07 19:43:47,070 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) completed 
+2025-09-07 19:43:47,129 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
+2025-09-07 19:43:47,139 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.009s 
+2025-09-07 19:43:47,154 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
+2025-09-07 19:43:47,160 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
+2025-09-07 19:43:47,190 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) starting 
+2025-09-07 19:43:47,196 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) done in 0.006s 
+2025-09-07 19:43:47,211 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) processed 0 records, 0 records remaining 
+2025-09-07 19:43:47,215 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) completed 
+2025-09-07 19:56:58,587 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:56:58,588 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:56:58] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.006
+2025-09-07 19:58:04,713 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 19:58:04,713 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:58:04] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.006
+2025-09-07 19:58:59,706 10548 INFO sama_conai_test odoo.addons.base.models.res_device: User 2 inserts device log (oTjmj25t9Nxc0uxnbyXeqn54Lo1UsE2ZzSM2_sbYjN) 
+2025-09-07 19:58:59,771 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 19:58:59] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 2 0.006 0.076
+2025-09-07 20:00:15,620 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:00:15] "GET / HTTP/1.1" 303 - 1 0.001 0.010
+2025-09-07 20:00:16,055 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 20:00:16,055 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:00:16] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.008
+2025-09-07 20:17:58,154 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:17:58] "GET / HTTP/1.1" 303 - 1 0.002 0.005
+2025-09-07 20:17:58,477 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 20:17:58,478 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:17:58] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.010
+2025-09-07 20:43:51,167 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) starting 
+2025-09-07 20:43:51,173 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) done in 0.006s 
+2025-09-07 20:43:51,182 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) processed 0 records, 0 records remaining 
+2025-09-07 20:43:51,186 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Notification: Notify scheduled messages' (8) completed 
+2025-09-07 20:43:51,208 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) starting 
+2025-09-07 20:43:51,213 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) done in 0.005s 
+2025-09-07 20:43:51,226 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) processed 0 records, 0 records remaining 
+2025-09-07 20:43:51,234 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'SMS: SMS Queue Manager' (14) completed 
+2025-09-07 20:43:51,269 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) starting 
+2025-09-07 20:43:51,282 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) done in 0.013s 
+2025-09-07 20:43:51,300 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) processed 0 records, 0 records remaining 
+2025-09-07 20:43:51,308 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Snailmail: process letters queue' (15) completed 
+2025-09-07 20:43:51,325 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) starting 
+2025-09-07 20:43:51,331 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) done in 0.007s 
+2025-09-07 20:43:51,340 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) processed 0 records, 0 records remaining 
+2025-09-07 20:43:51,345 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Mail: Email Queue Manager' (3) completed 
+2025-09-07 20:43:51,383 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) starting 
+2025-09-07 20:43:51,388 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) done in 0.005s 
+2025-09-07 20:43:51,407 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) processed 0 records, 0 records remaining 
+2025-09-07 20:43:51,410 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Partner Autocomplete: Sync with remote DB' (13) completed 
+2025-09-07 20:44:51,522 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Digest Emails' (16) starting 
+2025-09-07 20:44:51,729 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Digest Emails' (16) done in 0.206s 
+2025-09-07 20:44:51,736 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Digest Emails' (16) processed 0 records, 0 records remaining 
+2025-09-07 20:44:51,739 10548 INFO sama_conai_test odoo.addons.base.models.ir_cron: Job 'Digest Emails' (16) completed 
+2025-09-07 20:53:34,724 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:53:34] "GET / HTTP/1.1" 303 - 1 0.001 0.005
+2025-09-07 20:53:34,964 10548 WARNING sama_conai_test odoo.http: Database not found. 
+2025-09-07 20:53:34,965 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:53:34] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.001 0.005
+2025-09-07 20:58:48,487 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:58:48] "GET / HTTP/1.1" 303 - 1 0.001 0.003
+2025-09-07 20:58:48,611 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:58:48] "GET /sama_conai/dashboard HTTP/1.1" 404 - 41 0.022 0.093
+2025-09-07 20:58:48,636 10548 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 20:58:48] "GET /sama_conai/theme_selector HTTP/1.1" 404 - 9 0.005 0.009
+2025-09-07 20:59:11,409 10548 INFO sama_conai_test odoo.service.server: Initiating shutdown 
+2025-09-07 20:59:11,409 10548 INFO sama_conai_test odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-09-07 20:59:11,648 10548 INFO sama_conai_test odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  

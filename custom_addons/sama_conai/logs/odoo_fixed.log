@@ -1,0 +1,24 @@
+2025-09-07 21:05:32,618 21970 INFO ? odoo: Odoo version 18.0 
+2025-09-07 21:05:32,618 21970 INFO ? odoo: Using configuration file at /home/grand-as/.odoorc 
+2025-09-07 21:05:32,618 21970 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/var/odoo/odoo18/addons', '/home/grand-as/psagsn/custom_addons'] 
+2025-09-07 21:05:32,618 21970 INFO ? odoo: database: odoo@localhost:default 
+2025-09-07 21:05:32,866 21970 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 21:05:32,891 21970 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 21:05:33,320 21970 INFO ? odoo.service.server: HTTP service (werkzeug) running on grand-as-ThinkPad-T560:8077 
+2025-09-07 21:05:33,349 21970 INFO sama_conai_test odoo.modules.loading: loading 1 modules... 
+2025-09-07 21:05:33,358 21970 INFO sama_conai_test odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2025-09-07 21:05:33,376 21970 INFO sama_conai_test odoo.modules.loading: loading 34 modules... 
+2025-09-07 21:05:34,272 21970 INFO sama_conai_test odoo.modules.loading: 34 modules loaded in 0.90s, 0 queries (+0 extra) 
+2025-09-07 21:05:34,367 21970 INFO sama_conai_test odoo.modules.loading: Modules loaded. 
+2025-09-07 21:05:34,371 21970 INFO sama_conai_test odoo.modules.registry: Registry loaded in 1.050s 
+2025-09-07 21:05:42,122 21970 INFO sama_conai_test odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-09-07 21:05:42,172 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:05:42] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 6 0.006 0.051
+2025-09-07 21:05:42,562 21970 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2025-09-07 21:06:22,391 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:06:22] "GET /sama_conai/dashboard HTTP/1.1" 404 - 77 0.042 0.257
+2025-09-07 21:06:34,893 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:06:34] "GET /sama_conai/dashboard HTTP/1.1" 404 - 8 0.019 0.028
+2025-09-07 21:06:34,978 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:06:34] "GET /logo.png?company=1 HTTP/1.1" 304 - 2 0.007 0.010
+2025-09-07 21:07:31,915 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:07:31] "GET /sama_conai/dashboard/mobile HTTP/1.1" 404 - 8 0.005 0.442
+2025-09-07 21:07:31,958 21970 INFO sama_conai_test werkzeug: 127.0.0.1 - - [07/Sep/2025 21:07:31] "GET /logo.png?company=1 HTTP/1.1" 304 - 2 0.003 0.005
+2025-09-07 21:07:48,477 21970 INFO sama_conai_test odoo.service.server: Initiating shutdown 
+2025-09-07 21:07:48,477 21970 INFO sama_conai_test odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-09-07 21:07:48,603 21970 INFO sama_conai_test odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  

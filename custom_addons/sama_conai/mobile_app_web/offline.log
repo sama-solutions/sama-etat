@@ -1,0 +1,16 @@
+🔄 Connexion à Odoo pour données réelles...
+info: 🚀 Serveur SAMA CONAI Offline Enhanced démarré sur le port 3007 {"service":"sama-conai-offline","timestamp":"2025-09-08T01:16:27.884Z"}
+
+🎉 SAMA CONAI OFFLINE ENHANCED v3.3
+====================================
+🌐 URL: http://localhost:3007
+📱 Interface: Neumorphique avec mode offline complet
+🔄 Synchronisation: Automatique et manuelle
+📊 Navigation: 3 niveaux vers backend Odoo
+🔐 Auth: JWT + Sessions sécurisées
+👤 Credentials: admin/admin
+🚀 Prêt pour une expérience offline complète !
+  
+✅ Authentification Odoo réussie
+✅ Connexion Odoo établie - Données réelles disponibles
+,"service":"sama-conai-offline","timestamp":"2025-09-08T01:16:27.884Z"}

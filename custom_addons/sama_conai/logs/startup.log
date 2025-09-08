@@ -1,0 +1,1269 @@
+[0;36m[2025-09-07 06:22:13][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;31m❌ Application mobile: Arrêtée[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:22:30][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:22:30][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:22:30][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 519176[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:22:30][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:22:33][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 519231[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:22:33][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:22:35][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 519231, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:22:45][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 519231, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:22:59][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:22:59][0m 🛑 Arrêt de Application mobile (PID: 519231)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:23:36][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;31m❌ Application mobile: Arrêtée[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:23:36][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:23:36][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:23:36][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 520201[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:23:36][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:23:39][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 520256[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:23:39][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:23:42][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 520256, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:23:45][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:23:45][0m 🛑 Arrêt de Application mobile (PID: 520256)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:33:05][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:33:05][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:33:05][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 526186[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:33:05][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:33:08][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 526240[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:33:08][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:33:10][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 526240, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:34:48][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:34:48][0m 🛑 Arrêt de Application mobile (PID: 526240)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:38:11][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:38:11][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:38:11][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 529591[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:38:11][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:38:14][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 529646[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:38:14][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:38:16][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 529646, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:44:08][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:44:08][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:44:08][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 533300[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:44:08][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:44:11][0m 📱 Démarrage de l'application mobile...
+[1;33m⚠️  Application mobile déjà en cours d'exécution (PID: 529646)[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:44:12][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 529646, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:45:28][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:45:28][0m 🛑 Arrêt de Application mobile (PID: 529646)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:45:33][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:45:33][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:45:33][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 534280[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:45:33][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:45:36][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 534335[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:45:36][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:45:38][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 534335, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:46:50][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:46:50][0m 🛑 Arrêt de Application mobile (PID: 534335)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:46:55][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:46:55][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:46:55][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 535244[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:46:55][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:46:58][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 535299[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:46:58][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:47:00][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 535299, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:47:17][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:47:17][0m 🛑 Arrêt de Application mobile (PID: 535299)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:49:38][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:49:38][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:49:38][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 536971[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:49:38][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:49:41][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 537027[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:49:42][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:49:44][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 537027, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:54:36][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:54:36][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:54:36][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 540174[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:54:36][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:54:39][0m 📱 Démarrage de l'application mobile...
+[1;33m⚠️  Application mobile déjà en cours d'exécution (PID: 537027)[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:54:39][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 537027, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:54:44][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:54:44][0m 🛑 Arrêt de Application mobile (PID: 537027)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:54:49][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:54:49][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:54:49][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 540397[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:54:49][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:54:52][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 540451[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:54:52][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:54:54][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 540451, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:56:19][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:56:19][0m 🛑 Arrêt de Application mobile (PID: 540451)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:56:23][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:56:23][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:56:23][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 541453[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:56:23][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:56:26][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 541507[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:56:26][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:56:28][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 541507, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:57:45][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:57:45][0m 🛑 Arrêt de Application mobile (PID: 541507)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:57:53][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:57:53][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:57:53][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 542632[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:57:53][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:57:56][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 542683[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:57:56][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:57:58][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 542683, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 06:59:39][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 06:59:39][0m 🛑 Arrêt de Application mobile (PID: 542683)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 06:59:44][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 06:59:44][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 06:59:44][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 543905[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 06:59:44][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 06:59:47][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 543962[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 06:59:47][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 06:59:49][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 543962, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:00:08][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:00:08][0m 🛑 Arrêt de Application mobile (PID: 543962)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:02:13][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;31m❌ Application mobile: Arrêtée[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:02:19][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:02:19][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:02:19][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 545833[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:02:19][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:02:23][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 545888[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:02:23][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:02:25][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 545888, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:03:25][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 545888, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:06:04][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 545888, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:06:09][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:06:09][0m 🛑 Arrêt de Application mobile (PID: 545888)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:06:14][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:06:14][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:06:14][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 548723[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:06:14][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:06:17][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 548780[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:06:17][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:06:19][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 548780, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:08:14][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 548780, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:10:34][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:10:34][0m 🛑 Arrêt de Application mobile (PID: 548780)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:10:41][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:10:41][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:10:41][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 551630[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:10:41][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:10:44][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 551686[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:10:44][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:10:46][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 551686, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:13:24][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 551686, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:17:11][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:17:11][0m 🛑 Arrêt de Application mobile (PID: 551686)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:17:17][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:17:17][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:17:17][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 556842[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:17:17][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:17:20][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 556897[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:17:20][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:17:22][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 556897, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:19:33][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 556897, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:20:57][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:20:57][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:20:57][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 559151[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:20:57][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:21:00][0m 📱 Démarrage de l'application mobile...
+[1;33m⚠️  Application mobile déjà en cours d'exécution (PID: 556897)[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:21:00][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 556897, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:22:59][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:22:59][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:22:59][0m 🛑 Arrêt de Application mobile (PID: 556897)...
+[0;32m✅ Application mobile arrêté[0m
+[0;34mℹ️  Odoo n'était pas en cours d'exécution[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:23:01][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:23:01][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:23:01][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 560462[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:23:01][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:23:04][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 560516[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:23:04][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:23:06][0m 📊 Statut des services SAMA CONAI
+[0;31m❌ Odoo: Arrêté[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 560516, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:23:43][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:23:43][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:23:43][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 560998[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:23:43][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:23:50][0m 📱 Démarrage de l'application mobile...
+[1;33m⚠️  Application mobile déjà en cours d'exécution (PID: 560516)[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:23:50][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 560998, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 560516, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:25:03][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:25:03][0m 🛑 Arrêt de Application mobile (PID: 560516)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:25:03][0m 🛑 Arrêt de Odoo (PID: 560998)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:25:09][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:25:09][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:25:09][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 562010[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:25:09][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:25:16][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 562139[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:25:16][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:25:18][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 562010, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 562139, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:26:21][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:26:21][0m 🛑 Arrêt de Application mobile (PID: 562139)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:26:21][0m 🛑 Arrêt de Odoo (PID: 562010)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:26:26][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:26:26][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:26:26][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 562982[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:26:26][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:26:34][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 563091[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:26:34][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:26:36][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 562982, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 563091, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:32:57][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 562982, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 563091, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:35:44][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:35:44][0m 🛑 Arrêt de Application mobile (PID: 563091)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:35:44][0m 🛑 Arrêt de Odoo (PID: 562982)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:35:50][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:35:50][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:35:50][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 569045[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:35:50][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:36:03][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 569203[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:36:03][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:36:05][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 569045, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 569203, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:45:39][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:45:39][0m 🛑 Arrêt de Application mobile (PID: 569203)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:45:39][0m 🛑 Arrêt de Odoo (PID: 569045)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:45:45][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:45:45][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:45:45][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 575195[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:45:45][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:45:52][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 575304[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:45:52][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:45:54][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 575195, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 575304, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:49:18][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:49:18][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:49:18][0m 🛑 Arrêt de Application mobile (PID: 575304)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:49:18][0m 🛑 Arrêt de Odoo (PID: 575195)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:49:21][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:49:21][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:49:21][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 577466[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:49:21][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:49:30][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 577612[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:49:30][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:49:32][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 577466, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 577612, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:50:51][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:50:51][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:50:51][0m 🛑 Arrêt de Application mobile (PID: 577612)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:50:51][0m 🛑 Arrêt de Odoo (PID: 577466)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:50:54][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:50:54][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:50:54][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 578588[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:50:54][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:51:01][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 578693[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:51:01][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:51:03][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 578588, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 578693, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:52:14][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:52:14][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:52:14][0m 🛑 Arrêt de Application mobile (PID: 578693)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:52:14][0m 🛑 Arrêt de Odoo (PID: 578588)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:52:17][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:52:17][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:52:17][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 579589[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:52:17][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:52:25][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 579691[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:52:25][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:52:27][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 579589, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 579691, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:53:01][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:53:01][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:53:01][0m 🛑 Arrêt de Application mobile (PID: 579691)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:53:02][0m 🛑 Arrêt de Odoo (PID: 579589)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:53:05][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:53:05][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:53:05][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 580230[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:53:05][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:53:12][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 580344[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:53:12][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:53:14][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 580230, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 580344, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 07:54:07][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 07:54:07][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 07:54:07][0m 🛑 Arrêt de Application mobile (PID: 580344)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 07:54:07][0m 🛑 Arrêt de Odoo (PID: 580230)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 07:54:10][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 07:54:10][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 07:54:10][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 581022[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 07:54:10][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 07:54:17][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 581139[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 07:54:17][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 07:54:19][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 581022, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 581139, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 12:08:14][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 12:08:14][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 12:08:14][0m 🛑 Arrêt de Application mobile (PID: 581139)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 12:08:14][0m 🛑 Arrêt de Odoo (PID: 581022)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 12:08:17][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 12:08:17][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 12:08:17][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 728211[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 12:08:17][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 12:08:24][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 728317[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 12:08:24][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 12:08:26][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 728211, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 728317, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 12:13:16][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 12:13:16][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 12:13:16][0m 🛑 Arrêt de Application mobile (PID: 728317)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 12:13:16][0m 🛑 Arrêt de Odoo (PID: 728211)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 12:13:19][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 12:13:19][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 12:13:19][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 731376[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 12:13:19][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 12:13:26][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 731480[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 12:13:26][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 12:13:28][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 731376, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 731480, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 12:32:57][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 12:32:57][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 12:32:57][0m 🛑 Arrêt de Application mobile (PID: 731480)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 12:32:57][0m 🛑 Arrêt de Odoo (PID: 731376)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 12:33:01][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 12:33:01][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 12:33:01][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 744021[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 12:33:01][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 12:33:09][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 744138[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 12:33:09][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 12:33:11][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 744021, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 744138, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m
+[0;36m[2025-09-07 12:54:24][0m 🔄 Redémarrage de SAMA CONAI...
+[0;36m[2025-09-07 12:54:24][0m 🛑 Arrêt de tous les services SAMA CONAI...
+[0;36m[2025-09-07 12:54:24][0m 🛑 Arrêt de Application mobile (PID: 744138)...
+[0;32m✅ Application mobile arrêté[0m
+[0;36m[2025-09-07 12:54:25][0m 🛑 Arrêt de Odoo (PID: 744021)...
+[0;32m✅ Odoo arrêté[0m
+[0;32m✅ Tous les services ont été arrêtés[0m
+[0;36m[2025-09-07 12:54:28][0m 🚀 Démarrage complet de SAMA CONAI
+[0;36m[2025-09-07 12:54:28][0m 🔍 Vérification des prérequis...
+[0;32m✅ Tous les prérequis sont satisfaits[0m
+[0;36m[2025-09-07 12:54:28][0m 🚀 Démarrage d'Odoo...
+[0;34mℹ️  Odoo démarré avec le PID: 758683[0m
+[0;34mℹ️  Logs Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;36m[2025-09-07 12:54:28][0m ⏳ Attente que Odoo soit disponible sur le port 8077...
+[0;32m✅ Odoo est maintenant disponible sur le port 8077[0m
+[0;32m✅ Odoo est opérationnel sur http://localhost:8077[0m
+[0;32m✅ Odoo démarré avec succès[0m
+[0;36m[2025-09-07 12:54:40][0m 📱 Démarrage de l'application mobile...
+[0;34mℹ️  Application mobile démarrée avec le PID: 758849[0m
+[0;34mℹ️  Logs mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;36m[2025-09-07 12:54:40][0m ⏳ Attente que Application mobile soit disponible sur le port 3005...
+[0;32m✅ Application mobile est maintenant disponible sur le port 3005[0m
+[0;32m✅ Application mobile opérationnelle sur http://localhost:3005[0m
+[0;32m✅ Application mobile démarrée avec succès[0m
+[0;32m✅ 🎉 SAMA CONAI est maintenant opérationnel ![0m
+[0;36m[2025-09-07 12:54:42][0m 📊 Statut des services SAMA CONAI
+[0;32m✅ Odoo: En cours d'exécution (PID: 758683, Port: 8077)[0m
+[0;32m✅   └─ Odoo répond correctement[0m
+[0;32m✅ Application mobile: En cours d'exécution (PID: 758849, Port: 3005)[0m
+[0;32m✅   └─ Application mobile répond correctement[0m
+[0;34mℹ️  URLs d'accès:[0m
+[0;34mℹ️    • Odoo Backend: http://localhost:8077[0m
+[0;34mℹ️    • Application Mobile: http://localhost:3005[0m
+[0;34mℹ️    • Base de données: sama_conai_analytics[0m
+[0;34mℹ️  Fichiers de logs:[0m
+[0;34mℹ️    • Odoo: /home/grand-as/psagsn/custom_addons/sama_conai/logs/odoo.log[0m
+[0;34mℹ️    • Mobile: /home/grand-as/psagsn/custom_addons/sama_conai/logs/mobile.log[0m
+[0;34mℹ️    • Startup: /home/grand-as/psagsn/custom_addons/sama_conai/logs/startup.log[0m

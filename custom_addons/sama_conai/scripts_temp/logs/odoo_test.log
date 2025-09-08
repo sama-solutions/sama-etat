@@ -1,0 +1,392 @@
+2025-09-07 04:49:44,383 460156 INFO ? odoo: Odoo version 18.0 
+2025-09-07 04:49:44,384 460156 INFO ? odoo: Using configuration file at /home/grand-as/.odoorc 
+2025-09-07 04:49:44,384 460156 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/var/odoo/odoo18/addons', '/home/grand-as/psagsn/custom_addons'] 
+2025-09-07 04:49:44,384 460156 INFO ? odoo: database: odoo@localhost:default 
+2025-09-07 04:49:44,784 460156 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 04:49:44,822 460156 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 04:49:45,556 460156 INFO ? odoo.service.server: Watching addons folder /var/odoo/odoo18/odoo/addons 
+2025-09-07 04:49:45,557 460156 INFO ? odoo.service.server: Watching addons folder /home/grand-as/.local/share/Odoo/addons/18.0 
+2025-09-07 04:49:45,557 460156 INFO ? odoo.service.server: Watching addons folder /var/odoo/odoo18/addons 
+2025-09-07 04:49:45,557 460156 INFO ? odoo.service.server: Watching addons folder /home/grand-as/psagsn/custom_addons 
+2025-09-07 04:49:46,505 460156 INFO ? odoo.service.server: AutoReload watcher running with watchdog 
+2025-09-07 04:49:46,506 460156 INFO ? odoo.service.server: HTTP service (werkzeug) running on grand-as-ThinkPad-T560:8075 
+2025-09-07 04:49:46,719 460156 ERROR sama_conai_test_20250907_044940 odoo.modules.loading: Database sama_conai_test_20250907_044940 not initialized, you can force it with `-i base` 
+2025-09-07 04:49:46,721 460156 INFO sama_conai_test_20250907_044940 odoo.modules.registry: Registry loaded in 0.212s 
+2025-09-07 04:49:55,635 460156 INFO sama_conai_test_20250907_044940 odoo.service.server: Initiating shutdown 
+2025-09-07 04:49:55,635 460156 INFO sama_conai_test_20250907_044940 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-09-07 04:49:56,019 460156 INFO sama_conai_test_20250907_044940 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 3 connections  
+Exception in thread odoo.service.cron.cron0:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 541, in target
+    self.cron_thread(i)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 523, in cron_thread
+Exception in thread odoo.service.cron.cron1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    _run_cron(cr)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 507, in _run_cron
+    pg_conn.poll()
+psycopg2.InterfaceError: connection already closed
+    self._target(*self._args, **self._kwargs)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 541, in target
+    self.cron_thread(i)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 523, in cron_thread
+    _run_cron(cr)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 507, in _run_cron
+    pg_conn.poll()
+psycopg2.InterfaceError: connection already closed
+2025-09-07 04:50:34,928 460731 INFO ? odoo: Odoo version 18.0 
+2025-09-07 04:50:34,928 460731 INFO ? odoo: Using configuration file at /home/grand-as/.odoorc 
+2025-09-07 04:50:34,928 460731 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/var/odoo/odoo18/addons', '/home/grand-as/psagsn/custom_addons'] 
+2025-09-07 04:50:34,928 460731 INFO ? odoo: database: odoo@localhost:default 
+2025-09-07 04:50:35,327 460731 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 04:50:35,371 460731 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 04:50:36,182 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: init db 
+2025-09-07 04:50:42,306 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading 1 modules... 
+2025-09-07 04:50:42,307 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module base (1/1) 
+2025-09-07 04:50:42,410 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module base: creating or updating database tables 
+2025-09-07 04:50:48,613 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of ir.module.module.menus_by_module 
+2025-09-07 04:50:48,614 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of ir.module.module.reports_by_module 
+2025-09-07 04:50:48,615 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of ir.module.module.views_by_module 
+2025-09-07 04:50:51,141 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.user_id 
+2025-09-07 04:50:51,141 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.commercial_partner_id 
+2025-09-07 04:50:51,142 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.complete_name 
+2025-09-07 04:50:51,142 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.company_registry 
+2025-09-07 04:50:51,143 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.commercial_company_name 
+2025-09-07 04:50:51,143 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.partner.partner_share 
+2025-09-07 04:50:51,720 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.currency.decimal_places 
+2025-09-07 04:50:52,054 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.company.uses_default_logo 
+2025-09-07 04:50:52,055 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.company.logo_web 
+2025-09-07 04:50:52,118 460731 INFO sama_conai_test_20250907_045031 odoo.models: Computing parent_path for table res_company... 
+2025-09-07 04:50:52,488 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.users.signature 
+2025-09-07 04:50:52,488 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.users.share 
+2025-09-07 04:51:01,647 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_bank.xml 
+2025-09-07 04:51:01,656 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res.lang.csv 
+2025-09-07 04:51:01,753 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_lang_data.xml 
+2025-09-07 04:51:01,824 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_partner_data.xml 
+2025-09-07 04:51:01,978 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_currency_data.xml 
+2025-09-07 04:51:03,759 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_company_data.xml 
+2025-09-07 04:51:03,792 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_users_data.xml 
+2025-09-07 04:51:05,812 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/report_paperformat_data.xml 
+2025-09-07 04:51:05,825 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_country_data.xml 
+2025-09-07 04:51:07,013 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_demo_data.xml 
+2025-09-07 04:51:07,049 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/security/base_groups.xml 
+2025-09-07 04:51:07,774 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/security/base_security.xml 
+2025-09-07 04:51:08,176 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/base_menus.xml 
+2025-09-07 04:51:08,353 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/decimal_precision_views.xml 
+2025-09-07 04:51:08,388 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_config_views.xml 
+2025-09-07 04:51:08,401 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res.country.state.csv 
+2025-09-07 04:51:09,676 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_actions_views.xml 
+2025-09-07 04:51:09,989 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_asset_views.xml 
+2025-09-07 04:51:10,025 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_config_parameter_views.xml 
+2025-09-07 04:51:10,067 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_cron_views.xml 
+2025-09-07 04:51:10,140 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_cron_trigger_views.xml 
+2025-09-07 04:51:10,180 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_filters_views.xml 
+2025-09-07 04:51:10,240 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_mail_server_views.xml 
+2025-09-07 04:51:10,285 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_model_views.xml 
+2025-09-07 04:51:10,679 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_attachment_views.xml 
+2025-09-07 04:51:10,743 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_rule_views.xml 
+2025-09-07 04:51:10,802 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_sequence_views.xml 
+2025-09-07 04:51:10,868 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_ui_menu_views.xml 
+2025-09-07 04:51:10,936 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_ui_view_views.xml 
+2025-09-07 04:51:11,066 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_default_views.xml 
+2025-09-07 04:51:11,104 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_config_parameter_data.xml 
+2025-09-07 04:51:11,110 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_cron_data.xml 
+2025-09-07 04:51:11,136 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/report/ir_model_report.xml 
+2025-09-07 04:51:11,147 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/report/ir_model_templates.xml 
+2025-09-07 04:51:11,165 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_logging_views.xml 
+2025-09-07 04:51:11,208 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_qweb_widget_templates.xml 
+2025-09-07 04:51:11,236 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_module_views.xml 
+2025-09-07 04:51:11,366 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_module_category_data.xml 
+2025-09-07 04:51:11,533 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_module_module.xml 
+2025-09-07 04:51:11,743 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/report/ir_module_reports.xml 
+2025-09-07 04:51:11,757 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/report/ir_module_report_templates.xml 
+2025-09-07 04:51:11,792 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_module_update_views.xml 
+2025-09-07 04:51:11,873 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_language_install_views.xml 
+2025-09-07 04:51:11,904 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_import_language_views.xml 
+2025-09-07 04:51:11,937 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_module_upgrade_views.xml 
+2025-09-07 04:51:11,982 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_module_uninstall_views.xml 
+2025-09-07 04:51:12,004 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_export_language_views.xml 
+2025-09-07 04:51:12,033 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/wizard/base_partner_merge_views.xml 
+2025-09-07 04:51:12,069 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/ir_demo_failure_data.xml 
+2025-09-07 04:51:12,104 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/ir_profile_views.xml 
+2025-09-07 04:51:12,159 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_company_views.xml 
+2025-09-07 04:51:12,208 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_lang_views.xml 
+2025-09-07 04:51:12,253 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_partner_views.xml 
+2025-09-07 04:51:12,521 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_bank_views.xml 
+2025-09-07 04:51:12,661 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_country_views.xml 
+2025-09-07 04:51:12,871 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_currency_views.xml 
+2025-09-07 04:51:12,957 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_users_views.xml 
+2025-09-07 04:51:13,244 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_device_views.xml 
+2025-09-07 04:51:13,288 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_users_identitycheck_views.xml 
+2025-09-07 04:51:13,302 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/res_config_settings_views.xml 
+2025-09-07 04:51:13,318 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/views/report_paperformat_views.xml 
+2025-09-07 04:51:13,382 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/security/ir.model.access.csv 
+2025-09-07 04:51:13,728 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module base: loading demo 
+2025-09-07 04:51:13,729 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_users_demo.xml 
+2025-09-07 04:51:16,452 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_partner_bank_demo.xml 
+2025-09-07 04:51:16,461 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_currency_demo.xml 
+2025-09-07 04:51:16,471 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_currency_rate_demo.xml 
+2025-09-07 04:51:17,115 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_bank_demo.xml 
+2025-09-07 04:51:17,128 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_partner_demo.xml 
+2025-09-07 04:51:17,676 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base/data/res_partner_image_demo.xml 
+2025-09-07 04:51:18,879 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module base loaded in 36.57s, 9252 queries (+9252 other) 
+2025-09-07 04:51:18,879 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: 1 modules loaded in 36.57s, 9252 queries (+9252 extra) 
+2025-09-07 04:51:18,912 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: updating modules list 
+2025-09-07 04:51:18,914 460731 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2025-09-07 04:51:20,970 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading 12 modules... 
+2025-09-07 04:51:20,970 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module web (2/12) 
+2025-09-07 04:51:21,024 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module web: creating or updating database tables 
+2025-09-07 04:51:23,110 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/security/ir.model.access.csv 
+2025-09-07 04:51:23,129 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/webclient_templates.xml 
+2025-09-07 04:51:23,242 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/report_templates.xml 
+2025-09-07 04:51:23,471 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/base_document_layout_views.xml 
+2025-09-07 04:51:23,504 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/partner_view.xml 
+2025-09-07 04:51:23,517 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/speedscope_template.xml 
+2025-09-07 04:51:23,529 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/views/neutralize_views.xml 
+2025-09-07 04:51:23,545 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/data/ir_attachment.xml 
+2025-09-07 04:51:23,553 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web/data/report_layout.xml 
+2025-09-07 04:51:23,686 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module web loaded in 2.72s, 1101 queries (+1101 other) 
+2025-09-07 04:51:23,686 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module auth_totp (3/12) 
+2025-09-07 04:51:23,755 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module auth_totp: creating or updating database tables 
+2025-09-07 04:51:24,197 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/security/security.xml 
+2025-09-07 04:51:24,297 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/security/ir.model.access.csv 
+2025-09-07 04:51:24,331 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/data/ir_action_data.xml 
+2025-09-07 04:51:24,355 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/views/res_users_views.xml 
+2025-09-07 04:51:24,503 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/views/templates.xml 
+2025-09-07 04:51:24,528 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading auth_totp/wizard/auth_totp_wizard_views.xml 
+2025-09-07 04:51:24,666 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module auth_totp loaded in 0.98s, 188 queries (+188 other) 
+2025-09-07 04:51:24,666 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module base_import (4/12) 
+2025-09-07 04:51:24,964 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module base_import: creating or updating database tables 
+2025-09-07 04:51:27,286 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_import/security/ir.model.access.csv 
+2025-09-07 04:51:27,353 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module base_import loaded in 2.69s, 878 queries (+878 other) 
+2025-09-07 04:51:27,353 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module base_import_module (5/12) 
+2025-09-07 04:51:27,473 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module base_import_module: creating or updating database tables 
+2025-09-07 04:51:27,840 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_import_module/security/ir.model.access.csv 
+2025-09-07 04:51:27,869 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_import_module/views/base_import_module_view.xml 
+2025-09-07 04:51:27,926 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_import_module/views/ir_module_views.xml 
+2025-09-07 04:51:28,052 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module base_import_module loaded in 0.70s, 164 queries (+164 other) 
+2025-09-07 04:51:28,052 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module base_setup (6/12) 
+2025-09-07 04:51:28,132 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module base_setup: creating or updating database tables 
+2025-09-07 04:51:28,282 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_setup/data/base_setup_data.xml 
+2025-09-07 04:51:28,307 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_setup/views/res_config_settings_views.xml 
+2025-09-07 04:51:28,397 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading base_setup/views/res_partner_views.xml 
+2025-09-07 04:51:28,468 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module base_setup loaded in 0.42s, 150 queries (+150 other) 
+2025-09-07 04:51:28,468 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module bus (7/12) 
+2025-09-07 04:51:28,642 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module bus: creating or updating database tables 
+2025-09-07 04:51:29,333 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading bus/security/ir.model.access.csv 
+2025-09-07 04:51:29,393 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module bus loaded in 0.93s, 165 queries (+165 other) 
+2025-09-07 04:51:29,394 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module web_tour (8/12) 
+2025-09-07 04:51:29,457 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module web_tour: creating or updating database tables 
+2025-09-07 04:51:29,470 460731 INFO sama_conai_test_20250907_045031 odoo.models: Prepare computation of res.users.tour_enabled 
+2025-09-07 04:51:30,119 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_tour/security/ir.model.access.csv 
+2025-09-07 04:51:30,155 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_tour/views/tour_views.xml 
+2025-09-07 04:51:30,236 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_tour/views/res_users_views.xml 
+2025-09-07 04:51:30,330 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module web_tour loaded in 0.94s, 188 queries (+188 other) 
+2025-09-07 04:51:30,330 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module html_editor (9/12) 
+2025-09-07 04:51:31,305 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module html_editor: creating or updating database tables 
+2025-09-07 04:51:31,496 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module html_editor loaded in 1.17s, 46 queries (+46 other) 
+2025-09-07 04:51:31,496 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module iap (10/12) 
+2025-09-07 04:51:31,594 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module iap: creating or updating database tables 
+2025-09-07 04:51:32,191 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading iap/data/services.xml 
+2025-09-07 04:51:32,206 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading iap/security/ir.model.access.csv 
+2025-09-07 04:51:32,242 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading iap/security/ir_rule.xml 
+2025-09-07 04:51:32,268 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading iap/views/iap_views.xml 
+2025-09-07 04:51:32,367 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading iap/views/res_config_settings.xml 
+2025-09-07 04:51:32,457 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module iap loaded in 0.96s, 183 queries (+183 other) 
+2025-09-07 04:51:32,457 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module web_editor (11/12) 
+2025-09-07 04:51:32,686 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module web_editor: creating or updating database tables 
+2025-09-07 04:51:34,876 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_editor/security/ir.model.access.csv 
+2025-09-07 04:51:34,895 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_editor/data/editor_assets.xml 
+2025-09-07 04:51:34,904 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_editor/views/editor.xml 
+2025-09-07 04:51:34,932 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_editor/views/snippets.xml 
+2025-09-07 04:51:35,055 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module web_editor loaded in 2.60s, 1008 queries (+1008 other) 
+2025-09-07 04:51:35,055 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Loading module web_unsplash (12/12) 
+2025-09-07 04:51:35,146 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: module web_unsplash: creating or updating database tables 
+2025-09-07 04:51:35,310 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading web_unsplash/views/res_config_settings_view.xml 
+2025-09-07 04:51:35,391 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Module web_unsplash loaded in 0.34s, 98 queries (+98 other) 
+2025-09-07 04:51:35,391 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: 12 modules loaded in 14.42s, 4169 queries (+4169 extra) 
+2025-09-07 04:51:36,319 460731 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Modules loaded. 
+2025-09-07 04:51:36,347 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: Registry changed, signaling through the database 
+2025-09-07 04:51:36,350 460731 INFO sama_conai_test_20250907_045031 odoo.modules.registry: Registry loaded in 60.231s 
+2025-09-07 04:51:36,351 460731 INFO sama_conai_test_20250907_045031 odoo.service.server: Initiating shutdown 
+2025-09-07 04:51:36,351 460731 INFO sama_conai_test_20250907_045031 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2025-09-07 04:51:36,352 460731 INFO sama_conai_test_20250907_045031 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections  
+2025-09-07 04:51:38,751 461384 INFO ? odoo: Odoo version 18.0 
+2025-09-07 04:51:38,752 461384 INFO ? odoo: Using configuration file at /home/grand-as/.odoorc 
+2025-09-07 04:51:38,752 461384 INFO ? odoo: addons paths: ['/var/odoo/odoo18/odoo/addons', '/home/grand-as/.local/share/Odoo/addons/18.0', '/var/odoo/odoo18/addons', '/home/grand-as/psagsn/custom_addons'] 
+2025-09-07 04:51:38,752 461384 INFO ? odoo: database: odoo@localhost:default 
+2025-09-07 04:51:39,198 461384 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltopdf binary at /usr/bin/wkhtmltopdf 
+2025-09-07 04:51:39,259 461384 INFO ? odoo.addons.base.models.ir_actions_report: Will use the Wkhtmltoimage binary at /usr/bin/wkhtmltoimage 
+2025-09-07 04:51:40,055 461384 INFO ? odoo.service.server: Watching addons folder /var/odoo/odoo18/odoo/addons 
+2025-09-07 04:51:40,055 461384 INFO ? odoo.service.server: Watching addons folder /home/grand-as/.local/share/Odoo/addons/18.0 
+2025-09-07 04:51:40,055 461384 INFO ? odoo.service.server: Watching addons folder /var/odoo/odoo18/addons 
+2025-09-07 04:51:40,055 461384 INFO ? odoo.service.server: Watching addons folder /home/grand-as/psagsn/custom_addons 
+2025-09-07 04:51:41,162 461384 INFO ? odoo.service.server: AutoReload watcher running with watchdog 
+2025-09-07 04:51:41,179 461384 INFO ? odoo.service.server: HTTP service (werkzeug) running on grand-as-ThinkPad-T560:8075 
+2025-09-07 04:51:41,270 461384 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading 1 modules... 
+2025-09-07 04:51:41,282 461384 INFO sama_conai_test_20250907_045031 odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra) 
+2025-09-07 04:51:41,301 461384 INFO sama_conai_test_20250907_045031 odoo.modules.loading: loading 12 modules... 
+2025-09-07 04:51:42,964 461384 INFO sama_conai_test_20250907_045031 odoo.modules.loading: 12 modules loaded in 1.66s, 0 queries (+0 extra) 
+2025-09-07 04:51:43,020 461384 INFO sama_conai_test_20250907_045031 odoo.modules.loading: Modules loaded. 
+2025-09-07 04:51:43,025 461384 INFO sama_conai_test_20250907_045031 odoo.modules.registry: Registry loaded in 1.839s 
+2025-09-07 04:52:43,369 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) starting 
+2025-09-07 04:52:43,491 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_attachment: filestore gc 58 checked, 0 removed 
+2025-09-07 04:52:43,735 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: GC'd 0 user log entries 
+2025-09-07 04:52:43,752 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: GC 'res.users.apikeys' delete 0 entries 
+2025-09-07 04:52:43,763 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 04:52:43,766 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_device: GC device logs delete 0 entries 
+2025-09-07 04:52:43,802 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: GC 'auth_totp.device' delete 0 entries 
+2025-09-07 04:52:43,827 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) done in 0.458s 
+2025-09-07 04:52:43,848 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) processed 0 records, 0 records remaining 
+2025-09-07 04:52:43,861 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Auto-vacuum internal data' (1) completed 
+2025-09-07 04:52:43,891 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) starting 
+2025-09-07 04:52:43,904 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) done in 0.013s 
+2025-09-07 04:52:43,915 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) processed 0 records, 0 records remaining 
+2025-09-07 04:52:43,928 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_cron: Job 'Base: Portal Users Deletion' (2) completed 
+2025-09-07 04:53:00,466 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.ir_http: Generating routing map for key None 
+2025-09-07 04:53:00,544 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:53:00] "GET /web/health HTTP/1.1" 200 - 4 0.010 0.074
+2025-09-07 04:53:08,424 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='error' in template 185. Replace by @t-out 
+2025-09-07 04:53:08,429 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='message' in template 185. Replace by @t-out 
+2025-09-07 04:53:08,523 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 181. Replace by @t-out 
+2025-09-07 04:53:08,528 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 181. Replace by @t-out 
+2025-09-07 04:53:08,530 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 181. Replace by @t-out 
+2025-09-07 04:53:09,421 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:53:09] "GET /web/login HTTP/1.1" 200 - 60 0.076 1.016
+2025-09-07 04:53:23,339 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:53:23] "GET /web/health HTTP/1.1" 200 - 1 0.003 0.010
+2025-09-07 04:53:23,599 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='error' in template 185. Replace by @t-out 
+2025-09-07 04:53:23,600 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='message' in template 185. Replace by @t-out 
+2025-09-07 04:53:23,644 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 181. Replace by @t-out 
+2025-09-07 04:53:23,645 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 181. Replace by @t-out 
+2025-09-07 04:53:23,647 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 181. Replace by @t-out 
+2025-09-07 04:53:24,280 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:53:24] "GET /web/login HTTP/1.1" 200 - 47 0.064 0.649
+2025-09-07 04:54:08,734 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:54:08] "GET /web/database/manager HTTP/1.1" 200 - 3 0.004 1.963
+2025-09-07 04:55:24,799 461384 WARNING ? odoo.http: Logged into database 'sama_conai_analytics', but dbfilter rejects it; logging session out. 
+2025-09-07 04:55:24,810 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:24] "GET /odoo/action-251 HTTP/1.1" 303 - 1 0.002 0.020
+2025-09-07 04:55:24,872 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='error' in template 185. Replace by @t-out 
+2025-09-07 04:55:24,875 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='message' in template 185. Replace by @t-out 
+2025-09-07 04:55:24,949 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 181. Replace by @t-out 
+2025-09-07 04:55:24,956 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 181. Replace by @t-out 
+2025-09-07 04:55:24,970 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 181. Replace by @t-out 
+2025-09-07 04:55:25,765 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:25] "GET /web/login?redirect=/odoo/action-251? HTTP/1.1" 200 - 47 0.063 0.880
+2025-09-07 04:55:25,887 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:25] "GET /web/binary/company_logo HTTP/1.1" 200 - 2 0.008 0.008
+2025-09-07 04:55:30,953 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a9e8f6d/web.assets_frontend.min.css (id:194) 
+2025-09-07 04:55:30,979 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:30] "GET /web/assets/a9e8f6d/web.assets_frontend.min.css HTTP/1.1" 200 - 22 0.051 5.094
+2025-09-07 04:55:37,324 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5996b85/web.assets_frontend_lazy.min.js (id:195) 
+2025-09-07 04:55:37,346 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:37] "GET /web/assets/5996b85/web.assets_frontend_lazy.min.js HTTP/1.1" 200 - 21 0.032 5.814
+2025-09-07 04:55:37,713 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:37] "GET /web/webclient/translations/1757220937698 HTTP/1.1" 200 - 2 0.002 0.009
+2025-09-07 04:55:45,877 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:45] "GET / HTTP/1.1" 303 - 1 0.003 0.014
+2025-09-07 04:55:45,948 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:45] "GET /odoo HTTP/1.1" 303 - 1 0.004 0.017
+2025-09-07 04:55:46,024 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='error' in template 185. Replace by @t-out 
+2025-09-07 04:55:46,026 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='message' in template 185. Replace by @t-out 
+2025-09-07 04:55:46,111 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 181. Replace by @t-out 
+2025-09-07 04:55:46,115 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 181. Replace by @t-out 
+2025-09-07 04:55:46,117 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 181. Replace by @t-out 
+2025-09-07 04:55:46,826 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:46] "GET /web/login?redirect=/odoo? HTTP/1.1" 200 - 47 0.055 0.796
+2025-09-07 04:55:46,882 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:46] "GET /web/binary/company_logo HTTP/1.1" 304 - 2 0.005 0.010
+2025-09-07 04:55:47,208 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:47] "GET /web/webclient/translations/1757220947190 HTTP/1.1" 200 - 2 0.003 0.011
+2025-09-07 04:55:50,997 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 04:55:51,027 461384 INFO sama_conai_test_20250907_045031 odoo.modules.registry: Caches invalidated, signaling through the database: ['default'] 
+2025-09-07 04:55:51,031 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:51] "POST /web/login HTTP/1.1" 303 - 45 0.061 1.394
+2025-09-07 04:55:51,053 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_device: User 2 inserts device log (TyjEBlGv4Y74qhH-0McobpDcc5c1y4nfcH3Td9ym-S) 
+2025-09-07 04:55:52,672 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 180. Replace by @t-out 
+2025-09-07 04:55:52,675 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 180. Replace by @t-out 
+2025-09-07 04:55:52,676 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 180. Replace by @t-out 
+2025-09-07 04:55:52,715 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:52] "GET /odoo HTTP/1.1" 200 - 80 0.076 1.596
+2025-09-07 04:55:53,104 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:53] "GET /web/webclient/translations/d2c56b07ed5ced215bfc7ac9b473a7e7916c5840?lang=en_US HTTP/1.1" 200 - 1 0.015 0.085
+2025-09-07 04:55:53,232 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:53] "GET /web/webclient/load_menus/291c97e6e4dd6fb964b660e1ee72c69dcf3e71f84a5db8498fecefd9ea0714d6 HTTP/1.1" 200 - 50 0.175 0.080
+2025-09-07 04:55:59,330 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a7d1621/web.assets_web.min.css (id:196) 
+2025-09-07 04:55:59,411 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:55:59] "GET /web/assets/a7d1621/web.assets_web.min.css HTTP/1.1" 200 - 28 0.145 6.450
+2025-09-07 04:56:05,131 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/19eddbd/web.assets_web_print.min.css (id:197) 
+2025-09-07 04:56:05,155 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:05] "GET /web/assets/19eddbd/web.assets_web_print.min.css HTTP/1.1" 200 - 21 0.068 5.661
+2025-09-07 04:56:10,099 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/721a49c/web.assets_web.min.js (id:198) 
+2025-09-07 04:56:10,199 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:10] "GET /web/assets/721a49c/web.assets_web.min.js HTTP/1.1" 200 - 24 0.065 17.199
+2025-09-07 04:56:11,161 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d469123/bus.websocket_worker_assets.min.js (id:199) 
+2025-09-07 04:56:11,181 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "GET /bus/websocket_worker_bundle?v=18.0-5 HTTP/1.1" 304 - 8 0.011 0.062
+2025-09-07 04:56:11,457 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "POST /web/action/load HTTP/1.1" 200 - 10 0.152 0.061
+2025-09-07 04:56:11,459 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "GET /web/manifest.webmanifest HTTP/1.1" 200 - 8 0.092 0.061
+2025-09-07 04:56:11,501 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "GET /web/image/res.partner/3/avatar_128?unique=1757220949000 HTTP/1.1" 200 - 19 0.122 0.134
+2025-09-07 04:56:11,507 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 1 0.006 0.130
+2025-09-07 04:56:11,518 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:11] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 304 - 20 0.195 0.075
+2025-09-07 04:56:11,871 461384 INFO ? odoo.addons.bus.models.bus: Bus.loop listen imbus on db postgres 
+2025-09-07 04:56:12,067 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:12] "POST /web/dataset/call_kw/ir.module.module/get_views HTTP/1.1" 200 - 61 0.194 0.282
+2025-09-07 04:56:12,324 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:12] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 1 0.002 0.136
+2025-09-07 04:56:12,625 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:12] "POST /web/dataset/call_kw/ir.module.module/search_panel_select_range HTTP/1.1" 200 - 76 0.248 0.189
+2025-09-07 04:56:13,191 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:13] "POST /web/dataset/call_kw/ir.module.module/web_search_read HTTP/1.1" 200 - 6 0.036 0.886
+2025-09-07 04:56:13,879 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:13] "GET /web/service-worker.js HTTP/1.1" 200 - 1 0.001 0.006
+2025-09-07 04:56:13,985 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 180. Replace by @t-out 
+2025-09-07 04:56:13,988 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 180. Replace by @t-out 
+2025-09-07 04:56:13,990 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 180. Replace by @t-out 
+2025-09-07 04:56:14,001 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:56:14] "GET /odoo/offline HTTP/1.1" 200 - 12 0.010 0.078
+2025-09-07 04:58:50,053 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:58:50] "GET /web/health HTTP/1.1" 200 - 1 0.003 0.007
+2025-09-07 04:58:50,345 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='error' in template 185. Replace by @t-out 
+2025-09-07 04:58:50,348 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='message' in template 185. Replace by @t-out 
+2025-09-07 04:58:50,414 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc="title or 'Odoo'" in template 181. Replace by @t-out 
+2025-09-07 04:58:50,418 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='request.csrf_token(None)' in template 181. Replace by @t-out 
+2025-09-07 04:58:50,420 461384 WARNING sama_conai_test_20250907_045031 odoo.addons.base.models.ir_qweb: Found deprecated directive @t-esc='debug' in template 181. Replace by @t-out 
+2025-09-07 04:58:51,121 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 04:58:51] "GET /web/login HTTP/1.1" 200 - 48 0.069 0.746
+2025-09-07 05:02:26,502 461384 WARNING sama_conai_test_20250907_045031 odoo.http: Database not found. 
+2025-09-07 05:02:26,502 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:02:26] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.006 0.059
+2025-09-07 05:04:03,682 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:04:03,815 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:04:03] "POST /web/session/authenticate HTTP/1.1" 200 - 43 0.081 2.801
+2025-09-07 05:05:09,486 461384 WARNING sama_conai_test_20250907_045031 odoo.http: Database not found. 
+2025-09-07 05:05:09,487 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:09] "POST /web/session/authenticate HTTP/1.1" 200 - 1 0.006 0.029
+2025-09-07 05:05:39,978 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:05:40,022 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:40] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.018 1.129
+2025-09-07 05:05:40,066 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:40] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.002 0.005
+2025-09-07 05:05:47,687 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:05:47,711 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:47] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.018 1.332
+2025-09-07 05:05:47,723 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:47] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.002 0.004
+2025-09-07 05:05:50,003 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:05:50,027 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:50] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.017 1.300
+2025-09-07 05:05:50,037 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:50] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.002 0.004
+2025-09-07 05:05:53,228 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:05:53,339 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:53] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.058 1.535
+2025-09-07 05:05:53,451 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:53] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.046 0.019
+2025-09-07 05:05:53,945 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:05:53,967 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:53] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.018 1.270
+2025-09-07 05:05:53,977 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:05:53] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.002 0.003
+2025-09-07 05:06:00,012 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:06:00,036 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:00] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.020 1.356
+2025-09-07 05:06:00,046 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:00] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.002 0.004
+2025-09-07 05:06:42,130 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:06:42,192 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:42] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.033 2.952
+2025-09-07 05:06:42,242 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:42] "POST /web/dataset/search_read HTTP/1.1" 404 - 2 0.003 0.013
+2025-09-07 05:06:48,312 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:06:48,351 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:48] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.026 1.947
+2025-09-07 05:06:49,487 461384 INFO sama_conai_test_20250907_045031 odoo.addons.base.models.res_users: Login successful for db:sama_conai_test_20250907_045031 login:admin from 127.0.0.1 
+2025-09-07 05:06:49,512 461384 INFO sama_conai_test_20250907_045031 werkzeug: 127.0.0.1 - - [07/Sep/2025 05:06:49] "POST /web/session/authenticate HTTP/1.1" 200 - 19 0.015 1.534
+2025-09-07 05:09:56,490 461384 INFO sama_conai_test_20250907_045031 odoo.service.server: Initiating shutdown 
+2025-09-07 05:09:56,491 461384 INFO sama_conai_test_20250907_045031 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+Exception in thread odoo.service.cron.cron0:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+2025-09-07 05:09:56,736 461384 INFO sama_conai_test_20250907_045031 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 7 connections  
+Exception in thread odoo.service.cron.cron1:
+Traceback (most recent call last):
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1073, in _bootstrap_inner
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 541, in target
+    self.cron_thread(i)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 523, in cron_thread
+    self.run()
+  File "/usr/lib/python3.12/threading.py", line 1010, in run
+    self._target(*self._args, **self._kwargs)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 541, in target
+    self.cron_thread(i)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 523, in cron_thread
+    _run_cron(cr)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 507, in _run_cron
+    pg_conn.poll()
+psycopg2.InterfaceError: connection already closed
+    _run_cron(cr)
+  File "/var/odoo/odoo18/odoo/service/server.py", line 507, in _run_cron
+    pg_conn.poll()
+psycopg2.InterfaceError: connection already closed
