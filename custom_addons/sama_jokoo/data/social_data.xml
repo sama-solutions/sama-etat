@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Paramètres de configuration pour Sama Jokoo -->
+        <record id="config_max_file_size" model="ir.config_parameter">
+            <field name="key">sama_jokoo.max_file_size</field>
+            <field name="value">10485760</field> <!-- 10MB -->
+        </record>
+
+        <record id="config_allowed_mimetypes" model="ir.config_parameter">
+            <field name="key">sama_jokoo.allowed_mimetypes</field>
+            <field name="value">image/jpeg,image/png,image/gif,image/webp,video/mp4,video/webm,audio/mp3,audio/wav,application/pdf</field>
+        </record>
+
+        <record id="config_posts_per_page" model="ir.config_parameter">
+            <field name="key">sama_jokoo.posts_per_page</field>
+            <field name="value">20</field>
+        </record>
+
+        <record id="config_enable_notifications" model="ir.config_parameter">
+            <field name="key">sama_jokoo.enable_notifications</field>
+            <field name="value">True</field>
+        </record>
+
+        <record id="config_auto_follow_new_users" model="ir.config_parameter">
+            <field name="key">sama_jokoo.auto_follow_new_users</field>
+            <field name="value">False</field>
+        </record>
+
+        <!-- Hashtags par défaut -->
+        <record id="hashtag_welcome" model="social.hashtag">
+            <field name="name">bienvenue</field>
+            <field name="description">Tag pour accueillir les nouveaux utilisateurs</field>
+            <field name="color">#2ecc71</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <record id="hashtag_announcement" model="social.hashtag">
+            <field name="name">annonce</field>
+            <field name="description">Tag pour les annonces importantes</field>
+            <field name="color">#e74c3c</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <record id="hashtag_team" model="social.hashtag">
+            <field name="name">equipe</field>
+            <field name="description">Tag pour les discussions d'équipe</field>
+            <field name="color">#3498db</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <record id="hashtag_project" model="social.hashtag">
+            <field name="name">projet</field>
+            <field name="description">Tag pour les discussions de projet</field>
+            <field name="color">#9b59b6</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <record id="hashtag_help" model="social.hashtag">
+            <field name="name">aide</field>
+            <field name="description">Tag pour demander de l'aide</field>
+            <field name="color">#f39c12</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <record id="hashtag_celebration" model="social.hashtag">
+            <field name="name">celebration</field>
+            <field name="description">Tag pour célébrer les succès</field>
+            <field name="color">#e67e22</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <!-- Post de bienvenue par défaut -->
+        <record id="welcome_post" model="social.post">
+            <field name="content"><![CDATA[
+                <h2>🎉 Bienvenue sur Sama Jokoo !</h2>
+                <p>Votre nouvelle plateforme sociale intégrée à Odoo est maintenant active !</p>
+                
+                <h3>🚀 Fonctionnalités disponibles :</h3>
+                <ul>
+                    <li>📱 <strong>Posts sociaux</strong> : Partagez vos idées et actualités</li>
+                    <li>💬 <strong>Commentaires</strong> : Interagissez avec vos collègues</li>
+                    <li>❤️ <strong>Likes</strong> : Montrez votre appréciation</li>
+                    <li>🏷️ <strong>Hashtags</strong> : Organisez vos contenus avec #hashtags</li>
+                    <li>👥 <strong>Mentions</strong> : Mentionnez vos collègues avec @nom</li>
+                    <li>🔔 <strong>Notifications</strong> : Restez informé des interactions</li>
+                    <li>📱 <strong>Application mobile</strong> : Accès depuis votre smartphone</li>
+                </ul>
+                
+                <h3>💡 Conseils pour bien commencer :</h3>
+                <ol>
+                    <li>Complétez votre profil social dans Paramètres > Profil Social</li>
+                    <li>Suivez vos collègues pour voir leurs posts dans votre feed</li>
+                    <li>Utilisez les hashtags pour organiser vos contenus</li>
+                    <li>Mentionnez vos collègues avec @ pour les notifier</li>
+                    <li>Explorez les différentes vues : Kanban, Liste, Dashboard</li>
+                </ol>
+                
+                <p>Amusez-vous bien avec Sama Jokoo ! 🚀</p>
+                
+                <p><em>Hashtags suggérés : #bienvenue #equipe #samajokoo</em></p>
+            ]]></field>
+            <field name="author_id" ref="base.user_admin"/>
+            <field name="visibility">company</field>
+            <field name="state">published</field>
+            <field name="is_pinned">True</field>
+            <field name="is_featured">True</field>
+        </record>
+
+        <!-- Lier les hashtags au post de bienvenue -->
+        <record id="welcome_post_hashtag_1" model="social.post">
+            <field name="id" ref="welcome_post"/>
+            <field name="hashtag_ids" eval="[(6, 0, [ref('hashtag_welcome'), ref('hashtag_team')])]"/>
+        </record>
+
+        <!-- Notification de bienvenue pour l'admin -->
+        <record id="welcome_notification" model="social.notification">
+            <field name="user_id" ref="base.user_admin"/>
+            <field name="type">system</field>
+            <field name="title">Sama Jokoo installé avec succès !</field>
+            <field name="message">Votre plateforme sociale est maintenant active. Explorez les fonctionnalités et invitez votre équipe à participer.</field>
+            <field name="post_id" ref="welcome_post"/>
+        </record>
+
+    </data>
+</odoo>

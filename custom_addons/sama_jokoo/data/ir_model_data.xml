@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Définition explicite des modèles pour les références de sécurité -->
+        <!-- Ces records permettent de créer les External IDs nécessaires -->
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.post')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.comment')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.like')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.follow')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.notification')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.media')]"/>
+        </function>
+        
+        <function model="ir.model" name="search">
+            <value eval="[('model', '=', 'social.hashtag')]"/>
+        </function>
+        
+    </data>
+</odoo>

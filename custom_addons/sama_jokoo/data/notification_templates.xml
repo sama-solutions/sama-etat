@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Templates de notifications par email -->
+        
+        <!-- Template pour les likes -->
+        <record id="email_template_social_like" model="mail.template">
+            <field name="name">Social: Nouveau like</field>
+            <field name="model_id" ref="model_social_notification"/>
+            <field name="subject">{{ object.author_id.name }} a aimé votre post</field>
+            <field name="email_from">{{ (object.env.user.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">{{ object.user_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <div style="margin: 0px; padding: 0px; background-color: #f8f9fa;">
+                        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #f8f9fa; font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: #34495e; width: 100%;">
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #34495e; border-top: 5px solid #e74c3c;">
+                                        <tr>
+                                            <td align="center" style="min-height: 590px;">
+                                                <div style="text-align: center;">
+                                                    <h2 style="color: #e74c3c;">❤️ Nouveau like !</h2>
+                                                    <p style="font-size: 16px;">
+                                                        <strong>{{ object.author_id.name }}</strong> a aimé votre post
+                                                    </p>
+                                                    <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #e74c3c;">
+                                                        <p style="margin: 0; font-style: italic;">
+                                                            "{{ object.post_id.content_preview }}"
+                                                        </p>
+                                                    </div>
+                                                    <p>
+                                                        <a href="{{ object.action_url }}" style="background-color: #e74c3c; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                            Voir le post
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <!-- Template pour les commentaires -->
+        <record id="email_template_social_comment" model="mail.template">
+            <field name="name">Social: Nouveau commentaire</field>
+            <field name="model_id" ref="model_social_notification"/>
+            <field name="subject">{{ object.author_id.name }} a commenté votre post</field>
+            <field name="email_from">{{ (object.env.user.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">{{ object.user_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <div style="margin: 0px; padding: 0px; background-color: #f8f9fa;">
+                        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #f8f9fa; font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: #34495e; width: 100%;">
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #34495e; border-top: 5px solid #3498db;">
+                                        <tr>
+                                            <td align="center" style="min-height: 590px;">
+                                                <div style="text-align: center;">
+                                                    <h2 style="color: #3498db;">💬 Nouveau commentaire !</h2>
+                                                    <p style="font-size: 16px;">
+                                                        <strong>{{ object.author_id.name }}</strong> a commenté votre post
+                                                    </p>
+                                                    <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #3498db;">
+                                                        <p style="margin: 0; font-style: italic;">
+                                                            "{{ object.comment_id.content_preview }}"
+                                                        </p>
+                                                    </div>
+                                                    <p>
+                                                        <a href="{{ object.action_url }}" style="background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                            Voir le commentaire
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <!-- Template pour les mentions -->
+        <record id="email_template_social_mention" model="mail.template">
+            <field name="name">Social: Nouvelle mention</field>
+            <field name="model_id" ref="model_social_notification"/>
+            <field name="subject">{{ object.author_id.name }} vous a mentionné</field>
+            <field name="email_from">{{ (object.env.user.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">{{ object.user_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <div style="margin: 0px; padding: 0px; background-color: #f8f9fa;">
+                        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #f8f9fa; font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: #34495e; width: 100%;">
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #34495e; border-top: 5px solid #f39c12;">
+                                        <tr>
+                                            <td align="center" style="min-height: 590px;">
+                                                <div style="text-align: center;">
+                                                    <h2 style="color: #f39c12;">@ Vous avez été mentionné !</h2>
+                                                    <p style="font-size: 16px;">
+                                                        <strong>{{ object.author_id.name }}</strong> vous a mentionné
+                                                    </p>
+                                                    <div style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #f39c12;">
+                                                        <p style="margin: 0; font-style: italic;">
+                                                            "{{ object.post_id.content_preview if object.post_id else object.comment_id.content_preview }}"
+                                                        </p>
+                                                    </div>
+                                                    <p>
+                                                        <a href="{{ object.action_url }}" style="background-color: #f39c12; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                            Voir la mention
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <!-- Template pour les nouveaux abonnés -->
+        <record id="email_template_social_follow" model="mail.template">
+            <field name="name">Social: Nouvel abonné</field>
+            <field name="model_id" ref="model_social_notification"/>
+            <field name="subject">{{ object.author_id.name }} vous suit maintenant</field>
+            <field name="email_from">{{ (object.env.user.email_formatted or user.email_formatted) }}</field>
+            <field name="email_to">{{ object.user_id.email }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <div style="margin: 0px; padding: 0px; background-color: #f8f9fa;">
+                        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #f8f9fa; font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: #34495e; width: 100%;">
+                            <tr>
+                                <td align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 16px; background-color: white; color: #34495e; border-top: 5px solid #2ecc71;">
+                                        <tr>
+                                            <td align="center" style="min-height: 590px;">
+                                                <div style="text-align: center;">
+                                                    <h2 style="color: #2ecc71;">👥 Nouvel abonné !</h2>
+                                                    <p style="font-size: 16px;">
+                                                        <strong>{{ object.author_id.name }}</strong> vous suit maintenant
+                                                    </p>
+                                                    <div style="margin: 20px 0; text-align: center;">
+                                                        <img src="/web/image/res.users/{{ object.author_id.id }}/image_128" 
+                                                             style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #2ecc71;" 
+                                                             alt="Avatar"/>
+                                                    </div>
+                                                    <p>
+                                                        <a href="{{ object.action_url }}" style="background-color: #2ecc71; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                                                            Voir le profil
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

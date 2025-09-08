@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Dashboard principale -->
+        <record id="view_social_dashboard" model="ir.ui.view">
+            <field name="name">social.dashboard</field>
+            <field name="model">social.post</field>
+            <field name="arch" type="xml">
+                <dashboard>
+                    <view type="graph" ref="view_social_post_graph"/>
+                    <view type="pivot" ref="view_social_post_pivot"/>
+                    <group>
+                        <group>
+                            <aggregate name="total_posts" field="id" group_operator="count" string="Total Posts"/>
+                            <aggregate name="total_likes" field="like_count" group_operator="sum" string="Total Likes"/>
+                            <aggregate name="total_comments" field="comment_count" group_operator="sum" string="Total Commentaires"/>
+                            <aggregate name="avg_engagement" field="like_count" group_operator="avg" string="Engagement Moyen"/>
+                        </group>
+                        <group>
+                            <widget name="pie_chart" title="Posts par Visibilité">
+                                <field name="visibility"/>
+                            </widget>
+                            <widget name="bar_chart" title="Posts par Auteur">
+                                <field name="author_id"/>
+                            </widget>
+                        </group>
+                    </group>
+                </dashboard>
+            </field>
+        </record>
+
+        <!-- Vue graphique pour les posts -->
+        <record id="view_social_post_graph" model="ir.ui.view">
+            <field name="name">social.post.graph</field>
+            <field name="model">social.post</field>
+            <field name="arch" type="xml">
+                <graph string="Analyse des Posts Sociaux" type="bar" stacked="True">
+                    <field name="create_date" type="row" interval="day"/>
+                    <field name="state" type="col"/>
+                    <field name="like_count" type="measure"/>
+                    <field name="comment_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue pivot pour les posts -->
+        <record id="view_social_post_pivot" model="ir.ui.view">
+            <field name="name">social.post.pivot</field>
+            <field name="model">social.post</field>
+            <field name="arch" type="xml">
+                <pivot string="Tableau Croisé Dynamique - Posts">
+                    <field name="author_id" type="row"/>
+                    <field name="visibility" type="col"/>
+                    <field name="like_count" type="measure"/>
+                    <field name="comment_count" type="measure"/>
+                    <field name="share_count" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Vue graphique pour les hashtags -->
+        <record id="view_social_hashtag_graph" model="ir.ui.view">
+            <field name="name">social.hashtag.graph</field>
+            <field name="model">social.hashtag</field>
+            <field name="arch" type="xml">
+                <graph string="Popularité des Hashtags" type="pie">
+                    <field name="name"/>
+                    <field name="usage_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue pivot pour les hashtags -->
+        <record id="view_social_hashtag_pivot" model="ir.ui.view">
+            <field name="name">social.hashtag.pivot</field>
+            <field name="model">social.hashtag</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse des Hashtags">
+                    <field name="is_trending" type="row"/>
+                    <field name="is_featured" type="col"/>
+                    <field name="usage_count" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Vue graphique pour les notifications -->
+        <record id="view_social_notification_graph" model="ir.ui.view">
+            <field name="name">social.notification.graph</field>
+            <field name="model">social.notification</field>
+            <field name="arch" type="xml">
+                <graph string="Notifications par Type" type="bar">
+                    <field name="type" type="row"/>
+                    <field name="create_date" type="col" interval="day"/>
+                    <field name="id" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue pivot pour les notifications -->
+        <record id="view_social_notification_pivot" model="ir.ui.view">
+            <field name="name">social.notification.pivot</field>
+            <field name="model">social.notification</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse des Notifications">
+                    <field name="type" type="row"/>
+                    <field name="is_read" type="col"/>
+                    <field name="id" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Vue graphique pour les utilisateurs -->
+        <record id="view_social_users_graph" model="ir.ui.view">
+            <field name="name">res.users.social.graph</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <graph string="Activité Sociale des Utilisateurs" type="bar">
+                    <field name="name" type="row"/>
+                    <field name="social_posts_count" type="measure"/>
+                    <field name="social_followers_count" type="measure"/>
+                    <field name="social_following_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue pivot pour les utilisateurs -->
+        <record id="view_social_users_pivot" model="ir.ui.view">
+            <field name="name">res.users.social.pivot</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <pivot string="Statistiques Sociales des Utilisateurs">
+                    <field name="social_is_online" type="row"/>
+                    <field name="social_verified" type="col"/>
+                    <field name="social_posts_count" type="measure"/>
+                    <field name="social_likes_received" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Actions avec vues analytiques -->
+        
+        <!-- Action pour l'analyse des posts -->
+        <record id="action_social_post_analysis" model="ir.actions.act_window">
+            <field name="name">Analyse des Posts</field>
+            <field name="res_model">social.post</field>
+            <field name="view_mode">graph,pivot,kanban,tree,form</field>
+            <field name="context">{'search_default_published_posts': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Analysez l'engagement de vos posts !
+                </p>
+                <p>
+                    Utilisez les graphiques et tableaux croisés pour comprendre
+                    quels contenus fonctionnent le mieux avec votre équipe.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour l'analyse des hashtags -->
+        <record id="action_social_hashtag_analysis" model="ir.actions.act_window">
+            <field name="name">Analyse des Hashtags</field>
+            <field name="res_model">social.hashtag</field>
+            <field name="view_mode">graph,pivot,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Découvrez les hashtags populaires !
+                </p>
+                <p>
+                    Analysez quels hashtags sont les plus utilisés et
+                    identifiez les tendances de votre communauté.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour l'analyse des notifications -->
+        <record id="action_social_notification_analysis" model="ir.actions.act_window">
+            <field name="name">Analyse des Notifications</field>
+            <field name="res_model">social.notification</field>
+            <field name="view_mode">graph,pivot,kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Analysez l'activité des notifications !
+                </p>
+                <p>
+                    Comprenez comment votre équipe interagit et
+                    optimisez votre stratégie de communication.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour l'analyse des utilisateurs -->
+        <record id="action_social_users_analysis" model="ir.actions.act_window">
+            <field name="name">Analyse des Utilisateurs</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">graph,pivot,kanban,tree,form</field>
+            <field name="context">{'search_default_active_users': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Analysez l'engagement de votre équipe !
+                </p>
+                <p>
+                    Identifiez les utilisateurs les plus actifs et
+                    encouragez la participation de tous.
+                </p>
+            </field>
+        </record>
+
+        <!-- Menus Analytics -->
+        <menuitem id="menu_social_post_analysis" 
+                  name="Analyse Posts" 
+                  parent="menu_social_analytics" 
+                  action="action_social_post_analysis"
+                  sequence="10"/>
+
+        <menuitem id="menu_social_hashtag_analysis" 
+                  name="Analyse Hashtags" 
+                  parent="menu_social_analytics" 
+                  action="action_social_hashtag_analysis"
+                  sequence="20"/>
+
+        <menuitem id="menu_social_notification_analysis" 
+                  name="Analyse Notifications" 
+                  parent="menu_social_analytics" 
+                  action="action_social_notification_analysis"
+                  sequence="30"/>
+
+        <menuitem id="menu_social_users_analysis" 
+                  name="Analyse Utilisateurs" 
+                  parent="menu_social_analytics" 
+                  action="action_social_users_analysis"
+                  sequence="40"/>
+
+    </data>
+</odoo>

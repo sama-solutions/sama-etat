@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Menu principal Social -->
+        <menuitem id="menu_social_root" 
+                  name="Social" 
+                  sequence="10" 
+                  web_icon="sama_jokoo,static/description/icon.png"/>
+
+        <!-- Sous-menus principaux -->
+        <menuitem id="menu_social_feed" 
+                  name="Feed" 
+                  parent="menu_social_root" 
+                  sequence="10"/>
+
+        <menuitem id="menu_social_content" 
+                  name="Contenu" 
+                  parent="menu_social_root" 
+                  sequence="20"/>
+
+        <menuitem id="menu_social_users" 
+                  name="Utilisateurs" 
+                  parent="menu_social_root" 
+                  sequence="30"/>
+
+        <menuitem id="menu_social_analytics" 
+                  name="Analytics" 
+                  parent="menu_social_root" 
+                  sequence="40"/>
+
+        <menuitem id="menu_social_moderation" 
+                  name="Modération" 
+                  parent="menu_social_root" 
+                  sequence="50"
+                  groups="sama_jokoo.group_social_moderator"/>
+
+        <menuitem id="menu_social_config" 
+                  name="Configuration" 
+                  parent="menu_social_root" 
+                  sequence="60"
+                  groups="sama_jokoo.group_social_admin"/>
+
+        <!-- Menus Feed -->
+        <menuitem id="menu_social_dashboard" 
+                  name="Dashboard" 
+                  parent="menu_social_feed" 
+                  action="action_social_dashboard"
+                  sequence="10"/>
+
+        <menuitem id="menu_social_my_feed" 
+                  name="Mon Feed" 
+                  parent="menu_social_feed" 
+                  action="action_social_my_feed"
+                  sequence="20"/>
+
+        <!-- Menus Contenu -->
+        <menuitem id="menu_social_posts" 
+                  name="Posts" 
+                  parent="menu_social_content" 
+                  action="action_social_post"
+                  sequence="10"/>
+
+        <menuitem id="menu_social_comments" 
+                  name="Commentaires" 
+                  parent="menu_social_content" 
+                  action="action_social_comment"
+                  sequence="20"/>
+
+        <menuitem id="menu_social_hashtags" 
+                  name="Hashtags" 
+                  parent="menu_social_content" 
+                  action="action_social_hashtag"
+                  sequence="30"/>
+
+        <menuitem id="menu_social_media" 
+                  name="Médias" 
+                  parent="menu_social_content" 
+                  action="action_social_media"
+                  sequence="40"/>
+
+        <!-- Menus Utilisateurs -->
+        <menuitem id="menu_social_notifications" 
+                  name="Notifications" 
+                  parent="menu_social_users" 
+                  action="action_social_notification"
+                  sequence="10"/>
+
+        <menuitem id="menu_social_follows" 
+                  name="Suivis" 
+                  parent="menu_social_users" 
+                  action="action_social_follow"
+                  sequence="20"/>
+
+        <menuitem id="menu_social_user_profiles" 
+                  name="Profils" 
+                  parent="menu_social_users" 
+                  action="action_social_user_profiles"
+                  sequence="30"/>
+
+        <!-- Actions pour les menus -->
+        
+        <!-- Dashboard Social -->
+        <record id="action_social_dashboard" model="ir.actions.act_window">
+            <field name="name">Dashboard Social</field>
+            <field name="res_model">social.post</field>
+            <field name="view_mode">kanban</field>
+            <field name="context">{
+                'search_default_published_posts': 1,
+                'search_default_group_date': 1
+            }</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Bienvenue sur votre dashboard social !
+                </p>
+                <p>
+                    Découvrez les dernières actualités et interactions de votre équipe.
+                </p>
+            </field>
+        </record>
+
+        <!-- Mon Feed -->
+        <record id="action_social_my_feed" model="ir.actions.act_window">
+            <field name="name">Mon Feed</field>
+            <field name="res_model">social.post</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{
+                'search_default_published_posts': 1
+            }</field>
+            <field name="domain">[
+                '|', '|', '|',
+                ('author_id', '=', uid),
+                ('visibility', '=', 'public'),
+                ('visibility', '=', 'company'),
+                ('author_id.social_followers.follower_id', '=', uid)
+            ]</field>
+        </record>
+
+        <!-- Hashtags -->
+        <record id="action_social_hashtag" model="ir.actions.act_window">
+            <field name="name">Hashtags</field>
+            <field name="res_model">social.hashtag</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Aucun hashtag pour le moment !
+                </p>
+                <p>
+                    Les hashtags sont créés automatiquement lorsque vous utilisez
+                    le symbole # dans vos posts.
+                </p>
+            </field>
+        </record>
+
+        <!-- Médias -->
+        <record id="action_social_media" model="ir.actions.act_window">
+            <field name="name">Médias Sociaux</field>
+            <field name="res_model">social.media</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Aucun média pour le moment !
+                </p>
+                <p>
+                    Les médias (images, vidéos, documents) apparaîtront ici
+                    lorsque vous les ajouterez à vos posts.
+                </p>
+            </field>
+        </record>
+
+        <!-- Suivis -->
+        <record id="action_social_follow" model="ir.actions.act_window">
+            <field name="name">Suivis Sociaux</field>
+            <field name="res_model">social.follow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Aucun suivi pour le moment !
+                </p>
+                <p>
+                    Commencez à suivre vos collègues pour voir leurs posts
+                    dans votre feed personnalisé.
+                </p>
+            </field>
+        </record>
+
+        <!-- Profils utilisateurs -->
+        <record id="action_social_user_profiles" model="ir.actions.act_window">
+            <field name="name">Profils Sociaux</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_active_users': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Découvrez les profils de vos collègues !
+                </p>
+                <p>
+                    Explorez les profils sociaux, suivez vos collègues et
+                    découvrez leurs dernières activités.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

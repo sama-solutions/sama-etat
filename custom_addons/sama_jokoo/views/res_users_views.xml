@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Extension de la vue formulaire utilisateur -->
+        <record id="view_users_form_social" model="ir.ui.view">
+            <field name="name">res.users.form.social</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Profil Social" name="social_profile">
+                        <group>
+                            <group string="Informations Sociales">
+                                <field name="social_bio" widget="text"/>
+                                <field name="social_website"/>
+                                <field name="social_location"/>
+                                <field name="social_birth_date"/>
+                                <field name="social_verified"/>
+                                <field name="social_badges"/>
+                                <field name="social_theme"/>
+                            </group>
+                            <group string="Confidentialité">
+                                <field name="social_profile_private"/>
+                                <field name="social_show_email"/>
+                                <field name="social_show_phone"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Notifications">
+                            <group>
+                                <field name="social_notify_likes"/>
+                                <field name="social_notify_comments"/>
+                                <field name="social_notify_mentions"/>
+                            </group>
+                            <group>
+                                <field name="social_notify_follows"/>
+                                <field name="social_notify_push"/>
+                            </group>
+                        </group>
+                        
+                        <group string="Statistiques" col="4">
+                            <field name="social_posts_count" readonly="1"/>
+                            <field name="social_followers_count" readonly="1"/>
+                            <field name="social_following_count" readonly="1"/>
+                            <field name="social_likes_received" readonly="1"/>
+                        </group>
+                        
+                        <group string="Statut">
+                            <field name="social_is_online" readonly="1"/>
+                            <field name="social_last_seen" readonly="1"/>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <!-- Vue kanban des utilisateurs avec profil social -->
+        <record id="view_users_kanban_social" model="ir.ui.view">
+            <field name="name">res.users.kanban.social</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <kanban class="o_social_users_kanban">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="login"/>
+                    <field name="email"/>
+                    <field name="image_128"/>
+                    <field name="social_bio"/>
+                    <field name="social_verified"/>
+                    <field name="social_is_online"/>
+                    <field name="social_posts_count"/>
+                    <field name="social_followers_count"/>
+                    <field name="social_following_count"/>
+                    <field name="social_last_seen"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click o_social_user_card">
+                                <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('res.users', 'image_128', record.id.raw_value)" alt="Avatar"/>
+                                    <span t-if="record.social_is_online.raw_value" class="badge badge-success o_online_indicator">●</span>
+                                    <span t-if="record.social_verified.raw_value" class="badge badge-primary o_verified_badge">✓</span>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                @<field name="login"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="o_social_bio" t-if="record.social_bio.raw_value">
+                                            <field name="social_bio"/>
+                                        </div>
+                                        <div class="o_social_stats">
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-edit"/> <field name="social_posts_count"/> posts
+                                            </span>
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-users"/> <field name="social_followers_count"/> abonnés
+                                            </span>
+                                            <span class="badge badge-pill badge-light">
+                                                <i class="fa fa-user-plus"/> <field name="social_following_count"/> suivis
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <span t-if="record.social_is_online.raw_value" class="text-success">
+                                                <i class="fa fa-circle"/> En ligne
+                                            </span>
+                                            <span t-if="!record.social_is_online.raw_value" class="text-muted">
+                                                Vu <field name="social_last_seen" widget="relative"/>
+                                            </span>
+                                        </div>
+                                        <div class="oe_kanban_bottom_right">
+                                            <button type="object" name="action_follow" class="btn btn-sm btn-primary">
+                                                <i class="fa fa-user-plus"/> Suivre
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue recherche des utilisateurs avec filtres sociaux -->
+        <record id="view_users_search_social" model="ir.ui.view">
+            <field name="name">res.users.search.social</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_search"/>
+            <field name="arch" type="xml">
+                <search position="inside">
+                    <separator/>
+                    <filter string="Utilisateurs en ligne" name="online_users" domain="[('social_is_online', '=', True)]"/>
+                    <filter string="Comptes vérifiés" name="verified_users" domain="[('social_verified', '=', True)]"/>
+                    <filter string="Profils publics" name="public_profiles" domain="[('social_profile_private', '=', False)]"/>
+                    <filter string="Utilisateurs actifs socialement" name="active_social_users" domain="[('social_posts_count', '>', 0)]"/>
+                    <separator/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut en ligne" name="group_online" context="{'group_by': 'social_is_online'}"/>
+                        <filter string="Thème préféré" name="group_theme" context="{'group_by': 'social_theme'}"/>
+                        <filter string="Compte vérifié" name="group_verified" context="{'group_by': 'social_verified'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action pour voir le profil social d'un utilisateur -->
+        <record id="action_view_social_profile" model="ir.actions.act_window">
+            <field name="name">Profil Social</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Action pour voir les posts d'un utilisateur -->
+        <record id="action_view_user_posts" model="ir.actions.act_window">
+            <field name="name">Posts de l'utilisateur</field>
+            <field name="res_model">social.post</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_published_posts': 1}</field>
+        </record>
+
+    </data>
+</odoo>
