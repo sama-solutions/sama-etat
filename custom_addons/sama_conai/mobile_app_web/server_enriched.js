@@ -426,13 +426,12 @@ let enrichedDatabase = {
                 icon: '📋'
             },
             {
-                name: 'Temps Moyen Réponse',
+                name: 'Temps Moyen Réponse en jours',
                 value: 18.5,
                 target: 15,
                 percentage: 81,
                 trend: 'down',
-                icon: '⏱️',
-                unit: 'jours'
+                icon: '⏱️'
             },
             {
                 name: 'Satisfaction Client',

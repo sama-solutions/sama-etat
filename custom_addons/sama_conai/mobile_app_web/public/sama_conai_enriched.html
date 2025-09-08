@@ -1406,17 +1406,361 @@
             }
         }
 
-        // Utiliser les mêmes fonctions de niveau 2 et 3 que l'interface complète
+        // ========================================= //
+        // NIVEAU 2 - LISTES ENRICHIES               //
+        // ========================================= //
+
         async function loadLevel2Requests() {
-            // Réutiliser la logique de l'interface complète
             showLoading();
-            // ... (même logique que dans sama_conai_complete.html)
+            
+            try {
+                const response = await fetch('/api/mobile/level2/requests', {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderLevel2Requests(data.data);
+                } else {
+                    showError('Erreur lors du chargement des demandes');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur de connexion au serveur');
+            }
+        }
+
+        function renderLevel2Requests(data) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="fade-in">
+                    <!-- Filtres enrichis -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            📋 Filtres Avancés
+                        </div>
+                        <div class="kpi-grid">
+                            <button class="kpi-card" onclick="filterRequests('all')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.all}</div>
+                                <div class="kpi-label">Toutes</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterRequests('submitted')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.submitted}</div>
+                                <div class="kpi-label">Soumises</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterRequests('in_progress')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.in_progress}</div>
+                                <div class="kpi-label">En cours</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterRequests('responded')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.responded}</div>
+                                <div class="kpi-label">Répondues</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Liste des demandes -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                            📄 Demandes d'Information (${data.requests.length})
+                        </div>
+                        
+                        ${data.requests.map(request => `
+                            <div class="list-item" onclick="navigateTo(3, 'Détail Demande', () => loadLevel3Request(${request.id}), ${request.id})">
+                                <div class="list-header">
+                                    <div class="item-title">${request.name}</div>
+                                    <span class="status-chip status-${request.state}">${request.state_label}</span>
+                                </div>
+                                <div class="item-description">
+                                    <strong>👤 ${request.requester_name}</strong> (${request.requester_quality})<br>
+                                    📧 ${request.requester_email}<br>
+                                    📝 ${request.description.substring(0, 100)}...
+                                </div>
+                                <div class="item-footer">
+                                    <span>📅 ${formatDate(request.request_date)}</span>
+                                    <span>🏢 ${request.department || 'Non assigné'}</span>
+                                </div>
+                                <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
+                                    ${request.tags ? request.tags.map(tag => `<span style="background: var(--accent-action); color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px;">${tag}</span>`).join('') : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
         }
 
         async function loadLevel2Alerts() {
-            // Réutiliser la logique de l'interface complète
             showLoading();
-            // ... (même logique que dans sama_conai_complete.html)
+            
+            try {
+                const response = await fetch('/api/mobile/level2/alerts', {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderLevel2Alerts(data.data);
+                } else {
+                    showError('Erreur lors du chargement des alertes');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur de connexion au serveur');
+            }
+        }
+
+        function renderLevel2Alerts(data) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="fade-in">
+                    <!-- Filtres enrichis -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            🚨 Filtres Alertes
+                        </div>
+                        <div class="kpi-grid">
+                            <button class="kpi-card" onclick="filterAlerts('all')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.all}</div>
+                                <div class="kpi-label">Toutes</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterAlerts('new')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.new}</div>
+                                <div class="kpi-label">Nouvelles</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterAlerts('investigation')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.investigation}</div>
+                                <div class="kpi-label">Enquête</div>
+                            </button>
+                            <button class="kpi-card" onclick="filterAlerts('resolved')" style="cursor: pointer; border: none; background: var(--background-color);">
+                                <div class="kpi-value">${data.filters.resolved}</div>
+                                <div class="kpi-label">Résolues</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Liste des alertes -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 20px; color: var(--text-color);">
+                            🔔 Alertes et Signalements (${data.alerts.length})
+                        </div>
+                        
+                        ${data.alerts.map(alert => `
+                            <div class="list-item" onclick="navigateTo(3, 'Détail Alerte', () => loadLevel3Alert(${alert.id}), ${alert.id})">
+                                <div class="list-header">
+                                    <div class="item-title">${alert.name}</div>
+                                    <span class="status-chip status-${alert.state}">${alert.state_label}</span>
+                                </div>
+                                <div class="item-description">
+                                    <strong>📂 ${alert.category_label}</strong> - Priorité: ${alert.priority_label}<br>
+                                    👤 ${alert.reporter_name}<br>
+                                    📝 ${alert.description.substring(0, 100)}...
+                                </div>
+                                <div class="item-footer">
+                                    <span>📅 ${formatDate(alert.alert_date)}</span>
+                                    <span>👨‍💼 ${alert.manager || 'Non assigné'}</span>
+                                </div>
+                                <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
+                                    ${alert.tags ? alert.tags.map(tag => `<span style="background: var(--accent-danger); color: white; padding: 2px 8px; border-radius: 10px; font-size: 10px;">${tag}</span>`).join('') : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // ========================================= //
+        // NIVEAU 3 - DÉTAILS ENRICHIS               //
+        // ========================================= //
+
+        async function loadLevel3Request(requestId) {
+            showLoading();
+            
+            try {
+                const response = await fetch(`/api/mobile/level3/request/${requestId}`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderLevel3Request(data.data);
+                } else {
+                    showError('Erreur lors du chargement du détail');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur de connexion au serveur');
+            }
+        }
+
+        function renderLevel3Request(request) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="fade-in">
+                    <!-- En-tête détail -->
+                    <div class="neumorphic-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 800; color: var(--accent-action); margin-bottom: 5px;">
+                                    📄 ${request.name}
+                                </div>
+                                <span class="status-chip status-${request.state}">${request.state_label}</span>
+                            </div>
+                            <button onclick="openOdooBackend('${request.odoo_url}')" style="background: var(--background-color); border: none; color: var(--accent-action); padding: 15px; border-radius: 15px; cursor: pointer; box-shadow: var(--shadow-neumorphic);">
+                                <i class="fas fa-external-link-alt"></i><br>
+                                <span style="font-size: 10px;">Odoo</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Informations demandeur -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            👤 Informations Demandeur
+                        </div>
+                        <div class="detail-section">
+                            <div class="detail-row">
+                                <span class="detail-label">Nom :</span>
+                                <span class="detail-value">${request.requester_name}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Email :</span>
+                                <span class="detail-value">${request.requester_email}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Qualité :</span>
+                                <span class="detail-value">${request.requester_quality}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description demande -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            📝 Description de la Demande
+                        </div>
+                        <div style="background: var(--background-color); padding: 15px; border-radius: 10px; box-shadow: var(--shadow-inset); line-height: 1.6;">
+                            ${request.description}
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            📈 Historique de Traitement
+                        </div>
+                        <div class="timeline">
+                            ${request.timeline ? request.timeline.map(event => `
+                                <div class="timeline-item">
+                                    <div class="timeline-date">${formatDate(event.date)}</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">${event.event}</div>
+                                        <div class="timeline-description">${event.description}</div>
+                                        <div class="timeline-author">Par: ${event.author}</div>
+                                    </div>
+                                </div>
+                            `).join('') : '<p>Aucun historique disponible</p>'}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        async function loadLevel3Alert(alertId) {
+            showLoading();
+            
+            try {
+                const response = await fetch(`/api/mobile/level3/alert/${alertId}`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderLevel3Alert(data.data);
+                } else {
+                    showError('Erreur lors du chargement du détail');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                showError('Erreur de connexion au serveur');
+            }
+        }
+
+        function renderLevel3Alert(alert) {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <div class="fade-in">
+                    <!-- En-tête détail -->
+                    <div class="neumorphic-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 800; color: var(--accent-danger); margin-bottom: 5px;">
+                                    🚨 ${alert.name}
+                                </div>
+                                <span class="status-chip status-${alert.state}">${alert.state_label}</span>
+                            </div>
+                            <button onclick="openOdooBackend('${alert.odoo_url}')" style="background: var(--background-color); border: none; color: var(--accent-action); padding: 15px; border-radius: 15px; cursor: pointer; box-shadow: var(--shadow-neumorphic);">
+                                <i class="fas fa-external-link-alt"></i><br>
+                                <span style="font-size: 10px;">Odoo</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            📝 Description du Signalement
+                        </div>
+                        <div style="background: var(--background-color); padding: 15px; border-radius: 10px; box-shadow: var(--shadow-inset); line-height: 1.6;">
+                            ${alert.description}
+                        </div>
+                    </div>
+
+                    <!-- Timeline -->
+                    <div class="neumorphic-card">
+                        <div style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: var(--text-color);">
+                            📈 Historique de Traitement
+                        </div>
+                        <div class="timeline">
+                            ${alert.timeline ? alert.timeline.map(event => `
+                                <div class="timeline-item">
+                                    <div class="timeline-date">${formatDate(event.date)}</div>
+                                    <div class="timeline-content">
+                                        <div class="timeline-title">${event.event}</div>
+                                        <div class="timeline-description">${event.description}</div>
+                                        <div class="timeline-author">Par: ${event.author}</div>
+                                    </div>
+                                </div>
+                            `).join('') : '<p>Aucun historique disponible</p>'}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Fonctions de filtrage et utilitaires
+        function filterRequests(filter) {
+            loadLevel2Requests();
+        }
+
+        function filterAlerts(filter) {
+            loadLevel2Alerts();
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
         }
 
         // ========================================= //
