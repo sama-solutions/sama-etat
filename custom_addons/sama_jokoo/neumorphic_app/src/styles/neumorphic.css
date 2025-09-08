@@ -1,0 +1,309 @@
+/* ========================================
+   SAMA JOKOO - DESIGN SYSTEM NEUMORPHIQUE
+   ======================================== */
+
+/* Variables CSS pour le design neumorphique */
+:root {
+  /* === COULEURS DE BASE === */
+  --bg-primary: #f0f0f3;
+  --bg-secondary: #e6e6e9;
+  --bg-tertiary: #dcdce0;
+  
+  /* === OMBRES NEUMORPHIQUES === */
+  --shadow-light: #ffffff;
+  --shadow-dark: #d1d1d4;
+  --shadow-inset-light: #ffffff;
+  --shadow-inset-dark: #d1d1d4;
+  
+  /* === COULEURS D'ACCENT === */
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
+  --accent-success: #4ecdc4;
+  --accent-warning: #ffe66d;
+  --accent-error: #ff6b6b;
+  
+  /* === TEXTE === */
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --text-muted: #a0aec0;
+  --text-white: #ffffff;
+  
+  /* === ESPACEMENTS === */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  
+  /* === RAYONS DE BORDURE === */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 50%;
+  
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* === MODE SOMBRE === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #2d2d30;
+    --bg-secondary: #3a3a3d;
+    --bg-tertiary: #404043;
+    --shadow-light: #404040;
+    --shadow-dark: #1a1a1c;
+    --text-primary: #f7fafc;
+    --text-secondary: #e2e8f0;
+    --text-muted: #a0aec0;
+  }
+}
+
+/* === RESET ET BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === COMPOSANTS NEUMORPHIQUES === */
+
+/* Bouton neumorphique */
+.neu-button {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-primary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: 
+    6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+}
+
+.neu-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+.neu-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+.neu-button--primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: var(--text-white);
+}
+
+.neu-button--success {
+  background: var(--accent-success);
+  color: var(--text-white);
+}
+
+.neu-button--small {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: 0.875rem;
+}
+
+.neu-button--large {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  font-size: 1.125rem;
+}
+
+/* Carte neumorphique */
+.neu-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-md);
+  transition: all var(--transition-normal);
+  box-shadow: 
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+.neu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    12px 12px 24px var(--shadow-dark),
+    -12px -12px 24px var(--shadow-light);
+}
+
+.neu-card--inset {
+  box-shadow: 
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+}
+
+.neu-card--flat {
+  box-shadow: 
+    4px 4px 8px var(--shadow-dark),
+    -4px -4px 8px var(--shadow-light);
+}
+
+/* Champ de saisie neumorphique */
+.neu-input {
+  background: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  width: 100%;
+  transition: all var(--transition-normal);
+  box-shadow: 
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+.neu-input:focus {
+  outline: none;
+  box-shadow: 
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light),
+    0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.neu-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Avatar neumorphique */
+.neu-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+  box-shadow: 
+    4px 4px 8px var(--shadow-dark),
+    -4px -4px 8px var(--shadow-light);
+}
+
+.neu-avatar--large {
+  width: 64px;
+  height: 64px;
+  font-size: 1.25rem;
+}
+
+.neu-avatar--small {
+  width: 32px;
+  height: 32px;
+  font-size: 0.75rem;
+}
+
+/* Navigation neumorphique */
+.neu-nav {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-sm);
+  margin: var(--spacing-md);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 
+    6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+}
+
+.neu-nav-item {
+  padding: var(--spacing-md);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.neu-nav-item:hover {
+  color: var(--text-primary);
+  box-shadow: 
+    2px 2px 4px var(--shadow-dark),
+    -2px -2px 4px var(--shadow-light);
+}
+
+.neu-nav-item--active {
+  color: var(--accent-primary);
+  box-shadow: 
+    inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+}
+
+/* Container principal */
+.neu-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+/* Utilitaires */
+.neu-text-center { text-align: center; }
+.neu-text-left { text-align: left; }
+.neu-text-right { text-align: right; }
+
+.neu-mb-sm { margin-bottom: var(--spacing-sm); }
+.neu-mb-md { margin-bottom: var(--spacing-md); }
+.neu-mb-lg { margin-bottom: var(--spacing-lg); }
+
+.neu-mt-sm { margin-top: var(--spacing-sm); }
+.neu-mt-md { margin-top: var(--spacing-md); }
+.neu-mt-lg { margin-top: var(--spacing-lg); }
+
+.neu-p-sm { padding: var(--spacing-sm); }
+.neu-p-md { padding: var(--spacing-md); }
+.neu-p-lg { padding: var(--spacing-lg); }
+
+/* Animations */
+@keyframes neu-pulse {
+  0%, 100% {
+    box-shadow: 
+      6px 6px 12px var(--shadow-dark),
+      -6px -6px 12px var(--shadow-light);
+  }
+  50% {
+    box-shadow: 
+      8px 8px 16px var(--shadow-dark),
+      -8px -8px 16px var(--shadow-light);
+  }
+}
+
+.neu-pulse {
+  animation: neu-pulse 2s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .neu-container {
+    padding: var(--spacing-sm);
+  }
+  
+  .neu-card {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+}
