@@ -1,0 +1,211 @@
+# SAMA ÉTAT - Fichiers à ignorer par Git
+# Auteurs: Mamadou Mbagnick DOGUE, Rassol DOGUE
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Environnements virtuels
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Odoo spécifique
+*.pyc
+*.pyo
+*.log
+*.pot
+*.mo
+filestore/
+sessions/
+.odoo_local/
+
+# Base de données
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+log/
+
+# Configuration locale
+config/local.conf
+config/production.conf
+config/development.conf
+
+# Secrets et mots de passe
+secrets/
+.env.local
+.env.production
+.env.development
+*.key
+*.pem
+*.crt
+
+# Docker
+.docker/
+docker-compose.override.yml
+docker-compose.local.yml
+docker-compose.production.yml
+
+# Sauvegardes
+backups/
+*.backup
+*.dump
+*.sql.gz
+*.tar.gz
+
+# Fichiers temporaires
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Archives
+archive_files/
+*.zip
+*.tar
+*.rar
+*.7z
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node.js (si utilisé pour le développement frontend)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Fichiers de test
+.coverage
+.pytest_cache/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Documentation générée
+docs/_build/
+site/
+
+# Fichiers de cache
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Profiling
+.prof
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# Fichiers spécifiques au projet
+scripts_temp/
+dev_scripts/
+test_data/
+demo_files/
+
+# Fichiers de monitoring
+monitoring/
+metrics/
+
+# SSL/TLS
+ssl/
+certificates/
+
+# Uploads utilisateur
+uploads/
+media/
+static/uploaded/
+
+# Fichiers de migration personnalisés
+migrations/custom/
+
+# Fichiers de configuration spécifiques à l'environnement
+config/nginx.conf
+config/apache.conf
+config/ssl.conf
+
+# Données sensibles
+data/sensitive/
+exports/confidential/
+
+# Fichiers de déploiement
+deploy/
+deployment/
+k8s/secrets/
+
+# Fichiers de benchmark
+benchmark/
+performance/
+
+# Fichiers de sauvegarde automatique
+*~
+*.bak
+*.backup
+*.old
+
+# Fichiers système
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

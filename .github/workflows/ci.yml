@@ -1,0 +1,351 @@
+name: 🚀 SAMA ÉTAT CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [ published ]
+
+env:
+  PYTHON_VERSION: '3.9'
+  ODOO_VERSION: '18.0'
+  POSTGRES_VERSION: '15'
+
+jobs:
+  # Tests de qualité du code
+  code-quality:
+    name: 🔍 Code Quality
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 📦 Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+          
+    - name: 🔧 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black isort mypy
+        pip install -r requirements.txt
+        
+    - name: 🎨 Check code formatting with Black
+      run: black --check --diff .
+      
+    - name: 📋 Check import sorting with isort
+      run: isort --check-only --diff .
+      
+    - name: 🔍 Lint with flake8
+      run: |
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+        
+    - name: 🔬 Type checking with mypy
+      run: mypy . --ignore-missing-imports
+      continue-on-error: true
+
+  # Tests unitaires
+  unit-tests:
+    name: 🧪 Unit Tests
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    services:
+      postgres:
+        image: postgres:${{ env.POSTGRES_VERSION }}
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_sama_etat
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+          
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 📦 Cache pip dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        
+    - name: 🔧 Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libxml2-dev \
+          libxslt1-dev \
+          libldap2-dev \
+          libsasl2-dev \
+          libssl-dev \
+          postgresql-client
+          
+    - name: 🔧 Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pytest-cov coverage
+        pip install -r requirements.txt
+        
+    - name: 🧪 Run unit tests
+      run: |
+        coverage run -m pytest tests/ -v
+        coverage report
+        coverage xml
+        
+    - name: 📊 Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+
+  # Tests d'intégration Odoo
+  odoo-tests:
+    name: 🏗️ Odoo Integration Tests
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    services:
+      postgres:
+        image: postgres:${{ env.POSTGRES_VERSION }}
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_odoo
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+          
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 🔧 Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libxml2-dev \
+          libxslt1-dev \
+          libldap2-dev \
+          libsasl2-dev \
+          libssl-dev \
+          postgresql-client \
+          wkhtmltopdf
+          
+    - name: 📦 Clone Odoo
+      run: |
+        git clone --depth 1 --branch ${{ env.ODOO_VERSION }} https://github.com/odoo/odoo.git
+        
+    - name: 🔧 Install Odoo dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r odoo/requirements.txt
+        pip install -r requirements.txt
+        
+    - name: 🏗️ Setup Odoo addons
+      run: |
+        mkdir -p odoo/addons/sama_etat
+        cp -r . odoo/addons/sama_etat/
+        
+    - name: 🧪 Run Odoo tests
+      run: |
+        cd odoo
+        python odoo-bin \
+          --addons-path=addons \
+          --database=test_odoo \
+          --db_host=localhost \
+          --db_port=5432 \
+          --db_user=postgres \
+          --db_password=postgres \
+          --init=sama_etat \
+          --test-enable \
+          --stop-after-init \
+          --log-level=test
+
+  # Tests de sécurité
+  security-scan:
+    name: 🔒 Security Scan
+    runs-on: ubuntu-latest
+    needs: code-quality
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 🔧 Install security tools
+      run: |
+        python -m pip install --upgrade pip
+        pip install bandit safety
+        
+    - name: 🔍 Run Bandit security scan
+      run: bandit -r . -f json -o bandit-report.json
+      continue-on-error: true
+      
+    - name: 🛡️ Check dependencies with Safety
+      run: safety check --json --output safety-report.json
+      continue-on-error: true
+      
+    - name: 📊 Upload security reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: security-reports
+        path: |
+          bandit-report.json
+          safety-report.json
+
+  # Build Docker
+  docker-build:
+    name: 🐳 Docker Build
+    runs-on: ubuntu-latest
+    needs: [unit-tests, odoo-tests]
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐳 Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+      
+    - name: 🔑 Login to Docker Hub
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        
+    - name: 🏷️ Extract metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: samaetat/sama-etat
+        tags: |
+          type=ref,event=branch
+          type=ref,event=pr
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+          
+    - name: 🏗️ Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        platforms: linux/amd64,linux/arm64
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+
+  # Déploiement automatique
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    needs: [docker-build, security-scan]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment: production
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🚀 Deploy to staging
+      run: |
+        echo "Deploying to staging environment..."
+        # Ici, vous ajouteriez vos scripts de déploiement
+        # Here, you would add your deployment scripts
+        
+    - name: 🧪 Run smoke tests
+      run: |
+        echo "Running smoke tests..."
+        # Tests de fumée pour vérifier le déploiement
+        # Smoke tests to verify deployment
+        
+    - name: 📢 Notify deployment
+      if: always()
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        channel: '#sama-etat-deployments'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+
+  # Analyse de performance
+  performance:
+    name: ⚡ Performance Analysis
+    runs-on: ubuntu-latest
+    needs: docker-build
+    if: github.event_name == 'pull_request'
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🐳 Start services
+      run: |
+        docker-compose -f docker-compose.test.yml up -d
+        sleep 30
+        
+    - name: ⚡ Run performance tests
+      run: |
+        # Ici, vous ajouteriez vos tests de performance
+        # Here, you would add your performance tests
+        echo "Running performance tests..."
+        
+    - name: 📊 Generate performance report
+      run: |
+        echo "Generating performance report..."
+        
+    - name: 🧹 Cleanup
+      if: always()
+      run: |
+        docker-compose -f docker-compose.test.yml down -v
+
+  # Notification finale
+  notify:
+    name: 📢 Notify Results
+    runs-on: ubuntu-latest
+    needs: [unit-tests, odoo-tests, security-scan, docker-build]
+    if: always()
+    
+    steps:
+    - name: 📢 Send notification
+      uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        channel: '#sama-etat-ci'
+        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow

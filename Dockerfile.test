@@ -1,0 +1,112 @@
+# Dockerfile pour les tests SAMA ÉTAT
+# Basé sur Odoo 18.0 avec outils de test
+
+FROM odoo:18.0
+
+# Métadonnées
+LABEL maintainer="Mamadou Mbagnick DOGUE, Rassol DOGUE"
+LABEL description="SAMA ÉTAT - Image de test"
+LABEL version="1.0.0-test"
+
+# Variables d'environnement pour les tests
+ENV ODOO_VERSION=18.0
+ENV TEST_MODE=true
+ENV PYTHONPATH="${PYTHONPATH}:/mnt/extra-addons"
+
+# Passer en mode root pour les installations
+USER root
+
+# Installation des outils de test et de qualité
+RUN apt-get update && apt-get install -y \
+    # Outils de test
+    curl \
+    wget \
+    git \
+    # Outils de développement
+    vim \
+    htop \
+    # Dépendances pour les tests
+    build-essential \
+    python3-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    libldap2-dev \
+    libsasl2-dev \
+    libssl-dev \
+    # Nettoyage
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Installation des dépendances Python pour les tests
+RUN pip3 install --no-cache-dir \
+    # Dépendances principales
+    qrcode[pil]==7.4.2 \
+    pillow==10.0.1 \
+    geopy==2.3.0 \
+    folium==0.14.0 \
+    requests==2.31.0 \
+    python-dateutil==2.8.2 \
+    # Outils de test
+    pytest==7.4.3 \
+    pytest-cov==4.1.0 \
+    pytest-mock==3.12.0 \
+    pytest-xdist==3.3.1 \
+    coverage==7.3.2 \
+    # Outils de qualité de code
+    black==23.9.1 \
+    flake8==6.1.0 \
+    isort==5.12.0 \
+    mypy==1.6.1 \
+    # Outils de sécurité
+    bandit==1.7.5 \
+    safety==2.3.5 \
+    # Outils de performance
+    memory-profiler==0.61.0 \
+    line-profiler==4.1.1
+
+# Création des répertoires de test
+RUN mkdir -p \
+    /mnt/extra-addons/sama_etat \
+    /var/lib/odoo/test \
+    /var/log/odoo/test \
+    /etc/odoo/test \
+    /opt/sama_etat/test \
+    /app/coverage \
+    /app/reports
+
+# Configuration des permissions
+RUN chown -R odoo:odoo \
+    /mnt/extra-addons \
+    /var/lib/odoo \
+    /var/log/odoo \
+    /etc/odoo \
+    /opt/sama_etat \
+    /app
+
+# Retour à l'utilisateur odoo
+USER odoo
+
+# Copie du script d'entrée pour les tests
+COPY --chown=odoo:odoo scripts/test_entrypoint.sh /opt/sama_etat/test_entrypoint.sh
+RUN chmod +x /opt/sama_etat/test_entrypoint.sh
+
+# Variables d'environnement pour les tests
+ENV ODOO_RC=/etc/odoo/odoo.test.conf
+ENV ODOO_ADDONS_PATH=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+ENV COVERAGE_FILE=/app/coverage/.coverage
+
+# Exposition des ports
+EXPOSE 8069 8071
+
+# Volumes pour les tests
+VOLUME ["/var/lib/odoo/test", "/var/log/odoo/test", "/app/coverage", "/app/reports"]
+
+# Point de santé pour les tests
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD curl -f http://localhost:8069/web/health || exit 1
+
+# Script d'entrée pour les tests
+ENTRYPOINT ["/opt/sama_etat/test_entrypoint.sh"]
+
+# Commande par défaut pour les tests
+CMD ["test"]

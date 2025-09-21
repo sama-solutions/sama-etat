@@ -1,0 +1,128 @@
+version: '3.8'
+
+# Configuration Docker Compose pour les tests
+# Auteurs: Mamadou Mbagnick DOGUE, Rassol DOGUE
+
+services:
+  # Base de données de test
+  test_db:
+    image: postgres:15-alpine
+    container_name: sama_etat_test_db
+    environment:
+      - POSTGRES_DB=test_sama_etat
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=test_password
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - "5433:5432"
+    volumes:
+      - test_db_data:/var/lib/postgresql/data
+    networks:
+      - test_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U test_user -d test_sama_etat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Application Odoo pour les tests
+  test_odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: sama_etat_test_app
+    depends_on:
+      test_db:
+        condition: service_healthy
+    ports:
+      - "8070:8069"
+    environment:
+      - HOST=test_db
+      - USER=test_user
+      - PASSWORD=test_password
+      - POSTGRES_DB=test_sama_etat
+      - ODOO_RC=/etc/odoo/odoo.test.conf
+      - TEST_MODE=true
+    volumes:
+      - ./:/mnt/extra-addons/sama_etat
+      - ./config/odoo.test.conf:/etc/odoo/odoo.test.conf
+      - test_web_data:/var/lib/odoo
+    networks:
+      - test_network
+    command: >
+      bash -c "
+        pip install pytest pytest-cov coverage &&
+        odoo --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+        -d test_sama_etat
+        -i sama_etat
+        --test-enable
+        --stop-after-init
+        --without-demo=False
+      "
+
+  # Service de tests unitaires
+  pytest:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    container_name: sama_etat_pytest
+    volumes:
+      - ./:/app
+      - test_coverage:/app/coverage
+    working_dir: /app
+    networks:
+      - test_network
+    command: >
+      bash -c "
+        pip install pytest pytest-cov coverage &&
+        python -m pytest tests/ -v --cov=. --cov-report=html --cov-report=xml
+      "
+    profiles:
+      - testing
+
+  # Service de tests de performance
+  performance:
+    image: loadimpact/k6:latest
+    container_name: sama_etat_performance
+    volumes:
+      - ./tests/performance:/scripts
+    networks:
+      - test_network
+    command: run /scripts/load_test.js
+    profiles:
+      - performance
+
+  # Service de tests de sécurité
+  security:
+    build:
+      context: .
+      dockerfile: Dockerfile.security
+    container_name: sama_etat_security
+    volumes:
+      - ./:/app
+      - security_reports:/app/reports
+    working_dir: /app
+    networks:
+      - test_network
+    command: >
+      bash -c "
+        pip install bandit safety &&
+        bandit -r . -f json -o reports/bandit-report.json &&
+        safety check --json --output reports/safety-report.json
+      "
+    profiles:
+      - security
+
+volumes:
+  test_db_data:
+    driver: local
+  test_web_data:
+    driver: local
+  test_coverage:
+    driver: local
+  security_reports:
+    driver: local
+
+networks:
+  test_network:
+    driver: bridge
