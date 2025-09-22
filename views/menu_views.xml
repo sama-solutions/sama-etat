@@ -2,7 +2,9 @@
 <odoo>
     <data>
         <!-- Main Menu -->
-        <menuitem id="menu_sama_etat_root" name="SAMA ETAT" sequence="10"/>
+        <menuitem id="menu_sama_etat_root" 
+                 name="SAMA ETAT" 
+                 sequence="10"/>
         
         <!-- Dashboard Menu -->
         <menuitem id="menu_senegal_dashboard" name="Tableau de Bord" parent="menu_sama_etat_root" action="action_refresh_and_open_dashboard" sequence="1"/>
@@ -29,18 +31,65 @@
         <!-- Ministries (res.partner) - Assuming a direct link for now -->
         <menuitem id="menu_ministries" name="Ministères" parent="menu_sama_etat_root" action="government_ministry_action" sequence="60"/>
         
-        <!-- AI Providers Menu (place right after Ministères) -->
-        <menuitem id="menu_fournisseurs_ia" name="Fournisseurs d'IA" parent="menu_sama_etat_root" action="sama_etat.ai_provider_config_action" sequence="65"/>
+        <!-- AI Providers Configuration Action -->
+        <record id="ai_provider_config_action" model="ir.actions.act_window">
+            <field name="name">Fournisseurs IA</field>
+            <field name="res_model">ai.provider.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocentent_smiling_face">
+                    Configurez vos fournisseurs d'IA (OpenAI, Google, Microsoft, etc.)
+                </p>
+            </field>
+        </record>
+        
+        <!-- AI Providers Menu Structure -->
+        <menuitem id="menu_ai_providers" name="Fournisseurs d'IA" parent="menu_sama_etat_root" sequence="65" groups="base.group_system">
+            <field name="web_icon">sama_etat,static/description/icon.png</field>
+        </menuitem>
+        
+        <!-- Configuration Submenu -->
+        <menuitem id="menu_ai_config" 
+                 name="Configuration" 
+                 parent="menu_ai_providers" 
+                 action="ai_provider_config_action" 
+                 sequence="10"
+                 groups="base.group_system"/>
+        
+        <!-- OAuth Dashboard Client Action -->
+        <record id="action_ai_oauth_dashboard_client" model="ir.actions.client">
+            <field name="name">Tableau de bord OAuth</field>
+            <field name="tag">iframe</field>
+            <field name="params" eval="{'src': '/ai/oauth/dashboard'}"/>
+        </record>
+        
+        <!-- OAuth Dashboard Menu Item -->
+        <menuitem id="menu_ai_oauth" 
+                 name="Tableau de bord OAuth" 
+                 parent="menu_ai_providers" 
+                 action="action_ai_oauth_dashboard_client" 
+                 sequence="20"
+                 groups="base.group_system"/>
 
         <!-- Configuration Menu -->
         <menuitem id="menu_sama_etat_config" name="Configuration" parent="menu_sama_etat_root" sequence="90"/>
 
-        <!-- Internal Apps Menu: open the built-in Apps list (ir.module.module) instead of apps.odoo.com -->
+        <!-- Internal Apps Menu: open the built-in Apps list (ir.module.module) -->
         <menuitem id="menu_sama_etat_apps_internal"
                   name="Applications"
                   parent="menu_sama_etat_root"
-                  action="base.open_module_tree"
+                  action="base.action_view_base_module_update"
                   sequence="85"/>
+                  
+        <!-- Action to update module list -->
+        <record id="action_view_base_module_update" model="ir.actions.server">
+            <field name="name">Update Module List</field>
+            <field name="model_id" ref="base.model_base_module_update"/>
+            <field name="binding_model_id" ref="base.model_ir_module_module"/>
+            <field name="state">code</field>
+            <field name="code">action = env['base.module.update'].update_list()
+return {'type': 'ir.actions.act_window_close'}</field>
+        </record>
 
     </data>
 </odoo>

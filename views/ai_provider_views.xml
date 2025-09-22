@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- AI Provider Configuration Form View -->
+        <record id="view_ai_provider_config_form" model="ir.ui.view">
+            <field name="name">ai.provider.config.form</field>
+            <field name="model">ai.provider.config</field>
+            <field name="arch" type="xml">
+                <form string="AI Provider Configuration">
+                    <header>
+                        <button name="action_test_connection" type="object" string="Test Connection" class="oe_highlight" attrs="{'invisible': [('auth_method', '!=', 'api_key')]}"/>
+                        <button name="action_oauth_connect" type="object" string="Connect with OAuth" class="oe_highlight" attrs="{'invisible': [('auth_method', '!=', 'oauth')]}">
+                            <field name="oauth_token" invisible="1"/>
+                            <field name="oauth_expires_at" invisible="1"/>
+                            <field name="oauth_refresh_token" invisible="1"/>
+                        </button>
+                        <button name="action_disconnect" type="object" string="Disconnect" class="oe_warning" attrs="{'invisible': ['|', ('auth_method', '!=', 'oauth'), ('oauth_token', '=', False)]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,active,inactive"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_set_default" type="object" class="oe_stat_button" icon="fa-star" attrs="{'invisible': [('is_default', '=', True)]}">
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_text">Set as Default</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="provider_type" widget="selection" options="{'no_create': True}"/>
+                                <field name="auth_method" widget="selection" options="{'no_create': True}"/>
+                                <field name="is_default" attrs="{'readonly': [('is_default', '=', True)]}"/>
+                                <field name="active" attrs="{'invisible': [('is_default', '=', True)]}"/>
+                            </group>
+                            <group>
+                                <field name="api_key" password="True" attrs="{'invisible': [('auth_method', '!=', 'api_key')], 'required': [('auth_method', '=', 'api_key')]}"/>
+                                <field name="api_base_url" attrs="{'invisible': [('auth_method', '!=', 'api_key')]}"/>
+                                <field name="model_name" attrs="{'invisible': [('auth_method', '!=', 'api_key')]}"/>
+                                
+                                <group attrs="{'invisible': [('auth_method', '!=', 'oauth')]}">
+                                    <field name="oauth_token" readonly="1"/>
+                                    <field name="oauth_expires_at" readonly="1"/>
+                                    <field name="oauth_refresh_token" readonly="1" password="True"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Advanced" attrs="{'invisible': [('auth_method', '!=', 'api_key')]}">
+                                <group>
+                                    <field name="temperature" class="oe_inline"/>
+                                    <field name="max_tokens" class="oe_inline"/>
+                                    <field name="top_p" class="oe_inline"/>
+                                    <field name="frequency_penalty" class="oe_inline"/>
+                                    <field name="presence_penalty" class="oe_inline"/>
+                                </group>
+                            </page>
+                            <page string="Test" attrs="{'invisible': [('auth_method', '!=', 'api_key')]}">
+                                <div class="o_notebook">
+                                    <div class="o_form_field o_view_nocontent">
+                                        <p class="oe_view_nocontent_create">
+                                            Click on "Test Connection" to verify your settings
+                                        </p>
+                                    </div>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- AI Provider Configuration Tree View -->
+        <record id="view_ai_provider_config_tree" model="ir.ui.view">
+            <field name="name">ai.provider.config.tree</field>
+            <field name="model">ai.provider.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="provider_type"/>
+                    <field name="auth_method"/>
+                    <field name="is_default"/>
+                    <field name="active" invisible="context.get('active_test', True)"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- AI Provider Configuration Search View -->
+        <record id="view_ai_provider_config_search" model="ir.ui.view">
+            <field name="name">ai.provider.config.search</field>
+            <field name="model">ai.provider.config</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="provider_type"/>
+                    <separator/>
+                    <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                    <filter string="Inactive" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Provider Type" name="group_provider_type" context="{'group_by': 'provider_type'}"/>
+                        <filter string="Auth Method" name="group_auth_method" context="{'group_by': 'auth_method'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action for AI Provider Configuration -->
+        <record id="action_ai_provider_config" model="ir.actions.act_window">
+            <field name="name">AI Provider Configurations</field>
+            <field name="res_model">ai.provider.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Configure your AI providers here
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu Item for AI Provider Configuration -->
+        <menuitem id="menu_ai_provider_config"
+            name="AI Providers"
+            parent="sama_etat.menu_sama_etat_configuration"
+            action="action_ai_provider_config"
+            sequence="10"/>
+    </data>
+</odoo>

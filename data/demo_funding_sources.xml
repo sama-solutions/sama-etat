@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ========================================= -->
+        <!-- SOURCES DE FINANCEMENT                   -->
+        <!-- ========================================= -->
+
+        <!-- Autoroute AIBD - Sources de financement -->
+        <record id="demo_funding_autoroute_budget_national" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">10</field>
+            <field name="source_name">Budget National du Sénégal</field>
+            <field name="source_type">budget_national</field>
+            <field name="funding_category">contrepartie</field>
+            <field name="amount">115000000000</field> <!-- 115 milliards - 20% -->
+            <field name="financing_conditions">Contrepartie nationale obligatoire selon accord de financement, mobilisation sur 4 exercices budgétaires</field>
+            <field name="commitment_status">committed</field>
+            <field name="disbursed_amount">40000000000</field> <!-- 40 milliards déjà décaissés -->
+            <field name="commitment_date">2023-12-15</field>
+            <field name="legal_documents">Loi de Finances 2024, Décret d'avance n°2024-123</field>
+            <field name="compliance_requirements">Respect des procédures de la comptabilité publique, visa du contrôleur financier</field>
+            <field name="reporting_requirements">Rapports trimestriels au Ministère des Finances, justification des dépenses</field>
+        </record>
+
+        <record id="demo_funding_autoroute_banque_mondiale" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">20</field>
+            <field name="source_name">Banque Mondiale - BIRD</field>
+            <field name="source_type">pret_multilateral</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">230000000000</field> <!-- 230 milliards - 40% -->
+            <field name="interest_rate">2.5</field>
+            <field name="grace_period">5</field>
+            <field name="maturity_period">25</field>
+            <field name="financing_conditions">Prêt BIRD à taux variable, garantie souveraine de l'État du Sénégal, conditionnalités de performance</field>
+            <field name="repayment_terms">Remboursement semestriel après période de grâce, amortissement linéaire sur 20 ans</field>
+            <field name="commitment_status">effective</field>
+            <field name="disbursed_amount">92000000000</field> <!-- 92 milliards décaissés -->
+            <field name="commitment_date">2023-10-20</field>
+            <field name="signature_date">2023-11-15</field>
+            <field name="effectiveness_date">2024-01-10</field>
+            <field name="closing_date">2028-12-31</field>
+            <field name="agreement_reference">BIRD-SN-P174523</field>
+            <field name="compliance_requirements">Standards environnementaux et sociaux de la Banque Mondiale, passation de marchés selon règles BIRD</field>
+            <field name="reporting_requirements">Rapports semestriels de mise en œuvre, audits financiers annuels certifiés</field>
+            <field name="audit_requirements">Audit externe annuel par cabinet agréé BIRD, mission de supervision semestrielle</field>
+        </record>
+
+        <record id="demo_funding_autoroute_afd" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">30</field>
+            <field name="source_name">Agence Française de Développement (AFD)</field>
+            <field name="source_type">pret_bilateral</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">115000000000</field> <!-- 115 milliards - 20% -->
+            <field name="interest_rate">1.8</field>
+            <field name="grace_period">3</field>
+            <field name="maturity_period">20</field>
+            <field name="financing_conditions">Prêt concessionnel AFD, garantie souveraine, clause de sauvegarde environnementale</field>
+            <field name="repayment_terms">Remboursement annuel après période de grâce, taux fixe pendant toute la durée</field>
+            <field name="commitment_status">effective</field>
+            <field name="disbursed_amount">35000000000</field> <!-- 35 milliards décaissés -->
+            <field name="commitment_date">2023-11-30</field>
+            <field name="signature_date">2023-12-20</field>
+            <field name="effectiveness_date">2024-02-01</field>
+            <field name="closing_date">2028-06-30</field>
+            <field name="agreement_reference">AFD-CSN-1234-01</field>
+            <field name="compliance_requirements">Standards AFD en matière environnementale et sociale, utilisation d'entreprises françaises encouragée</field>
+            <field name="reporting_requirements">Rapports trimestriels techniques et financiers, évaluation à mi-parcours</field>
+        </record>
+
+        <record id="demo_funding_autoroute_secteur_prive" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">40</field>
+            <field name="source_name">Consortium Privé SENAC (Eiffage-Arezki)</field>
+            <field name="source_type">secteur_prive</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">115000000000</field> <!-- 115 milliards - 20% -->
+            <field name="financing_conditions">Financement privé dans le cadre du contrat de concession, récupération via péages sur 30 ans</field>
+            <field name="commitment_status">effective</field>
+            <field name="disbursed_amount">55000000000</field> <!-- 55 milliards décaissés -->
+            <field name="commitment_date">2024-01-05</field>
+            <field name="signature_date">2024-01-05</field>
+            <field name="effectiveness_date">2024-01-15</field>
+            <field name="agreement_reference">CONCESSION-AIBD-2024-001</field>
+            <field name="compliance_requirements">Respect du cahier des charges de la concession, normes techniques internationales</field>
+            <field name="reporting_requirements">Rapports mensuels d'avancement, comptes rendus financiers trimestriels</field>
+        </record>
+
+        <!-- PUDC - Sources de financement -->
+        <record id="demo_funding_pudc_budget_national" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">10</field>
+            <field name="source_name">Budget National - Ministère Développement Communautaire</field>
+            <field name="source_type">budget_national</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">225000000000</field> <!-- 225 milliards - 50% -->
+            <field name="financing_conditions">Financement budgétaire étalé sur 5 exercices, procédures nationales de passation</field>
+            <field name="commitment_status">committed</field>
+            <field name="disbursed_amount">135000000000</field> <!-- 135 milliards décaissés -->
+            <field name="commitment_date">2024-01-01</field>
+            <field name="legal_documents">Loi de Finances 2024-2028, Décret de répartition budgétaire</field>
+            <field name="compliance_requirements">Code des marchés publics sénégalais, contrôle IGE, visa contrôleur financier</field>
+            <field name="reporting_requirements">Rapports mensuels d'exécution budgétaire, comptes administratifs annuels</field>
+        </record>
+
+        <record id="demo_funding_pudc_banque_mondiale" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">20</field>
+            <field name="source_name">Banque Mondiale - IDA</field>
+            <field name="source_type">don_multilateral</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">135000000000</field> <!-- 135 milliards - 30% -->
+            <field name="financing_conditions">Don IDA sans remboursement, conditionnalités de performance et de gouvernance</field>
+            <field name="commitment_status">effective</field>
+            <field name="disbursed_amount">81000000000</field> <!-- 81 milliards décaissés -->
+            <field name="commitment_date">2024-02-15</field>
+            <field name="signature_date">2024-02-28</field>
+            <field name="effectiveness_date">2024-03-15</field>
+            <field name="closing_date">2029-06-30</field>
+            <field name="agreement_reference">IDA-SN-P175834</field>
+            <field name="compliance_requirements">Politiques de sauvegarde Banque Mondiale, passation selon règles IDA</field>
+            <field name="reporting_requirements">Rapports semestriels de mise en œuvre, évaluations à mi-parcours et finale</field>
+        </record>
+
+        <record id="demo_funding_pudc_union_europeenne" model="project.funding.source">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">30</field>
+            <field name="source_name">Union Européenne - FED</field>
+            <field name="source_type">don_multilateral</field>
+            <field name="funding_category">investissement</field>
+            <field name="amount">90000000000</field> <!-- 90 milliards - 20% -->
+            <field name="financing_conditions">Don FED dans le cadre de l'accord de Cotonou, focus sur développement rural</field>
+            <field name="commitment_status">effective</field>
+            <field name="disbursed_amount">45000000000</field> <!-- 45 milliards décaissés -->
+            <field name="commitment_date">2024-03-01</field>
+            <field name="signature_date">2024-03-15</field>
+            <field name="effectiveness_date">2024-04-01</field>
+            <field name="closing_date">2029-03-31</field>
+            <field name="agreement_reference">FED-SN-2024-DEV-001</field>
+            <field name="compliance_requirements">Règles de passation UE, normes environnementales et sociales européennes</field>
+            <field name="reporting_requirements">Rapports trimestriels techniques et financiers, audit annuel externe</field>
+        </record>
+
+    </data>
+</odoo>

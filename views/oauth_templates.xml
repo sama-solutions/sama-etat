@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Dashboard Page -->
+    <template id="oauth_dashboard_page" name="OAuth Dashboard Page" inherit_id="web.layout">
+        <xpath expr="//div[hasclass('o_web_client')]" position="inside">
+            <div class="container mt-4">
+                <!-- Flash Messages -->
+                <t t-if="request.session.get('oauth_message')">
+                    <div t-attf-class="alert alert-{{ request.session.pop('oauth_message')['type'] }} alert-dismissible fade show" role="alert">
+                        <t t-esc="request.session.pop('oauth_message')['message']"/>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </t>
+                
+                <!-- Info Alert -->
+                <div class="alert alert-info">
+                    <i class="fa fa-info-circle me-2"></i>
+                    Configurez la connexion sécurisée avec les fournisseurs d'IA pour activer les fonctionnalités avancées.
+                </div>
+                
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h5 mb-0">
+                            <i class="fa fa-shield-alt me-2"></i>
+                            Connexion sécurisée - Fournisseurs d'IA
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <t t-foreach="providers" t-as="provider" t-key="provider['name']">
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body text-center d-flex flex-column p-4">
+                                            <div class="mb-3">
+                                                <i t-if="provider['name'] == 'google'" 
+                                                   class="fab fa-google fa-3x text-danger"></i>
+                                                <i t-if="provider['name'] == 'microsoft'" 
+                                                   class="fab fa-microsoft fa-3x text-primary"></i>
+                                            </div>
+                                            <h3 class="h5 card-title text-capitalize">
+                                                <t t-esc="provider['name']"/>
+                                            </h3>
+                                            <p class="text-muted small mb-4">
+                                                <t t-if="provider['name'] == 'google'">
+                                                    Connectez-vous avec Google pour accéder aux modèles d'IA avancés
+                                                </t>
+                                                <t t-if="provider['name'] == 'microsoft'">
+                                                    Connectez-vous avec Microsoft pour accéder à Azure OpenAI
+                                                </t>
+                                            </p>
+                                            
+                                            <div class="mt-auto pt-3">
+                                                <t t-if="provider.get('connected')">
+                                                    <span class="badge bg-success rounded-pill px-3 py-2 mb-3">
+                                                        <i class="fa fa-check-circle me-1"></i> Connecté
+                                                    </span>
+                                                    <a t-att-href="'/ai/oauth/' + provider['name'].toLowerCase() + '/disconnect'" 
+                                                       class="btn btn-outline-danger btn-sm">
+                                                        <i class="fa fa-unlink me-1"></i> Déconnecter
+                                                    </a>
+                                                </t>
+                                                <t t-else="">
+                                                    <a t-att-href="'/ai/oauth/' + provider['name'].toLowerCase() + '/start'" 
+                                                       class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-sign-in-alt me-1"></i> Se connecter
+                                                    </a>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-light border">
+                    <h5 class="h6 mb-2">
+                        <i class="fa fa-lock me-2"></i>
+                        Sécurité des données
+                    </h5>
+                    <p class="small text-muted mb-0">
+                        Vos informations d'identification ne sont jamais stockées directement dans notre système. 
+                        Nous utilisons des protocoles OAuth 2.0 sécurisés avec PKCE pour protéger vos données.
+                    </p>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Success Message Page -->
+    <template id="oauth_success_page" name="OAuth Success Page" inherit_id="web.layout">
+        <xpath expr="//div[hasclass('o_web_client')]" position="inside">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6">
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body text-center p-5">
+                                <div class="mb-4">
+                                    <i class="fas fa-check-circle fa-5x text-success"></i>
+                                </div>
+                                <h2 class="h4 font-weight-bold mb-3">
+                                    Connexion réussie !
+                                </h2>
+                                <p class="text-muted mb-4">
+                                    Vous êtes maintenant connecté à <span t-esc="provider_name" class="font-weight-bold"></span>.
+                                    Vous pouvez maintenant utiliser les fonctionnalités avancées de notre plateforme.
+                                </p>
+                                <div class="alert alert-light border text-left small">
+                                    <p class="mb-2">
+                                        <i class="fas fa-info-circle text-primary me-2"></i>
+                                        Votre connexion est sécurisée et vos informations d'identification ne sont jamais stockées sur nos serveurs.
+                                    </p>
+                                </div>
+                                <a href="/web" class="btn btn-primary mt-3">
+                                    <i class="fa fa-home me-2"></i> Retour à l'accueil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Error Message Page -->
+    <template id="oauth_error_page" name="OAuth Error Page" inherit_id="web.layout">
+        <xpath expr="//div[hasclass('o_web_client')]" position="inside">
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6">
+                        <div class="card border-danger shadow-sm">
+                            <div class="card-header bg-danger text-white">
+                                <h2 class="h5 mb-0">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    Erreur d'authentification
+                                </h2>
+                            </div>
+                            <div class="card-body text-center p-5">
+                                <div class="mb-4">
+                                    <i class="fas fa-exclamation-circle fa-5x text-danger"></i>
+                                </div>
+                                <h3 class="h5 font-weight-bold mb-3">
+                                    Oups ! Une erreur est survenue
+                                </h3>
+                                <p class="text-muted mb-4" t-esc="error_message">
+                                    Message d'erreur par défaut
+                                </p>
+                                <div class="alert alert-warning text-left small">
+                                    <p class="mb-1">
+                                        <i class="fas fa-lightbulb me-2"></i>
+                                        Vérifiez que vous avez bien les autorisations nécessaires et réessayez.
+                                    </p>
+                                    <p class="mb-0">
+                                        Si le problème persiste, veuillez contacter l'administrateur système.
+                                    </p>
+                                </div>
+                                <div class="mt-4">
+                                    <a href="/ai/oauth/dashboard" class="btn btn-outline-secondary me-2">
+                                        <i class="fa fa-arrow-left me-1"></i> Retour au tableau de bord
+                                    </a>
+                                    <a href="/web" class="btn btn-primary">
+                                        <i class="fa fa-home me-1"></i> Page d'accueil
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    </template>
+</odoo>

@@ -13,7 +13,7 @@
                             <p class="mb-0 small">Découvrez les initiatives gouvernementales près de chez vous</p>
                         </div>
                         <div class="card-body">
-                            <div id="enhanced-map" style="width: 100%; height: 500px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
+                            <div id="enhanced-map" style="width: 100%; height: 500px; aspect-ratio: 1/1; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 10px 0;">
                             </div>
                             <div class="text-center mt-3 mb-3">
                                 <button id="fit-to-map-btn" class="btn btn-primary px-4 shadow" title="Ajuster à la carte">

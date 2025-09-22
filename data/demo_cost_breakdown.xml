@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ========================================= -->
+        <!-- VENTILATION DES COÛTS PAR COMPOSANTE     -->
+        <!-- ========================================= -->
+
+        <!-- Autoroute AIBD - Composantes -->
+        <record id="demo_cost_autoroute_travaux" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">10</field>
+            <field name="component_name">Travaux de Terrassement et Chaussée</field>
+            <field name="component_type">travaux</field>
+            <field name="estimated_cost">285000000000</field> <!-- 285 milliards -->
+            <field name="description">Terrassement général, construction de la chaussée en béton bitumineux, signalisation horizontale et verticale, éclairage</field>
+            <field name="budget_line_reference">6.2.1.4.1</field>
+            <field name="procurement_method">appel_offres_ouvert</field>
+            <field name="responsible_entity">AGEROUTE Sénégal</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">35.0</field>
+            <field name="planned_start_date">2024-02-01</field>
+            <field name="planned_end_date">2026-12-31</field>
+            <field name="actual_start_date">2024-02-15</field>
+        </record>
+
+        <record id="demo_cost_autoroute_ouvrages" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">20</field>
+            <field name="component_name">Ouvrages d'Art et Échangeurs</field>
+            <field name="component_type">travaux</field>
+            <field name="estimated_cost">145000000000</field> <!-- 145 milliards -->
+            <field name="description">Construction de 3 échangeurs principaux, 15 ponts et viaducs, passages supérieurs et inférieurs</field>
+            <field name="budget_line_reference">6.2.1.4.2</field>
+            <field name="procurement_method">appel_offres_ouvert</field>
+            <field name="responsible_entity">Direction des Travaux Publics</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">20.0</field>
+            <field name="planned_start_date">2024-04-01</field>
+            <field name="planned_end_date">2027-06-30</field>
+            <field name="actual_start_date">2024-04-10</field>
+        </record>
+
+        <record id="demo_cost_autoroute_peage" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">30</field>
+            <field name="component_name">Système de Péage Électronique</field>
+            <field name="component_type">equipements</field>
+            <field name="estimated_cost">45000000000</field> <!-- 45 milliards -->
+            <field name="description">Installation de 6 gares de péage automatisées, système de télépéage, équipements informatiques et de télécommunication</field>
+            <field name="budget_line_reference">6.2.1.4.3</field>
+            <field name="procurement_method">appel_offres_restreint</field>
+            <field name="responsible_entity">Société Concessionnaire</field>
+            <field name="execution_status">not_started</field>
+            <field name="completion_percentage">0.0</field>
+            <field name="planned_start_date">2025-01-01</field>
+            <field name="planned_end_date">2026-08-31</field>
+        </record>
+
+        <record id="demo_cost_autoroute_assistance" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">40</field>
+            <field name="component_name">Assistance Technique et Supervision</field>
+            <field name="component_type">assistance_technique</field>
+            <field name="estimated_cost">35000000000</field> <!-- 35 milliards -->
+            <field name="description">Mission de contrôle et supervision des travaux, assistance technique internationale, formation du personnel</field>
+            <field name="budget_line_reference">6.2.1.4.4</field>
+            <field name="procurement_method">demande_prix</field>
+            <field name="responsible_entity">Bureau d'Études International</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">45.0</field>
+            <field name="planned_start_date">2024-01-15</field>
+            <field name="planned_end_date">2027-12-31</field>
+            <field name="actual_start_date">2024-01-15</field>
+        </record>
+
+        <record id="demo_cost_autoroute_expropriation" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="sequence">50</field>
+            <field name="component_name">Compensation et Expropriation</field>
+            <field name="component_type">autre</field>
+            <field name="estimated_cost">65000000000</field> <!-- 65 milliards -->
+            <field name="actual_cost">62000000000</field> <!-- Économie de 3 milliards -->
+            <field name="description">Indemnisation des propriétaires terriens, compensation des activités économiques, relogement des populations affectées</field>
+            <field name="budget_line_reference">6.2.1.4.5</field>
+            <field name="procurement_method">regie</field>
+            <field name="responsible_entity">Commission Départementale d'Expropriation</field>
+            <field name="execution_status">completed</field>
+            <field name="completion_percentage">100.0</field>
+            <field name="planned_start_date">2023-10-01</field>
+            <field name="planned_end_date">2024-03-31</field>
+            <field name="actual_start_date">2023-10-01</field>
+            <field name="actual_end_date">2024-03-15</field>
+        </record>
+
+        <!-- PUDC - Composantes -->
+        <record id="demo_cost_pudc_education" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">10</field>
+            <field name="component_name">Infrastructures Éducatives</field>
+            <field name="component_type">travaux</field>
+            <field name="estimated_cost">180000000000</field> <!-- 180 milliards -->
+            <field name="description">Construction de 1000 salles de classe, 200 blocs administratifs, 500 blocs sanitaires, équipement mobilier scolaire</field>
+            <field name="budget_line_reference">5.1.2.3.1</field>
+            <field name="procurement_method">appel_offres_ouvert</field>
+            <field name="responsible_entity">Agence de Développement Municipal</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">60.0</field>
+            <field name="planned_start_date">2024-04-01</field>
+            <field name="planned_end_date">2027-12-31</field>
+            <field name="actual_start_date">2024-04-15</field>
+        </record>
+
+        <record id="demo_cost_pudc_sante" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">20</field>
+            <field name="component_name">Infrastructures Sanitaires</field>
+            <field name="component_type">travaux</field>
+            <field name="estimated_cost">135000000000</field> <!-- 135 milliards -->
+            <field name="description">Construction de 300 postes de santé, 50 maternités rurales, équipement médical de base, ambulances communautaires</field>
+            <field name="budget_line_reference">5.1.2.3.2</field>
+            <field name="procurement_method">appel_offres_ouvert</field>
+            <field name="responsible_entity">Agence de Développement Municipal</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">45.0</field>
+            <field name="planned_start_date">2024-06-01</field>
+            <field name="planned_end_date">2028-05-31</field>
+            <field name="actual_start_date">2024-06-10</field>
+        </record>
+
+        <record id="demo_cost_pudc_eau" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">30</field>
+            <field name="component_name">Accès à l'Eau Potable</field>
+            <field name="component_type">travaux</field>
+            <field name="estimated_cost">90000000000</field> <!-- 90 milliards -->
+            <field name="description">Forage de 500 puits équipés de pompes solaires, construction de 200 châteaux d'eau, réseau de distribution</field>
+            <field name="budget_line_reference">5.1.2.3.3</field>
+            <field name="procurement_method">appel_offres_ouvert</field>
+            <field name="responsible_entity">Office des Forages Ruraux (OFOR)</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">70.0</field>
+            <field name="planned_start_date">2024-03-01</field>
+            <field name="planned_end_date">2026-12-31</field>
+            <field name="actual_start_date">2024-03-01</field>
+        </record>
+
+        <record id="demo_cost_pudc_formation" model="project.cost.breakdown">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="sequence">40</field>
+            <field name="component_name">Formation et Renforcement des Capacités</field>
+            <field name="component_type">formation</field>
+            <field name="estimated_cost">45000000000</field> <!-- 45 milliards -->
+            <field name="description">Formation de 5000 agents communautaires, 1000 enseignants, 500 agents de santé, équipement pédagogique</field>
+            <field name="budget_line_reference">5.1.2.3.4</field>
+            <field name="procurement_method">demande_prix</field>
+            <field name="responsible_entity">Institut National d'Administration</field>
+            <field name="execution_status">in_progress</field>
+            <field name="completion_percentage">30.0</field>
+            <field name="planned_start_date">2024-09-01</field>
+            <field name="planned_end_date">2028-08-31</field>
+            <field name="actual_start_date">2024-09-15</field>
+        </record>
+
+    </data>
+</odoo>

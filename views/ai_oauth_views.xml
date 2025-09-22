@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Client Action for OAuth Dashboard -->
+    <record id="action_ai_oauth_dashboard_client" model="ir.actions.client">
+        <field name="name">Tableau de bord OAuth</field>
+        <field name="tag">iframe</field>
+        <field name="params" eval="{'src': '/ai/oauth/dashboard'}"/>
+    </record>
+    
+    <!-- Update the main AI Providers menu to use the client action -->
+    <record id="menu_ai_providers" model="ir.ui.menu">
+        <field name="name">Fournisseurs d'IA</field>
+        <field name="parent_id" ref="menu_sama_etat_root"/>
+        <field name="action" ref="action_ai_oauth_dashboard_client"/>
+        <field name="sequence">65</field>
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_system')])]"/>
+    </record>
+    
+    <!-- Remove the old action if it exists -->
+    <delete id="action_ai_oauth_dashboard" model="ir.actions.act_url"/>
+    
+    <!-- Remove the old menu items if they exist -->
+    <delete id="menu_ai_config" model="ir.ui.menu"/>
+    <delete id="menu_ai_oauth" model="ir.ui.menu"/>
+</odoo>

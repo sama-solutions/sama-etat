@@ -32,11 +32,151 @@ class AIProviderConfig(models.Model):
     api_url = fields.Char(string="URL API", help="URL de base de l'API")
     model_name = fields.Char(string="Nom du Modèle", help="Nom spécifique du modèle à utiliser")
     
-    # OAuth fields
-    oauth_token = fields.Char(string="Token OAuth", readonly=True, help="Token d'accès OAuth obtenu après authentification")
-    oauth_refresh_token = fields.Char(string="Refresh Token", readonly=True, help="Token de rafraîchissement OAuth")
-    oauth_expires_at = fields.Datetime(string="Expiration du Token", readonly=True)
-    is_oauth_connected = fields.Boolean(string="OAuth Connecté", compute="_compute_oauth_status", store=False)
+    # OAuth fields - Managed by the OAuth controller
+    # Tokens are stored securely in ir.config_parameter
+    oauth_token = fields.Char(
+        string="Token OAuth",
+        compute='_compute_oauth_token',
+        inverse='_inverse_oauth_token',
+        help="Token d'accès OAuth obtenu après authentification (stocké de manière sécurisée)",
+        groups="base.group_system"
+    )
+    oauth_refresh_token = fields.Char(
+        string="Refresh Token",
+        compute='_compute_oauth_refresh_token',
+        inverse='_inverse_oauth_refresh_token',
+        help="Token de rafraîchissement OAuth (stocké de manière sécurisée)",
+        groups="base.group_system"
+    )
+    
+    def _get_secure_param_name(self, field_name):
+        """Generate a secure parameter name for storing sensitive data"""
+        self.ensure_one()
+        return f'ai_oauth.secure.{self.id}.{field_name}'
+    
+    def _get_secure_param(self, field_name, default=None):
+        """Get a secure parameter value"""
+        self.ensure_one()
+        param_name = self._get_secure_param_name(field_name)
+        return self.env['ir.config_parameter'].sudo().get_param(param_name, default=default)
+    
+    def _set_secure_param(self, field_name, value):
+        """Set a secure parameter value"""
+        self.ensure_one()
+        param_name = self._get_secure_param_name(field_name)
+        if value is None:
+            self.env['ir.config_parameter'].sudo().set_param(param_name, False)
+        else:
+            self.env['ir.config_parameter'].sudo().set_param(param_name, value)
+    oauth_expires_at = fields.Datetime(
+        string="Expiration du Token", 
+        help="Date et heure d'expiration du jeton d'accès actuel"
+    )
+    oauth_token_initialized = fields.Boolean(
+        string="OAuth Initialized",
+        default=False,
+        help="Indicates if OAuth tokens have been properly initialized"
+    )
+    oauth_last_sync = fields.Datetime(
+        string="Dernière synchronisation",
+        help="Date et heure de la dernière synchronisation OAuth réussie"
+    )
+    oauth_status = fields.Selection([
+        ('not_configured', 'Non configuré'),
+        ('connected', 'Connecté'),
+        ('expired', 'Expiré'),
+        ('error', 'Erreur')
+    ], string="État OAuth", compute='_compute_oauth_status', store=True)
+    
+    @api.depends('oauth_expires_at', 'oauth_refresh_token')
+    def _compute_oauth_status(self):
+        """Compute the OAuth status based on token presence and expiration"""
+        for config in self:
+            oauth_token = config._get_secure_param('oauth_token')
+            oauth_refresh_token = config._get_secure_param('oauth_refresh_token')
+            
+            if not oauth_token:
+                config.oauth_status = 'not_configured'
+            elif config.oauth_expires_at and fields.Datetime.from_string(config.oauth_expires_at) < fields.Datetime.now():
+                config.oauth_status = 'expired' if not oauth_refresh_token else 'connected'
+            else:
+                config.oauth_status = 'connected'
+    
+    @api.model
+    def _get_encryption_key(self):
+        """Get the encryption key from system parameters"""
+        icp = self.env['ir.config_parameter'].sudo()
+        key = icp.get_param('database.secret')
+        if not key:
+            raise UserError(_("Encryption key not found. Please set 'database.secret' in system parameters."))
+        return key.encode()
+    
+    def _refresh_oauth_token(self):
+        """Refresh the OAuth access token using the refresh token"""
+        self.ensure_one()
+        refresh_token = self._get_secure_param('oauth_refresh_token')
+        if not refresh_token:
+            return False
+            
+        try:
+            token_url = None
+            params = {}
+            
+            if self.provider_type == 'google':
+                token_url = 'https://oauth2.googleapis.com/token'
+                params = {
+                    'client_id': self.env['ir.config_parameter'].sudo().get_param(f'ai_oauth.{self.provider_type}.client_id'),
+                    'client_secret': self.env['ir.config_parameter'].sudo().get_param(f'ai_oauth.{self.provider_type}.client_secret'),
+                    'refresh_token': refresh_token,
+                    'grant_type': 'refresh_token'
+                }
+            elif self.provider_type == 'microsoft':
+                token_url = 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+                params = {
+                    'client_id': self.env['ir.config_parameter'].sudo().get_param(f'ai_oauth.{self.provider_type}.client_id'),
+                    'client_secret': self.env['ir.config_parameter'].sudo().get_param(f'ai_oauth.{self.provider_type}.client_secret'),
+                    'refresh_token': refresh_token,
+                    'grant_type': 'refresh_token'
+                }
+            
+            if token_url:
+                response = requests.post(
+                    token_url,
+                    data=params,
+                    timeout=30,
+                    headers={'Accept': 'application/json'}
+                )
+                response.raise_for_status()
+                token_data = response.json()
+                
+                # Update tokens using write to trigger secure storage
+                vals = {
+                    'oauth_expires_at': fields.Datetime.to_string(
+                        fields.Datetime.now() + timedelta(seconds=int(token_data.get('expires_in', 3600)))
+                    ),
+                    'oauth_last_sync': fields.Datetime.now(),
+                }
+                self.write(vals)
+                
+                # Store tokens in secure parameters
+                self._set_secure_param('oauth_token', token_data.get('access_token'))
+                
+                # Update refresh token if a new one was provided
+                if token_data.get('refresh_token'):
+                    self._set_secure_param('oauth_refresh_token', token_data.get('refresh_token'))
+                
+                return True
+                
+        except Exception as e:
+            _logger.error("Failed to refresh OAuth token: %s", str(e), exc_info=True)
+            
+        return False
+    is_oauth_connected = fields.Boolean(
+        string="OAuth Connecté", 
+        compute="_compute_oauth_status", 
+        store=False,
+        help="Indique si le fournisseur est actuellement connecté via OAuth"
+    )
     
     # Paramètres
     max_tokens = fields.Integer(string="Tokens Maximum", default=1000)
@@ -46,57 +186,92 @@ class AIProviderConfig(models.Model):
     active = fields.Boolean(string="Actif", default=True, tracking=True)
     is_default = fields.Boolean(string="Configuration par Défaut", tracking=True)
     
-    @api.depends('oauth_token', 'oauth_expires_at')
+    @api.depends('oauth_expires_at')
     def _compute_oauth_status(self):
         """Calcule le statut de connexion OAuth"""
+        now = fields.Datetime.now()
         for record in self:
-            if record.oauth_token and record.oauth_expires_at:
-                record.is_oauth_connected = record.oauth_expires_at > fields.Datetime.now()
+            # Check if we have a token stored in secure parameters
+            has_token = bool(record._get_secure_param('oauth_token'))
+            if has_token and record.oauth_expires_at:
+                expires_at = fields.Datetime.from_string(record.oauth_expires_at)
+                record.is_oauth_connected = expires_at > now
             else:
                 record.is_oauth_connected = False
     
-    def oauth_login(self):
-        """Initie le processus de connexion OAuth"""
-        if self.provider_type == 'google':
-            return self._oauth_login_google()
-        elif self.provider_type == 'microsoft':
-            return self._oauth_login_microsoft()
-        elif self.provider_type == 'openai':
-            return self._oauth_login_openai()
-        else:
-            raise UserError(f"OAuth non supporté pour {self.provider_type}")
+    def get_oauth_authorization(self):
+        """
+        Returns the OAuth authorization header if the token is valid
+        Returns False if token is invalid or expired
+        """
+        self.ensure_one()
+        oauth_token = self._get_secure_param('oauth_token')
+        if not oauth_token or not self.oauth_expires_at:
+            return False
+            
+        # Get token from secure storage
+        oauth_token = self._get_secure_param('oauth_token')
+        
+        # Check if token is expired
+        expires_at = fields.Datetime.from_string(self.oauth_expires_at)
+        if expires_at <= fields.Datetime.now():
+            # Try to refresh token if we have a refresh token
+            if not self.oauth_refresh_token or not self._refresh_oauth_token():
+                return False
+                
+        return {'Authorization': f'Bearer {self.oauth_token}'}
+        
+    def _compute_oauth_token(self):
+        """Compute method for oauth_token field"""
+        for record in self:
+            record.oauth_token = record._get_secure_param('oauth_token')
     
-    def _oauth_login_google(self):
-        """Connexion OAuth Google"""
-        # URL de redirection OAuth Google
-        google_oauth_url = "https://accounts.google.com/o/oauth2/auth"
-        client_id = "your-google-client-id"  # À configurer
-        redirect_uri = f"{self.env['ir.config_parameter'].sudo().get_param('web.base.url')}/ai/oauth/google/callback"
-        scope = "openid email profile"
-        
-        auth_url = f"{google_oauth_url}?client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&response_type=code&access_type=offline"
-        
-        return {
-            'type': 'ir.actions.act_url',
-            'url': auth_url,
-            'target': 'new',
-        }
+    def _inverse_oauth_token(self):
+        """Inverse method for oauth_token field"""
+        for record in self:
+            record._set_secure_param('oauth_token', record.oauth_token or False)
     
-    def _oauth_login_microsoft(self):
-        """Connexion OAuth Microsoft"""
-        # URL de redirection OAuth Microsoft
-        microsoft_oauth_url = "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
-        client_id = "your-microsoft-client-id"  # À configurer
-        redirect_uri = f"{self.env['ir.config_parameter'].sudo().get_param('web.base.url')}/ai/oauth/microsoft/callback"
-        scope = "openid email profile"
+    def _compute_oauth_refresh_token(self):
+        """Compute method for oauth_refresh_token field"""
+        for record in self:
+            record.oauth_refresh_token = record._get_secure_param('oauth_refresh_token')
+    
+    def _inverse_oauth_refresh_token(self):
+        """Inverse method for oauth_refresh_token field"""
+        for record in self:
+            record._set_secure_param('oauth_refresh_token', record.oauth_refresh_token or False)
+    
+    def _refresh_oauth_token(self):
+        """
+        Attempts to refresh the OAuth token using the refresh token
+        Returns True if successful, False otherwise
+        """
+        self.ensure_one()
+        refresh_token = self._get_secure_param('oauth_refresh_token')
+        if not refresh_token:
+            _logger.warning("No refresh token available for %s", self.provider_type)
+            return False
+            
+        try:
+            # This should be handled by the OAuth controller
+            _logger.warning("Token refresh should be handled by the OAuth controller")
+            return False
+            
+        except Exception as e:
+            _logger.error("Failed to refresh OAuth token: %s", str(e), exc_info=True)
+            return False
+    
+    def disconnect_oauth(self):
+        """Disconnect OAuth by clearing tokens"""
+        # Clear secure parameters
+        self._set_secure_param('oauth_token', None)
+        self._set_secure_param('oauth_refresh_token', None)
         
-        auth_url = f"{microsoft_oauth_url}?client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&response_type=code"
-        
-        return {
-            'type': 'ir.actions.act_url',
-            'url': auth_url,
-            'target': 'new',
-        }
+        # Clear regular fields
+        self.write({
+            'oauth_expires_at': False,
+            'oauth_token_initialized': False,
+        })
     
     def _oauth_login_openai(self):
         """Connexion OAuth OpenAI (ChatGPT)"""
@@ -112,17 +287,25 @@ class AIProviderConfig(models.Model):
         }
     
     @api.model
-    def create(self, vals):
-        # Ensure only one default configuration
-        if vals.get('is_default'):
-            self.search([('is_default', '=', True)]).write({'is_default': False})
-        return super().create(vals)
-    
     def write(self, vals):
-        # Ensure only one default configuration
-        if vals.get('is_default'):
-            self.search([('is_default', '=', True), ('id', '!=', self.id)]).write({'is_default': False})
-        return super().write(vals)
+        # Secure token handling
+        if 'oauth_token' in vals:
+            self._set_secure_param('oauth_token', vals.pop('oauth_token'))
+        if 'oauth_refresh_token' in vals:
+            self._set_secure_param('oauth_refresh_token', vals.pop('oauth_refresh_token'))
+            
+        # Ensure only one default configuration per provider type
+        if 'is_default' in vals and vals.get('is_default'):
+            # Find other default configs of the same provider type
+            other_defaults = self.search([
+                ('provider_type', '=', self.provider_type),
+                ('is_default', '=', True),
+                ('id', '!=', self.id)
+            ])
+            if other_defaults:
+                other_defaults.write({'is_default': False})
+                
+        return super(AIProviderConfig, self).write(vals)
     
     def test_connection(self):
         """Test la connexion avec le fournisseur IA"""

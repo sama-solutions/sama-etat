@@ -1,0 +1,6 @@
+id,key,group.id
+ai_google_client_id,ai.google.client_id,base.group_system
+ai_google_client_secret,ai.google.client_secret,base.group_system
+ai_microsoft_client_id,ai.microsoft.client_id,base.group_system
+ai_microsoft_client_secret,ai.microsoft.client_secret,base.group_system
+ai_microsoft_tenant_id,ai.microsoft.tenant_id,base.group_system

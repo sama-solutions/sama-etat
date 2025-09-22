@@ -27,18 +27,10 @@
                     <sheet>
                         <!-- Provider Logo -->
                         <div class="oe_title" style="display:flex; align-items:center; gap:12px;">
-                            <t t-if="provider_type == 'google'">
-                                <img alt="Google" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png" style="height:28px;"/>
-                            </t>
-                            <t t-if="provider_type == 'microsoft'">
-                                <img alt="Microsoft" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" style="height:24px;"/>
-                            </t>
-                            <t t-if="provider_type == 'openai'">
-                                <img alt="OpenAI" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" style="height:24px;"/>
-                            </t>
-                            <t t-if="provider_type == 'ollama'">
-                                <img alt="Ollama" src="https://raw.githubusercontent.com/jmorganca/ollama/main/app/icon.png" style="height:24px;"/>
-                            </t>
+                            <img alt="Google" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png" style="height:28px;" invisible="provider_type != 'google'"/>
+                            <img alt="Microsoft" src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" style="height:24px;" invisible="provider_type != 'microsoft'"/>
+                            <img alt="OpenAI" src="https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" style="height:24px;" invisible="provider_type != 'openai'"/>
+                            <img alt="Ollama" src="https://raw.githubusercontent.com/jmorganca/ollama/main/app/icon.png" style="height:24px;" invisible="provider_type != 'ollama'"/>
                             <h1>
                                 <field name="name" placeholder="Nom de la configuration..."/>
                             </h1>
@@ -47,7 +39,6 @@
                             <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
                                 <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
                             </button>
-                        </div>
                         </div>
                         <group>
                             <group string="Fournisseur IA">

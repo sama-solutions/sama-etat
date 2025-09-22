@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ========================================= -->
+        <!-- TEXTES LÉGISLATIFS ET RÉGLEMENTAIRES     -->
+        <!-- ========================================= -->
+
+        <!-- Textes pour Autoroute AIBD -->
+        <record id="demo_legal_code_marches_publics" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="title">Code des Marchés Publics du Sénégal</field>
+            <field name="reference">Décret n° 2014-1212 du 22 septembre 2014</field>
+            <field name="text_type">decret</field>
+            <field name="hierarchy_level">3_reglementaire</field>
+            <field name="publication_date">2014-09-22</field>
+            <field name="effective_date">2015-01-01</field>
+            <field name="issuing_authority">Président de la République</field>
+            <field name="description">Code régissant la passation, l'exécution et le règlement des marchés publics et des délégations de service public</field>
+            <field name="relevance_type">marches_publics</field>
+            <field name="specific_provisions">Articles 20-35 (procédures d'appel d'offres), Articles 45-50 (marchés de travaux), Articles 80-85 (contrôle et supervision)</field>
+            <field name="compliance_requirements">Respect des seuils de passation, publication des avis, constitution des commissions d'évaluation, respect des délais de recours</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Procédures d'appel d'offres international respectées, commissions constituées conformément, délais respectés</field>
+            <field name="journal_officiel_reference">JO n° 6742 du 4 octobre 2014</field>
+            <field name="last_review_date">2024-01-15</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_loi_expropriation" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="title">Loi sur l'Expropriation pour Cause d'Utilité Publique</field>
+            <field name="reference">Loi n° 76-66 du 2 juillet 1976</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">1976-07-02</field>
+            <field name="effective_date">1976-07-02</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Loi définissant les procédures d'expropriation pour cause d'utilité publique et les modalités d'indemnisation</field>
+            <field name="relevance_type">autorisation</field>
+            <field name="specific_provisions">Articles 1-5 (déclaration d'utilité publique), Articles 10-15 (procédures d'enquête), Articles 20-25 (calcul des indemnités)</field>
+            <field name="compliance_requirements">Déclaration d'utilité publique préalable, enquête publique, évaluation par commission départementale, paiement préalable des indemnités</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Déclaration d'utilité publique obtenue le 15/06/2023, enquête publique réalisée, indemnisations payées</field>
+            <field name="required_actions">Suivi post-expropriation, vérification du relogement effectif des populations</field>
+            <field name="journal_officiel_reference">JO n° 4523 du 10 juillet 1976</field>
+            <field name="last_review_date">2024-01-10</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_code_environnement" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="title">Code de l'Environnement</field>
+            <field name="reference">Loi n° 2001-01 du 15 janvier 2001</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">2001-01-15</field>
+            <field name="effective_date">2001-01-15</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Code définissant le cadre juridique de la protection de l'environnement au Sénégal</field>
+            <field name="relevance_type">environnemental</field>
+            <field name="specific_provisions">Articles 48-55 (études d'impact environnemental), Articles 60-65 (autorisations environnementales)</field>
+            <field name="compliance_requirements">Étude d'impact environnemental et social obligatoire, autorisation environnementale préalable, mise en place d'un PGES</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">EIES approuvée le 20/08/2023, autorisation environnementale délivrée, PGES en cours d'exécution</field>
+            <field name="journal_officiel_reference">JO n° 6012 du 27 janvier 2001</field>
+            <field name="last_review_date">2024-02-01</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_decret_concessions" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_autoroute_aibd"/>
+            <field name="title">Décret sur les Concessions d'Infrastructures</field>
+            <field name="reference">Décret n° 2010-450 du 20 avril 2010</field>
+            <field name="text_type">decret</field>
+            <field name="hierarchy_level">3_reglementaire</field>
+            <field name="publication_date">2010-04-20</field>
+            <field name="effective_date">2010-05-01</field>
+            <field name="issuing_authority">Président de la République</field>
+            <field name="description">Décret définissant les modalités d'attribution et de gestion des concessions d'infrastructures publiques</field>
+            <field name="relevance_type">fondement_legal</field>
+            <field name="specific_provisions">Articles 5-10 (procédures d'attribution), Articles 15-20 (obligations du concessionnaire), Articles 25-30 (contrôle de l'État)</field>
+            <field name="compliance_requirements">Appel d'offres international, garanties financières, respect du cahier des charges, contrôle technique de l'État</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Concession attribuée selon procédures, garanties constituées, contrôles techniques réguliers</field>
+            <field name="journal_officiel_reference">JO n° 6456 du 1er mai 2010</field>
+            <field name="last_review_date">2024-01-20</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <!-- Textes pour PUDC -->
+        <record id="demo_legal_code_collectivites" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="title">Code Général des Collectivités Locales</field>
+            <field name="reference">Loi n° 2013-10 du 28 décembre 2013</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">2013-12-28</field>
+            <field name="effective_date">2014-01-01</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Code définissant l'organisation et le fonctionnement des collectivités locales au Sénégal</field>
+            <field name="relevance_type">fondement_legal</field>
+            <field name="specific_provisions">Articles 25-30 (compétences communales), Articles 40-45 (planification locale), Articles 60-65 (participation citoyenne)</field>
+            <field name="compliance_requirements">Respect des compétences communales, participation des conseils municipaux, consultation des populations</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Projets validés par les conseils municipaux, populations consultées, compétences respectées</field>
+            <field name="journal_officiel_reference">JO n° 6789 du 4 janvier 2014</field>
+            <field name="last_review_date">2024-03-01</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_loi_education" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="title">Loi d'Orientation de l'Éducation Nationale</field>
+            <field name="reference">Loi n° 2004-37 du 15 décembre 2004</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">2004-12-15</field>
+            <field name="effective_date">2005-01-01</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Loi définissant les orientations et principes du système éducatif sénégalais</field>
+            <field name="relevance_type">norme_technique</field>
+            <field name="specific_provisions">Articles 15-20 (normes de construction scolaire), Articles 25-30 (équipements pédagogiques)</field>
+            <field name="compliance_requirements">Respect des normes de construction scolaire, ratio élèves/classe, équipements minimum obligatoires</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Normes de construction respectées, ratio 40 élèves/classe respecté, équipements conformes</field>
+            <field name="journal_officiel_reference">JO n° 6234 du 25 décembre 2004</field>
+            <field name="last_review_date">2024-04-01</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_code_sante" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="title">Code de la Santé Publique</field>
+            <field name="reference">Loi n° 2005-18 du 5 août 2005</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">2005-08-05</field>
+            <field name="effective_date">2006-01-01</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Code régissant l'organisation du système de santé et les normes sanitaires</field>
+            <field name="relevance_type">norme_technique</field>
+            <field name="specific_provisions">Articles 30-35 (normes de construction sanitaire), Articles 50-55 (équipements médicaux minimum)</field>
+            <field name="compliance_requirements">Respect des normes de construction sanitaire, équipements médicaux obligatoires, personnel qualifié</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Normes sanitaires respectées, équipements médicaux installés, personnel formé</field>
+            <field name="journal_officiel_reference">JO n° 6345 du 12 août 2005</field>
+            <field name="last_review_date">2024-04-15</field>
+            <field name="is_active">True</field>
+        </record>
+
+        <record id="demo_legal_code_eau" model="project.legal.text">
+            <field name="project_id" ref="demo_legal_compliance.demo_project_pudc"/>
+            <field name="title">Code de l'Eau</field>
+            <field name="reference">Loi n° 81-13 du 4 mars 1981</field>
+            <field name="text_type">loi</field>
+            <field name="hierarchy_level">2_legislatif</field>
+            <field name="publication_date">1981-03-04</field>
+            <field name="effective_date">1981-03-04</field>
+            <field name="issuing_authority">Assemblée Nationale</field>
+            <field name="description">Code définissant le régime juridique des ressources en eau et leur gestion</field>
+            <field name="relevance_type">autorisation</field>
+            <field name="specific_provisions">Articles 10-15 (autorisations de forage), Articles 20-25 (normes de qualité), Articles 30-35 (gestion communautaire)</field>
+            <field name="compliance_requirements">Autorisation préalable pour forages, respect des normes de qualité, formation des comités de gestion</field>
+            <field name="compliance_status">compliant</field>
+            <field name="compliance_notes">Autorisations obtenues, analyses de qualité conformes, comités de gestion formés</field>
+            <field name="journal_officiel_reference">JO n° 4789 du 14 mars 1981</field>
+            <field name="last_review_date">2024-03-15</field>
+            <field name="is_active">True</field>
+        </record>
+
+    </data>
+</odoo>

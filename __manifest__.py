@@ -1,6 +1,6 @@
 {
     'name': 'SAMA ÉTAT',
-    'version': '2.0',
+    'version': '18.0.2.0.0',
     'category': 'Project Management',
     'summary': 'Governance platform for strategic plans: projects, budgets, decisions, events (Plan Sénégal 2050 ready).',
     'description': """
@@ -14,20 +14,45 @@
     """,
     'author': 'Mamadou Mbagnick DOGUE, Rassol DOGUE',
     'website': 'https://github.com/loi200812/sama-etat',
-    'depends': ['base', 'project', 'mail', 'website', 'hr', 'calendar', 'website_event'],
+    'depends': [
+        'base', 
+        'project', 
+        'mail', 
+        'website', 
+        'hr', 
+        'calendar', 
+        'website_event',
+        'web',
+    ],
+    'demo': [
+        'data/employees_demo_data.xml',
+        'data/project_tasks_demo_data.xml',
+    ],
+    'assets': {
+        # SCSS files removed as they were causing compilation errors
+        # Add them back when the actual files are created
+    },
     'data': [
         # Security files loaded first to ensure groups are defined
         'security/security.xml',
+        'security/ir.config_parameter.csv',
         'security/ir.model.access.csv',
-        # Views defining actions and structures must be loaded after security
+        # OAuth templates must be loaded early
+        'views/oauth_templates.xml',
+        # Menu and action definitions
+        'views/menu_views.xml',
+        # Other views
         'views/views.xml',
         'views/strategic_plan_views.xml',
         'views/strategic_pillar_views.xml',
         'views/strategic_axis_views.xml',
         'views/strategic_objective_views.xml',
         'views/strategic_kpi_views.xml',
+        'views/ai_oauth_views.xml',
+        'views/main_menu_views.xml',
         'views/government_project_views.xml',
         'views/government_decision_views.xml',
+        'views/ai_provider_views.xml',
         'views/government_event_views.xml',
         'views/government_budget_views.xml',
         'views/government_ministry_views.xml',
@@ -44,6 +69,9 @@
         'views/public_event_page.xml',
         'views/public_objective_page.xml',
         'views/public_axis_page.xml',
+        # OAuth configuration views
+        'views/ai_provider_config_views.xml',
+        'views/menu_views.xml',
         'views/public_pillar_page.xml',
         'views/calendar_event_views.xml',
         # Wizard views

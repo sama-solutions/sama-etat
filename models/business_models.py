@@ -4,8 +4,13 @@ from odoo.exceptions import ValidationError
 class GovernmentProject(models.Model):
     _name = 'government.project'
     _description = 'Projet Gouvernemental - Plan Sénégal 2050'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']  # AI mixin completely disabled - testing if file itself is the issue
     _order = 'project_code desc'
+    
+    @api.model
+    def _valid_field_parameter(self, field, name):
+        # Allow 'states' parameter for fields that need it
+        return name == 'states' or super()._valid_field_parameter(field, name)
 
     # Numérotation automatique Plan Sénégal 2050
     project_code = fields.Char(
@@ -16,10 +21,30 @@ class GovernmentProject(models.Model):
         default=lambda self: self._get_next_project_code()
     )
     
+    # === IDENTIFICATION DU PROJET ===
     name = fields.Char(string="Nom du Projet", required=True, readonly=True, states={'draft': [('readonly', False)]})
-    description = fields.Text(string="Description", readonly=True, states={'draft': [('readonly', False)]})
-    start_date = fields.Date(string="Date de Début", readonly=True, states={'draft': [('readonly', False)]})
-    end_date = fields.Date(string="Date de Fin", readonly=True, states={'draft': [('readonly', False)]})
+    code_unique = fields.Char(string="Code d'Identification Unique", compute='_compute_code_unique', store=True, readonly=True)
+    description_succincte = fields.Html(string="Description Succincte")
+    description = fields.Html(string="Description Détaillée")
+    objectifs_generaux = fields.Html(string="Objectifs Généraux")
+    objectifs_specifiques = fields.Html(string="Objectifs Spécifiques")
+    localisation_geographique = fields.Char(string="Localisation Géographique", readonly=True, states={'draft': [('readonly', False)]})
+    secteur_intervention = fields.Selection([
+        ('agriculture', 'Agriculture et Développement Rural'),
+        ('education', 'Éducation et Formation'),
+        ('sante', 'Santé et Action Sociale'),
+        ('infrastructure', 'Infrastructures et Transport'),
+        ('energie', 'Énergie et Mines'),
+        ('environnement', 'Environnement et Développement Durable'),
+        ('gouvernance', 'Gouvernance et Institutions'),
+        ('economie', 'Économie et Finances'),
+        ('culture', 'Culture et Communication'),
+        ('jeunesse', 'Jeunesse et Sports'),
+        ('autre', 'Autre')
+    ], string="Secteur d'Intervention", readonly=True, states={'draft': [('readonly', False)]})
+    duree_previsionnelle = fields.Integer(string="Durée Prévisionnelle (mois)", readonly=True, states={'draft': [('readonly', False)]})
+    start_date = fields.Date(string="Date de Début Prévisionnelle", readonly=True, states={'draft': [('readonly', False)]})
+    end_date = fields.Date(string="Date de Fin Prévisionnelle", readonly=True, states={'draft': [('readonly', False)]})
     
     # Statut aligné sur Plan Sénégal 2050
     status = fields.Selection([
@@ -39,10 +64,29 @@ class GovernmentProject(models.Model):
     def action_set_to_locked(self):
         self.write({'state': 'locked'})
     
+    # === CADRE INSTITUTIONNEL ===
     strategic_objective_id = fields.Many2one('strategic.objective', string="Objectif Stratégique", required=True)
-    budget_id = fields.Many2one('government.budget', string="Budget Alloué")
+    maitre_ouvrage_id = fields.Many2one('res.partner', string="Maître d'Ouvrage")
+    maitre_ouvrage_delegue_id = fields.Many2one('res.partner', string="Maître d'Ouvrage Délégué")
     ministry_id = fields.Many2one('government.ministry', string="Ministère Responsable")
     manager_id = fields.Many2one('res.users', string="Chef de Projet")
+    entites_partenaires_ids = fields.Many2many('res.partner', string="Entités Partenaires")
+    structures_coordination = fields.Text(string="Structures de Coordination")
+    roles_responsabilites = fields.Text(string="Rôles et Responsabilités")
+    
+    # === BUDGET & FINANCEMENT ===
+    budget_id = fields.Many2one('government.budget', string="Budget Alloué")
+    cout_total_projet = fields.Monetary(string="Coût Total du Projet", currency_field='currency_id', readonly=True, states={'draft': [('readonly', False)]})
+    currency_id = fields.Many2one('res.currency', string='Devise', default=lambda self: self._get_default_currency(), readonly=True, states={'draft': [('readonly', False)]})
+    modalites_gestion_financiere = fields.Text(string="Modalités de Gestion Financière", readonly=True, states={'draft': [('readonly', False)]})
+    ligne_budgetaire_rattachement = fields.Char(string="Ligne Budgétaire de Rattachement", readonly=True, states={'draft': [('readonly', False)]})
+    
+    # === TRANSPARENCE & CONFORMITÉ ===
+    obligations_publication_info = fields.Text(string="Obligations de Publication d'Informations")
+    mecanismes_redevabilite = fields.Text(string="Mécanismes de Redevabilité")
+    dispositifs_anti_corruption = fields.Text(string="Dispositifs Anti-Corruption")
+    conformite_audits = fields.Text(string="Conformité aux Audits (Cour des Comptes/IGE)")
+    standards_ptf = fields.Text(string="Standards des Partenaires Techniques et Financiers")
     
     # Connexion avec le module projet d'Odoo
     odoo_project_id = fields.Many2one(
@@ -59,6 +103,27 @@ class GovernmentProject(models.Model):
         ('3', 'Critique')
     ], string="Priorité", default='0')
 
+    # === RELATIONS ONE2MANY === (temporairement désactivées)
+    # Budget & Financement
+    # ventilation_cout_composantes_ids = fields.One2many('project.cost.breakdown', 'project_id', string="Ventilation du Coût par Composante")
+    # sources_financement_ids = fields.One2many('project.funding.source', 'project_id', string="Sources de Financement")
+    # plan_decaissement_ids = fields.One2many('project.disbursement.plan', 'project_id', string="Plan de Décaissement")
+    
+    # Cadre Juridique
+    # textes_legislatifs_specifiques_ids = fields.One2many('project.legal.text', 'project_id', string="Textes Législatifs Spécifiques")
+    # conventions_accords_ids = fields.One2many('project.agreement', 'project_id', string="Conventions et Accords")
+    
+    # Marchés Publics
+    # public_tenders_ids = fields.One2many('project.public.tender', 'project_id', string="Marchés Publics Associés")
+    
+    # Suivi-Évaluation
+    # kpis_ids = fields.One2many('project.kpi', 'project_id', string="Indicateurs de Performance")
+    # evaluation_plans_ids = fields.One2many('project.evaluation.plan', 'project_id', string="Plans d'Évaluation")
+    
+    # Risques & Environnement
+    # risks_ids = fields.One2many('project.risk', 'project_id', string="Risques Identifiés")
+    # pges_documents_ids = fields.One2many('project.pges', 'project_id', string="Documents PGES")
+    
     # Geolocation
     latitude = fields.Float(string='Latitude', digits=(10, 7))
     longitude = fields.Float(string='Longitude', digits=(10, 7))
@@ -88,6 +153,25 @@ class GovernmentProject(models.Model):
         
         return f"SN-2050-{next_number:05d}"
     
+    @api.depends('project_code', 'name')
+    def _compute_code_unique(self):
+        """Génère un code unique basé sur le code projet et le nom"""
+        for record in self:
+            if record.project_code and record.name:
+                # Créer un code unique en combinant le code projet et les premières lettres du nom
+                name_code = ''.join([word[0].upper() for word in record.name.split()[:3] if word])
+                record.code_unique = f"{record.project_code}-{name_code}"
+            else:
+                record.code_unique = record.project_code or ''
+    
+    def _get_default_currency(self):
+        """Retourne la devise CFA (XOF) par défaut"""
+        xof_currency = self.env['res.currency'].search([('name', '=', 'XOF')], limit=1)
+        if xof_currency:
+            return xof_currency.id
+        # Fallback vers la devise de la société
+        return self.env.company.currency_id.id
+    
     @api.depends('odoo_project_id.tasks')
     def _compute_task_count(self):
         """Calcule le nombre de tâches du projet Odoo associé"""
@@ -109,20 +193,28 @@ class GovernmentProject(models.Model):
             else:
                 record.progress = 0.0
     
-    @api.model
+    @api.model_create_multi
     def create(self, vals_list):
-        """Surcharge de la création pour générer automatiquement le code projet"""
-        # Gérer le cas où vals_list est un dictionnaire unique (compatibilité)
-        if isinstance(vals_list, dict):
+        """
+        Surcharge de la création pour gérer la création par lots et générer automatiquement les codes projet
+        """
+        # S'assurer que nous avons une liste de dictionnaires
+        if not isinstance(vals_list, list):
             vals_list = [vals_list]
-        
+            
         # Générer les codes projet pour chaque enregistrement
         for vals in vals_list:
             if not vals.get('project_code'):
+                # Utiliser une nouvelle méthode pour générer un code unique par lot
                 vals['project_code'] = self._get_next_project_code()
+                
+        # Appeler le create du parent avec la liste des valeurs
+        projects = super(GovernmentProject, self).create(vals_list)
         
-        records = super(GovernmentProject, self).create(vals_list)
-        return records
+        # Si un seul enregistrement, retourner directement l'objet
+        if len(projects) == 1:
+            return projects[0]
+        return projects
     
     def create_odoo_project(self):
         """Crée un projet Odoo associé pour la gestion opérationnelle"""
@@ -261,11 +353,102 @@ class GovernmentProject(models.Model):
             'url': public_url,
             'target': 'new',
         }
+    
+    def get_ai_suggestions(self):
+        """Ouvre l'assistant IA pour générer du contenu"""
+        self.ensure_one()
+        field_name = self.env.context.get('field_name', 'description')
+        
+        # Construire le contexte pour l'IA
+        context_data = {
+            'nom_projet': self.name or '',
+            'secteur': dict(self._fields['secteur_intervention'].selection).get(self.secteur_intervention, '') if self.secteur_intervention else '',
+            'budget': f"{self.cout_total_projet:,.0f} FCFA" if self.cout_total_projet else '',
+            'duree': f"{self.duree_previsionnelle} mois" if self.duree_previsionnelle else '',
+            'ministere': self.ministry_id.name if self.ministry_id else '',
+            'objectif_strategique': self.strategic_objective_id.name if self.strategic_objective_id else ''
+        }
+        
+        return {
+            'type': 'ir.actions.act_window',
+            'name': f'Assistant IA - {self._fields[field_name].string}',
+            'res_model': 'ai.content.helper',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_model_id': self.env['ai.model.config'].search([
+                    ('is_default', '=', True),
+                    ('active', '=', True)
+                ], limit=1).id,
+                'default_content_type': self._get_content_type_for_field(field_name),
+                'default_project_context': self._build_context_for_ai(context_data),
+                'field_name': field_name,
+                'source_model': self._name,
+                'source_id': self.id,
+            }
+        }
+    
+    def _get_content_type_for_field(self, field_name):
+        """
+        Mappe les noms de champs aux types de contenu IA
+        """
+        field_mapping = {
+            'description_succincte': 'description',
+            'objectifs_generaux': 'objectives_general',
+            'objectifs_specifiques': 'objectives_specific',
+            'structures_coordination': 'coordination',
+            'mecanismes_redevabilite': 'accountability',
+            'dispositifs_anti_corruption': 'anticorruption',
+            'description': 'description',
+            'summary': 'description',
+            'objectives': 'objectives_general',
+            'coordination_structure': 'coordination',
+            'accountability_mechanisms': 'accountability',
+            'anti_corruption_measures': 'anticorruption',
+        }
+        return field_mapping.get(field_name, 'custom')
+    
+    def _build_context_for_ai(self, context_data):
+        """
+        Construit le contexte pour l'IA basé sur les données du modèle
+        """
+        try:
+            context_parts = []
+            
+            # Ajouter le nom/titre si disponible
+            if hasattr(self, 'name') and getattr(self, 'name', None):
+                context_parts.append(f"Nom: {self.name}")
+            
+            # Ajouter des informations spécifiques au modèle
+            if hasattr(self, 'secteur_intervention') and getattr(self, 'secteur_intervention', None):
+                context_parts.append(f"Secteur: {self.secteur_intervention}")
+            
+            if hasattr(self, 'cout_total_projet') and getattr(self, 'cout_total_projet', None):
+                context_parts.append(f"Budget: {self.cout_total_projet}")
+            
+            if hasattr(self, 'duree_previsionnelle') and getattr(self, 'duree_previsionnelle', None):
+                context_parts.append(f"Durée: {self.duree_previsionnelle} mois")
+            
+            # Ajouter le contexte fourni
+            if context_data and isinstance(context_data, dict):
+                for key, value in context_data.items():
+                    if value:
+                        context_parts.append(f"{key}: {value}")
+            
+            return "\n".join(context_parts)
+        except Exception as e:
+            return ""
+
 
 class GovernmentDecision(models.Model):
     _name = 'government.decision'
     _description = 'Décision Officielle'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    
+    @api.model
+    def _valid_field_parameter(self, field, name):
+        # Allow 'states' parameter for fields that need it
+        return name == 'states' or super()._valid_field_parameter(field, name)  # , 'ai.widget.mixin']  # Testing: AI mixin disabled
 
     name = fields.Char(string="Nom", compute='_compute_name', store=True)
     title = fields.Char(string="Titre", required=True, tracking=True, readonly=True, states={'draft': [('readonly', False)]})
@@ -280,7 +463,7 @@ class GovernmentDecision(models.Model):
     decision_date = fields.Date(string="Date de la Décision", tracking=True, readonly=True, states={'draft': [('readonly', False)]})
     document = fields.Binary(string="Document", readonly=True, states={'draft': [('readonly', False)]})
     document_name = fields.Char(string="Nom du Document", readonly=True, states={'draft': [('readonly', False)]})
-    description = fields.Text(string="Description", readonly=True, states={'draft': [('readonly', False)]})
+    description = fields.Html(string="Description", readonly=True, states={'draft': [('readonly', False)]})
     status = fields.Selection([
         ('draft', 'Brouillon'),
         ('published', 'Publiée'),
@@ -405,6 +588,11 @@ class GovernmentEvent(models.Model):
     _name = 'government.event'
     _description = 'Événement Public'
     _inherit = ['mail.thread', 'mail.activity.mixin']
+    
+    @api.model
+    def _valid_field_parameter(self, field, name):
+        # Allow 'states' parameter for fields that need it
+        return name == 'states' or super()._valid_field_parameter(field, name)  # , 'ai.widget.mixin']  # Testing: AI mixin disabled
 
     # Geolocation
     latitude = fields.Float(string='Latitude', digits=(10, 7), readonly=True, states={'draft': [('readonly', False)]})
@@ -424,7 +612,7 @@ class GovernmentEvent(models.Model):
         ('launch', 'Lancement'),
         ('other', 'Autre')
     ], string="Type d'Événement", default='meeting', readonly=True, states={'draft': [('readonly', False)]})
-    description = fields.Text(string="Description", readonly=True, states={'draft': [('readonly', False)]})
+    description = fields.Html(string="Description", readonly=True, states={'draft': [('readonly', False)]})
     project_id = fields.Many2one('government.project', string="Projet Associé", readonly=True, states={'draft': [('readonly', False)]})
     strategic_objective_id = fields.Many2one('strategic.objective', string="Objectif Stratégique", required=True, readonly=True, states={'draft': [('readonly', False)]})
     status = fields.Selection([
@@ -543,7 +731,7 @@ class GovernmentEvent(models.Model):
 class GovernmentBudget(models.Model):
     _name = 'government.budget'
     _description = "Budget d'Investissement/Fonctionnement"
-    _inherit = ['mail.thread', 'mail.activity.mixin']
+    _inherit = ['mail.thread', 'mail.activity.mixin']  # , 'ai.widget.mixin']  # Testing: AI mixin disabled
 
     name = fields.Char(string="Nom du Budget", required=True, tracking=True, readonly=True, states={'draft': [('readonly', False)]})
     fiscal_year = fields.Char(string="Année Fiscale", tracking=True, readonly=True, states={'draft': [('readonly', False)]})
@@ -572,7 +760,7 @@ class GovernmentBudget(models.Model):
     state = fields.Selection([('draft', 'Brouillon'), ('locked', 'Verrouillé')], string="État", default='locked', readonly=True, copy=False)
     ministry_id = fields.Many2one('government.ministry', string="Ministère Bénéficiaire", tracking=True, readonly=True, states={'draft': [('readonly', False)]})
     strategic_objective_id = fields.Many2one('strategic.objective', string="Objectif Stratégique", required=True, readonly=True, states={'draft': [('readonly', False)]})
-    description = fields.Text(string="Description", readonly=True, states={'draft': [('readonly', False)]})
+    description = fields.Html(string="Description", readonly=True, states={'draft': [('readonly', False)]})
     
     def action_set_to_draft(self):
         self.write({'state': 'draft'})

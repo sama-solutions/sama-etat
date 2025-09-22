@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- ========================================= -->
+        <!-- PROJETS DE DÉMONSTRATION RÉALISTES       -->
+        <!-- ========================================= -->
+        
+        <!-- Projet 1: Autoroute à Péage Dakar-Diamniadio-AIBD -->
+        <record id="demo_project_autoroute_aibd" model="government.project">
+            <field name="name">Autoroute à Péage Dakar-Diamniadio-AIBD</field>
+            <field name="description_succincte">Construction d'une autoroute à péage de 47 km reliant Dakar à l'Aéroport International Blaise Diagne</field>
+            <field name="description">Projet de construction d'une autoroute moderne à péage de 47 kilomètres, comprenant 2x3 voies, reliant Dakar au nouvel Aéroport International Blaise Diagne via Diamniadio. Infrastructure stratégique pour le désenclavement et le développement économique.</field>
+            <field name="objectifs_generaux">Améliorer la connectivité entre Dakar et l'aéroport international, réduire les temps de transport, stimuler le développement économique de la région de Diamniadio</field>
+            <field name="objectifs_specifiques">- Construire 47 km d'autoroute 2x3 voies
+- Installer un système de péage électronique moderne
+- Créer 3 échangeurs principaux
+- Assurer la maintenance sur 30 ans</field>
+            <field name="localisation_geographique">Région de Dakar - Thiès, traversant les départements de Dakar, Rufisque et Thiès</field>
+            <field name="secteur_intervention">infrastructure</field>
+            <field name="duree_previsionnelle">48</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2027-12-31</field>
+            <field name="status">validated</field>
+            <field name="priority">3</field>
+            <field name="cout_total_projet">575000000000</field> <!-- 575 milliards FCFA -->
+            <field name="modalites_gestion_financiere">Gestion par une Société de Projet (SPV) avec participation de l'État du Sénégal et partenaires privés. Supervision financière par l'Agence des Travaux et de Gestion du Patrimoine Bâti (ATGPB)</field>
+            <field name="ligne_budgetaire_rattachement">Budget Consolidé d'Investissement - Ministère des Infrastructures - Ligne 6.2.1.4</field>
+            <field name="structures_coordination">Comité de Pilotage présidé par le Ministre des Infrastructures, Comité Technique dirigé par l'AGEROUTE, Unité de Gestion du Projet</field>
+            <field name="roles_responsabilites">AGEROUTE: Maîtrise d'ouvrage déléguée et supervision technique
+APIX: Facilitation administrative et accompagnement investisseurs
+Ministère Infrastructures: Tutelle et validation stratégique
+Concessionnaire: Construction, exploitation et maintenance</field>
+            <field name="obligations_publication_info">Publication trimestrielle des rapports d'avancement sur le site officiel, information du public via les médias, consultation publique pour les impacts environnementaux</field>
+            <field name="mecanismes_redevabilite">Comité de suivi citoyen, audits annuels par la Cour des Comptes, rapports parlementaires semestriels</field>
+            <field name="dispositifs_anti_corruption">Déclaration de patrimoine des responsables, procédures de passation transparentes, contrôle par l'OFNAC, dénonciation anonyme</field>
+            <field name="conformite_audits">Audits techniques semestriels par bureaux agréés, audit financier annuel par la Cour des Comptes, évaluation environnementale continue</field>
+            <field name="standards_ptf">Conformité aux standards de la Banque Mondiale (OP 4.01, OP 4.12), normes IFC, standards OHADA pour la gouvernance</field>
+            <field name="latitude">14.7167</field>
+            <field name="longitude">-17.4677</field>
+        </record>
+
+        <!-- Projet 2: Programme d'Urgence de Développement Communautaire (PUDC) -->
+        <record id="demo_project_pudc" model="government.project">
+            <field name="name">Programme d'Urgence de Développement Communautaire (PUDC)</field>
+            <field name="description_succincte">Programme national de développement communautaire visant à améliorer l'accès aux services sociaux de base dans les zones rurales</field>
+            <field name="description">Programme d'envergure nationale visant à réduire les inégalités territoriales par la construction d'infrastructures sociales de base (écoles, postes de santé, forages, pistes rurales) dans 557 communes du Sénégal</field>
+            <field name="objectifs_generaux">Réduire les inégalités territoriales, améliorer l'accès aux services sociaux de base, renforcer la cohésion sociale et territoriale</field>
+            <field name="objectifs_specifiques">- Construire 1000 salles de classe
+- Réaliser 300 postes de santé
+- Forer 500 puits/forages
+- Aménager 2000 km de pistes rurales
+- Former 5000 agents communautaires</field>
+            <field name="localisation_geographique">Ensemble du territoire national, priorité aux zones rurales et périurbaines des 14 régions</field>
+            <field name="secteur_intervention">education</field>
+            <field name="duree_previsionnelle">60</field>
+            <field name="start_date">2024-03-01</field>
+            <field name="end_date">2029-02-28</field>
+            <field name="status">in_progress</field>
+            <field name="priority">2</field>
+            <field name="cout_total_projet">450000000000</field> <!-- 450 milliards FCFA -->
+            <field name="modalites_gestion_financiere">Gestion centralisée par l'Agence de Développement Municipal (ADM) avec déconcentration vers les Agences Régionales de Développement</field>
+            <field name="ligne_budgetaire_rattachement">Budget Consolidé d'Investissement - Ministère du Développement Communautaire - Ligne 5.1.2.3</field>
+            <field name="structures_coordination">Comité National de Pilotage (Primature), Comités Régionaux de Coordination, Comités Départementaux de Suivi, Comités Communaux de Développement</field>
+            <field name="roles_responsabilites">ADM: Coordination nationale et gestion financière
+ARD: Mise en œuvre régionale et supervision
+Communes: Identification des besoins et suivi local
+Communautés: Participation et appropriation</field>
+            <field name="obligations_publication_info">Portail web dédié avec géolocalisation des réalisations, bulletins d'information trimestriels, émissions radio communautaires</field>
+            <field name="mecanismes_redevabilite">Comités de veille citoyenne dans chaque commune, ligne verte pour réclamations, évaluations participatives annuelles</field>
+            <field name="dispositifs_anti_corruption">Procédures de passation décentralisées transparentes, contrôle citoyen renforcé, sanctions disciplinaires et pénales</field>
+            <field name="conformite_audits">Audits techniques trimestriels, audit financier annuel, évaluations d'impact social bisannuelles</field>
+            <field name="standards_ptf">Standards Banque Mondiale, normes UEMOA pour la gestion des finances publiques, principes OCDE pour l'efficacité de l'aide</field>
+            <field name="latitude">14.4974</field>
+            <field name="longitude">-14.4524</field>
+        </record>
+
+    </data>
+</odoo>

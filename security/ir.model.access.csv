@@ -1,4 +1,4 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id,name,model_id:id,group.id,perm_read,perm_write,perm_create,perm_unlink
 access_strategic_plan_user,strategic.plan.user,model_strategic_plan,base.group_user,1,0,0,0
 access_strategic_pillar_user,strategic.pillar.user,model_strategic_pillar,base.group_user,1,0,0,0
 access_strategic_axis_user,strategic.axis.user,model_strategic_axis,base.group_user,1,0,0,0
@@ -16,5 +16,11 @@ access_project_cost_breakdown_user,project.cost.breakdown.user,model_project_cos
 access_ai_model_config_admin,ai.model.config.admin,model_ai_model_config,base.group_system,1,1,1,1
 access_ai_model_config_user,ai.model.config.user,model_ai_model_config,base.group_user,1,0,0,0
 access_ai_content_helper_user,ai.content.helper.user,model_ai_content_helper,base.group_user,1,1,1,1
+# AI Provider Config - System Administrators (Full Access)
 access_ai_provider_config_admin,ai.provider.config.admin,model_ai_provider_config,base.group_system,1,1,1,1
+
+# AI Provider Config - Regular Users (Read-only for their own records)
 access_ai_provider_config_user,ai.provider.config.user,model_ai_provider_config,base.group_user,1,0,0,0
+
+# AI Provider Config - OAuth Access (Minimal access for OAuth operations)
+access_ai_provider_config_oauth,ai.provider.config.oauth,model_ai_provider_config,base.group_user,1,1,0,0
