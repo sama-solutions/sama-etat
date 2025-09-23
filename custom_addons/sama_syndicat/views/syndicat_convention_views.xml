@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Conventions -->
+        <record id="view_syndicat_convention_list" model="ir.ui.view">
+            <field name="name">syndicat.convention.list</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <list string="Conventions Collectives" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_convention"/>
+                    <field name="employeur_principal"/>
+                    <field name="secteur_activite"/>
+                    <field name="date_signature"/>
+                    <field name="date_entree_vigueur"/>
+                    <field name="date_expiration"/>
+                    <field name="duree_validite"/>
+                    <field name="nb_salaries_concernes"/>
+                    <field name="niveau_satisfaction"/>
+                    <field name="respect_employeur"/>
+                    <field name="commission_suivi" widget="boolean_toggle"/>
+                    <field name="statut" decoration-info="statut == 'negociation'" decoration-warning="statut == 'signee'" decoration-success="statut == 'en_vigueur'" decoration-danger="statut in ['expiree', 'denoncee']" decoration-muted="statut in ['suspendue', 'annulee']"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Conventions -->
+        <record id="view_syndicat_convention_kanban" model="ir.ui.view">
+            <field name="name">syndicat.convention.kanban</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_convention"/>
+                    <field name="statut"/>
+                    <field name="employeur_principal"/>
+                    <field name="secteur_activite"/>
+                    <field name="date_signature"/>
+                    <field name="date_expiration"/>
+                    <field name="nb_salaries_concernes"/>
+                    <field name="niveau_satisfaction"/>
+                    <field name="commission_suivi"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_convention"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <strong><field name="employeur_principal"/></strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <i class="fa fa-industry" title="Secteur"/> <field name="secteur_activite"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date de signature"/> <field name="date_signature"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-users" title="Salariés concernés"/> <field name="nb_salaries_concernes"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2" t-if="record.date_expiration.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-info">
+                                                    Expire: <field name="date_expiration"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.commission_suivi.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-success">
+                                                    <i class="fa fa-eye" title="Commission"/> Commission de suivi
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.niveau_satisfaction.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill" t-att-class="record.niveau_satisfaction.raw_value in ['4', '5'] ? 'badge-success' : record.niveau_satisfaction.raw_value == '3' ? 'badge-warning' : 'badge-danger'">
+                                                    Satisfaction: <field name="niveau_satisfaction"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Conventions -->
+        <record id="view_syndicat_convention_form" model="ir.ui.view">
+            <field name="name">syndicat.convention.form</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <form string="Convention Collective">
+                    <header>
+                        <button name="action_signer" string="Signer" type="object" class="btn-primary" invisible="statut != 'negociation'"/>
+                        <button name="action_mettre_en_vigueur" string="Mettre en Vigueur" type="object" class="btn-success" invisible="statut != 'signee'"/>
+                        <button name="action_denoncer" string="Dénoncer" type="object" class="btn-warning" invisible="statut != 'en_vigueur'"/>
+                        <button name="action_suspendre" string="Suspendre" type="object" class="btn-warning" invisible="statut != 'en_vigueur'"/>
+                        <button name="action_reactiver" string="Réactiver" type="object" class="btn-success" invisible="statut != 'suspendue'"/>
+                        <button name="action_creer_avenant" string="Créer Avenant" type="object" class="btn-info" invisible="statut != 'en_vigueur'"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="negociation,signee,en_vigueur,expiree"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_representants" icon="fa-users">
+                                <field string="Représentants" name="representants_syndicat_ids" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_suivi" icon="fa-eye">
+                                <field string="Réunions Suivi" name="reunions_suivi_ids" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_avenants" icon="fa-file-text-o">
+                                <field string="Avenants" name="avenants_ids" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_convention" required="1"/>
+                                <field name="secteur_activite"/>
+                                <field name="domaines_couverts" required="1"/>
+                                <field name="nb_salaries_concernes"/>
+                            </group>
+                            <group name="parties_info" string="Parties Signataires">
+                                <field name="employeur_principal" required="1"/>
+                                <field name="employeurs_secondaires"/>
+                                <field name="syndicats_signataires"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="dates_info" string="Dates Importantes">
+                                <field name="date_negociation_debut"/>
+                                <field name="date_negociation_fin"/>
+                                <field name="date_signature" required="1"/>
+                                <field name="date_entree_vigueur" required="1"/>
+                                <field name="date_expiration"/>
+                                <field name="duree_validite" readonly="1"/>
+                            </group>
+                            <group name="evaluation_info" string="Évaluation">
+                                <field name="niveau_satisfaction"/>
+                                <field name="respect_employeur"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="revision_info" string="Révision et Dénonciation">
+                                <field name="preavis_denonciation"/>
+                            </group>
+                            <group name="suivi_info" string="Suivi">
+                                <field name="commission_suivi"/>
+                                <field name="membres_commission_ids" widget="many2many_tags" invisible="not commission_suivi"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html" required="1"/>
+                            </page>
+                            <page string="Champ d'Application" name="champ_application">
+                                <field name="champ_application" widget="html" required="1"/>
+                            </page>
+                            <page string="Clauses Principales" name="clauses">
+                                <field name="clauses_principales" widget="html" required="1"/>
+                            </page>
+                            <page string="Avantages Obtenus" name="avantages">
+                                <field name="avantages_obtenus" widget="html"/>
+                            </page>
+                            <page string="Obligations" name="obligations">
+                                <group>
+                                    <group string="Obligations du Syndicat">
+                                        <field name="obligations_syndicat" widget="html" nolabel="1"/>
+                                    </group>
+                                    <group string="Obligations de l'Employeur">
+                                        <field name="obligations_employeur" widget="html" nolabel="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Représentants Syndicat" name="representants">
+                                <field name="representants_syndicat_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Catégories Personnel" name="categories">
+                                <field name="categories_personnel"/>
+                            </page>
+                            <page string="Révision" name="revision">
+                                <group>
+                                    <field name="clause_revision" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Dénonciation" name="denonciation">
+                                <group>
+                                    <field name="clause_denonciation" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Réunions de Suivi" name="suivi" invisible="not commission_suivi">
+                                <field name="reunions_suivi_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="date_reunion"/>
+                                        <field name="lieu"/>
+                                        <field name="niveau_application"/>
+                                        <field name="satisfaction_reunion"/>
+                                        <field name="date_prochaine_reunion"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Avenants" name="avenants">
+                                <field name="avenants_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="date_signature"/>
+                                        <field name="date_entree_vigueur"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Documents" name="documents">
+                                <group>
+                                    <field name="document_original"/>
+                                </group>
+                                <group>
+                                    <field name="documents_annexes"/>
+                                </group>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Conventions -->
+        <record id="view_syndicat_convention_search" model="ir.ui.view">
+            <field name="name">syndicat.convention.search</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Conventions">
+                    <field name="name" string="Nom" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                    <field name="employeur_principal"/>
+                    <field name="secteur_activite"/>
+                    <field name="type_convention"/>
+                    <separator/>
+                    <filter string="En négociation" name="en_negociation" domain="[('statut', '=', 'negociation')]"/>
+                    <filter string="En vigueur" name="en_vigueur" domain="[('statut', '=', 'en_vigueur')]"/>
+                    <filter string="Expirées" name="expirees" domain="[('statut', '=', 'expiree')]"/>
+                    <filter string="Avec commission de suivi" name="avec_commission" domain="[('commission_suivi', '=', True)]"/>
+                    <filter string="Expiration proche" name="expiration_proche" domain="[('date_expiration', '&lt;=', (datetime.datetime.now() + datetime.timedelta(days=90)).strftime('%Y-%m-%d')), ('statut', '=', 'en_vigueur')]"/>
+                    <separator/>
+                    <filter string="Cette année" name="cette_annee" domain="[('date_signature', '>=', datetime.datetime.now().replace(month=1, day=1))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type" name="group_type" context="{'group_by': 'type_convention'}"/>
+                        <filter string="Secteur" name="group_secteur" context="{'group_by': 'secteur_activite'}"/>
+                        <filter string="Employeur" name="group_employeur" context="{'group_by': 'employeur_principal'}"/>
+                        <filter string="Année" name="group_annee" context="{'group_by': 'date_signature:year'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Conventions -->
+        <record id="view_syndicat_convention_graph" model="ir.ui.view">
+            <field name="name">syndicat.convention.graph</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Conventions" type="bar" sample="1">
+                    <field name="type_convention" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_salaries_concernes" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Conventions -->
+        <record id="view_syndicat_convention_pivot" model="ir.ui.view">
+            <field name="name">syndicat.convention.pivot</field>
+            <field name="model">syndicat.convention</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Conventions" sample="1">
+                    <field name="type_convention" type="row"/>
+                    <field name="secteur_activite" type="col"/>
+                    <field name="nb_salaries_concernes" type="measure"/>
+                    <field name="duree_validite" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Conventions -->
+        <record id="action_syndicat_convention" model="ir.actions.act_window">
+            <field name="name">Conventions Collectives</field>
+            <field name="res_model">syndicat.convention</field>
+            <field name="view_mode">kanban,list,form,graph,pivot</field>
+            <field name="context">{'search_default_en_vigueur': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre première convention collective
+                </p>
+                <p>
+                    Gérez vos conventions collectives, suivez leur application et organisez les négociations avec un suivi complet.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

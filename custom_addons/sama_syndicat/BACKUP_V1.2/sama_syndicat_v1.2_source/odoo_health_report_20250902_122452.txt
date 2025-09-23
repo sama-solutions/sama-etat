@@ -1,0 +1,40 @@
+RAPPORT DE SANTÉ ODOO - mar. 02 sept. 2025 12:24:52 GMT
+===============================
+
+SYSTÈME:
+--------
+OS: Linux grand-as-ThinkPad-T560 6.14.0-28-generic #28~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 25 10:47:01 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+Python: Python 3.12.3
+PostgreSQL: psql (PostgreSQL) 16.9 (Ubuntu 16.9-0ubuntu0.24.04.1)
+
+MODULES:
+--------
+sama_syndicat: ✓ Présent
+
+ESPACE DISQUE:
+--------------
+Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+/dev/sda10         100G     87G  7,3G  93% /
+
+MÉMOIRE:
+--------
+               total       utilisé      libre     partagé tamp/cache   disponible
+Mem:            15Gi       8,2Gi       1,6Gi       1,2Gi       7,3Gi       7,3Gi
+Échange:       4,0Gi          0B       4,0Gi
+
+PROCESSUS ODOO:
+---------------
+grand-as  335451 11.1  0.9 300784 152096 pts/1   Sl+  12:19   0:36 python3 odoo-bin --addons-path=/var/odoo/odoo18/odoo/addons,/var/odoo/odoo18/addons,/tmp/addons_sama_syndicat --database=sama_syndicat_final_1756812346 --xmlrpc-port=8070 --update=sama_syndicat --log-level=info
+postgres  335474  3.8  0.3 396012 59456 ?        Rs   12:19   0:12 postgres: 16/main: odoo sama_syndicat_final_1756812346 [local] SELECT
+postgres  335523  0.0  0.1 415812 20936 ?        Ss   12:19   0:00 postgres: 16/main: odoo postgres [local] idle
+postgres  335524  0.0  0.1 415812 20532 ?        Ss   12:19   0:00 postgres: 16/main: odoo postgres [local] idle
+
+PORTS:
+------
+Port 8070: 4 processus
+
+RECOMMANDATIONS:
+----------------
+- Libérer de l'espace disque
+- Redémarrer Odoo régulièrement
+- Surveiller les logs d'erreurs

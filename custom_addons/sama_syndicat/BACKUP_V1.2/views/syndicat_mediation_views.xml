@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Médiations -->
+        <record id="view_syndicat_mediation_list" model="ir.ui.view">
+            <field name="name">syndicat.mediation.list</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <list string="Médiations" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_conflit"/>
+                    <field name="gravite" decoration-danger="gravite in ['tres_grave', 'critique']" decoration-warning="gravite == 'grave'"/>
+                    <field name="urgence" decoration-danger="urgence in ['urgente']" decoration-warning="urgence == 'elevee'"/>
+                    <field name="demandeur_id"/>
+                    <field name="employeur_concerne"/>
+                    <field name="date_creation"/>
+                    <field name="date_incident"/>
+                    <field name="date_resolution"/>
+                    <field name="delai_resolution"/>
+                    <field name="nb_interventions"/>
+                    <field name="mode_resolution"/>
+                    <field name="satisfaction_adherent"/>
+                    <field name="statut" decoration-info="statut in ['nouveau', 'en_cours']" decoration-warning="statut in ['mediation', 'conciliation', 'arbitrage']" decoration-success="statut == 'resolu'" decoration-danger="statut == 'echec'" decoration-muted="statut == 'abandonne'"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Médiations -->
+        <record id="view_syndicat_mediation_kanban" model="ir.ui.view">
+            <field name="name">syndicat.mediation.kanban</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_conflit"/>
+                    <field name="gravite"/>
+                    <field name="urgence"/>
+                    <field name="statut"/>
+                    <field name="demandeur_id"/>
+                    <field name="employeur_concerne"/>
+                    <field name="date_creation"/>
+                    <field name="date_incident"/>
+                    <field name="nb_interventions"/>
+                    <field name="confidentialite"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_conflit"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <strong><field name="employeur_concerne"/></strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-user" title="Demandeur"/> <field name="demandeur_id"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date de création"/> <field name="date_creation"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill" t-att-class="record.gravite.raw_value in ['tres_grave', 'critique'] ? 'badge-danger' : record.gravite.raw_value == 'grave' ? 'badge-warning' : 'badge-info'">
+                                                    <field name="gravite"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="badge badge-pill" t-att-class="record.urgence.raw_value == 'urgente' ? 'badge-danger' : record.urgence.raw_value == 'elevee' ? 'badge-warning' : 'badge-info'">
+                                                    <field name="urgence"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-info">
+                                                    <field name="nb_interventions"/> interventions
+                                                </span>
+                                            </div>
+                                            <div class="col-6" t-if="record.confidentialite.raw_value != 'normale'">
+                                                <span class="badge badge-pill badge-warning">
+                                                    <i class="fa fa-lock" title="Confidentialité"/> <field name="confidentialite"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Médiations -->
+        <record id="view_syndicat_mediation_form" model="ir.ui.view">
+            <field name="name">syndicat.mediation.form</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <form string="Médiation">
+                    <header>
+                        <button name="action_commencer_mediation" string="Commencer Médiation" type="object" class="btn-primary" invisible="statut != 'nouveau'"/>
+                        <button name="action_resoudre" string="Résoudre" type="object" class="btn-success" invisible="statut not in ['en_cours', 'mediation', 'conciliation', 'arbitrage']"/>
+                        <button name="action_echec" string="Échec" type="object" class="btn-danger" invisible="statut not in ['mediation', 'conciliation', 'arbitrage']"/>
+                        <button name="action_procedure_juridique" string="Procédure Juridique" type="object" class="btn-warning" invisible="statut not in ['echec', 'en_cours']"/>
+                        <button name="action_abandonner" string="Abandonner" type="object" class="btn-secondary" invisible="statut in ['resolu', 'echec']"/>
+                        <button name="action_ajouter_intervention" string="Nouvelle Intervention" type="object" class="btn-info" invisible="statut in ['resolu', 'abandonne', 'echec']"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="nouveau,en_cours,mediation,resolu"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_interventions" icon="fa-comments">
+                                <field string="Interventions" name="nb_interventions" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_adherents" icon="fa-users">
+                                <field string="Adhérents Impliqués" name="autres_adherents_ids" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_delais" icon="fa-clock-o">
+                                <field string="Délai Résolution" name="delai_resolution" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <widget name="web_ribbon" title="Confidentiel" bg_color="bg-warning" invisible="confidentialite == 'normale'"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_conflit" required="1"/>
+                                <field name="gravite" required="1"/>
+                                <field name="urgence"/>
+                                <field name="confidentialite"/>
+                                <field name="date_creation" readonly="1"/>
+                                <field name="date_incident"/>
+                            </group>
+                            <group name="parties_info" string="Parties Impliquées">
+                                <field name="demandeur_id" required="1"/>
+                                <field name="employeur_concerne" required="1"/>
+                                <field name="representants_employeur"/>
+                                <field name="temoins"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="dates_info" string="Dates Importantes">
+                                <field name="date_saisine"/>
+                                <field name="date_premiere_intervention" readonly="1"/>
+                                <field name="date_resolution" readonly="1"/>
+                                <field name="delai_premiere_intervention" readonly="1"/>
+                                <field name="delai_resolution" readonly="1"/>
+                            </group>
+                            <group name="mediation_info" string="Médiation">
+                                <field name="mode_resolution"/>
+                                <field name="mediateur_interne_id"/>
+                                <field name="mediateur_externe"/>
+                                <field name="organisme_mediation"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="resolution_info" string="Résolution" invisible="statut not in ['resolu', 'echec']">
+                                <field name="indemnisation"/>
+                                <field name="satisfaction_adherent"/>
+                                <field name="efficacite_intervention"/>
+                            </group>
+                            <group name="suivi_info" string="Suivi Post-Résolution" invisible="statut != 'resolu'">
+                                <field name="suivi_requis"/>
+                                <field name="date_suivi" invisible="not suivi_requis"/>
+                                <field name="respect_accord"/>
+                                <field name="formation_recommandee"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html" required="1"/>
+                            </page>
+                            <page string="Faits Reprochés" name="faits">
+                                <field name="faits_reproche" widget="html"/>
+                            </page>
+                            <page string="Positions" name="positions">
+                                <group>
+                                    <group string="Position de l'Adhérent">
+                                        <field name="position_adherent" widget="html" nolabel="1"/>
+                                    </group>
+                                    <group string="Position de l'Employeur">
+                                        <field name="position_employeur" widget="html" nolabel="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Enjeux" name="enjeux">
+                                <field name="enjeux" widget="html"/>
+                            </page>
+                            <page string="Autres Adhérents" name="autres_adherents">
+                                <field name="autres_adherents_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Interventions" name="interventions">
+                                <field name="interventions_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_intervention"/>
+                                        <field name="date_intervention"/>
+                                        <field name="intervenant_id"/>
+                                        <field name="duree"/>
+                                        <field name="efficacite"/>
+                                        <field name="progres_realise"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Documents" name="documents">
+                                <group>
+                                    <field name="documents_support"/>
+                                </group>
+                                <group>
+                                    <field name="preuves"/>
+                                </group>
+                            </page>
+                            <page string="Solutions" name="solutions" invisible="statut in ['nouveau']">
+                                <group>
+                                    <field name="solution_proposee" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Accord" name="accord" invisible="statut not in ['resolu']">
+                                <group>
+                                    <field name="accord_obtenu" widget="html"/>
+                                </group>
+                                <group>
+                                    <field name="mesures_correctives" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Prévention" name="prevention" invisible="statut not in ['resolu', 'echec']">
+                                <group>
+                                    <field name="mesures_prevention" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes confidentielles..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Médiations -->
+        <record id="view_syndicat_mediation_search" model="ir.ui.view">
+            <field name="name">syndicat.mediation.search</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Médiations">
+                    <field name="name" string="Nom" filter_domain="['|', '|', ('name', 'ilike', self), ('reference', 'ilike', self), ('employeur_concerne', 'ilike', self)]"/>
+                    <field name="demandeur_id"/>
+                    <field name="employeur_concerne"/>
+                    <field name="type_conflit"/>
+                    <separator/>
+                    <filter string="En cours" name="en_cours" domain="[('statut', 'in', ['nouveau', 'en_cours', 'mediation', 'conciliation'])]"/>
+                    <filter string="Résolues" name="resolues" domain="[('statut', '=', 'resolu')]"/>
+                    <filter string="Échecs" name="echecs" domain="[('statut', '=', 'echec')]"/>
+                    <filter string="Urgentes" name="urgentes" domain="[('urgence', 'in', ['elevee', 'urgente'])]"/>
+                    <filter string="Graves" name="graves" domain="[('gravite', 'in', ['grave', 'tres_grave', 'critique'])]"/>
+                    <filter string="Confidentielles" name="confidentielles" domain="[('confidentialite', 'in', ['confidentiel', 'secret'])]"/>
+                    <separator/>
+                    <filter string="Ce mois" name="ce_mois" domain="[('date_creation', '>=', datetime.datetime.now().replace(day=1))]"/>
+                    <filter string="Cette année" name="cette_annee" domain="[('date_creation', '>=', datetime.datetime.now().replace(month=1, day=1))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type de Conflit" name="group_type" context="{'group_by': 'type_conflit'}"/>
+                        <filter string="Gravité" name="group_gravite" context="{'group_by': 'gravite'}"/>
+                        <filter string="Urgence" name="group_urgence" context="{'group_by': 'urgence'}"/>
+                        <filter string="Employeur" name="group_employeur" context="{'group_by': 'employeur_concerne'}"/>
+                        <filter string="Demandeur" name="group_demandeur" context="{'group_by': 'demandeur_id'}"/>
+                        <filter string="Mois" name="group_mois" context="{'group_by': 'date_creation:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Médiations -->
+        <record id="view_syndicat_mediation_graph" model="ir.ui.view">
+            <field name="name">syndicat.mediation.graph</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Médiations" type="bar" sample="1">
+                    <field name="type_conflit" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="delai_resolution" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Médiations -->
+        <record id="view_syndicat_mediation_pivot" model="ir.ui.view">
+            <field name="name">syndicat.mediation.pivot</field>
+            <field name="model">syndicat.mediation</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Médiations" sample="1">
+                    <field name="type_conflit" type="row"/>
+                    <field name="gravite" type="col"/>
+                    <field name="delai_resolution" type="measure"/>
+                    <field name="nb_interventions" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Médiations -->
+        <record id="action_syndicat_mediation" model="ir.actions.act_window">
+            <field name="name">Médiations</field>
+            <field name="res_model">syndicat.mediation</field>
+            <field name="view_mode">kanban,list,form,graph,pivot</field>
+            <field name="context">{'search_default_en_cours': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre première médiation
+                </p>
+                <p>
+                    Gérez les conflits et médiations avec un suivi complet des interventions et des résolutions.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

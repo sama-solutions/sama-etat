@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Adhérents -->
+        <record id="view_syndicat_adherent_list" model="ir.ui.view">
+            <field name="name">syndicat.adherent.list</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <list string="Adhérents" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="telephone"/>
+                    <field name="employeur"/>
+                    <field name="responsabilite_syndicale"/>
+                    <field name="statut_adhesion" decoration-success="statut_adhesion == 'actif'" decoration-warning="statut_adhesion == 'suspendu'" decoration-danger="statut_adhesion in ['demission', 'exclusion']"/>
+                    <field name="cotisations_a_jour" widget="boolean_toggle"/>
+                    <field name="date_adhesion"/>
+                    <field name="anciennete_syndicat" widget="float_time"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Adhérents -->
+        <record id="view_syndicat_adherent_kanban" model="ir.ui.view">
+            <field name="name">syndicat.adherent.kanban</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="responsabilite_syndicale" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="reference"/>
+                    <field name="email"/>
+                    <field name="telephone"/>
+                    <field name="employeur"/>
+                    <field name="responsabilite_syndicale"/>
+                    <field name="statut_adhesion"/>
+                    <field name="cotisations_a_jour"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <div class="oe_kanban_details">
+                                        <div class="o_kanban_record_top">
+                                            <div class="o_kanban_record_headings">
+                                                <strong class="o_kanban_record_title">
+                                                    <field name="name"/>
+                                                </strong>
+                                                <div class="o_kanban_record_subtitle">
+                                                    <field name="reference"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_record_body">
+                                            <div><i class="fa fa-building" title="Employeur"/> <field name="employeur"/></div>
+                                            <div t-if="record.email.raw_value"><i class="fa fa-envelope" title="Email"/> <field name="email"/></div>
+                                            <div t-if="record.telephone.raw_value"><i class="fa fa-phone" title="Téléphone"/> <field name="telephone"/></div>
+                                        </div>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left">
+                                                <span class="badge" t-att-class="record.statut_adhesion.raw_value == 'actif' ? 'badge-success' : record.statut_adhesion.raw_value == 'suspendu' ? 'badge-warning' : 'badge-danger'">
+                                                    <field name="statut_adhesion"/>
+                                                </span>
+                                            </div>
+                                            <div class="oe_kanban_bottom_right">
+                                                <span t-if="record.cotisations_a_jour.raw_value" class="fa fa-check text-success" title="Cotisations à jour"/>
+                                                <span t-if="!record.cotisations_a_jour.raw_value" class="fa fa-exclamation-triangle text-warning" title="Cotisations en retard"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Adhérents -->
+        <record id="view_syndicat_adherent_form" model="ir.ui.view">
+            <field name="name">syndicat.adherent.form</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <form string="Adhérent">
+                    <header>
+                        <button name="action_suspendre" string="Suspendre" type="object" class="btn-warning" invisible="statut_adhesion != 'actif'"/>
+                        <button name="action_reactiver" string="Réactiver" type="object" class="btn-success" invisible="statut_adhesion != 'suspendu'"/>
+                        <button name="action_demission" string="Démission" type="object" class="btn-danger" invisible="statut_adhesion not in ['actif', 'suspendu']"/>
+                        <button name="action_generer_cotisation_mensuelle" string="Générer Cotisation" type="object" class="btn-primary" invisible="statut_adhesion != 'actif'"/>
+                        <field name="statut_adhesion" widget="statusbar" statusbar_visible="actif,suspendu,demission"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_cotisations" icon="fa-money" help="Voir les cotisations de cet adhérent">
+                                <field string="Cotisations" name="nb_cotisations" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_assemblees" icon="fa-users">
+                                <field string="Assemblées" name="nb_assemblees_participees" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_actions" icon="fa-flag">
+                                <field string="Actions" name="nb_actions_participees" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" readonly="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="personal_info" string="Informations Personnelles">
+                                <field name="prenom" required="1"/>
+                                <field name="nom_famille" required="1"/>
+                                <field name="date_naissance"/>
+                                <field name="age" readonly="1"/>
+                                <field name="lieu_naissance"/>
+                                <field name="sexe"/>
+                                <field name="situation_matrimoniale"/>
+                            </group>
+                            <group name="contact_info" string="Contact">
+                                <field name="email" widget="email"/>
+                                <field name="telephone" widget="phone"/>
+                                <field name="telephone_urgence" widget="phone"/>
+                                <field name="adresse"/>
+                                <field name="ville"/>
+                                <field name="region"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="professional_info" string="Informations Professionnelles">
+                                <field name="employeur" required="1"/>
+                                <field name="poste_occupe" required="1"/>
+                                <field name="service_departement"/>
+                                <field name="anciennete_poste"/>
+                                <field name="type_contrat"/>
+                                <field name="salaire_mensuel" groups="sama_syndicat.group_syndicat_tresorier,sama_syndicat.group_syndicat_manager"/>
+                            </group>
+                            <group name="union_info" string="Informations Syndicales">
+                                <field name="date_adhesion"/>
+                                <field name="anciennete_syndicat" readonly="1"/>
+                                <field name="responsabilite_syndicale"/>
+                                <field name="date_debut_responsabilite" invisible="responsabilite_syndicale == 'adherent'"/>
+                                <field name="date_fin_responsabilite" invisible="responsabilite_syndicale == 'adherent'"/>
+                                <field name="cotisations_a_jour" readonly="1"/>
+                                <field name="derniere_cotisation_payee" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="cotisation_info" string="Cotisations" groups="sama_syndicat.group_syndicat_tresorier,sama_syndicat.group_syndicat_manager">
+                                <field name="montant_cotisation_mensuelle"/>
+                                <field name="mode_paiement_cotisation"/>
+                            </group>
+                            <group name="participation_info" string="Participation">
+                                <field name="taux_participation" readonly="1" widget="percentage"/>
+                                <field name="formations_suivies"/>
+                                <field name="competences_particulieres"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Cotisations" name="cotisations" groups="sama_syndicat.group_syndicat_tresorier,sama_syndicat.group_syndicat_manager">
+                                <field name="cotisation_ids" readonly="1">
+                                    <list>
+                                        <field name="annee"/>
+                                        <field name="mois"/>
+                                        <field name="montant"/>
+                                        <field name="date_echeance"/>
+                                        <field name="date_paiement"/>
+                                        <field name="statut" decoration-success="statut == 'payee'" decoration-warning="statut == 'en_retard'"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Assemblées" name="assemblees">
+                                <field name="assemblee_ids" readonly="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_assemblee"/>
+                                        <field name="date_debut"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Actions" name="actions">
+                                <field name="action_ids" readonly="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_action"/>
+                                        <field name="date_debut"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Formations" name="formations">
+                                <field name="formation_ids" readonly="1">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_formation"/>
+                                        <field name="date_debut"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes" placeholder="Notes diverses sur l'adhérent..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Adhérents -->
+        <record id="view_syndicat_adherent_search" model="ir.ui.view">
+            <field name="name">syndicat.adherent.search</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Adhérents">
+                    <field name="name" string="Nom" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                    <field name="email"/>
+                    <field name="employeur"/>
+                    <field name="responsabilite_syndicale"/>
+                    <separator/>
+                    <filter string="Actifs" name="actifs" domain="[('statut_adhesion', '=', 'actif')]"/>
+                    <filter string="Suspendus" name="suspendus" domain="[('statut_adhesion', '=', 'suspendu')]"/>
+                    <filter string="Cotisations à jour" name="cotisations_jour" domain="[('cotisations_a_jour', '=', True)]"/>
+                    <filter string="Cotisations en retard" name="cotisations_retard" domain="[('cotisations_a_jour', '=', False)]"/>
+                    <separator/>
+                    <filter string="Bureau Exécutif" name="bureau" domain="[('responsabilite_syndicale', 'in', ['president', 'vice_president', 'secretaire', 'tresorier'])]"/>
+                    <filter string="Délégués" name="delegues" domain="[('responsabilite_syndicale', 'in', ['delegue', 'representant'])]"/>
+                    <separator/>
+                    <filter string="Archivés" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut_adhesion'}"/>
+                        <filter string="Responsabilité" name="group_responsabilite" context="{'group_by': 'responsabilite_syndicale'}"/>
+                        <filter string="Employeur" name="group_employeur" context="{'group_by': 'employeur'}"/>
+                        <filter string="Ville" name="group_ville" context="{'group_by': 'ville'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Adhérents -->
+        <record id="view_syndicat_adherent_graph" model="ir.ui.view">
+            <field name="name">syndicat.adherent.graph</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Adhérents" type="bar" sample="1">
+                    <field name="statut_adhesion" type="row"/>
+                    <field name="responsabilite_syndicale" type="col"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Adhérents -->
+        <record id="view_syndicat_adherent_pivot" model="ir.ui.view">
+            <field name="name">syndicat.adherent.pivot</field>
+            <field name="model">syndicat.adherent</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Adhérents" sample="1">
+                    <field name="statut_adhesion" type="row"/>
+                    <field name="responsabilite_syndicale" type="col"/>
+                    <field name="anciennete_syndicat" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Adhérents -->
+        <record id="action_syndicat_adherent" model="ir.actions.act_window">
+            <field name="name">Adhérents</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">kanban,list,form,graph,pivot</field>
+            <field name="context">{'search_default_actifs': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre premier adhérent
+                </p>
+                <p>
+                    Gérez vos adhérents syndicaux, leurs cotisations et leur participation aux activités.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

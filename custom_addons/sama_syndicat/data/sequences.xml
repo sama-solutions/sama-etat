@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Séquence pour les adhérents -->
+        <record id="seq_syndicat_adherent" model="ir.sequence">
+            <field name="name">Numéro Adhérent</field>
+            <field name="code">syndicat.adherent</field>
+            <field name="prefix">ADH</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les assemblées -->
+        <record id="seq_syndicat_assemblee" model="ir.sequence">
+            <field name="name">Référence Assemblée</field>
+            <field name="code">syndicat.assemblee</field>
+            <field name="prefix">ASS</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les revendications -->
+        <record id="seq_syndicat_revendication" model="ir.sequence">
+            <field name="name">Référence Revendication</field>
+            <field name="code">syndicat.revendication</field>
+            <field name="prefix">REV</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les actions -->
+        <record id="seq_syndicat_action" model="ir.sequence">
+            <field name="name">Référence Action</field>
+            <field name="code">syndicat.action</field>
+            <field name="prefix">ACT</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les communications -->
+        <record id="seq_syndicat_communication" model="ir.sequence">
+            <field name="name">Référence Communication</field>
+            <field name="code">syndicat.communication</field>
+            <field name="prefix">COM</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les formations -->
+        <record id="seq_syndicat_formation" model="ir.sequence">
+            <field name="name">Référence Formation</field>
+            <field name="code">syndicat.formation</field>
+            <field name="prefix">FOR</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les conventions -->
+        <record id="seq_syndicat_convention" model="ir.sequence">
+            <field name="name">Référence Convention</field>
+            <field name="code">syndicat.convention</field>
+            <field name="prefix">CONV</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        <!-- Séquence pour les médiations -->
+        <record id="seq_syndicat_mediation" model="ir.sequence">
+            <field name="name">Référence Médiation</field>
+            <field name="code">syndicat.mediation</field>
+            <field name="prefix">MED</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+    </data>
+</odoo>

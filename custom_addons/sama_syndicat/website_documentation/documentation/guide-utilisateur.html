@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Utilisateur - SAMA SYNDICAT</title>
+    <meta name="description" content="Guide complet d'utilisation de SAMA SYNDICAT">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Accueil</a>
+                <a href="guide-utilisateur.html" class="nav-link active">Documentation</a>
+                <a href="../formation/index.html" class="nav-link">Formation</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">📚 Documentation <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu show">
+                    <li><a href="guide-utilisateur.html" class="sidebar-link active">Guide utilisateur</a></li>
+                    <li><a href="guide-administrateur.html" class="sidebar-link">Guide administrateur</a></li>
+                    <li><a href="installation.html" class="sidebar-link">Installation</a></li>
+                    <li><a href="configuration.html" class="sidebar-link">Configuration</a></li>
+                    <li><a href="troubleshooting.html" class="sidebar-link">Dépannage</a></li>
+                </ul>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🛠️ Modules <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu">
+                    <li><a href="modules/adherents.html" class="sidebar-link">👥 Adhérents</a></li>
+                    <li><a href="modules/assemblees.html" class="sidebar-link">🏛️ Assemblées</a></li>
+                    <li><a href="modules/revendications.html" class="sidebar-link">⚖️ Revendications</a></li>
+                    <li><a href="modules/actions.html" class="sidebar-link">🚩 Actions</a></li>
+                    <li><a href="modules/communications.html" class="sidebar-link">📢 Communications</a></li>
+                    <li><a href="modules/formations.html" class="sidebar-link">🎓 Formations</a></li>
+                    <li><a href="modules/conventions.html" class="sidebar-link">📋 Conventions</a></li>
+                    <li><a href="modules/mediations.html" class="sidebar-link">🤝 Médiations</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">📚 Guide Utilisateur</h1>
+            <p class="content-subtitle">Manuel complet d'utilisation de SAMA SYNDICAT</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Rechercher dans le guide...">
+        </div>
+
+        <!-- Introduction -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🌟 Introduction à SAMA SYNDICAT
+            </div>
+            <div class="card-body">
+                <p>SAMA SYNDICAT est une solution complète de gestion syndicale qui révolutionne la façon dont les syndicats organisent leurs activités, communiquent avec leurs adhérents et mènent leurs actions revendicatives.</p>
+                
+                <h4>🎯 Objectifs de ce guide</h4>
+                <ul>
+                    <li>Vous familiariser avec l'interface SAMA SYNDICAT</li>
+                    <li>Vous apprendre à utiliser efficacement chaque module</li>
+                    <li>Vous donner les bonnes pratiques d'utilisation</li>
+                    <li>Vous aider à tirer le maximum de la plateforme</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <strong>💡 Conseil :</strong> Ce guide est organisé par modules. Vous pouvez le lire dans l'ordre ou aller directement aux sections qui vous intéressent.
+                </div>
+            </div>
+        </div>
+
+        <!-- Première Connexion -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🔑 Première connexion
+            </div>
+            <div class="card-body">
+                <h4>🚪 Accès à la plateforme</h4>
+                
+                <h6>Étapes de première connexion :</h6>
+                <ol>
+                    <li><strong>Accès au site :</strong> Rendez-vous sur l'URL fournie par votre syndicat</li>
+                    <li><strong>Identifiants :</strong> Utilisez votre numéro d'adhérent et le mot de passe temporaire</li>
+                    <li><strong>Changement de mot de passe :</strong> Créez un mot de passe sécurisé</li>
+                    <li><strong>Validation :</strong> Confirmez votre adresse email</li>
+                    <li><strong>Profil :</strong> Complétez vos informations personnelles</li>
+                </ol>
+
+                <h4>🔐 Sécurité du compte</h4>
+                
+                <div class="alert alert-warning">
+                    <strong>⚠️ Bonnes pratiques de sécurité :</strong>
+                    <ul>
+                        <li>Utilisez un mot de passe fort (8 caractères minimum)</li>
+                        <li>Ne partagez jamais vos identifiants</li>
+                        <li>Déconnectez-vous après utilisation</li>
+                        <li>Signalez tout accès suspect</li>
+                    </ul>
+                </div>
+
+                <h6>Critères d'un mot de passe fort :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Critère</th>
+                            <th>Exigence</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Longueur</td>
+                            <td>8 caractères minimum</td>
+                            <td>MonMotDePasse2025!</td>
+                        </tr>
+                        <tr>
+                            <td>Majuscules</td>
+                            <td>Au moins 1</td>
+                            <td>M, D, P</td>
+                        </tr>
+                        <tr>
+                            <td>Minuscules</td>
+                            <td>Au moins 1</td>
+                            <td>o, n, o, t, e, a, s, s, e</td>
+                        </tr>
+                        <tr>
+                            <td>Chiffres</td>
+                            <td>Au moins 1</td>
+                            <td>2, 0, 2, 5</td>
+                        </tr>
+                        <tr>
+                            <td>Caractères spéciaux</td>
+                            <td>Au moins 1</td>
+                            <td>!</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Interface Générale -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🖥️ Interface générale
+            </div>
+            <div class="card-body">
+                <h4>📱 Présentation de l'interface</h4>
+                
+                <h6>Éléments principaux :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>🔝 Barre de navigation</h6>
+                                <ul>
+                                    <li>Logo et nom du syndicat</li>
+                                    <li>Menu principal</li>
+                                    <li>Notifications</li>
+                                    <li>Profil utilisateur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>📋 Menu latéral</h6>
+                                <ul>
+                                    <li>Accès aux modules</li>
+                                    <li>Raccourcis fréquents</li>
+                                    <li>Recherche rapide</li>
+                                    <li>Aide contextuelle</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🎨 Personnalisation</h4>
+                
+                <h6>Options de personnalisation :</h6>
+                <ul>
+                    <li><strong>Thème :</strong> Clair ou sombre</li>
+                    <li><strong>Langue :</strong> Français, anglais, arabe</li>
+                    <li><strong>Notifications :</strong> Email, SMS, push</li>
+                    <li><strong>Tableau de bord :</strong> Widgets personnalisables</li>
+                </ul>
+
+                <h4>📱 Version mobile</h4>
+                
+                <div class="alert alert-success">
+                    <strong>📲 Application mobile :</strong> Téléchargez l'app SAMA SYNDICAT sur votre smartphone pour un accès nomade complet.
+                </div>
+
+                <h6>Fonctionnalités mobiles :</h6>
+                <ul>
+                    <li>Accès à toutes les fonctionnalités</li>
+                    <li>Notifications push en temps réel</li>
+                    <li>Mode hors ligne pour la consultation</li>
+                    <li>Géolocalisation pour les événements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tableau de Bord -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📊 Tableau de bord
+            </div>
+            <div class="card-body">
+                <h4>🏠 Page d'accueil</h4>
+                <p>Le tableau de bord est votre point d'entrée principal. Il vous donne une vue d'ensemble de l'activité syndicale et de vos tâches personnelles.</p>
+
+                <h6>Widgets disponibles :</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>📈</h5>
+                                <h6>Métriques</h6>
+                                <p>KPI du syndicat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>📅</h5>
+                                <h6>Agenda</h6>
+                                <p>Prochains événements</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>📢</h5>
+                                <h6>Actualités</h6>
+                                <p>Dernières nouvelles</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>⚙️ Configuration du tableau de bord</h4>
+                
+                <h6>Personnalisation :</h6>
+                <ol>
+                    <li><strong>Ajout de widgets :</strong> Cliquez sur "+" pour ajouter</li>
+                    <li><strong>Déplacement :</strong> Glissez-déposez les widgets</li>
+                    <li><strong>Redimensionnement :</strong> Ajustez la taille</li>
+                    <li><strong>Suppression :</strong> Cliquez sur "×" pour retirer</li>
+                </ol>
+
+                <h6>Widgets recommandés par rôle :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rôle</th>
+                            <th>Widgets essentiels</th>
+                            <th>Widgets optionnels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Président</td>
+                            <td>Métriques, Revendications, Agenda</td>
+                            <td>Finances, Communications</td>
+                        </tr>
+                        <tr>
+                            <td>Secrétaire</td>
+                            <td>Adhérents, Assemblées, Tâches</td>
+                            <td>Communications, Archives</td>
+                        </tr>
+                        <tr>
+                            <td>Trésorier</td>
+                            <td>Finances, Cotisations, Budgets</td>
+                            <td>Adhérents, Rapports</td>
+                        </tr>
+                        <tr>
+                            <td>Adhérent</td>
+                            <td>Actualités, Agenda, Profil</td>
+                            <td>Formations, Revendications</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Navigation et Recherche -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🧭 Navigation et recherche
+            </div>
+            <div class="card-body">
+                <h4>🗺️ Navigation dans l'application</h4>
+                
+                <h6>Méthodes de navigation :</h6>
+                <ul>
+                    <li><strong>Menu principal :</strong> Accès aux modules principaux</li>
+                    <li><strong>Fil d'Ariane :</strong> Suivi de votre parcours</li>
+                    <li><strong>Raccourcis clavier :</strong> Navigation rapide</li>
+                    <li><strong>Favoris :</strong> Pages fréquemment visitées</li>
+                </ul>
+
+                <h4>🔍 Fonction de recherche</h4>
+                
+                <h6>Types de recherche :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🔍 Recherche globale</h6>
+                                <ul>
+                                    <li>Barre de recherche en haut</li>
+                                    <li>Recherche dans tous les modules</li>
+                                    <li>Suggestions automatiques</li>
+                                    <li>Historique des recherches</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🎯 Recherche avancée</h6>
+                                <ul>
+                                    <li>Filtres par module</li>
+                                    <li>Critères multiples</li>
+                                    <li>Recherche par date</li>
+                                    <li>Sauvegarde des filtres</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Raccourcis clavier utiles :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Raccourci</th>
+                            <th>Action</th>
+                            <th>Contexte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ctrl + K</td>
+                            <td>Recherche rapide</td>
+                            <td>Partout</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl + H</td>
+                            <td>Retour à l'accueil</td>
+                            <td>Partout</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl + N</td>
+                            <td>Nouveau (selon contexte)</td>
+                            <td>Listes</td>
+                        </tr>
+                        <tr>
+                            <td>Ctrl + S</td>
+                            <td>Sauvegarder</td>
+                            <td>Formulaires</td>
+                        </tr>
+                        <tr>
+                            <td>Échap</td>
+                            <td>Fermer/Annuler</td>
+                            <td>Modales</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Gestion des Données -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                💾 Gestion des données
+            </div>
+            <div class="card-body">
+                <h4>📝 Saisie et modification</h4>
+                
+                <h6>Bonnes pratiques de saisie :</h6>
+                <ul>
+                    <li><strong>Complétude :</strong> Remplissez tous les champs obligatoires</li>
+                    <li><strong>Précision :</strong> Vérifiez l'exactitude des informations</li>
+                    <li><strong>Cohérence :</strong> Respectez les formats demandés</li>
+                    <li><strong>Sauvegarde :</strong> Enregistrez régulièrement</li>
+                </ul>
+
+                <h4>🔄 Import et export</h4>
+                
+                <h6>Formats supportés :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📥 Import</h6>
+                                <ul>
+                                    <li>Excel (.xlsx, .xls)</li>
+                                    <li>CSV (.csv)</li>
+                                    <li>JSON (.json)</li>
+                                    <li>XML (.xml)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📤 Export</h6>
+                                <ul>
+                                    <li>PDF (.pdf)</li>
+                                    <li>Excel (.xlsx)</li>
+                                    <li>CSV (.csv)</li>
+                                    <li>Word (.docx)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🗂️ Organisation des données</h4>
+                
+                <h6>Système de classement :</h6>
+                <ul>
+                    <li><strong>Catégories :</strong> Classification par type</li>
+                    <li><strong>Tags :</strong> Étiquetage libre</li>
+                    <li><strong>Dossiers :</strong> Organisation hiérarchique</li>
+                    <li><strong>Favoris :</strong> Accès rapide aux éléments importants</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <strong>💡 Conseil :</strong> Utilisez une nomenclature cohérente pour faciliter la recherche et le classement.
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications et Alertes -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🔔 Notifications et alertes
+            </div>
+            <div class="card-body">
+                <h4>📢 Types de notifications</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Urgence</th>
+                            <th>Canaux</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🚨 Urgente</td>
+                            <td>Actions immédiates requises</td>
+                            <td>Critique</td>
+                            <td>Email + SMS + Push</td>
+                        </tr>
+                        <tr>
+                            <td>⚠️ Importante</td>
+                            <td>Attention nécessaire</td>
+                            <td>Élevée</td>
+                            <td>Email + Push</td>
+                        </tr>
+                        <tr>
+                            <td>ℹ️ Information</td>
+                            <td>Mise à jour d'information</td>
+                            <td>Normale</td>
+                            <td>Push</td>
+                        </tr>
+                        <tr>
+                            <td>📅 Rappel</td>
+                            <td>Échéances et événements</td>
+                            <td>Normale</td>
+                            <td>Email + Push</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>⚙️ Configuration des notifications</h4>
+                
+                <h6>Paramètres personnalisables :</h6>
+                <ul>
+                    <li><strong>Fréquence :</strong> Immédiate, groupée, quotidienne</li>
+                    <li><strong>Canaux :</strong> Email, SMS, push, dans l'app</li>
+                    <li><strong>Horaires :</strong> Plages de réception</li>
+                    <li><strong>Types :</strong> Sélection par catégorie</li>
+                </ul>
+
+                <h6>Gestion du centre de notifications :</h6>
+                <ol>
+                    <li><strong>Consultation :</strong> Cliquez sur l'icône 🔔</li>
+                    <li><strong>Marquage :</strong> Lu/non lu</li>
+                    <li><strong>Actions :</strong> Répondre, archiver, supprimer</li>
+                    <li><strong>Filtrage :</strong> Par type ou date</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Aide et Support -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🆘 Aide et support
+            </div>
+            <div class="card-body">
+                <h4>📖 Ressources d'aide</h4>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📚 Documentation</h6>
+                                <ul>
+                                    <li>Guides utilisateur</li>
+                                    <li>Tutoriels vidéo</li>
+                                    <li>FAQ complète</li>
+                                    <li>Glossaire des termes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🎓 Formation</h6>
+                                <ul>
+                                    <li>Modules interactifs</li>
+                                    <li>Webinaires en direct</li>
+                                    <li>Sessions personnalisées</li>
+                                    <li>Certification utilisateur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📞 Contacter le support</h4>
+                
+                <h6>Canaux de support :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Canal</th>
+                            <th>Disponibilité</th>
+                            <th>Délai de réponse</th>
+                            <th>Usage recommandé</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>💬 Chat en ligne</td>
+                            <td>9h-18h</td>
+                            <td>Immédiat</td>
+                            <td>Questions rapides</td>
+                        </tr>
+                        <tr>
+                            <td>📧 Email</td>
+                            <td>24h/24</td>
+                            <td>4h ouvrées</td>
+                            <td>Problèmes détaillés</td>
+                        </tr>
+                        <tr>
+                            <td>📞 Téléphone</td>
+                            <td>9h-17h</td>
+                            <td>Immédiat</td>
+                            <td>Urgences</td>
+                        </tr>
+                        <tr>
+                            <td>🎫 Ticket</td>
+                            <td>24h/24</td>
+                            <td>24h</td>
+                            <td>Demandes complexes</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-success">
+                    <strong>💡 Astuce :</strong> Avant de contacter le support, consultez la FAQ qui répond à 80% des questions courantes.
+                </div>
+            </div>
+        </div>
+
+        <!-- Bonnes Pratiques -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ✅ Bonnes pratiques
+            </div>
+            <div class="card-body">
+                <h4>🎯 Utilisation optimale</h4>
+                
+                <h6>Recommandations générales :</h6>
+                <ul>
+                    <li><strong>Régularité :</strong> Connectez-vous régulièrement</li>
+                    <li><strong>Mise à jour :</strong> Maintenez vos informations à jour</li>
+                    <li><strong>Participation :</strong> Engagez-vous dans les activités</li>
+                    <li><strong>Formation :</strong> Suivez les formations proposées</li>
+                </ul>
+
+                <h4>🔒 Sécurité et confidentialité</h4>
+                
+                <h6>Règles de sécurité :</h6>
+                <div class="alert alert-warning">
+                    <strong>⚠️ Important :</strong>
+                    <ul>
+                        <li>Ne partagez jamais vos identifiants</li>
+                        <li>Utilisez des réseaux sécurisés</li>
+                        <li>Déconnectez-vous des postes partagés</li>
+                        <li>Signalez les activités suspectes</li>
+                    </ul>
+                </div>
+
+                <h4>📈 Optimisation des performances</h4>
+                
+                <h6>Conseils pour une utilisation fluide :</h6>
+                <ul>
+                    <li><strong>Navigateur :</strong> Utilisez une version récente</li>
+                    <li><strong>Cache :</strong> Videz le cache si problème</li>
+                    <li><strong>Connexion :</strong> Assurez-vous d'une bonne connexion</li>
+                    <li><strong>Plugins :</strong> Désactivez les bloqueurs de pub</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="../index.html" class="btn btn-outline">← Retour à l'accueil</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="guide-administrateur.html" class="btn btn-primary">Guide administrateur →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

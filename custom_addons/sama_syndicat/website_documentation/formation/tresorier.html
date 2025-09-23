@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Trésorier - SAMA SYNDICAT</title>
+    <meta name="description" content="Formation complète pour les trésoriers de syndicat utilisant SAMA SYNDICAT">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Accueil</a>
+                <a href="../documentation/guide-utilisateur.html" class="nav-link">Documentation</a>
+                <a href="index.html" class="nav-link active">Formation</a>
+                <a href="../documentation/faq.html" class="nav-link">FAQ</a>
+                <a href="../documentation/support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🎓 Formation par Rôle <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu show">
+                    <li><a href="president.html" class="sidebar-link">👑 Président</a></li>
+                    <li><a href="secretaire.html" class="sidebar-link">📝 Secrétaire</a></li>
+                    <li><a href="tresorier.html" class="sidebar-link active">💰 Trésorier</a></li>
+                    <li><a href="adherent.html" class="sidebar-link">👥 Adhérent</a></li>
+                    <li><a href="delegue.html" class="sidebar-link">🗣️ Délégué</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">💰 Formation Trésorier</h1>
+            <p class="content-subtitle">Gestion financière et cotisations avec SAMA SYNDICAT</p>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="card">
+            <div class="card-header">
+                📊 Votre progression
+            </div>
+            <div class="card-body">
+                <div class="progress mb-3">
+                    <div class="progress-bar" id="tresorier-progress" data-width="0%"></div>
+                </div>
+                <p class="text-center">0% des modules complétés</p>
+            </div>
+        </div>
+
+        <!-- Module 1: Rôle et Responsabilités -->
+        <div class="card" data-module-id="tresorier-role">
+            <div class="card-header">
+                💼 Module 1 : Rôle et responsabilités du trésorier
+                <span class="completion-checkmark" style="display: none;">✅</span>
+            </div>
+            <div class="card-body">
+                <h4>🎯 Objectifs d'apprentissage</h4>
+                <ul>
+                    <li>Comprendre le rôle financier du trésorier</li>
+                    <li>Maîtriser les outils financiers de SAMA SYNDICAT</li>
+                    <li>Assurer la transparence financière</li>
+                    <li>Respecter les obligations légales</li>
+                </ul>
+
+                <h4>💰 Responsabilités Principales</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>📊 Gestion Financière</h6>
+                        <ul>
+                            <li>Suivi des recettes et dépenses</li>
+                            <li>Gestion des cotisations</li>
+                            <li>Tenue de la comptabilité</li>
+                            <li>Préparation des budgets</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>📋 Obligations Légales</h6>
+                        <ul>
+                            <li>Déclarations fiscales</li>
+                            <li>Rapports financiers</li>
+                            <li>Audit et contrôles</li>
+                            <li>Archivage des pièces</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>📈 Dashboard Financier</h4>
+                <p>Votre tableau de bord vous donne une vue d'ensemble des finances :</p>
+                
+                <div class="alert alert-info">
+                    <strong>💡 Accès :</strong> Menu principal → Finances → Dashboard
+                </div>
+
+                <h6>💹 Indicateurs Clés</h6>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">29 942 000 CFA</h3>
+                                <p>Trésorerie</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">2 121 600 CFA</h3>
+                                <p>Recettes mois</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">1 237 400 CFA</h3>
+                                <p>Dépenses mois</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">87%</h3>
+                                <p>Taux collecte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📅 Planning du Trésorier</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Période</th>
+                            <th>Tâches</th>
+                            <th>Échéances</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Quotidien</td>
+                            <td>Saisie des opérations, suivi encaissements</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Hebdomadaire</td>
+                            <td>Rapprochement bancaire, relances</td>
+                            <td>Vendredi</td>
+                        </tr>
+                        <tr>
+                            <td>Mensuel</td>
+                            <td>Clôture comptable, rapport financier</td>
+                            <td>5 du mois suivant</td>
+                        </tr>
+                        <tr>
+                            <td>Trimestriel</td>
+                            <td>Déclarations fiscales, budget prévisionnel</td>
+                            <td>15 du mois suivant</td>
+                        </tr>
+                        <tr>
+                            <td>Annuel</td>
+                            <td>Bilan, rapport d'activité, AG</td>
+                            <td>31 mars</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn btn-success mark-complete" data-module-id="tresorier-role">
+                    ✅ Marquer comme terminé
+                </button>
+            </div>
+        </div>
+
+        <!-- Module 2: Gestion des Cotisations -->
+        <div class="card" data-module-id="tresorier-cotisations">
+            <div class="card-header">
+                💳 Module 2 : Gestion des cotisations
+                <span class="completion-checkmark" style="display: none;">✅</span>
+            </div>
+            <div class="card-body">
+                <h4>🎯 Objectifs d'apprentissage</h4>
+                <ul>
+                    <li>Paramétrer les cotisations</li>
+                    <li>Suivre les encaissements</li>
+                    <li>Gérer les impayés et relances</li>
+                    <li>Analyser les performances de collecte</li>
+                </ul>
+
+                <h4>⚙️ Paramétrage des Cotisations</h4>
+                
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        💰 Définition des montants
+                    </div>
+                    <div class="accordion-content">
+                        <h6>Types de cotisations :</h6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Montant</th>
+                                    <th>Fréquence</th>
+                                    <th>Obligatoire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <td>Cotisation de base</td>
+                            <td>9 825 CFA</td>
+                            <td>Mensuelle</td>
+                            <td>Oui</td>
+                        </tr>
+                        <tr>
+                            <td>Cotisation solidarité</td>
+                            <td>3 275 CFA</td>
+                                    <td>Mensuelle</td>
+                                    <td>Non</td>
+                                </tr>
+                                <tr>
+                                    <td>Cotisation exceptionnelle</td>
+                                    <td>Variable</td>
+                                    <td>Ponctuelle</td>
+                                    <td>Selon AG</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    📅 Échéanciers automatiques
+                </div>
+                <div class="accordion-content">
+                    <p>SAMA SYNDICAT génère automatiquement :</p>
+                    <ul>
+                        <li>Échéances mensuelles pour chaque adhérent</li>
+                        <li>Calcul prorata pour les nouveaux adhérents</li>
+                        <li>Ajustements pour les suspensions/démissions</li>
+                        <li>Cotisations exceptionnelles sur décision</li>
+                    </ul>
+                </div>
+
+                <h4>💸 Suivi des Encaissements</h4>
+                
+                <h6>Modes de paiement :</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>🏦</h5>
+                                <h6>Virement</h6>
+                                <p>Automatique et traçable</p>
+                                <span class="badge badge-success">Recommandé</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>💳</h5>
+                                <h6>Prélèvement</h6>
+                                <p>Régulier et sécurisé</p>
+                                <span class="badge badge-primary">Pratique</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>💰</h5>
+                                <h6>Espèces</h6>
+                                <p>Immédiat mais manuel</p>
+                                <span class="badge badge-warning">Limité</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Rapprochement bancaire :</h6>
+                <ol>
+                    <li><strong>Import automatique :</strong> Relevés bancaires</li>
+                    <li><strong>Reconnaissance :</strong> Identification des virements</li>
+                    <li><strong>Lettrage :</strong> Association avec les échéances</li>
+                    <li><strong>Validation :</strong> Contrôle et validation</li>
+                </ol>
+
+                <h4>📢 Gestion des Impayés</h4>
+                
+                <h6>Processus de relance automatique :</h6>
+                <div class="code-block">
+Jour J+7  : Email de rappel automatique
+Jour J+15 : SMS de relance + email
+Jour J+30 : Courrier de mise en demeure
+Jour J+45 : Convocation entretien
+Jour J+60 : Suspension des droits
+                </div>
+
+                <h6>Tableau de bord impayés :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Statut</th>
+                            <th>Nombre</th>
+                            <th>Montant</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Retard 1-15 jours</td>
+                            <td>12</td>
+                            <td>117 900 CFA</td>
+                            <td>Rappel automatique</td>
+                        </tr>
+                        <tr>
+                            <td>Retard 15-30 jours</td>
+                            <td>5</td>
+                            <td>49 125 CFA</td>
+                            <td>Relance renforcée</td>
+                        </tr>
+                        <tr>
+                            <td>Retard +30 jours</td>
+                            <td>2</td>
+                            <td>19 650 CFA</td>
+                            <td>Procédure suspension</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn btn-success mark-complete" data-module-id="tresorier-cotisations">
+                    ✅ Marquer comme terminé
+                </button>
+            </div>
+        </div>
+
+        <!-- Module 3: Comptabilité -->
+        <div class="card" data-module-id="tresorier-comptabilite">
+            <div class="card-header">
+                📊 Module 3 : Tenue de la comptabilité
+                <span class="completion-checkmark" style="display: none;">✅</span>
+            </div>
+            <div class="card-body">
+                <h4>🎯 Objectifs d'apprentissage</h4>
+                <ul>
+                    <li>Saisir les écritures comptables</li>
+                    <li>Classer et justifier les opérations</li>
+                    <li>Éditer les états financiers</li>
+                    <li>Préparer les contrôles et audits</li>
+                </ul>
+
+                <h4>📝 Saisie des Écritures</h4>
+                
+                <h6>Plan comptable syndical :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Classe</th>
+                            <th>Intitulé</th>
+                            <th>Exemples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Comptes de capitaux</td>
+                            <td>Fonds associatif, réserves</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Comptes d'immobilisations</td>
+                            <td>Matériel, mobilier, logiciels</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Comptes de tiers</td>
+                            <td>Adhérents, fournisseurs</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Comptes financiers</td>
+                            <td>Banque, caisse, placements</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Comptes de charges</td>
+                            <td>Fournitures, services, salaires</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Comptes de produits</td>
+                            <td>Cotisations, subventions</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h6>Saisie guidée :</h6>
+                <ol>
+                    <li><strong>Sélection du type :</strong> Recette, dépense, virement</li>
+                    <li><strong>Saisie automatique :</strong> Comptes et libellés suggérés</li>
+                    <li><strong>Pièces justificatives :</strong> Scan et archivage</li>
+                    <li><strong>Validation :</strong> Contrôles de cohérence</li>
+                </ol>
+
+                <h4>📋 Justificatifs et Archivage</h4>
+                
+                <div class="alert alert-warning">
+                    <strong>⚠️ Obligation légale :</strong> Toute écriture comptable doit être justifiée par une pièce probante conservée 10 ans.
+                </div>
+
+                <h6>Types de justificatifs :</h6>
+                <ul>
+                    <li><strong>Recettes :</strong> Relevés bancaires, reçus, bordereaux</li>
+                    <li><strong>Dépenses :</strong> Factures, notes de frais, contrats</li>
+                    <li><strong>Virements :</strong> Ordres de virement, avis d'opération</li>
+                    <li><strong>Inventaire :</strong> États de stocks, amortissements</li>
+                </ul>
+
+                <h6>Archivage numérique :</h6>
+                <div class="code-block">
+Processus d'archivage SAMA SYNDICAT :
+1. Scan automatique des documents
+2. Reconnaissance OCR du contenu
+3. Indexation par mots-clés
+4. Stockage sécurisé et chiffré
+5. Recherche facilitée
+6. Export pour contrôles
+                </div>
+
+                <h4>📈 États Financiers</h4>
+                
+                <h6>Rapports automatiques :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📊 Bilan</h6>
+                                <ul>
+                                    <li>Actif et passif</li>
+                                    <li>Situation patrimoniale</li>
+                                    <li>Évolution des fonds</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📈 Compte de résultat</h6>
+                                <ul>
+                                    <li>Produits et charges</li>
+                                    <li>Résultat de l'exercice</li>
+                                    <li>Analyse par nature</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Tableaux de bord :</h6>
+                <ul>
+                    <li><strong>Évolution trésorerie :</strong> Graphique mensuel</li>
+                    <li><strong>Répartition charges :</strong> Camembert par poste</li>
+                    <li><strong>Comparaison budgétaire :</strong> Réalisé vs prévisionnel</li>
+                    <li><strong>Ratios financiers :</strong> Indicateurs de santé</li>
+                </ul>
+
+                <button class="btn btn-success mark-complete" data-module-id="tresorier-comptabilite">
+                    ✅ Marquer comme terminé
+                </button>
+            </div>
+        </div>
+
+        <!-- Module 4: Budget et Prévisions -->
+        <div class="card" data-module-id="tresorier-budget">
+            <div class="card-header">
+                📊 Module 4 : Budget et prévisions
+                <span class="completion-checkmark" style="display: none;">✅</span>
+            </div>
+            <div class="card-body">
+                <h4>🎯 Objectifs d'apprentissage</h4>
+                <ul>
+                    <li>Élaborer le budget prévisionnel</li>
+                    <li>Suivre l'exécution budgétaire</li>
+                    <li>Analyser les écarts</li>
+                    <li>Proposer des ajustements</li>
+                </ul>
+
+                <h4>📋 Élaboration du Budget</h4>
+                
+                <h6>Méthode de construction :</h6>
+                <ol>
+                    <li><strong>Analyse historique :</strong> Données des 3 dernières années</li>
+                    <li><strong>Projections :</strong> Évolution des effectifs et cotisations</li>
+                    <li><strong>Objectifs :</strong> Projets et investissements prévus</li>
+                    <li><strong>Validation :</strong> Présentation au bureau puis AG</li>
+                </ol>
+
+                <h6>Structure budgétaire :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Poste</th>
+                            <th>Budget N-1</th>
+                            <th>Réalisé N-1</th>
+                            <th>Budget N</th>
+                            <th>Évolution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-success">
+                            <td><strong>RECETTES</strong></td>
+                            <td><strong>24 890 000 CFA</strong></td>
+                            <td><strong>23 907 500 CFA</strong></td>
+                            <td><strong>26 200 000 CFA</strong></td>
+                            <td><strong>+5,3%</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Cotisations</td>
+                            <td>22 925 000 CFA</td>
+                            <td>22 401 000 CFA</td>
+                            <td>24 235 000 CFA</td>
+                            <td>+5,7%</td>
+                        </tr>
+                        <tr>
+                            <td>Subventions</td>
+                            <td>1 310 000 CFA</td>
+                            <td>1 179 000 CFA</td>
+                            <td>1 637 500 CFA</td>
+                            <td>+25%</td>
+                        </tr>
+                        <tr>
+                            <td>Autres produits</td>
+                            <td>655 000 CFA</td>
+                            <td>327 500 CFA</td>
+                            <td>327 500 CFA</td>
+                            <td>-50%</td>
+                        </tr>
+                        <tr class="table-warning">
+                            <td><strong>DÉPENSES</strong></td>
+                            <td><strong>22 925 000 CFA</strong></td>
+                            <td><strong>22 139 000 CFA</strong></td>
+                            <td><strong>24 562 500 CFA</strong></td>
+                            <td><strong>+7,1%</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Fonctionnement</td>
+                            <td>9 825 000 CFA</td>
+                            <td>9 301 000 CFA</td>
+                            <td>10 480 000 CFA</td>
+                            <td>+6,7%</td>
+                        </tr>
+                        <tr>
+                            <td>Actions syndicales</td>
+                            <td>7 860 000 CFA</td>
+                            <td>7 532 500 CFA</td>
+                            <td>8 515 000 CFA</td>
+                            <td>+8,3%</td>
+                        </tr>
+                        <tr>
+                            <td>Formations</td>
+                            <td>3 275 000 CFA</td>
+                            <td>3 144 000 CFA</td>
+                            <td>3 602 500 CFA</td>
+                            <td>+10%</td>
+                        </tr>
+                        <tr>
+                            <td>Investissements</td>
+                            <td>1 965 000 CFA</td>
+                            <td>2 161 500 CFA</td>
+                            <td>1 965 000 CFA</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr class="table-info">
+                            <td><strong>RÉSULTAT</strong></td>
+                            <td><strong>+1 965 000 CFA</strong></td>
+                            <td><strong>+1 768 500 CFA</strong></td>
+                            <td><strong>+1 637 500 CFA</strong></td>
+                            <td><strong>-16,7%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>📊 Suivi Budgétaire</h4>
+                
+                <h6>Tableau de bord mensuel :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>💰 Recettes</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-success" data-width="65%"></div>
+                                </div>
+                                <p class="mb-0">65% du budget (17 030 000 CFA / 26 200 000 CFA)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>💸 Dépenses</h6>
+                                <div class="progress mb-2">
+                                    <div class="progress-bar bg-warning" data-width="58%"></div>
+                                </div>
+                                <p class="mb-0">58% du budget (14 246 250 CFA / 24 562 500 CFA)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Analyse des écarts :</h6>
+                <div class="alert alert-info">
+                    <strong>📈 Analyse automatique :</strong> SAMA SYNDICAT calcule automatiquement les écarts et propose des explications basées sur l'historique.
+                </div>
+
+                <h4>🔮 Prévisions et Projections</h4>
+                
+                <h6>Outils de projection :</h6>
+                <ul>
+                    <li><strong>Tendances :</strong> Extrapolation des données actuelles</li>
+                    <li><strong>Saisonnalité :</strong> Prise en compte des variations cycliques</li>
+                    <li><strong>Scénarios :</strong> Optimiste, réaliste, pessimiste</li>
+                    <li><strong>Simulations :</strong> Impact de décisions stratégiques</li>
+                </ul>
+
+                <button class="btn btn-success mark-complete" data-module-id="tresorier-budget">
+                    ✅ Marquer comme terminé
+                </button>
+            </div>
+        </div>
+
+        <!-- Module 5: Contrôles et Audit -->
+        <div class="card" data-module-id="tresorier-audit">
+            <div class="card-header">
+                🔍 Module 5 : Contrôles et audit
+                <span class="completion-checkmark" style="display: none;">✅</span>
+            </div>
+            <div class="card-body">
+                <h4>🎯 Objectifs d'apprentissage</h4>
+                <ul>
+                    <li>Préparer les contrôles internes</li>
+                    <li>Faciliter les audits externes</li>
+                    <li>Respecter les obligations déclaratives</li>
+                    <li>Assurer la transparence financière</li>
+                </ul>
+
+                <h4>🔎 Contrôles Internes</h4>
+                
+                <h6>Contrôles automatiques SAMA SYNDICAT :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>✅ Contrôles quotidiens</h6>
+                                <ul>
+                                    <li>Équilibre des écritures</li>
+                                    <li>Cohérence des montants</li>
+                                    <li>Justificatifs obligatoires</li>
+                                    <li>Dates de valeur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📊 Contrôles périodiques</h6>
+                                <ul>
+                                    <li>Rapprochements bancaires</li>
+                                    <li>Inventaires</li>
+                                    <li>Provisions</li>
+                                    <li>Amortissements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Procédures de validation :</h6>
+                <ol>
+                    <li><strong>Saisie :</strong> Contrôles automatiques à la saisie</li>
+                    <li><strong>Validation :</strong> Approbation par le trésorier</li>
+                    <li><strong>Clôture :</strong> Validation mensuelle définitive</li>
+                    <li><strong>Supervision :</strong> Contrôle par le président</li>
+                </ol>
+
+                <h4>🏛️ Audits Externes</h4>
+                
+                <h6>Préparation de l'audit :</h6>
+                <div class="code-block">
+Documents à préparer :
+• Balance générale et auxiliaires
+• Grand livre détaillé
+• Justificatifs de toutes les écritures
+• Rapprochements bancaires
+• Inventaires physiques
+• Contrats et conventions
+• Procès-verbaux d'assemblées
+                </div>
+
+                <h6>Export automatique :</h6>
+                <p>SAMA SYNDICAT génère automatiquement tous les documents requis :</p>
+                <ul>
+                    <li>Fichier FEC (Fichier des Écritures Comptables)</li>
+                    <li>Balance par période</li>
+                    <li>Journal centralisateur</li>
+                    <li>États de rapprochement</li>
+                </ul>
+
+                <h4>📋 Obligations Déclaratives</h4>
+                
+                <h6>Calendrier fiscal :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Déclaration</th>
+                            <th>Périodicité</th>
+                            <th>Échéance</th>
+                            <th>Automatisation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TVA (si assujetti)</td>
+                            <td>Mensuelle</td>
+                            <td>15 du mois suivant</td>
+                            <td>Pré-remplie</td>
+                        </tr>
+                        <tr>
+                            <td>Déclaration annuelle</td>
+                            <td>Annuelle</td>
+                            <td>31 mai</td>
+                            <td>Générée automatiquement</td>
+                        </tr>
+                        <tr>
+                            <td>Rapport d'activité</td>
+                            <td>Annuelle</td>
+                            <td>AG annuelle</td>
+                            <td>Template disponible</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>📊 Transparence Financière</h4>
+                
+                <h6>Communication aux adhérents :</h6>
+                <ul>
+                    <li><strong>Rapport mensuel :</strong> Synthèse des finances</li>
+                    <li><strong>Rapport trimestriel :</strong> Exécution budgétaire</li>
+                    <li><strong>Rapport annuel :</strong> Bilan complet et perspectives</li>
+                    <li><strong>Accès en ligne :</strong> Consultation des comptes</li>
+                </ul>
+
+                <div class="alert alert-success">
+                    <strong>🎓 Certification Trésorier</strong><br>
+                    Félicitations ! Vous maîtrisez maintenant :
+                    <ul>
+                        <li>✅ La gestion complète des cotisations</li>
+                        <li>✅ La tenue de la comptabilité syndicale</li>
+                        <li>✅ L'élaboration et le suivi budgétaire</li>
+                        <li>✅ Les contrôles et audits</li>
+                        <li>✅ La transparence financière</li>
+                    </ul>
+                </div>
+
+                <button class="btn btn-success mark-complete" data-module-id="tresorier-audit">
+                    ✅ Marquer comme terminé
+                </button>
+            </div>
+        </div>
+
+        <!-- Ressources Complémentaires -->
+        <div class="card">
+            <div class="card-header">
+                📚 Ressources complémentaires
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h6>📖 Documentation</h6>
+                        <ul>
+                            <li><a href="../documentation/modules/finances.html">Module Finances</a></li>
+                            <li><a href="../documentation/comptabilite.html">Guide comptable</a></li>
+                            <li><a href="../documentation/fiscalite.html">Obligations fiscales</a></li>
+                            <li><a href="../documentation/audit.html">Préparation audit</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>🛠️ Outils pratiques</h6>
+                        <ul>
+                            <li><a href="../documentation/plan-comptable.html">Plan comptable</a></li>
+                            <li><a href="../documentation/modeles-budget.html">Modèles de budget</a></li>
+                            <li><a href="../documentation/ratios-financiers.html">Ratios financiers</a></li>
+                            <li><a href="../documentation/export-comptable.html">Exports comptables</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="secretaire.html" class="btn btn-outline">← Formation Secrétaire</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="adherent.html" class="btn btn-primary">Formation Adhérent →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Update progress for tresorier modules
+        document.addEventListener('DOMContentLoaded', function() {
+            const modules = ['tresorier-role', 'tresorier-cotisations', 'tresorier-comptabilite', 'tresorier-budget', 'tresorier-audit'];
+            let completed = 0;
+            
+            modules.forEach(moduleId => {
+                if (window.SamaSyndicatDocs.trainingProgress.isComplete(moduleId)) {
+                    completed++;
+                }
+            });
+            
+            const progressBar = document.getElementById('tresorier-progress');
+            const percentage = (completed / modules.length) * 100;
+            progressBar.style.width = percentage + '%';
+            progressBar.parentNode.nextElementSibling.textContent = `${Math.round(percentage)}% des modules complétés`;
+        });
+    </script>
+</body>
+</html>

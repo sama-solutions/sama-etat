@@ -1,0 +1,247 @@
+/* CSS pour le tableau de bord SAMA SYNDICAT */
+
+/* Forcer l'utilisation de toute la largeur pour le dashboard */
+.o_kanban_dashboard_fullwidth {
+    width: 100% !important;
+    max-width: none !important;
+}
+
+.o_kanban_dashboard_fullwidth .o_kanban_record {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* Forcer la largeur complète du conteneur principal */
+.o_content .o_kanban_view.o_kanban_dashboard_fullwidth {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.o_content .o_kanban_view.o_kanban_dashboard_fullwidth .o_kanban_renderer {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Supprimer les colonnes Kanban par défaut */
+.o_kanban_dashboard_fullwidth .o_kanban_group {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: none !important;
+}
+
+.o_kanban_dashboard_fullwidth .o_kanban_group .o_kanban_header {
+    display: none !important;
+}
+
+/* Forcer le conteneur à utiliser toute la largeur */
+.o_kanban_dashboard_fullwidth .o_kanban_group .o_kanban_load_more {
+    display: none !important;
+}
+
+.o_kanban_dashboard_record {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+/* Améliorer l'apparence des cartes */
+.o_kanban_dashboard_record .card {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.o_kanban_dashboard_record .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Titre du dashboard */
+.o_kanban_dashboard_title {
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Améliorer les badges */
+.o_kanban_dashboard_record .badge {
+    font-size: 0.85em;
+    padding: 0.4em 0.6em;
+}
+
+/* Responsive design pour les cartes */
+@media (max-width: 768px) {
+    .o_kanban_dashboard_record {
+        padding: 15px !important;
+    }
+    
+    .o_kanban_dashboard_record .card-body {
+        padding: 1rem 0.75rem;
+    }
+}
+
+/* Améliorer les alertes */
+.o_kanban_dashboard_record .alert {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9em;
+}
+
+/* Boutons d'actions rapides */
+.o_kanban_dashboard_record .btn {
+    font-size: 0.85em;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+}
+
+/* Styles spécifiques pour les stat_box d'Odoo */
+.o_kanban_dashboard_record .o_stat_box {
+    display: inline-block;
+    margin: 5px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    text-align: center;
+}
+
+.o_kanban_dashboard_record .o_stat_box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.o_kanban_dashboard_record .o_stat_button {
+    background: none;
+    border: none;
+    color: inherit;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.o_kanban_dashboard_record .o_stat_value {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.o_kanban_dashboard_record .o_stat_text {
+    display: block;
+    font-size: 0.9em;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* Sections du dashboard */
+.o_kanban_dashboard_section {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.o_kanban_dashboard_title {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Styles pour les cartes cliquables du dashboard */
+.dashboard-card {
+    transition: all 0.3s ease;
+    cursor: pointer !important;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-color: #007bff !important;
+}
+
+.dashboard-card:active {
+    transform: translateY(-2px);
+    transition: all 0.1s ease;
+}
+
+/* Styles pour les alertes cliquables */
+.dashboard-alert {
+    transition: all 0.2s ease;
+    cursor: pointer !important;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-alert:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.dashboard-alert:active {
+    transform: scale(1.01);
+    transition: all 0.1s ease;
+}
+
+/* Indicateur visuel pour les éléments cliquables */
+.dashboard-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba(0,123,255,0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.dashboard-card:hover::before {
+    opacity: 1;
+}
+
+/* Améliorer l'apparence des badges dans les cartes */
+.dashboard-card .badge {
+    transition: all 0.2s ease;
+}
+
+.dashboard-card:hover .badge {
+    transform: scale(1.05);
+}
+
+/* Styles pour les icônes dans les headers */
+.dashboard-card .card-header i {
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover .card-header i {
+    transform: scale(1.1);
+}
+
+/* Responsive pour les cartes cliquables */
+@media (max-width: 768px) {
+    .dashboard-card:hover {
+        transform: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    }
+    
+    .dashboard-alert:hover {
+        transform: none;
+    }
+}

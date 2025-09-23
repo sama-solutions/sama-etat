@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Actions pour les boutons du dashboard -->
+        
+        <!-- Action pour ouvrir les adhérents -->
+        <record id="action_open_adherents" model="ir.actions.act_window">
+            <field name="name">Adhérents</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les adhérents du syndicat
+                </p>
+                <p>
+                    Créez et gérez les adhérents, leurs cotisations et leur statut.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les cotisations à jour -->
+        <record id="action_open_cotisations" model="ir.actions.act_window">
+            <field name="name">Cotisations à Jour</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('cotisations_a_jour', '=', True)]</field>
+            <field name="context">{'search_default_cotisations_jour': 1}</field>
+            <field name="help">Liste des adhérents avec des cotisations à jour</field>
+        </record>
+
+        <!-- Action pour ouvrir les cotisations en retard -->
+        <record id="action_open_cotisations_retard" model="ir.actions.act_window">
+            <field name="name">Cotisations en Retard</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('cotisations_a_jour', '=', False)]</field>
+            <field name="context">{'search_default_cotisations_retard': 1}</field>
+            <field name="help">Liste des adhérents avec des cotisations en retard</field>
+        </record>
+
+        <!-- Action pour ouvrir les assemblées -->
+        <record id="action_open_assemblees" model="ir.actions.act_window">
+            <field name="name">Assemblées</field>
+            <field name="res_model">syndicat.assemblee</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les assemblées du syndicat
+                </p>
+                <p>
+                    Planifiez et organisez les assemblées générales et extraordinaires.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les revendications -->
+        <record id="action_open_revendications" model="ir.actions.act_window">
+            <field name="name">Revendications</field>
+            <field name="res_model">syndicat.revendication</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les revendications syndicales
+                </p>
+                <p>
+                    Suivez les revendications et négociations avec les employeurs.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les actions syndicales -->
+        <record id="action_open_actions" model="ir.actions.act_window">
+            <field name="name">Actions Syndicales</field>
+            <field name="res_model">syndicat.action</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les actions syndicales
+                </p>
+                <p>
+                    Organisez et suivez les actions collectives du syndicat.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les formations -->
+        <record id="action_open_formations" model="ir.actions.act_window">
+            <field name="name">Formations</field>
+            <field name="res_model">syndicat.formation</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les formations syndicales
+                </p>
+                <p>
+                    Organisez des formations pour les adhérents et les représentants.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les médiations -->
+        <record id="action_open_mediations" model="ir.actions.act_window">
+            <field name="name">Médiations</field>
+            <field name="res_model">syndicat.mediation</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les médiations
+                </p>
+                <p>
+                    Résolvez les conflits par la médiation et la négociation.
+                </p>
+            </field>
+        </record>
+
+        <!-- Action pour ouvrir les communications -->
+        <record id="action_open_communications" model="ir.actions.act_window">
+            <field name="name">Communications</field>
+            <field name="res_model">syndicat.communication</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Gérer les communications syndicales
+                </p>
+                <p>
+                    Communiquez avec les adhérents et le public.
+                </p>
+            </field>
+        </record>
+
+        <!-- Actions pour les alertes -->
+        
+        <!-- Alertes cotisations -->
+        <record id="action_open_alertes_cotisations" model="ir.actions.act_window">
+            <field name="name">Alertes - Cotisations en Retard</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('cotisations_a_jour', '=', False)]</field>
+            <field name="context">{'search_default_cotisations_retard': 1}</field>
+            <field name="help">Adhérents avec des cotisations en retard nécessitant une action</field>
+        </record>
+
+        <!-- Alertes assemblées -->
+        <record id="action_open_alertes_assemblees" model="ir.actions.act_window">
+            <field name="name">Alertes - Assemblées sans Quorum</field>
+            <field name="res_model">syndicat.assemblee</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('statut', '=', 'annulee')]</field>
+            <field name="context">{'search_default_sans_quorum': 1}</field>
+            <field name="help">Assemblées annulées pour manque de quorum</field>
+        </record>
+
+        <!-- Alertes actions -->
+        <record id="action_open_alertes_actions" model="ir.actions.act_window">
+            <field name="name">Alertes - Actions en Retard</field>
+            <field name="res_model">syndicat.action</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('statut', '=', 'en_cours'), ('date_fin_prevue', '&lt;', context_today().strftime('%Y-%m-%d'))]</field>
+            <field name="context">{'search_default_en_retard': 1}</field>
+            <field name="help">Actions en cours qui dépassent leur date de fin prévue</field>
+        </record>
+
+        <!-- Alertes médiations -->
+        <record id="action_open_alertes_mediations" model="ir.actions.act_window">
+            <field name="name">Alertes - Médiations Urgentes</field>
+            <field name="res_model">syndicat.mediation</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('statut', '=', 'en_cours'), ('priorite', '=', 'haute')]</field>
+            <field name="context">{'search_default_urgentes': 1}</field>
+            <field name="help">Médiations en cours avec priorité haute</field>
+        </record>
+
+        <!-- Actions pour les dashboards modernes -->
+
+    </data>
+</odoo>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Catégories de sécurité -->
+        <record id="module_category_syndicat" model="ir.module.category">
+            <field name="name">Syndicat</field>
+            <field name="description">Gestion des droits d'accès pour le module syndicat</field>
+            <field name="sequence">20</field>
+        </record>
+
+        <!-- Groupes de sécurité -->
+        
+        <!-- Groupe Adhérent -->
+        <record id="group_syndicat_adherent" model="res.groups">
+            <field name="name">Syndicat / Adhérent</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="comment">Adhérent du syndicat - Accès limité aux informations personnelles</field>
+        </record>
+
+        <!-- Groupe Utilisateur -->
+        <record id="group_syndicat_user" model="res.groups">
+            <field name="name">Syndicat / Utilisateur</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="comment">Utilisateur syndical - Accès en lecture/écriture aux données courantes</field>
+        </record>
+
+        <!-- Groupe Responsable -->
+        <record id="group_syndicat_manager" model="res.groups">
+            <field name="name">Syndicat / Responsable</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="comment">Responsable syndical - Accès complet aux données syndicales</field>
+        </record>
+
+        <!-- Groupe Secrétaire -->
+        <record id="group_syndicat_secretaire" model="res.groups">
+            <field name="name">Syndicat / Secrétaire</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="comment">Secrétaire syndical - Gestion des communications et assemblées</field>
+        </record>
+
+        <!-- Groupe Trésorier -->
+        <record id="group_syndicat_tresorier" model="res.groups">
+            <field name="name">Syndicat / Trésorier</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="comment">Trésorier syndical - Gestion des cotisations et finances</field>
+        </record>
+
+        <!-- Groupe Formateur -->
+        <record id="group_syndicat_formateur" model="res.groups">
+            <field name="name">Syndicat / Formateur</field>
+            <field name="category_id" ref="module_category_syndicat"/>
+            <field name="implied_ids" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="comment">Formateur syndical - Gestion des formations</field>
+        </record>
+
+        <!-- Règles de sécurité par enregistrement -->
+
+        <!-- Règles pour syndicat.adherent -->
+        <record id="syndicat_adherent_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès à ses propres données</field>
+            <field name="model_id" ref="model_syndicat_adherent"/>
+            <field name="domain_force">[('email', '=', user.email)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_adherent_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès à tous les adhérents</field>
+            <field name="model_id" ref="model_syndicat_adherent"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_adherent_rule_manager" model="ir.rule">
+            <field name="name">Responsable: accès complet aux adhérents</field>
+            <field name="model_id" ref="model_syndicat_adherent"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_manager'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Règles pour syndicat.cotisation -->
+        <record id="syndicat_cotisation_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès à ses cotisations</field>
+            <field name="model_id" ref="model_syndicat_cotisation"/>
+            <field name="domain_force">[('adherent_id.email', '=', user.email)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_cotisation_rule_tresorier" model="ir.rule">
+            <field name="name">Trésorier: accès à toutes les cotisations</field>
+            <field name="model_id" ref="model_syndicat_cotisation"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_tresorier'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Règles pour syndicat.assemblee -->
+        <record id="syndicat_assemblee_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès aux assemblées où il est invité</field>
+            <field name="model_id" ref="model_syndicat_assemblee"/>
+            <field name="domain_force">['|', ('adherent_invites_ids.email', '=', user.email), ('diffusion_publique', '=', True)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_assemblee_rule_secretaire" model="ir.rule">
+            <field name="name">Secrétaire: accès à toutes les assemblées</field>
+            <field name="model_id" ref="model_syndicat_assemblee"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_secretaire'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Règles pour syndicat.communication -->
+        <record id="syndicat_communication_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès aux communications publiques et qui lui sont destinées</field>
+            <field name="model_id" ref="model_syndicat_communication"/>
+            <field name="domain_force">['&amp;', ('statut', '=', 'publiee'), '|', '|', ('canal_diffusion', 'in', ['public', 'mixte']), ('destinataires_tous_adherents', '=', True), ('destinataires_adherents_ids.email', '=', user.email)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_communication_rule_secretaire" model="ir.rule">
+            <field name="name">Secrétaire: accès à toutes les communications</field>
+            <field name="model_id" ref="model_syndicat_communication"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_secretaire'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Règles pour syndicat.formation -->
+        <record id="syndicat_formation_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès aux formations où il participe</field>
+            <field name="model_id" ref="model_syndicat_formation"/>
+            <field name="domain_force">['|', ('participants_ids.email', '=', user.email), ('statut', '=', 'inscriptions_ouvertes')]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_formation_rule_formateur" model="ir.rule">
+            <field name="name">Formateur: accès à toutes les formations</field>
+            <field name="model_id" ref="model_syndicat_formation"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_formateur'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+        <!-- Règles pour syndicat.mediation -->
+        <record id="syndicat_mediation_rule_adherent" model="ir.rule">
+            <field name="name">Adhérent: accès aux médiations qui le concernent</field>
+            <field name="model_id" ref="model_syndicat_mediation"/>
+            <field name="domain_force">['|', ('demandeur_id.email', '=', user.email), ('autres_adherents_ids.email', '=', user.email)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_adherent'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_mediation_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès à toutes les médiations</field>
+            <field name="model_id" ref="model_syndicat_mediation"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <!-- Règles pour les autres modèles (accès utilisateur par défaut) -->
+        <record id="syndicat_revendication_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès aux revendications</field>
+            <field name="model_id" ref="model_syndicat_revendication"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_action_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès aux actions</field>
+            <field name="model_id" ref="model_syndicat_action"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_convention_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès aux conventions</field>
+            <field name="model_id" ref="model_syndicat_convention"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+
+        <record id="syndicat_dashboard_rule_user" model="ir.rule">
+            <field name="name">Utilisateur: accès au tableau de bord</field>
+            <field name="model_id" ref="model_syndicat_dashboard"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_syndicat_user'))]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Données de démonstration pour le syndicat -->
+
+        <!-- Tableau de bord principal -->
+        <record id="dashboard_principal" model="syndicat.dashboard">
+            <field name="name">Tableau de Bord Principal</field>
+        </record>
+
+        <!-- Exemples d'adhérents -->
+        <record id="adherent_demo_1" model="syndicat.adherent">
+            <field name="prenom">Amadou</field>
+            <field name="nom_famille">Diallo</field>
+            <field name="email">amadou.diallo@example.com</field>
+            <field name="telephone">+221 77 123 45 67</field>
+            <field name="adresse">Rue 10, Plateau</field>
+            <field name="ville">Dakar</field>
+            <field name="employeur">Société SENEGAL TELECOM</field>
+            <field name="poste_occupe">Technicien Réseau</field>
+            <field name="responsabilite_syndicale">president</field>
+            <field name="statut_adhesion">actif</field>
+        </record>
+
+        <record id="adherent_demo_2" model="syndicat.adherent">
+            <field name="prenom">Fatou</field>
+            <field name="nom_famille">Sow</field>
+            <field name="email">fatou.sow@example.com</field>
+            <field name="telephone">+221 76 234 56 78</field>
+            <field name="adresse">Cité Keur Gorgui</field>
+            <field name="ville">Dakar</field>
+            <field name="employeur">Banque Atlantique</field>
+            <field name="poste_occupe">Conseillère Clientèle</field>
+            <field name="responsabilite_syndicale">secretaire</field>
+            <field name="statut_adhesion">actif</field>
+        </record>
+
+        <record id="adherent_demo_3" model="syndicat.adherent">
+            <field name="prenom">Moussa</field>
+            <field name="nom_famille">Ba</field>
+            <field name="email">moussa.ba@example.com</field>
+            <field name="telephone">+221 78 345 67 89</field>
+            <field name="adresse">Parcelles Assainies</field>
+            <field name="ville">Dakar</field>
+            <field name="employeur">Ministère de l'Éducation</field>
+            <field name="poste_occupe">Professeur</field>
+            <field name="responsabilite_syndicale">tresorier</field>
+            <field name="statut_adhesion">actif</field>
+        </record>
+
+        <!-- Contacts correspondants -->
+        <record id="contact_demo_1" model="res.partner">
+            <field name="name">Amadou Diallo</field>
+            <field name="email">amadou.diallo@example.com</field>
+            <field name="phone">+221 77 123 45 67</field>
+            <field name="street">Rue 10, Plateau</field>
+            <field name="city">Dakar</field>
+            <field name="is_adherent_syndicat">True</field>
+            <field name="adherent_syndicat_id" ref="adherent_demo_1"/>
+        </record>
+
+        <record id="contact_demo_2" model="res.partner">
+            <field name="name">Fatou Sow</field>
+            <field name="email">fatou.sow@example.com</field>
+            <field name="phone">+221 76 234 56 78</field>
+            <field name="street">Cité Keur Gorgui</field>
+            <field name="city">Dakar</field>
+            <field name="is_adherent_syndicat">True</field>
+            <field name="adherent_syndicat_id" ref="adherent_demo_2"/>
+        </record>
+
+        <record id="contact_demo_3" model="res.partner">
+            <field name="name">Moussa Ba</field>
+            <field name="email">moussa.ba@example.com</field>
+            <field name="phone">+221 78 345 67 89</field>
+            <field name="street">Parcelles Assainies</field>
+            <field name="city">Dakar</field>
+            <field name="is_adherent_syndicat">True</field>
+            <field name="adherent_syndicat_id" ref="adherent_demo_3"/>
+        </record>
+
+        <!-- Exemple d'employeur -->
+        <record id="employeur_demo_1" model="res.partner">
+            <field name="name">SENEGAL TELECOM</field>
+            <field name="is_company">True</field>
+            <field name="is_employeur">True</field>
+            <field name="secteur_activite">Télécommunications</field>
+            <field name="nb_employes">2500</field>
+            <field name="email">contact@orange.sn</field>
+            <field name="phone">+221 33 839 90 00</field>
+        </record>
+
+        <!-- Exemple d'assemblée -->
+        <record id="assemblee_demo_1" model="syndicat.assemblee">
+            <field name="name">Assemblée Générale Ordinaire 2024</field>
+            <field name="type_assemblee">generale_ordinaire</field>
+            <field name="date_debut" eval="(DateTime.now() + timedelta(days=30)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="date_fin" eval="(DateTime.now() + timedelta(days=30, hours=3)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="lieu">Salle de Conférence du Centre Culturel</field>
+            <field name="president_assemblee_id" ref="adherent_demo_1"/>
+            <field name="secretaire_assemblee_id" ref="adherent_demo_2"/>
+            <field name="ordre_du_jour">&lt;p&gt;1. Rapport moral du Président&lt;/p&gt;&lt;p&gt;2. Rapport financier du Trésorier&lt;/p&gt;&lt;p&gt;3. Bilan des activités 2024&lt;/p&gt;&lt;p&gt;4. Programme d'activités 2025&lt;/p&gt;&lt;p&gt;5. Questions diverses&lt;/p&gt;</field>
+            <field name="statut">planifiee</field>
+        </record>
+
+        <!-- Exemple de revendication -->
+        <record id="revendication_demo_1" model="syndicat.revendication">
+            <field name="name">Augmentation salariale générale</field>
+            <field name="type_revendication">salaire</field>
+            <field name="priorite">elevee</field>
+            <field name="initiateur_id" ref="adherent_demo_1"/>
+            <field name="employeur_concerne">SENEGAL TELECOM</field>
+            <field name="description">&lt;p&gt;Demande d'augmentation salariale de 15% pour tous les employés suite à l'inflation et aux bons résultats de l'entreprise.&lt;/p&gt;</field>
+            <field name="objectifs">&lt;p&gt;Améliorer le pouvoir d'achat des employés et reconnaître leur contribution aux résultats de l'entreprise.&lt;/p&gt;</field>
+            <field name="justification">&lt;p&gt;L'inflation a augmenté de 8% cette année et l'entreprise a réalisé des bénéfices record.&lt;/p&gt;</field>
+            <field name="statut">soumise</field>
+        </record>
+
+        <!-- Exemple d'action -->
+        <record id="action_demo_1" model="syndicat.action">
+            <field name="name">Manifestation pour l'augmentation salariale</field>
+            <field name="type_action">manifestation</field>
+            <field name="date_debut" eval="(DateTime.now() + timedelta(days=15)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="date_fin" eval="(DateTime.now() + timedelta(days=15, hours=2)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="lieu_principal">Place de l'Indépendance</field>
+            <field name="responsable_principal_id" ref="adherent_demo_1"/>
+            <field name="description">&lt;p&gt;Manifestation pacifique pour soutenir la revendication d'augmentation salariale.&lt;/p&gt;</field>
+            <field name="objectifs">&lt;p&gt;Sensibiliser l'opinion publique et faire pression sur l'employeur.&lt;/p&gt;</field>
+            <field name="statut">planifiee</field>
+            <field name="nb_participants_prevu">200</field>
+        </record>
+
+        <!-- Exemple de formation -->
+        <record id="formation_demo_1" model="syndicat.formation">
+            <field name="name">Formation en Négociation Collective</field>
+            <field name="type_formation">negociation</field>
+            <field name="niveau">intermediaire</field>
+            <field name="date_debut" eval="(DateTime.now() + timedelta(days=45)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="date_fin" eval="(DateTime.now() + timedelta(days=47)).strftime('%Y-%m-%d %H:%M:%S')"/>
+            <field name="lieu">Centre de Formation Syndicale</field>
+            <field name="formateur_principal_id" ref="adherent_demo_2"/>
+            <field name="description">&lt;p&gt;Formation sur les techniques de négociation collective et le droit du travail.&lt;/p&gt;</field>
+            <field name="objectifs">&lt;p&gt;Renforcer les capacités des représentants syndicaux en négociation.&lt;/p&gt;</field>
+            <field name="programme">&lt;p&gt;Jour 1: Bases de la négociation&lt;/p&gt;&lt;p&gt;Jour 2: Droit du travail&lt;/p&gt;&lt;p&gt;Jour 3: Cas pratiques&lt;/p&gt;</field>
+            <field name="statut">planifiee</field>
+            <field name="nb_participants_max">25</field>
+        </record>
+
+        <!-- Exemple de communication -->
+        <record id="communication_demo_1" model="syndicat.communication">
+            <field name="name">Convocation Assemblée Générale</field>
+            <field name="type_communication">email</field>
+            <field name="canal_diffusion">interne</field>
+            <field name="auteur_id" ref="adherent_demo_2"/>
+            <field name="contenu">&lt;p&gt;Chers adhérents,&lt;/p&gt;&lt;p&gt;Vous êtes cordialement invités à participer à notre Assemblée Générale Ordinaire qui se tiendra le [date] au Centre Culturel.&lt;/p&gt;&lt;p&gt;Votre présence est importante pour les décisions à prendre.&lt;/p&gt;&lt;p&gt;Cordialement,&lt;/p&gt;&lt;p&gt;Le Bureau Exécutif&lt;/p&gt;</field>
+            <field name="destinataires_tous_adherents">True</field>
+            <field name="statut">brouillon</field>
+            <field name="assemblee_id" ref="assemblee_demo_1"/>
+        </record>
+
+        <!-- Exemple de convention -->
+        <record id="convention_demo_1" model="syndicat.convention">
+            <field name="name">Convention Collective Télécommunications 2024</field>
+            <field name="type_convention">branche</field>
+            <field name="employeur_principal">SENEGAL TELECOM</field>
+            <field name="secteur_activite">Télécommunications</field>
+            <field name="date_signature" eval="(DateTime.now() - timedelta(days=90)).strftime('%Y-%m-%d')"/>
+            <field name="date_entree_vigueur" eval="(DateTime.now() - timedelta(days=60)).strftime('%Y-%m-%d')"/>
+            <field name="date_expiration" eval="(DateTime.now() + timedelta(days=730)).strftime('%Y-%m-%d')"/>
+            <field name="description">&lt;p&gt;Convention collective pour le secteur des télécommunications au Sénégal.&lt;/p&gt;</field>
+            <field name="domaines_couverts">mixte</field>
+            <field name="clauses_principales">&lt;p&gt;- Grille salariale harmonisée&lt;/p&gt;&lt;p&gt;- 35 heures de travail par semaine&lt;/p&gt;&lt;p&gt;- Prime de performance annuelle&lt;/p&gt;</field>
+            <field name="champ_application">&lt;p&gt;Cette convention s'applique au secteur des télécommunications sur le territoire national.&lt;/p&gt;</field>
+            <field name="statut">en_vigueur</field>
+            <field name="nb_salaries_concernes">2500</field>
+        </record>
+
+    </data>
+</odoo>

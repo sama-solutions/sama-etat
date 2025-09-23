@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Actions -->
+        <record id="view_syndicat_action_list" model="ir.ui.view">
+            <field name="name">syndicat.action.list</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <list string="Actions Syndicales" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_action"/>
+                    <field name="urgence" decoration-danger="urgence in ['critique', 'urgente']" decoration-warning="urgence == 'elevee'"/>
+                    <field name="date_debut"/>
+                    <field name="lieu_principal"/>
+                    <field name="responsable_principal_id"/>
+                    <field name="nb_participants_prevu"/>
+                    <field name="nb_participants_reel"/>
+                    <field name="autorisation_obtenue" widget="boolean_toggle" invisible="not autorisation_requise"/>
+                    <field name="statut" decoration-info="statut in ['planifiee', 'approuvee']" decoration-warning="statut in ['en_preparation', 'en_cours']" decoration-success="statut == 'terminee'" decoration-muted="statut in ['reportee', 'annulee']"/>
+                    <field name="autorisation_requise" invisible="1"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Actions -->
+        <record id="view_syndicat_action_kanban" model="ir.ui.view">
+            <field name="name">syndicat.action.kanban</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_action"/>
+                    <field name="urgence"/>
+                    <field name="statut"/>
+                    <field name="date_debut"/>
+                    <field name="lieu_principal"/>
+                    <field name="responsable_principal_id"/>
+                    <field name="nb_participants_prevu"/>
+                    <field name="nb_participants_reel"/>
+                    <field name="autorisation_requise"/>
+                    <field name="autorisation_obtenue"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_action"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date"/> <field name="date_debut" widget="date"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-clock-o" title="Heure"/> <field name="date_debut" widget="datetime" options="{'format': 'HH:mm'}"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <i class="fa fa-map-marker" title="Lieu"/> <field name="lieu_principal"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <i class="fa fa-user" title="Responsable"/> <field name="responsable_principal_id"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill" t-att-class="record.urgence.raw_value == 'critique' or record.urgence.raw_value == 'urgente' ? 'badge-danger' : record.urgence.raw_value == 'elevee' ? 'badge-warning' : 'badge-info'">
+                                                    <field name="urgence"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-info">
+                                                    <field name="nb_participants_prevu"/> prévus
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.autorisation_requise.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill" t-att-class="record.autorisation_obtenue.raw_value ? 'badge-success' : 'badge-warning'">
+                                                    <i class="fa fa-file-text-o" title="Document"/>
+                                                    <span t-if="record.autorisation_obtenue.raw_value">Autorisé</span>
+                                                    <span t-if="!record.autorisation_obtenue.raw_value">En attente autorisation</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Calendrier des Actions -->
+        <record id="view_syndicat_action_calendar" model="ir.ui.view">
+            <field name="name">syndicat.action.calendar</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendrier des Actions" date_start="date_debut" date_stop="date_fin" color="type_action">
+                    <field name="name"/>
+                    <field name="lieu_principal"/>
+                    <field name="type_action"/>
+                    <field name="statut"/>
+                    <field name="responsable_principal_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Actions -->
+        <record id="view_syndicat_action_form" model="ir.ui.view">
+            <field name="name">syndicat.action.form</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <form string="Action Syndicale">
+                    <header>
+                        <button name="action_approuver" string="Approuver" type="object" class="btn-primary" invisible="statut != 'planifiee'"/>
+                        <button name="action_commencer_preparation" string="Préparer" type="object" class="btn-info" invisible="statut != 'approuvee'"/>
+                        <button name="action_commencer" string="Commencer" type="object" class="btn-success" invisible="statut != 'en_preparation'"/>
+                        <button name="action_terminer" string="Terminer" type="object" class="btn-success" invisible="statut != 'en_cours'"/>
+                        <button name="action_suspendre" string="Suspendre" type="object" class="btn-warning" invisible="statut != 'en_cours'"/>
+                        <button name="action_reporter" string="Reporter" type="object" class="btn-warning" invisible="statut not in ['planifiee', 'approuvee', 'en_preparation']"/>
+                        <button name="action_annuler" string="Annuler" type="object" class="btn-danger" invisible="statut not in ['planifiee', 'approuvee', 'en_preparation']"/>
+                        <button name="action_demander_autorisation" string="Demander Autorisation" type="object" class="btn-info" invisible="not autorisation_requise or date_demande_autorisation"/>
+                        <button name="action_autorisation_obtenue" string="Autorisation Obtenue" type="object" class="btn-success" invisible="not autorisation_requise or autorisation_obtenue"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="planifiee,approuvee,en_preparation,en_cours,terminee"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_participants" icon="fa-users">
+                                <field string="Participants" name="nb_participants_reel" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_communications" icon="fa-bullhorn">
+                                <field string="Communications" name="communication_ids" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_revendications" icon="fa-balance-scale">
+                                <field string="Revendications" name="revendications_liees_ids" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_action" required="1"/>
+                                <field name="urgence"/>
+                                <field name="date_debut" required="1"/>
+                                <field name="date_fin"/>
+                                <field name="duree_prevue" readonly="1" widget="float_time"/>
+                                <field name="duree_reelle" readonly="1" widget="float_time" invisible="statut != 'terminee'"/>
+                            </group>
+                            <group name="location_info" string="Lieu et Organisation">
+                                <field name="lieu_principal" required="1"/>
+                                <field name="adresse_complete"/>
+                                <field name="lieux_secondaires"/>
+                                <field name="itineraire" invisible="type_action not in ['manifestation', 'marche']"/>
+                                <field name="responsable_principal_id" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="participants_info" string="Participants">
+                                <field name="nb_participants_prevu"/>
+                                <field name="nb_participants_reel" readonly="1"/>
+                                <field name="participants_externes"/>
+                            </group>
+                            <group name="authorization_info" string="Autorisations" invisible="not autorisation_requise">
+                                <field name="autorisation_requise"/>
+                                <field name="autorisation_obtenue" readonly="1" invisible="not autorisation_requise"/>
+                                <field name="date_demande_autorisation" readonly="1" invisible="not autorisation_requise"/>
+                                <field name="date_reponse_autorisation" readonly="1" invisible="not autorisation_requise"/>
+                                <field name="reference_autorisation" invisible="not autorisation_requise"/>
+                                <field name="conditions_autorisation" invisible="not autorisation_requise"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="security_info" string="Sécurité">
+                                <field name="service_ordre_requis"/>
+                                <field name="responsables_securite_ids" widget="many2many_tags" invisible="not service_ordre_requis"/>
+                                <field name="consignes_securite" invisible="not service_ordre_requis"/>
+                            </group>
+                            <group name="budget_info" string="Budget">
+                                <field name="budget_prevu"/>
+                                <field name="budget_reel"/>
+                                <field name="cout_par_participant" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html" required="1"/>
+                            </page>
+                            <page string="Objectifs" name="objectifs">
+                                <field name="objectifs" widget="html" required="1"/>
+                            </page>
+                            <page string="Mots d'Ordre" name="mots_ordre">
+                                <field name="mots_ordre"/>
+                            </page>
+                            <page string="Participants" name="participants">
+                                <group>
+                                    <group string="Participants Syndicat">
+                                        <field name="adherents_participants_ids" nolabel="1" widget="many2many_tags"/>
+                                    </group>
+                                    <group string="Comité d'Organisation">
+                                        <field name="comite_organisation_ids" nolabel="1" widget="many2many_tags"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group string="Responsables Secondaires">
+                                        <field name="responsables_secondaires_ids" nolabel="1" widget="many2many_tags"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Revendications Liées" name="revendications">
+                                <field name="revendications_liees_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_revendication"/>
+                                        <field name="priorite"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Communications" name="communications">
+                                <field name="communication_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_communication"/>
+                                        <field name="date_publication"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Logistique" name="logistique">
+                                <group>
+                                    <field name="materiel_requis"/>
+                                </group>
+                            </page>
+                            <page string="Médias" name="medias">
+                                <group>
+                                    <field name="communique_presse" widget="html"/>
+                                </group>
+                                <group>
+                                    <field name="couverture_media"/>
+                                </group>
+                            </page>
+                            <page string="Résultats" name="resultats" invisible="statut != 'terminee'">
+                                <group>
+                                    <group string="Évaluation">
+                                        <field name="impact_media"/>
+                                        <field name="impact_revendications"/>
+                                        <field name="satisfaction_participants"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="resultats_obtenus" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Incidents" name="incidents" invisible="statut != 'terminee'">
+                                <group>
+                                    <field name="incidents"/>
+                                </group>
+                                <group>
+                                    <field name="problemes_rencontres"/>
+                                </group>
+                            </page>
+                            <page string="Suivi" name="suivi">
+                                <field name="actions_suivi_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_suivi"/>
+                                        <field name="date_suivi"/>
+                                        <field name="responsable_id"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Leçons Apprises" name="lecons" invisible="statut != 'terminee'">
+                                <field name="lecons_apprises"/>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes pour l'organisation..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Actions -->
+        <record id="view_syndicat_action_search" model="ir.ui.view">
+            <field name="name">syndicat.action.search</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Actions">
+                    <field name="name" string="Nom" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                    <field name="lieu_principal"/>
+                    <field name="responsable_principal_id"/>
+                    <field name="type_action"/>
+                    <separator/>
+                    <filter string="À venir" name="a_venir" domain="[('date_debut', '>', datetime.datetime.now())]"/>
+                    <filter string="En cours" name="en_cours" domain="[('statut', 'in', ['planifiee', 'approuvee', 'en_preparation', 'en_cours'])]"/>
+                    <filter string="Terminées" name="terminees" domain="[('statut', '=', 'terminee')]"/>
+                    <filter string="Autorisations requises" name="autorisation_requise" domain="[('autorisation_requise', '=', True)]"/>
+                    <filter string="Autorisations obtenues" name="autorisation_obtenue" domain="[('autorisation_obtenue', '=', True)]"/>
+                    <filter string="Urgentes" name="urgentes" domain="[('urgence', 'in', ['elevee', 'critique', 'urgente'])]"/>
+                    <separator/>
+                    <filter string="Ce mois" name="ce_mois" domain="[('date_debut', '>=', datetime.datetime.now().replace(day=1)), ('date_debut', '&lt;', (datetime.datetime.now().replace(day=1) + datetime.timedelta(days=32)).replace(day=1))]"/>
+                    <filter string="Cette semaine" name="cette_semaine" domain="[('date_debut', '>=', datetime.datetime.now() - datetime.timedelta(days=datetime.datetime.now().weekday())), ('date_debut', '&lt;', datetime.datetime.now() + datetime.timedelta(days=7-datetime.datetime.now().weekday()))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type" name="group_type" context="{'group_by': 'type_action'}"/>
+                        <filter string="Urgence" name="group_urgence" context="{'group_by': 'urgence'}"/>
+                        <filter string="Responsable" name="group_responsable" context="{'group_by': 'responsable_principal_id'}"/>
+                        <filter string="Mois" name="group_mois" context="{'group_by': 'date_debut:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Actions -->
+        <record id="view_syndicat_action_graph" model="ir.ui.view">
+            <field name="name">syndicat.action.graph</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Actions" type="bar" sample="1">
+                    <field name="type_action" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_participants_reel" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Actions -->
+        <record id="view_syndicat_action_pivot" model="ir.ui.view">
+            <field name="name">syndicat.action.pivot</field>
+            <field name="model">syndicat.action</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Actions" sample="1">
+                    <field name="type_action" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_participants_reel" type="measure"/>
+                    <field name="budget_reel" type="measure"/>
+                    <field name="duree_reelle" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Actions Syndicales -->
+        <record id="action_syndicat_action" model="ir.actions.act_window">
+            <field name="name">Actions Syndicales</field>
+            <field name="res_model">syndicat.action</field>
+            <field name="view_mode">kanban,calendar,list,form,graph,pivot</field>
+            <field name="context">{'search_default_a_venir': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Planifier votre première action syndicale
+                </p>
+                <p>
+                    Organisez vos manifestations, grèves et autres actions syndicales avec un suivi complet de la logistique et des participants.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

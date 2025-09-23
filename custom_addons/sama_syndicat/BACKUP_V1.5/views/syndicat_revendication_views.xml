@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Revendications -->
+        <record id="view_syndicat_revendication_list" model="ir.ui.view">
+            <field name="name">syndicat.revendication.list</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <list string="Revendications" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_revendication"/>
+                    <field name="priorite" decoration-danger="priorite in ['critique', 'urgente']" decoration-warning="priorite == 'elevee'"/>
+                    <field name="initiateur_id"/>
+                    <field name="employeur_concerne"/>
+                    <field name="nb_soutiens"/>
+                    <field name="date_creation"/>
+                    <field name="date_soumission"/>
+                    <field name="en_retard" widget="boolean_toggle"/>
+                    <field name="statut" decoration-info="statut in ['brouillon', 'soumise']" decoration-warning="statut == 'en_negociation'" decoration-success="statut in ['acceptee', 'acceptee_partiellement']" decoration-danger="statut == 'rejetee'" decoration-muted="statut in ['suspendue', 'abandonnee']"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Revendications -->
+        <record id="view_syndicat_revendication_kanban" model="ir.ui.view">
+            <field name="name">syndicat.revendication.kanban</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_revendication"/>
+                    <field name="priorite"/>
+                    <field name="statut"/>
+                    <field name="initiateur_id"/>
+                    <field name="employeur_concerne"/>
+                    <field name="nb_soutiens"/>
+                    <field name="date_creation"/>
+                    <field name="en_retard"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_revendication"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <strong><field name="employeur_concerne"/></strong>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-user" title="Initiateur"/> <field name="initiateur_id"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date"/> <field name="date_creation"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill" t-att-class="record.priorite.raw_value == 'critique' or record.priorite.raw_value == 'urgente' ? 'badge-danger' : record.priorite.raw_value == 'elevee' ? 'badge-warning' : 'badge-info'">
+                                                    <field name="priorite"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-success">
+                                                    <field name="nb_soutiens"/> soutiens
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.en_retard.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-danger">
+                                                    <i class="fa fa-exclamation-triangle" title="En retard"/> En retard
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Revendications -->
+        <record id="view_syndicat_revendication_form" model="ir.ui.view">
+            <field name="name">syndicat.revendication.form</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <form string="Revendication">
+                    <header>
+                        <button name="action_soumettre" string="Soumettre" type="object" class="btn-primary" invisible="statut != 'brouillon'"/>
+                        <button name="action_commencer_negociation" string="Négocier" type="object" class="btn-info" invisible="statut != 'soumise'"/>
+                        <button name="action_accepter" string="Accepter" type="object" class="btn-success" invisible="statut not in ['soumise', 'en_negociation']"/>
+                        <button name="action_accepter_partiellement" string="Accepter Partiellement" type="object" class="btn-warning" invisible="statut not in ['soumise', 'en_negociation']"/>
+                        <button name="action_rejeter" string="Rejeter" type="object" class="btn-danger" invisible="statut not in ['soumise', 'en_negociation']"/>
+                        <button name="action_suspendre" string="Suspendre" type="object" class="btn-warning" invisible="statut not in ['soumise', 'en_negociation']"/>
+                        <button name="action_abandonner" string="Abandonner" type="object" class="btn-secondary" invisible="statut in ['acceptee', 'rejetee']"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="brouillon,soumise,en_negociation,acceptee"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_soutiens" icon="fa-thumbs-up">
+                                <field string="Soutiens" name="nb_soutiens" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_negociations" icon="fa-handshake-o">
+                                <field string="Négociations" name="nb_negociations" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_actions" icon="fa-flag">
+                                <field string="Actions Liées" name="action_ids" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <widget name="web_ribbon" title="En Retard" bg_color="bg-warning" invisible="not en_retard"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_revendication" required="1"/>
+                                <field name="priorite" required="1"/>
+                                <field name="initiateur_id" required="1"/>
+                                <field name="date_creation" readonly="1"/>
+                                <field name="en_retard" readonly="1"/>
+                            </group>
+                            <group name="employer_info" string="Employeur">
+                                <field name="employeur_concerne" required="1"/>
+                                <field name="interlocuteur_principal"/>
+                                <field name="contact_employeur"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="dates_info" string="Dates Importantes">
+                                <field name="date_soumission" readonly="1"/>
+                                <field name="date_reponse_attendue"/>
+                                <field name="date_reponse_recue" readonly="1"/>
+                                <field name="date_resolution" readonly="1"/>
+                                <field name="delai_reponse" readonly="1"/>
+                                <field name="delai_resolution" readonly="1"/>
+                            </group>
+                            <group name="evaluation_info" string="Évaluation">
+                                <field name="taux_satisfaction"/>
+                                <field name="derniere_negociation" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html" required="1"/>
+                            </page>
+                            <page string="Objectifs" name="objectifs">
+                                <field name="objectifs" widget="html" required="1"/>
+                            </page>
+                            <page string="Justification" name="justification">
+                                <field name="justification" widget="html" required="1"/>
+                            </page>
+                            <page string="Propositions" name="propositions">
+                                <field name="propositions_concretes" widget="html"/>
+                            </page>
+                            <page string="Impact Attendu" name="impact">
+                                <field name="impact_attendu" widget="html"/>
+                            </page>
+                            <page string="Soutiens" name="soutiens">
+                                <field name="adherents_soutien_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Négociations" name="negociations">
+                                <field name="negociation_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="date_negociation"/>
+                                        <field name="lieu"/>
+                                        <field name="duree"/>
+                                        <field name="satisfaction_syndicat"/>
+                                        <field name="progres_realise"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Réponse Employeur" name="reponse" invisible="statut == 'brouillon'">
+                                <group>
+                                    <field name="reponse_employeur" widget="html"/>
+                                </group>
+                                <group>
+                                    <field name="contre_propositions" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Actions Liées" name="actions">
+                                <field name="action_ids">
+                                    <list>
+                                        <field name="name"/>
+                                        <field name="type_action"/>
+                                        <field name="date_debut"/>
+                                        <field name="statut"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Résultats" name="resultats" invisible="statut not in ['acceptee', 'acceptee_partiellement', 'rejetee']">
+                                <group>
+                                    <field name="resultats_obtenus" widget="html"/>
+                                </group>
+                            </page>
+                            <page string="Documents" name="documents">
+                                <field name="documents_support"/>
+                            </page>
+                            <page string="Leçons Apprises" name="lecons" invisible="statut not in ['acceptee', 'acceptee_partiellement', 'rejetee', 'abandonnee']">
+                                <field name="lecons_apprises"/>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes pour le suivi..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Revendications -->
+        <record id="view_syndicat_revendication_search" model="ir.ui.view">
+            <field name="name">syndicat.revendication.search</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Revendications">
+                    <field name="name" string="Nom" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                    <field name="employeur_concerne"/>
+                    <field name="initiateur_id"/>
+                    <field name="type_revendication"/>
+                    <separator/>
+                    <filter string="En cours" name="en_cours" domain="[('statut', 'in', ['soumise', 'en_negociation'])]"/>
+                    <filter string="Acceptées" name="acceptees" domain="[('statut', 'in', ['acceptee', 'acceptee_partiellement'])]"/>
+                    <filter string="Rejetées" name="rejetees" domain="[('statut', '=', 'rejetee')]"/>
+                    <filter string="En retard" name="en_retard" domain="[('en_retard', '=', True)]"/>
+                    <filter string="Priorité élevée" name="priorite_elevee" domain="[('priorite', 'in', ['elevee', 'critique', 'urgente'])]"/>
+                    <separator/>
+                    <filter string="Ce mois" name="ce_mois" domain="[('date_creation', '>=', datetime.datetime.now().replace(day=1))]"/>
+                    <filter string="Cette année" name="cette_annee" domain="[('date_creation', '>=', datetime.datetime.now().replace(month=1, day=1))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type" name="group_type" context="{'group_by': 'type_revendication'}"/>
+                        <filter string="Priorité" name="group_priorite" context="{'group_by': 'priorite'}"/>
+                        <filter string="Employeur" name="group_employeur" context="{'group_by': 'employeur_concerne'}"/>
+                        <filter string="Initiateur" name="group_initiateur" context="{'group_by': 'initiateur_id'}"/>
+                        <filter string="Mois" name="group_mois" context="{'group_by': 'date_creation:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Revendications -->
+        <record id="view_syndicat_revendication_graph" model="ir.ui.view">
+            <field name="name">syndicat.revendication.graph</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Revendications" type="bar" sample="1">
+                    <field name="type_revendication" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_soutiens" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Revendications -->
+        <record id="view_syndicat_revendication_pivot" model="ir.ui.view">
+            <field name="name">syndicat.revendication.pivot</field>
+            <field name="model">syndicat.revendication</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Revendications" sample="1">
+                    <field name="type_revendication" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="delai_resolution" type="measure"/>
+                    <field name="nb_soutiens" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Revendications -->
+        <record id="action_syndicat_revendication" model="ir.actions.act_window">
+            <field name="name">Revendications</field>
+            <field name="res_model">syndicat.revendication</field>
+            <field name="view_mode">kanban,list,form,graph,pivot</field>
+            <field name="context">{'search_default_en_cours': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre première revendication
+                </p>
+                <p>
+                    Gérez vos revendications syndicales, suivez les négociations et mesurez les résultats obtenus.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

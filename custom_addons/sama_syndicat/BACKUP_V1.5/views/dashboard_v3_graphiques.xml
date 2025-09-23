@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VERSION 3: Dashboard avec graphiques et listes intégrées -->
+        <record id="view_syndicat_dashboard_v3_kanban" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.v3.kanban</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_kanban_dashboard_fullwidth" create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="date_derniere_maj"/>
+                    <field name="nb_adherents_total"/>
+                    <field name="nb_adherents_actifs"/>
+                    <field name="nb_nouveaux_adherents_mois"/>
+                    <field name="taux_croissance_adherents"/>
+                    <field name="nb_cotisations_jour"/>
+                    <field name="nb_cotisations_retard"/>
+                    <field name="taux_cotisations_jour"/>
+                    <field name="montant_cotisations_mois"/>
+                    <field name="nb_assemblees_mois"/>
+                    <field name="taux_participation_moyen"/>
+                    <field name="nb_revendications_en_cours"/>
+                    <field name="nb_revendications_acceptees"/>
+                    <field name="taux_succes_revendications"/>
+                    <field name="nb_actions_en_cours"/>
+                    <field name="nb_formations_en_cours"/>
+                    <field name="nb_adherents_formes"/>
+                    <field name="nb_mediations_en_cours"/>
+                    <field name="taux_reussite_mediations"/>
+                    <field name="nb_communications_mois"/>
+                    <field name="taux_ouverture_moyen"/>
+                    <field name="alertes_cotisations"/>
+                    <field name="alertes_assemblees"/>
+                    <field name="alertes_actions"/>
+                    <field name="alertes_mediations"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_record o_kanban_dashboard_record">
+                                <!-- En-tête principal -->
+                                <div class="o_kanban_dashboard_title">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <h2><field name="name"/></h2>
+                                            <small class="text-muted">
+                                                <i class="fa fa-clock-o"/> Dernière mise à jour : <field name="date_derniere_maj" widget="datetime"/>
+                                            </small>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <button name="action_actualiser" type="object" class="btn btn-primary">
+                                                <i class="fa fa-refresh"/> Actualiser
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section KPI principaux -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-primary mb-3"><i class="fa fa-tachometer"/> Indicateurs Clés</h4>
+                                    
+                                    <div class="o_stat_box o_primary">
+                                        <button name="action_open_adherents" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_adherents_total"/></span>
+                                            <span class="o_stat_text">Adhérents</span>
+                                            <span class="o_stat_help">Total inscrits</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <span class="o_stat_value"><field name="taux_croissance_adherents" widget="percentage"/></span>
+                                        <span class="o_stat_text">Croissance</span>
+                                        <span class="o_stat_help">Ce mois</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <span class="o_stat_value"><field name="taux_cotisations_jour" widget="percentage"/></span>
+                                        <span class="o_stat_text">Cotisations</span>
+                                        <span class="o_stat_help">Taux à jour</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_warning">
+                                        <span class="o_stat_value"><field name="taux_participation_moyen" widget="percentage"/></span>
+                                        <span class="o_stat_text">Participation</span>
+                                        <span class="o_stat_help">Assemblées</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <span class="o_stat_value"><field name="taux_succes_revendications" widget="percentage"/></span>
+                                        <span class="o_stat_text">Succès</span>
+                                        <span class="o_stat_help">Revendications</span>
+                                    </div>
+                                </div>
+
+                                <!-- Section activités détaillées -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-info mb-3"><i class="fa fa-list"/> Activités Détaillées</h4>
+                                    
+                                    <div class="row">
+                                        <!-- Colonne gauche -->
+                                        <div class="col-6">
+                                            <div class="o_list">
+                                                <div class="o_list_item">
+                                                    <button name="action_open_adherents" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_primary"><field name="nb_adherents_actifs"/></span>
+                                                        <span class="o_list_text">Adhérents Actifs</span>
+                                                        <span class="o_list_help">sur <field name="nb_adherents_total"/> total</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="o_list_item">
+                                                    <button name="action_open_cotisations" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_success"><field name="nb_cotisations_jour"/></span>
+                                                        <span class="o_list_text">Cotisations à Jour</span>
+                                                        <span class="o_list_help"><field name="montant_cotisations_mois" widget="monetary"/> ce mois</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="o_list_item">
+                                                    <button name="action_open_assemblees" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_info"><field name="nb_assemblees_mois"/></span>
+                                                        <span class="o_list_text">Assemblées</span>
+                                                        <span class="o_list_help">ce mois</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Colonne droite -->
+                                        <div class="col-6">
+                                            <div class="o_list">
+                                                <div class="o_list_item">
+                                                    <button name="action_open_revendications" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_warning"><field name="nb_revendications_en_cours"/></span>
+                                                        <span class="o_list_text">Revendications</span>
+                                                        <span class="o_list_help"><field name="nb_revendications_acceptees"/> acceptées</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="o_list_item">
+                                                    <button name="action_open_formations" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_secondary"><field name="nb_formations_en_cours"/></span>
+                                                        <span class="o_list_text">Formations</span>
+                                                        <span class="o_list_help"><field name="nb_adherents_formes"/> formés</span>
+                                                    </button>
+                                                </div>
+                                                
+                                                <div class="o_list_item">
+                                                    <button name="action_open_mediations" type="object" class="o_list_button">
+                                                        <span class="o_list_number o_dark"><field name="nb_mediations_en_cours"/></span>
+                                                        <span class="o_list_text">Médiations</span>
+                                                        <span class="o_list_help"><field name="taux_reussite_mediations" widget="percentage"/> succès</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section graphiques de performance -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-success mb-3"><i class="fa fa-bar-chart"/> Performance</h4>
+                                    
+                                    <div class="o_graph">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <div class="o_graph_item">
+                                                    <div class="o_graph_bar o_primary" style="height: 80%;">
+                                                        <span class="o_graph_value"><field name="taux_cotisations_jour" widget="percentage"/></span>
+                                                    </div>
+                                                    <span class="o_graph_label">Cotisations</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-3">
+                                                <div class="o_graph_item">
+                                                    <div class="o_graph_bar o_info" style="height: 65%;">
+                                                        <span class="o_graph_value"><field name="taux_participation_moyen" widget="percentage"/></span>
+                                                    </div>
+                                                    <span class="o_graph_label">Participation</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-3">
+                                                <div class="o_graph_item">
+                                                    <div class="o_graph_bar o_success" style="height: 75%;">
+                                                        <span class="o_graph_value"><field name="taux_succes_revendications" widget="percentage"/></span>
+                                                    </div>
+                                                    <span class="o_graph_label">Revendications</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-3">
+                                                <div class="o_graph_item">
+                                                    <div class="o_graph_bar o_warning" style="height: 70%;">
+                                                        <span class="o_graph_value"><field name="taux_reussite_mediations" widget="percentage"/></span>
+                                                    </div>
+                                                    <span class="o_graph_label">Médiations</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section communications et activités -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-primary mb-3"><i class="fa fa-bullhorn"/> Communications &amp; Actions</h4>
+                                    
+                                    <div class="o_activity">
+                                        <div class="o_activity_item">
+                                            <button name="action_open_communications" type="object" class="o_activity_button">
+                                                <div class="o_activity_icon o_primary">
+                                                    <i class="fa fa-bullhorn"/>
+                                                </div>
+                                                <div class="o_activity_content">
+                                                    <span class="o_activity_title">Communications</span>
+                                                    <span class="o_activity_value"><field name="nb_communications_mois"/> ce mois</span>
+                                                    <span class="o_activity_help">Taux d'ouverture: <field name="taux_ouverture_moyen" widget="percentage"/></span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="o_activity_item">
+                                            <button name="action_open_actions" type="object" class="o_activity_button">
+                                                <div class="o_activity_icon o_danger">
+                                                    <i class="fa fa-flag"/>
+                                                </div>
+                                                <div class="o_activity_content">
+                                                    <span class="o_activity_title">Actions Syndicales</span>
+                                                    <span class="o_activity_value"><field name="nb_actions_en_cours"/> en cours</span>
+                                                    <span class="o_activity_help">Suivi des actions en cours</span>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Section alertes avec priorité -->
+                                <div class="o_kanban_dashboard_section" t-if="record.alertes_cotisations.raw_value > 0 or record.alertes_assemblees.raw_value > 0 or record.alertes_actions.raw_value > 0 or record.alertes_mediations.raw_value > 0">
+                                    <h4 class="text-danger mb-3"><i class="fa fa-exclamation-triangle"/> Alertes Prioritaires</h4>
+                                    
+                                    <div class="alert alert-warning" t-if="record.alertes_cotisations.raw_value > 0">
+                                        <button name="action_open_alertes_cotisations" type="object" class="btn btn-link p-0 text-left">
+                                            <strong><field name="alertes_cotisations"/></strong> cotisations en retard nécessitent votre attention
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="alert alert-info" t-if="record.alertes_assemblees.raw_value > 0">
+                                        <button name="action_open_alertes_assemblees" type="object" class="btn btn-link p-0 text-left">
+                                            <strong><field name="alertes_assemblees"/></strong> assemblées sans quorum à replanifier
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="alert alert-danger" t-if="record.alertes_actions.raw_value > 0">
+                                        <button name="action_open_alertes_actions" type="object" class="btn btn-link p-0 text-left">
+                                            <strong><field name="alertes_actions"/></strong> actions en retard à traiter d'urgence
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="alert alert-warning" t-if="record.alertes_mediations.raw_value > 0">
+                                        <button name="action_open_alertes_mediations" type="object" class="btn btn-link p-0 text-left">
+                                            <strong><field name="alertes_mediations"/></strong> médiations urgentes en attente
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Message de félicitations si tout va bien -->
+                                <div class="o_kanban_dashboard_section" t-if="record.alertes_cotisations.raw_value == 0 and record.alertes_assemblees.raw_value == 0 and record.alertes_actions.raw_value == 0 and record.alertes_mediations.raw_value == 0">
+                                    <div class="alert alert-success text-center">
+                                        <i class="fa fa-trophy fa-3x text-warning mb-3"/>
+                                        <h4>Félicitations !</h4>
+                                        <p class="mb-0">Toutes les activités syndicales sont parfaitement gérées. Aucune alerte active.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Action pour le Dashboard V3 -->
+        <record id="action_syndicat_dashboard_v3" model="ir.actions.act_window">
+            <field name="name">Dashboard V3 - Graphiques &amp; Listes</field>
+            <field name="res_model">syndicat.dashboard</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_syndicat_dashboard_v3_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Dashboard Version 3 - Avec Graphiques et Listes
+                </p>
+                <p>
+                    Interface avancée avec graphiques de performance et listes détaillées.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Revendications - SAMA SYNDICAT</title>
+    <meta name="description" content="Documentation complète du module de gestion des revendications">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Accueil</a>
+                <a href="../guide-utilisateur.html" class="nav-link active">Documentation</a>
+                <a href="../../formation/index.html" class="nav-link">Formation</a>
+                <a href="../faq.html" class="nav-link">FAQ</a>
+                <a href="../support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🛠️ Modules <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu show">
+                    <li><a href="adherents.html" class="sidebar-link">👥 Adhérents</a></li>
+                    <li><a href="assemblees.html" class="sidebar-link">🏛️ Assemblées</a></li>
+                    <li><a href="revendications.html" class="sidebar-link active">⚖️ Revendications</a></li>
+                    <li><a href="actions.html" class="sidebar-link">🚩 Actions</a></li>
+                    <li><a href="communications.html" class="sidebar-link">📢 Communications</a></li>
+                    <li><a href="formations.html" class="sidebar-link">🎓 Formations</a></li>
+                    <li><a href="conventions.html" class="sidebar-link">📋 Conventions</a></li>
+                    <li><a href="mediations.html" class="sidebar-link">🤝 Médiations</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">⚖️ Module Revendications</h1>
+            <p class="content-subtitle">Gestion complète des revendications et négociations syndicales</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Rechercher dans la documentation...">
+        </div>
+
+        <!-- Vue d'ensemble -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🌟 Vue d'ensemble du module
+            </div>
+            <div class="card-body">
+                <p>Le module Revendications de SAMA SYNDICAT est l'outil central pour gérer l'ensemble du processus revendicatif, de la collecte des demandes à la conclusion des négociations. Il permet un suivi transparent et efficace de toutes les actions syndicales.</p>
+                
+                <h4>🎯 Fonctionnalités principales</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>📝 Gestion des demandes</h6>
+                        <ul>
+                            <li>Collecte et structuration des revendications</li>
+                            <li>Priorisation et validation</li>
+                            <li>Suivi de l'avancement</li>
+                            <li>Historique complet</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>🤝 Négociations</h6>
+                        <ul>
+                            <li>Planification des rencontres</li>
+                            <li>Documentation des échanges</li>
+                            <li>Suivi des accords</li>
+                            <li>Évaluation des résultats</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>💡 Innovation :</strong> SAMA SYNDICAT utilise l'intelligence artificielle pour analyser les tendances revendicatives et suggérer des stratégies de négociation.
+                </div>
+            </div>
+        </div>
+
+        <!-- Types de Revendications -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📋 Types de revendications
+            </div>
+            <div class="card-body">
+                <h4>🏷️ Classification des revendications</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Catégorie</th>
+                            <th>Description</th>
+                            <th>Exemples</th>
+                            <th>Urgence</th>
+                            <th>Impact financier</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>💰 Salariales</strong></td>
+                            <td>Amélioration des rémunérations</td>
+                            <td>Augmentations, primes, indemnités</td>
+                            <td>Moyenne</td>
+                            <td>Élevé</td>
+                        </tr>
+                        <tr>
+                            <td><strong>⏰ Temps de travail</strong></td>
+                            <td>Organisation du travail</td>
+                            <td>Horaires, congés, RTT</td>
+                            <td>Moyenne</td>
+                            <td>Moyen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🏥 Conditions de travail</strong></td>
+                            <td>Amélioration de l'environnement</td>
+                            <td>Sécurité, équipements, locaux</td>
+                            <td>Élevée</td>
+                            <td>Variable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>📈 Évolution professionnelle</strong></td>
+                            <td>Développement des carrières</td>
+                            <td>Formations, promotions, mobilité</td>
+                            <td>Faible</td>
+                            <td>Moyen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🛡️ Protection sociale</strong></td>
+                            <td>Couverture sociale</td>
+                            <td>Mutuelle, retraite, prévoyance</td>
+                            <td>Moyenne</td>
+                            <td>Élevé</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>🎯 Priorisation automatique</h4>
+                <p>SAMA SYNDICAT calcule automatiquement la priorité des revendications selon :</p>
+                <ul>
+                    <li><strong>Nombre d'adhérents concernés :</strong> Plus il y en a, plus c'est prioritaire</li>
+                    <li><strong>Impact financier :</strong> Coût/bénéfice pour les salariés</li>
+                    <li><strong>Urgence :</strong> Délais légaux ou situations critiques</li>
+                    <li><strong>Faisabilité :</strong> Probabilité d'aboutissement</li>
+                    <li><strong>Contexte économique :</strong> Situation de l'entreprise</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Création d'une Revendication -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ➕ Création d'une revendication
+            </div>
+            <div class="card-body">
+                <h4>📝 Formulaire de saisie</h4>
+                
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        📋 Informations générales
+                    </div>
+                    <div class="accordion-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Champ</th>
+                                    <th>Description</th>
+                                    <th>Obligatoire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Titre</td>
+                                    <td>Résumé en une phrase</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Catégorie</td>
+                                    <td>Type de revendication</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>Explication détaillée du problème</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Justification</td>
+                                    <td>Pourquoi cette revendication est nécessaire</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Solution proposée</td>
+                                    <td>Ce qui est demandé concrètement</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Personnes concernées</td>
+                                    <td>Qui bénéficiera de cette revendication</td>
+                                    <td>Oui</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    💰 Impact financier
+                </div>
+                <div class="accordion-content">
+                    <h6>Estimation des coûts et bénéfices :</h6>
+                    <ul>
+                        <li><strong>Coût pour l'employeur :</strong> Estimation en CFA</li>
+                        <li><strong>Bénéfice pour les salariés :</strong> Gain individuel et collectif</li>
+                        <li><strong>Retour sur investissement :</strong> Productivité, motivation</li>
+                        <li><strong>Comparaison sectorielle :</strong> Pratiques du marché</li>
+                    </ul>
+
+                    <h6>Exemple d'analyse financière :</h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6>💸 Coût employeur</h6>
+                                    <ul>
+                                        <li>Augmentation 5% : 65 500 000 CFA/an</li>
+                                        <li>Charges sociales : 13 100 000 CFA/an</li>
+                                        <li>Total : 78 600 000 CFA/an</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6>💰 Bénéfice salariés</h6>
+                                    <ul>
+                                        <li>Gain moyen : 32 750 CFA/mois</li>
+                                        <li>200 salariés concernés</li>
+                                        <li>Gain collectif : 6 550 000 CFA/mois</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    📊 Éléments de preuve
+                </div>
+                <div class="accordion-content">
+                    <h6>Documents à joindre :</h6>
+                    <ul>
+                        <li><strong>Témoignages :</strong> Déclarations des adhérents</li>
+                        <li><strong>Données chiffrées :</strong> Statistiques, études</li>
+                        <li><strong>Références légales :</strong> Code du travail, conventions</li>
+                        <li><strong>Comparaisons :</strong> Pratiques d'autres entreprises</li>
+                        <li><strong>Photos/vidéos :</strong> Preuves visuelles si nécessaire</li>
+                    </ul>
+
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Important :</strong> Plus votre dossier est documenté, plus vous avez de chances d'aboutir dans les négociations.
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🎯 Stratégie de négociation
+                </div>
+                <div class="accordion-content">
+                    <h6>Éléments stratégiques :</h6>
+                    <ul>
+                        <li><strong>Timing :</strong> Meilleur moment pour négocier</li>
+                        <li><strong>Interlocuteurs :</strong> Qui contacter en priorité</li>
+                        <li><strong>Arguments clés :</strong> Points forts à mettre en avant</li>
+                        <li><strong>Concessions possibles :</strong> Marge de négociation</li>
+                        <li><strong>Plan B :</strong> Alternatives en cas d'échec</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processus de Validation -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ✅ Processus de validation
+            </div>
+            <div class="card-body">
+                <h4>🔄 Workflow de validation</h4>
+                
+                <div class="row">
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>📝</h5>
+                                <h6>Saisie</h6>
+                                <p>Adhérent</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>👀</h5>
+                                <h6>Examen</h6>
+                                <p>Délégué</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>📊</h5>
+                                <h6>Analyse</h6>
+                                <p>Bureau</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>🗳️</h5>
+                                <h6>Vote</h6>
+                                <p>Assemblée</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>🤝</h5>
+                                <h6>Négociation</h6>
+                                <p>Délégation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5>✅</h5>
+                                <h6>Conclusion</h6>
+                                <p>Accord</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>⏱️ Délais de traitement</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Étape</th>
+                            <th>Délai standard</th>
+                            <th>Délai urgent</th>
+                            <th>Responsable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Examen initial</td>
+                            <td>7 jours</td>
+                            <td>2 jours</td>
+                            <td>Délégué de section</td>
+                        </tr>
+                        <tr>
+                            <td>Analyse bureau</td>
+                            <td>15 jours</td>
+                            <td>5 jours</td>
+                            <td>Bureau exécutif</td>
+                        </tr>
+                        <tr>
+                            <td>Vote assemblée</td>
+                            <td>30 jours</td>
+                            <td>Assemblée extraordinaire</td>
+                            <td>Adhérents</td>
+                        </tr>
+                        <tr>
+                            <td>Préparation négociation</td>
+                            <td>15 jours</td>
+                            <td>7 jours</td>
+                            <td>Équipe de négociation</td>
+                        </tr>
+                        <tr>
+                            <td>Négociation</td>
+                            <td>Variable</td>
+                            <td>Variable</td>
+                            <td>Délégation syndicale</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>📊 Critères de validation</h4>
+                
+                <h6>Grille d'évaluation :</h6>
+                <ul>
+                    <li><strong>Pertinence (25%) :</strong> La revendication est-elle justifiée ?</li>
+                    <li><strong>Faisabilité (25%) :</strong> Peut-on raisonnablement l'obtenir ?</li>
+                    <li><strong>Impact (20%) :</strong> Combien d'adhérents sont concernés ?</li>
+                    <li><strong>Urgence (15%) :</strong> Y a-t-il une contrainte de temps ?</li>
+                    <li><strong>Coût/bénéfice (15%) :</strong> Le rapport est-il favorable ?</li>
+                </ul>
+
+                <div class="alert alert-success">
+                    <strong>✅ Validation automatique :</strong> Les revendications qui obtiennent plus de 70/100 sont automatiquement validées pour négociation.
+                </div>
+            </div>
+        </div>
+
+        <!-- Négociations -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🤝 Gestion des négociations
+            </div>
+            <div class="card-body">
+                <h4>📅 Planification des rencontres</h4>
+                
+                <h6>Préparation de la négociation :</h6>
+                <ol>
+                    <li><strong>Constitution de l'équipe :</strong> Sélection des négociateurs</li>
+                    <li><strong>Préparation du dossier :</strong> Arguments et documents</li>
+                    <li><strong>Stratégie :</strong> Objectifs et concessions possibles</li>
+                    <li><strong>Simulation :</strong> Répétition des arguments</li>
+                    <li><strong>Convocation :</strong> Demande de rendez-vous officiel</li>
+                </ol>
+
+                <h6>Outils de préparation :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📋 Dossier de négociation</h6>
+                                <ul>
+                                    <li>Synthèse de la revendication</li>
+                                    <li>Arguments juridiques</li>
+                                    <li>Données économiques</li>
+                                    <li>Témoignages d'adhérents</li>
+                                    <li>Propositions concrètes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🎯 Matrice de négociation</h6>
+                                <ul>
+                                    <li>Objectif maximal</li>
+                                    <li>Objectif minimal acceptable</li>
+                                    <li>Points de concession</li>
+                                    <li>Lignes rouges</li>
+                                    <li>Alternatives (Plan B)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📝 Documentation des échanges</h4>
+                
+                <h6>Compte-rendu automatique :</h6>
+                <ul>
+                    <li><strong>Participants :</strong> Liste automatique</li>
+                    <li><strong>Ordre du jour :</strong> Points abordés</li>
+                    <li><strong>Positions :</strong> Arguments de chaque partie</li>
+                    <li><strong>Décisions :</strong> Accords et désaccords</li>
+                    <li><strong>Prochaines étapes :</strong> Actions à mener</li>
+                </ul>
+
+                <h6>Exemple de suivi de négociation :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Objet</th>
+                            <th>Position syndicat</th>
+                            <th>Position employeur</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>15/01/2025</td>
+                            <td>Augmentation salariale</td>
+                            <td>+8% demandés</td>
+                            <td>+2% proposés</td>
+                            <td><span class="badge badge-warning">En cours</span></td>
+                        </tr>
+                        <tr>
+                            <td>22/01/2025</td>
+                            <td>Négociation suite</td>
+                            <td>+6% minimum</td>
+                            <td>+3% maximum</td>
+                            <td><span class="badge badge-info">Planifiée</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>📊 Suivi des résultats</h4>
+                
+                <h6>Indicateurs de performance :</h6>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">75%</h3>
+                                <p>Taux de réussite</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">45 jours</h3>
+                                <p>Délai moyen</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">3.2</h3>
+                                <p>Réunions moyennes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">85%</h3>
+                                <p>Satisfaction adhérents</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Gains obtenus (exemples) :</h6>
+                <ul>
+                    <li><strong>Augmentations salariales :</strong> +131 000 000 CFA/an pour l'ensemble des adhérents</li>
+                    <li><strong>Primes exceptionnelles :</strong> 65 500 000 CFA distribués</li>
+                    <li><strong>Amélioration des conditions :</strong> 32 750 000 CFA d'investissements obtenus</li>
+                    <li><strong>Formation :</strong> 19 650 000 CFA de budget formation supplémentaire</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Suivi et Reporting -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📊 Suivi et reporting
+            </div>
+            <div class="card-body">
+                <h4>📈 Tableau de bord revendications</h4>
+                
+                <h6>Vue d'ensemble :</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">24</h3>
+                                <p>Revendications actives</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">18</h3>
+                                <p>Abouties cette année</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">6</h3>
+                                <p>En négociation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📋 Rapports automatiques</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rapport</th>
+                            <th>Fréquence</th>
+                            <th>Contenu</th>
+                            <th>Destinataires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Suivi hebdomadaire</td>
+                            <td>Chaque lundi</td>
+                            <td>État d'avancement des négociations</td>
+                            <td>Bureau exécutif</td>
+                        </tr>
+                        <tr>
+                            <td>Bilan mensuel</td>
+                            <td>Fin de mois</td>
+                            <td>Nouvelles revendications et résultats</td>
+                            <td>Tous les adhérents</td>
+                        </tr>
+                        <tr>
+                            <td>Rapport trimestriel</td>
+                            <td>Fin de trimestre</td>
+                            <td>Analyse détaillée et tendances</td>
+                            <td>Assemblée générale</td>
+                        </tr>
+                        <tr>
+                            <td>Bilan annuel</td>
+                            <td>Fin d'année</td>
+                            <td>Synthèse complète et perspectives</td>
+                            <td>Assemblée générale</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>🎯 Analyses prédictives</h4>
+                
+                <h6>Intelligence artificielle :</h6>
+                <ul>
+                    <li><strong>Tendances :</strong> Analyse des types de revendications émergentes</li>
+                    <li><strong>Probabilité de succès :</strong> Estimation basée sur l'historique</li>
+                    <li><strong>Timing optimal :</strong> Meilleur moment pour négocier</li>
+                    <li><strong>Stratégies gagnantes :</strong> Arguments les plus efficaces</li>
+                    <li><strong>Risques :</strong> Identification des points de blocage</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <strong>🤖 IA Prédictive :</strong> SAMA SYNDICAT analyse vos données historiques pour vous conseiller sur les meilleures stratégies de négociation.
+                </div>
+
+                <h4>📱 Communication aux adhérents</h4>
+                
+                <h6>Canaux de communication :</h6>
+                <ul>
+                    <li><strong>Notifications push :</strong> Alertes importantes</li>
+                    <li><strong>Newsletter :</strong> Résumé mensuel des avancées</li>
+                    <li><strong>Site web :</strong> Tableau de bord public</li>
+                    <li><strong>Assemblées :</strong> Présentation des résultats</li>
+                    <li><strong>Réseaux sociaux :</strong> Partage des victoires</li>
+                </ul>
+
+                <h6>Exemple de communication :</h6>
+                <div class="code-block">
+🎉 VICTOIRE ! Négociation réussie sur les salaires
+✅ Augmentation de 5% obtenue pour tous
+💰 Gain moyen : 32 750 CFA/mois par salarié
+📅 Application dès le mois prochain
+👥 200 adhérents concernés
+
+Merci à tous pour votre mobilisation ! 💪
+                </div>
+            </div>
+        </div>
+
+        <!-- Bonnes Pratiques -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ✅ Bonnes pratiques
+            </div>
+            <div class="card-body">
+                <h4>🎯 Conseils pour réussir</h4>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>✅ À faire</h6>
+                                <ul>
+                                    <li>Documenter soigneusement chaque revendication</li>
+                                    <li>Impliquer les adhérents concernés</li>
+                                    <li>Préparer des arguments solides</li>
+                                    <li>Rester ouvert au dialogue</li>
+                                    <li>Communiquer régulièrement</li>
+                                    <li>Célébrer les victoires</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>❌ À éviter</h6>
+                                <ul>
+                                    <li>Revendications non documentées</li>
+                                    <li>Positions trop rigides</li>
+                                    <li>Négociations dans l'émotion</li>
+                                    <li>Manque de suivi</li>
+                                    <li>Communication insuffisante</li>
+                                    <li>Abandon trop rapide</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📚 Ressources utiles</h4>
+                
+                <h6>Documentation de référence :</h6>
+                <ul>
+                    <li><strong>Code du travail :</strong> Base légale des revendications</li>
+                    <li><strong>Conventions collectives :</strong> Accords sectoriels</li>
+                    <li><strong>Jurisprudence :</strong> Décisions de justice</li>
+                    <li><strong>Études sectorielles :</strong> Comparaisons de marché</li>
+                    <li><strong>Guides de négociation :</strong> Techniques et méthodes</li>
+                </ul>
+
+                <h4>🏆 Facteurs de succès</h4>
+                
+                <h6>Les clés du succès :</h6>
+                <ol>
+                    <li><strong>Préparation :</strong> 70% du succès se joue avant la négociation</li>
+                    <li><strong>Unité :</strong> Mobilisation et soutien des adhérents</li>
+                    <li><strong>Argumentation :</strong> Faits, chiffres et références</li>
+                    <li><strong>Timing :</strong> Choisir le bon moment</li>
+                    <li><strong>Persévérance :</strong> Ne pas abandonner au premier refus</li>
+                    <li><strong>Communication :</strong> Tenir informés les adhérents</li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <strong>🎯 Objectif :</strong> Avec SAMA SYNDICAT, visez un taux de réussite de 80% sur vos revendications grâce aux outils d'analyse et de suivi.
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="assemblees.html" class="btn btn-outline">← Module Assemblées</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="actions.html" class="btn btn-primary">Module Actions →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

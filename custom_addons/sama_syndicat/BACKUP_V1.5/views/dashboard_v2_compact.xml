@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VERSION 2: Dashboard compact avec sections organisées -->
+        <record id="view_syndicat_dashboard_v2_kanban" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.v2.kanban</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_kanban_dashboard_fullwidth" create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="date_derniere_maj"/>
+                    <field name="nb_adherents_total"/>
+                    <field name="nb_adherents_actifs"/>
+                    <field name="nb_nouveaux_adherents_mois"/>
+                    <field name="nb_cotisations_jour"/>
+                    <field name="nb_cotisations_retard"/>
+                    <field name="montant_cotisations_mois"/>
+                    <field name="taux_cotisations_jour"/>
+                    <field name="nb_assemblees_mois"/>
+                    <field name="taux_participation_moyen"/>
+                    <field name="nb_revendications_en_cours"/>
+                    <field name="nb_revendications_acceptees"/>
+                    <field name="nb_actions_en_cours"/>
+                    <field name="nb_formations_en_cours"/>
+                    <field name="nb_adherents_formes"/>
+                    <field name="nb_mediations_en_cours"/>
+                    <field name="nb_communications_mois"/>
+                    <field name="alertes_cotisations"/>
+                    <field name="alertes_assemblees"/>
+                    <field name="alertes_actions"/>
+                    <field name="alertes_mediations"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_record o_kanban_dashboard_record">
+                                <!-- En-tête avec titre et bouton actualiser -->
+                                <div class="o_kanban_dashboard_title mb-3">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h2><field name="name"/></h2>
+                                        <button name="action_actualiser" type="object" class="btn btn-primary">
+                                            <i class="fa fa-refresh"/> Actualiser
+                                        </button>
+                                    </div>
+                                    <small class="text-muted">
+                                        Dernière mise à jour : <field name="date_derniere_maj" widget="datetime"/>
+                                    </small>
+                                </div>
+
+                                <!-- Section 1: Adhérents et Cotisations -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-primary mb-3"><i class="fa fa-users"/> Adhérents &amp; Cotisations</h4>
+                                    
+                                    <div class="o_stat_box o_primary">
+                                        <button name="action_open_adherents" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_adherents_total"/></span>
+                                            <span class="o_stat_text">Total Adhérents</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <button name="action_open_adherents" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_adherents_actifs"/></span>
+                                            <span class="o_stat_text">Actifs</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <span class="o_stat_value">+<field name="nb_nouveaux_adherents_mois"/></span>
+                                        <span class="o_stat_text">Nouveaux ce Mois</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <button name="action_open_cotisations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_cotisations_jour"/></span>
+                                            <span class="o_stat_text">Cotisations à Jour</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_warning">
+                                        <button name="action_open_alertes_cotisations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_cotisations_retard"/></span>
+                                            <span class="o_stat_text">En Retard</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <span class="o_stat_value"><field name="montant_cotisations_mois" widget="monetary"/></span>
+                                        <span class="o_stat_text">Montant ce Mois</span>
+                                    </div>
+                                </div>
+
+                                <!-- Section 2: Activités Syndicales -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-warning mb-3"><i class="fa fa-gavel"/> Activités Syndicales</h4>
+                                    
+                                    <div class="o_stat_box o_secondary">
+                                        <button name="action_open_assemblees" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_assemblees_mois"/></span>
+                                            <span class="o_stat_text">Assemblées ce Mois</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <span class="o_stat_value"><field name="taux_participation_moyen" widget="percentage"/></span>
+                                        <span class="o_stat_text">Taux Participation</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_warning">
+                                        <button name="action_open_revendications" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_revendications_en_cours"/></span>
+                                            <span class="o_stat_text">Revendications</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <span class="o_stat_value"><field name="nb_revendications_acceptees"/></span>
+                                        <span class="o_stat_text">Acceptées</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_danger">
+                                        <button name="action_open_actions" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_actions_en_cours"/></span>
+                                            <span class="o_stat_text">Actions en Cours</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Section 3: Formation et Communication -->
+                                <div class="o_kanban_dashboard_section">
+                                    <h4 class="text-info mb-3"><i class="fa fa-graduation-cap"/> Formation &amp; Communication</h4>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <button name="action_open_formations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_formations_en_cours"/></span>
+                                            <span class="o_stat_text">Formations en Cours</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <span class="o_stat_value"><field name="nb_adherents_formes"/></span>
+                                        <span class="o_stat_text">Adhérents Formés</span>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_dark">
+                                        <button name="action_open_mediations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_mediations_en_cours"/></span>
+                                            <span class="o_stat_text">Médiations</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_primary">
+                                        <button name="action_open_communications" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_communications_mois"/></span>
+                                            <span class="o_stat_text">Communications</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Section 4: Alertes (si présentes) -->
+                                <div class="o_kanban_dashboard_section" t-if="record.alertes_cotisations.raw_value > 0 or record.alertes_assemblees.raw_value > 0 or record.alertes_actions.raw_value > 0 or record.alertes_mediations.raw_value > 0">
+                                    <h4 class="text-danger mb-3"><i class="fa fa-exclamation-triangle"/> Alertes Actives</h4>
+                                    
+                                    <div class="o_stat_box o_warning" t-if="record.alertes_cotisations.raw_value > 0">
+                                        <button name="action_open_alertes_cotisations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="alertes_cotisations"/></span>
+                                            <span class="o_stat_text">Cotisations</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info" t-if="record.alertes_assemblees.raw_value > 0">
+                                        <button name="action_open_alertes_assemblees" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="alertes_assemblees"/></span>
+                                            <span class="o_stat_text">Assemblées</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_danger" t-if="record.alertes_actions.raw_value > 0">
+                                        <button name="action_open_alertes_actions" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="alertes_actions"/></span>
+                                            <span class="o_stat_text">Actions</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_warning" t-if="record.alertes_mediations.raw_value > 0">
+                                        <button name="action_open_alertes_mediations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="alertes_mediations"/></span>
+                                            <span class="o_stat_text">Médiations</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Message de succès si aucune alerte -->
+                                <div class="o_kanban_dashboard_section" t-if="record.alertes_cotisations.raw_value == 0 and record.alertes_assemblees.raw_value == 0 and record.alertes_actions.raw_value == 0 and record.alertes_mediations.raw_value == 0">
+                                    <div class="alert alert-success text-center">
+                                        <i class="fa fa-check-circle fa-2x mb-2"/>
+                                        <h5>Excellent ! Aucune alerte active</h5>
+                                        <p class="mb-0">Toutes les activités syndicales sont à jour.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Action pour le Dashboard V2 -->
+        <record id="action_syndicat_dashboard_v2" model="ir.actions.act_window">
+            <field name="name">Dashboard V2 - Compact Organisé</field>
+            <field name="res_model">syndicat.dashboard</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_syndicat_dashboard_v2_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Dashboard Version 2 - Compact et Organisé
+                </p>
+                <p>
+                    Sections thématiques avec CSS natif Odoo pour une meilleure lisibilité.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

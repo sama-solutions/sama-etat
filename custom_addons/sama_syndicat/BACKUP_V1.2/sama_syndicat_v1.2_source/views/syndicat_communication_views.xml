@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Communications -->
+        <record id="view_syndicat_communication_list" model="ir.ui.view">
+            <field name="name">syndicat.communication.list</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <list string="Communications" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_communication"/>
+                    <field name="canal_diffusion"/>
+                    <field name="auteur_id"/>
+                    <field name="date_creation"/>
+                    <field name="date_publication"/>
+                    <field name="nb_destinataires"/>
+                    <field name="nb_lectures"/>
+                    <field name="taux_ouverture" widget="percentage"/>
+                    <field name="importance" decoration-danger="importance == 'critique'" decoration-warning="importance == 'elevee'"/>
+                    <field name="statut" decoration-info="statut in ['brouillon', 'en_attente']" decoration-warning="statut == 'validee'" decoration-success="statut == 'publiee'" decoration-muted="statut in ['archivee', 'annulee']"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Communications -->
+        <record id="view_syndicat_communication_kanban" model="ir.ui.view">
+            <field name="name">syndicat.communication.kanban</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_communication"/>
+                    <field name="canal_diffusion"/>
+                    <field name="statut"/>
+                    <field name="auteur_id"/>
+                    <field name="date_creation"/>
+                    <field name="date_publication"/>
+                    <field name="nb_destinataires"/>
+                    <field name="nb_lectures"/>
+                    <field name="taux_ouverture"/>
+                    <field name="importance"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_communication"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-user" title="Auteur"/> <field name="auteur_id"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date de création"/> <field name="date_creation"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-info">
+                                                    <field name="canal_diffusion"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2" t-if="record.statut.raw_value == 'publiee'">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-success">
+                                                    <field name="nb_destinataires"/> destinataires
+                                                </span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-info">
+                                                    <field name="taux_ouverture" widget="percentage"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill" t-att-class="record.importance.raw_value == 'critique' ? 'badge-danger' : record.importance.raw_value == 'elevee' ? 'badge-warning' : 'badge-secondary'">
+                                                    <field name="importance"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Communications -->
+        <record id="view_syndicat_communication_form" model="ir.ui.view">
+            <field name="name">syndicat.communication.form</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <form string="Communication">
+                    <header>
+                        <button name="action_soumettre_validation" string="Soumettre pour Validation" type="object" class="btn-primary" invisible="statut != 'brouillon'"/>
+                        <button name="action_valider" string="Valider" type="object" class="btn-success" invisible="statut != 'en_attente'" groups="sama_syndicat.group_syndicat_secretaire,sama_syndicat.group_syndicat_manager"/>
+                        <button name="action_publier" string="Publier" type="object" class="btn-success" invisible="statut != 'validee'"/>
+                        <button name="action_programmer_diffusion" string="Programmer" type="object" class="btn-info" invisible="statut != 'validee' or not date_diffusion_programmee"/>
+                        <button name="action_archiver" string="Archiver" type="object" class="btn-secondary" invisible="statut != 'publiee'"/>
+                        <button name="action_annuler" string="Annuler" type="object" class="btn-danger" invisible="statut not in ['brouillon', 'en_attente', 'validee']"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="brouillon,en_attente,validee,publiee"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_destinataires" icon="fa-users">
+                                <field string="Destinataires" name="nb_destinataires" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_lectures" icon="fa-eye">
+                                <field string="Lectures" name="nb_lectures" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_reponses" icon="fa-reply">
+                                <field string="Réponses" name="nb_reponses" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_feedback" icon="fa-comments">
+                                <field string="Retours" name="feedback_ids" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_communication" required="1"/>
+                                <field name="canal_diffusion" required="1"/>
+                                <field name="importance"/>
+                                <field name="confidentialite"/>
+                                <field name="auteur_id" readonly="1"/>
+                                <field name="date_creation" readonly="1"/>
+                            </group>
+                            <group name="validation_info" string="Validation">
+                                <field name="validateur_id" readonly="1"/>
+                                <field name="date_validation" readonly="1"/>
+                                <field name="date_publication" readonly="1"/>
+                                <field name="date_expiration"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="diffusion_info" string="Diffusion">
+                                <field name="diffusion_immediate"/>
+                                <field name="date_diffusion_programmee" invisible="diffusion_immediate"/>
+                                <field name="rappel_automatique"/>
+                                <field name="date_rappel" invisible="not rappel_automatique"/>
+                            </group>
+                            <group name="stats_info" string="Statistiques" invisible="statut not in ['publiee', 'archivee']">
+                                <field name="taux_ouverture" readonly="1" widget="percentage"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contenu" name="contenu">
+                                <group>
+                                    <field name="resume"/>
+                                </group>
+                                <group>
+                                    <field name="contenu" widget="html" required="1"/>
+                                </group>
+                                <group>
+                                    <field name="mots_cles"/>
+                                </group>
+                            </page>
+                            <page string="Destinataires" name="destinataires">
+                                <group>
+                                    <group string="Adhérents">
+                                        <field name="destinataires_tous_adherents"/>
+                                        <field name="filtre_statut_adhesion" invisible="not destinataires_tous_adherents"/>
+                                        <field name="filtre_responsabilite" invisible="not destinataires_tous_adherents"/>
+                                        <field name="destinataires_adherents_ids" widget="many2many_tags" invisible="destinataires_tous_adherents"/>
+                                    </group>
+                                    <group string="Externes">
+                                        <field name="destinataires_externes"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Relations" name="relations">
+                                <group>
+                                    <group string="Événements Liés">
+                                        <field name="action_id"/>
+                                        <field name="assemblee_id"/>
+                                        <field name="revendication_id"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Médias" name="medias">
+                                <group>
+                                    <field name="pieces_jointes"/>
+                                </group>
+                                <group>
+                                    <field name="images"/>
+                                </group>
+                            </page>
+                            <page string="Retours" name="feedback" invisible="statut not in ['publiee', 'archivee']">
+                                <field name="feedback_ids">
+                                    <list>
+                                        <field name="adherent_id"/>
+                                        <field name="type_feedback"/>
+                                        <field name="date_feedback"/>
+                                        <field name="note"/>
+                                        <field name="utile"/>
+                                        <field name="commentaire"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Communications -->
+        <record id="view_syndicat_communication_search" model="ir.ui.view">
+            <field name="name">syndicat.communication.search</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Communications">
+                    <field name="name" string="Nom" filter_domain="['|', '|', ('name', 'ilike', self), ('reference', 'ilike', self), ('contenu', 'ilike', self)]"/>
+                    <field name="auteur_id"/>
+                    <field name="type_communication"/>
+                    <field name="canal_diffusion"/>
+                    <separator/>
+                    <filter string="Brouillons" name="brouillons" domain="[('statut', '=', 'brouillon')]"/>
+                    <filter string="En attente" name="en_attente" domain="[('statut', '=', 'en_attente')]"/>
+                    <filter string="Publiées" name="publiees" domain="[('statut', '=', 'publiee')]"/>
+                    <filter string="Importantes" name="importantes" domain="[('importance', 'in', ['elevee', 'critique'])]"/>
+                    <filter string="Publiques" name="publiques" domain="[('canal_diffusion', 'in', ['public', 'mixte'])]"/>
+                    <separator/>
+                    <filter string="Ce mois" name="ce_mois" domain="[('date_creation', '>=', datetime.datetime.now().replace(day=1))]"/>
+                    <filter string="Cette semaine" name="cette_semaine" domain="[('date_creation', '>=', datetime.datetime.now() - datetime.timedelta(days=datetime.datetime.now().weekday()))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type" name="group_type" context="{'group_by': 'type_communication'}"/>
+                        <filter string="Canal" name="group_canal" context="{'group_by': 'canal_diffusion'}"/>
+                        <filter string="Auteur" name="group_auteur" context="{'group_by': 'auteur_id'}"/>
+                        <filter string="Importance" name="group_importance" context="{'group_by': 'importance'}"/>
+                        <filter string="Mois" name="group_mois" context="{'group_by': 'date_creation:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Communications -->
+        <record id="view_syndicat_communication_graph" model="ir.ui.view">
+            <field name="name">syndicat.communication.graph</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Communications" type="bar" sample="1">
+                    <field name="type_communication" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_destinataires" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Communications -->
+        <record id="view_syndicat_communication_pivot" model="ir.ui.view">
+            <field name="name">syndicat.communication.pivot</field>
+            <field name="model">syndicat.communication</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Communications" sample="1">
+                    <field name="type_communication" type="row"/>
+                    <field name="canal_diffusion" type="col"/>
+                    <field name="nb_destinataires" type="measure"/>
+                    <field name="taux_ouverture" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Communications -->
+        <record id="action_syndicat_communication" model="ir.actions.act_window">
+            <field name="name">Communications</field>
+            <field name="res_model">syndicat.communication</field>
+            <field name="view_mode">kanban,list,form,graph,pivot</field>
+            <field name="context">{'search_default_publiees': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre première communication
+                </p>
+                <p>
+                    Gérez vos communications syndicales multi-canaux avec un suivi des performances et des retours.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

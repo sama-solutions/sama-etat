@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - SAMA SYNDICAT</title>
+    <meta name="description" content="Questions fréquemment posées sur SAMA SYNDICAT">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">Accueil</a>
+                <a href="guide-utilisateur.html" class="nav-link">Documentation</a>
+                <a href="../formation/index.html" class="nav-link">Formation</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
+                <a href="support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="faq.html" class="sidebar-link active">❓ FAQ</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="support.html" class="sidebar-link">🆘 Support</a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">❓ Questions Fréquentes</h1>
+            <p class="content-subtitle">Trouvez rapidement les réponses à vos questions</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Rechercher une question...">
+        </div>
+
+        <!-- Role Filters -->
+        <div class="card">
+            <div class="card-header">
+                🎯 Filtrer par rôle
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn btn-outline role-filter" data-role="all">Toutes les questions</button>
+                        <button class="btn btn-outline role-filter" data-role="adherent">👥 Adhérent</button>
+                        <button class="btn btn-outline role-filter" data-role="president">👑 Président</button>
+                        <button class="btn btn-outline role-filter" data-role="secretaire">📝 Secrétaire</button>
+                        <button class="btn btn-outline role-filter" data-role="tresorier">💰 Trésorier</button>
+                        <button class="btn btn-outline role-filter" data-role="delegue">🗣️ Délégué</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Générales -->
+        <div class="card" data-searchable data-role="all">
+            <div class="card-header">
+                🌟 Questions générales
+            </div>
+            <div class="card-body">
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        ❓ Qu'est-ce que SAMA SYNDICAT ?
+                    </div>
+                    <div class="accordion-content">
+                        <p>SAMA SYNDICAT est une solution complète de gestion syndicale qui digitalise et modernise toutes les activités d'un syndicat. Elle permet de :</p>
+                        <ul>
+                            <li>Gérer les adhérents et leurs cotisations</li>
+                            <li>Organiser des assemblées virtuelles ou hybrides</li>
+                            <li>Suivre les revendications et négociations</li>
+                            <li>Communiquer efficacement avec les adhérents</li>
+                            <li>Former les membres du syndicat</li>
+                            <li>Gérer les finances et la comptabilité</li>
+                        </ul>
+                        <p>L'objectif est de permettre aux syndicats de se concentrer sur leur mission principale : défendre les droits des salariés.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🔐 Mes données sont-elles sécurisées ?
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Absolument !</strong> La sécurité est notre priorité absolue :</p>
+                    <ul>
+                        <li><strong>Chiffrement :</strong> Toutes les données sont chiffrées avec un niveau bancaire (SSL 256 bits)</li>
+                        <li><strong>Serveurs :</strong> Hébergement en France dans des datacenters certifiés</li>
+                        <li><strong>RGPD :</strong> Conformité totale au règlement européen</li>
+                        <li><strong>Accès :</strong> Contrôle strict des accès par rôles</li>
+                        <li><strong>Sauvegarde :</strong> Sauvegardes automatiques quotidiennes</li>
+                        <li><strong>Audit :</strong> Traçabilité complète de toutes les actions</li>
+                    </ul>
+                    <p>Vos données syndicales sont plus sécurisées dans SAMA SYNDICAT que dans des fichiers Excel sur votre ordinateur !</p>
+                </div>
+                
+                <div class="accordion-header">
+                    💰 Combien coûte SAMA SYNDICAT ?
+                </div>
+                <div class="accordion-content">
+                    <p>SAMA SYNDICAT propose plusieurs formules adaptées à la taille de votre syndicat :</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Formule</th>
+                                <th>Adhérents</th>
+                                <th>Prix mensuel</th>
+                                <th>Fonctionnalités</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Starter</td>
+                                <td>Jusqu'à 100</td>
+                                <td>65 000 CFA</td>
+                                <td>Fonctionnalités de base</td>
+                            </tr>
+                            <tr>
+                                <td>Professional</td>
+                                <td>100 à 500</td>
+                                <td>195 000 CFA</td>
+                                <td>Toutes les fonctionnalités</td>
+                            </tr>
+                            <tr>
+                                <td>Enterprise</td>
+                                <td>500+</td>
+                                <td>390 000 CFA</td>
+                                <td>Fonctionnalités avancées + support premium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><strong>Offre de lancement :</strong> 3 mois gratuits + formation offerte !</p>
+                </div>
+
+                <div class="accordion-header">
+                    📱 Y a-t-il une application mobile ?
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Oui !</strong> SAMA SYNDICAT dispose d'une application mobile complète disponible sur :</p>
+                    <ul>
+                        <li>📱 <strong>iOS :</strong> App Store</li>
+                        <li>🤖 <strong>Android :</strong> Google Play Store</li>
+                    </ul>
+                    <p><strong>Fonctionnalités mobiles :</strong></p>
+                    <ul>
+                        <li>Accès à toutes les fonctionnalités</li>
+                        <li>Notifications push en temps réel</li>
+                        <li>Vote électronique</li>
+                        <li>Consultation hors ligne</li>
+                        <li>Géolocalisation pour les événements</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header">
+                    🎓 Comment apprendre à utiliser SAMA SYNDICAT ?
+                </div>
+                <div class="accordion-content">
+                    <p>Nous proposons plusieurs moyens d'apprentissage :</p>
+                    <ul>
+                        <li><strong>Formation initiale :</strong> 2h de formation offerte à l'installation</li>
+                        <li><strong>Modules e-learning :</strong> Formations par rôle disponibles 24h/24</li>
+                        <li><strong>Documentation :</strong> Guides complets et tutoriels vidéo</li>
+                        <li><strong>Webinaires :</strong> Sessions de formation en direct</li>
+                        <li><strong>Support :</strong> Aide personnalisée par chat, email ou téléphone</li>
+                    </ul>
+                    <p>La plupart des utilisateurs maîtrisent les fonctions de base en moins d'une semaine !</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Adhérents -->
+        <div class="card" data-searchable data-role="adherent">
+            <div class="card-header">
+                👥 Questions des adhérents
+            </div>
+            <div class="card-body">
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        🔑 Comment me connecter pour la première fois ?
+                    </div>
+                    <div class="accordion-content">
+                        <p>Votre première connexion se fait en 4 étapes simples :</p>
+                        <ol>
+                            <li><strong>Récupérez vos identifiants :</strong> Votre secrétaire vous a envoyé votre numéro d'adhérent et un mot de passe temporaire</li>
+                            <li><strong>Accédez au site :</strong> Cliquez sur le lien fourni ou tapez l'adresse</li>
+                            <li><strong>Connectez-vous :</strong> Saisissez votre numéro d'adhérent et le mot de passe temporaire</li>
+                            <li><strong>Personnalisez :</strong> Changez votre mot de passe et complétez votre profil</li>
+                        </ol>
+                        <div class="alert alert-info">
+                            <strong>💡 Problème de connexion ?</strong> Contactez votre secrétaire ou le support technique.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    💰 Comment consulter mes cotisations ?
+                </div>
+                <div class="accordion-content">
+                    <p>Pour consulter vos cotisations :</p>
+                    <ol>
+                        <li>Connectez-vous à votre espace personnel</li>
+                        <li>Cliquez sur "Mon Profil" dans le menu</li>
+                        <li>Sélectionnez l'onglet "Cotisations"</li>
+                    </ol>
+                    <p>Vous y trouverez :</p>
+                    <ul>
+                        <li>Votre situation actuelle (à jour/en retard)</li>
+                        <li>L'historique de tous vos paiements</li>
+                        <li>Les échéances à venir</li>
+                        <li>Les reçus téléchargeables</li>
+                    </ul>
+                    <p>Vous recevez aussi un email mensuel avec votre situation.</p>
+                    </div>
+
+                <div class="accordion-header">
+                    🗳️ Comment voter lors des assemblées ?
+                </div>
+                <div class="accordion-content">
+                    <p>Le vote électronique est très simple :</p>
+                    <ol>
+                        <li><strong>Pendant l'assemblée :</strong> Une notification apparaît quand un vote commence</li>
+                        <li><strong>Cliquez sur "Voter" :</strong> Une fenêtre s'ouvre avec la question</li>
+                        <li><strong>Choisissez :</strong> Pour, Contre, ou Abstention</li>
+                        <li><strong>Confirmez :</strong> Cliquez sur "Valider mon vote"</li>
+                        <li><strong>Résultat :</strong> Les résultats s'affichent en temps réel</li>
+                    </ol>
+                    <div class="alert alert-success">
+                        <strong>✅ Sécurité :</strong> Votre vote est anonyme et vous ne pouvez voter qu'une seule fois par question.
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    📢 Comment être informé des actualités ?
+                </div>
+                <div class="accordion-content">
+                    <p>Plusieurs moyens pour rester informé :</p>
+                    <ul>
+                        <li><strong>Notifications push :</strong> Sur votre mobile (recommandé)</li>
+                        <li><strong>Emails :</strong> Newsletter hebdomadaire</li>
+                        <li><strong>SMS :</strong> Pour les informations urgentes</li>
+                        <li><strong>Tableau de bord :</strong> Actualités en page d'accueil</li>
+                        <li><strong>Site web :</strong> Section actualités</li>
+                    </ul>
+                    <p>Vous pouvez personnaliser vos préférences dans "Mon Profil" → "Notifications".</p>
+                </div>
+
+                <div class="accordion-header">
+                    🎓 Comment m'inscrire à une formation ?
+                </div>
+                <div class="accordion-content">
+                    <p>L'inscription aux formations est automatisée :</p>
+                    <ol>
+                        <li>Allez dans le menu "Formations"</li>
+                        <li>Parcourez le catalogue disponible</li>
+                        <li>Cliquez sur "S'inscrire" pour la formation choisie</li>
+                        <li>Confirmez votre inscription</li>
+                        <li>Recevez la confirmation par email</li>
+                    </ol>
+                    <p><strong>Types de formations :</strong></p>
+                    <ul>
+                        <li>Formations en ligne (disponibles 24h/24)</li>
+                        <li>Webinaires en direct</li>
+                        <li>Formations présentielles</li>
+                        <li>Formations certifiantes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Dirigeants -->
+        <div class="card" data-searchable data-role="president,secretaire,tresorier">
+            <div class="card-header">
+                👑 Questions des dirigeants
+            </div>
+            <div class="card-body">
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        📊 Comment accéder aux statistiques du syndicat ?
+                    </div>
+                    <div class="accordion-content">
+                        <p>En tant que dirigeant, vous avez accès à un tableau de bord complet :</p>
+                        <ul>
+                            <li><strong>Dashboard Exécutif :</strong> Vue d'ensemble des KPI</li>
+                            <li><strong>Rapports automatiques :</strong> Générés mensuellement</li>
+                            <li><strong>Analyses personnalisées :</strong> Créez vos propres rapports</li>
+                            <li><strong>Export de données :</strong> Excel, PDF, CSV</li>
+                        </ul>
+                        <p><strong>Métriques disponibles :</strong></p>
+                        <ul>
+                            <li>Évolution du nombre d'adhérents</li>
+                            <li>Taux de participation aux assemblées</li>
+                            <li>Situation financière</li>
+                            <li>Avancement des revendications</li>
+                            <li>Taux d'engagement des adhérents</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🏛️ Comment organiser une assemblée générale ?
+                </div>
+                <div class="accordion-content">
+                    <p>L'organisation d'une AG est simplifiée avec SAMA SYNDICAT :</p>
+                    <ol>
+                        <li><strong>Création :</strong> Menu "Assemblées" → "Nouvelle AG"</li>
+                        <li><strong>Paramétrage :</strong>
+                            <ul>
+                                <li>Date, heure et lieu</li>
+                                <li>Type (ordinaire/extraordinaire)</li>
+                                <li>Mode (présentiel/virtuel/hybride)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Ordre du jour :</strong> Rédigez les points à aborder</li>
+                        <li><strong>Convocations :</strong> Envoi automatique 15 jours avant</li>
+                        <li><strong>Rappels :</strong> Automatiques à J-3 et J-1</li>
+                        <li><strong>Gestion :</strong> Présences, votes, PV automatique</li>
+                    </ol>
+                    <div class="alert alert-success">
+                        <strong>✅ Avantage :</strong> Tout est automatisé, vous vous concentrez sur l'animation !
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    💸 Comment gérer les finances du syndicat ?
+                </div>
+                <div class="accordion-content">
+                    <p>SAMA SYNDICAT inclut une comptabilité complète :</p>
+                    <ul>
+                        <li><strong>Cotisations :</strong> Calcul et suivi automatiques</li>
+                        <li><strong>Comptabilité :</strong> Saisie simplifiée des écritures</li>
+                        <li><strong>Budget :</strong> Élaboration et suivi budgétaire</li>
+                        <li><strong>Rapports :</strong> Bilan, compte de résultat</li>
+                        <li><strong>Contrôles :</strong> Vérifications automatiques</li>
+                    </ul>
+                    <p><strong>Fonctionnalités avancées :</strong></p>
+                    <ul>
+                        <li>Rapprochement bancaire automatique</li>
+                        <li>Génération des déclarations fiscales</li>
+                        <li>Archivage numérique des justificatifs</li>
+                        <li>Tableaux de bord financiers</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header">
+                    📧 Comment communiquer avec tous les adhérents ?
+                </div>
+                <div class="accordion-content">
+                    <p>Plusieurs canaux de communication sont disponibles :</p>
+                    <ul>
+                        <li><strong>Email :</strong> Newsletters et communications officielles</li>
+                        <li><strong>SMS :</strong> Messages urgents et rappels</li>
+                        <li><strong>Notifications push :</strong> Alertes instantanées</li>
+                        <li><strong>Site web :</strong> Actualités et informations publiques</li>
+                    </ul>
+                    <p><strong>Fonctionnalités avancées :</strong></p>
+                    <ul>
+                        <li>Segmentation par groupes (service, statut, etc.)</li>
+                        <li>Programmation des envois</li>
+                        <li>Statistiques d'ouverture et de lecture</li>
+                        <li>Templates personnalisables</li>
+                        <li>Gestion des listes de diffusion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Techniques -->
+        <div class="card" data-searchable data-role="all">
+            <div class="card-header">
+                🔧 Questions techniques
+            </div>
+            <div class="card-body">
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        💻 Quels sont les prérequis techniques ?
+                    </div>
+                    <div class="accordion-content">
+                        <p>SAMA SYNDICAT fonctionne sur tous les appareils modernes :</p>
+                        <ul>
+                            <li><strong>Navigateurs supportés :</strong>
+                                <ul>
+                                    <li>Chrome 90+ (recommandé)</li>
+                                    <li>Firefox 88+</li>
+                                    <li>Safari 14+</li>
+                                    <li>Edge 90+</li>
+                                </ul>
+                            </li>
+                            <li><strong>Systèmes mobiles :</strong>
+                                <ul>
+                                    <li>iOS 13+ (iPhone/iPad)</li>
+                                    <li>Android 8+ (smartphones/tablettes)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Connexion internet :</strong> Haut débit recommandé pour les visioconférences</li>
+                        </ul>
+                        <div class="alert alert-info">
+                            <strong>💡 Conseil :</strong> Désactivez les bloqueurs de publicité pour une expérience optimale.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🔄 Comment sauvegarder mes données ?
+                </div>
+                <div class="accordion-content">
+                    <p>Vos données sont automatiquement sauvegardées :</p>
+                    <ul>
+                        <li><strong>Sauvegarde automatique :</strong> Toutes les 4 heures</li>
+                        <li><strong>Sauvegarde quotidienne :</strong> Archivage complet</li>
+                        <li><strong>Sauvegarde hebdomadaire :</strong> Conservation longue durée</li>
+                        <li><strong>Géo-redondance :</strong> Copies dans plusieurs datacenters</li>
+                    </ul>
+                    <p><strong>Export manuel :</strong></p>
+                    <ul>
+                        <li>Export complet de vos données</li>
+                        <li>Formats : Excel, CSV, JSON</li>
+                        <li>Planification d'exports automatiques</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header">
+                    🚫 Que faire si j'ai oublié mon mot de passe ?
+                </div>
+                <div class="accordion-content">
+                    <p>La récupération de mot de passe est simple :</p>
+                    <ol>
+                        <li>Cliquez sur "Mot de passe oublié ?" sur la page de connexion</li>
+                        <li>Saisissez votre adresse email</li>
+                        <li>Consultez votre boîte email (vérifiez les spams)</li>
+                        <li>Cliquez sur le lien de réinitialisation</li>
+                        <li>Créez un nouveau mot de passe sécurisé</li>
+                    </ol>
+                    <div class="alert alert-warning">
+                        <strong>⚠️ Sécurité :</strong> Le lien de réinitialisation expire après 24h pour votre sécurité.
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    📱 L'application mobile fonctionne-t-elle hors ligne ?
+                </div>
+                <div class="accordion-content">
+                    <p>L'application mobile offre des fonctionnalités hors ligne limitées :</p>
+                    <ul>
+                        <li><strong>Consultation :</strong> Actualités, documents téléchargés</li>
+                        <li><strong>Profil :</strong> Informations personnelles</li>
+                        <li><strong>Agenda :</strong> Événements synchronisés</li>
+                        <li><strong>Formations :</strong> Modules téléchargés</li>
+                    </ul>
+                    <p><strong>Nécessite une connexion :</strong></p>
+                    <ul>
+                        <li>Vote électronique</li>
+                        <li>Envoi de messages</li>
+                        <li>Mise à jour des données</li>
+                        <li>Participation aux assemblées virtuelles</li>
+                    </ul>
+                    <p>Les données sont synchronisées dès que la connexion est rétablie.</p>
+                </div>
+
+                <div class="accordion-header">
+                    🔧 Comment signaler un bug ou un problème ?
+                </div>
+                <div class="accordion-content">
+                    <p>Plusieurs moyens pour signaler un problème :</p>
+                    <ol>
+                        <li><strong>Support intégré :</strong> Bouton "Aide" dans l'application</li>
+                        <li><strong>Email :</strong> support@sama-syndicat.com</li>
+                        <li><strong>Chat :</strong> Disponible 9h-18h en semaine</li>
+                        <li><strong>Téléphone :</strong> 01 23 45 67 89 (urgences)</li>
+                    </ol>
+                    <p><strong>Informations à fournir :</strong></p>
+                    <ul>
+                        <li>Description détaillée du problème</li>
+                        <li>Étapes pour reproduire le bug</li>
+                        <li>Navigateur et version utilisés</li>
+                        <li>Captures d'écran si possible</li>
+                    </ul>
+                    <div class="alert alert-success">
+                        <strong>⚡ Réactivité :</strong> 95% des problèmes sont résolus en moins de 4h !
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Légales -->
+        <div class="card" data-searchable data-role="all">
+            <div class="card-header">
+                ⚖️ Questions légales et conformité
+            </div>
+            <div class="card-body">
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        🛡️ SAMA SYNDICAT est-il conforme au RGPD ?
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>Oui, totalement !</strong> SAMA SYNDICAT respecte scrupuleusement le RGPD :</p>
+                        <ul>
+                            <li><strong>Consentement :</strong> Collecte uniquement avec accord explicite</li>
+                            <li><strong>Finalité :</strong> Données utilisées uniquement pour la gestion syndicale</li>
+                            <li><strong>Minimisation :</strong> Seules les données nécessaires sont collectées</li>
+                            <li><strong>Durée :</strong> Conservation limitée dans le temps</li>
+                            <li><strong>Sécurité :</strong> Chiffrement et protection maximale</li>
+                            <li><strong>Droits :</strong> Accès, rectification, suppression garantis</li>
+                        </ul>
+                        <p><strong>Vos droits :</strong></p>
+                        <ul>
+                            <li>Droit d'accès à vos données</li>
+                            <li>Droit de rectification</li>
+                            <li>Droit à l'effacement</li>
+                            <li>Droit à la portabilité</li>
+                            <li>Droit d'opposition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    📋 Qui peut accéder aux données des adhérents ?
+                </div>
+                <div class="accordion-content">
+                    <p>L'accès aux données est strictement contrôlé par rôles :</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Rôle</th>
+                                <th>Accès aux données</th>
+                                <th>Permissions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adhérent</td>
+                                <td>Ses propres données uniquement</td>
+                                <td>Lecture/Modification limitée</td>
+                            </tr>
+                            <tr>
+                                <td>Délégué</td>
+                                <td>Données de contact des adhérents</td>
+                                <td>Lecture seule</td>
+                            </tr>
+                            <tr>
+                                <td>Secrétaire</td>
+                                <td>Toutes les données adhérents</td>
+                                <td>Lecture/Écriture</td>
+                            </tr>
+                            <tr>
+                                <td>Trésorier</td>
+                                <td>Données financières</td>
+                                <td>Lecture/Écriture finances</td>
+                            </tr>
+                            <tr>
+                                <td>Président</td>
+                                <td>Toutes les données</td>
+                                <td>Accès complet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Toutes les consultations sont tracées et auditables.</p>
+                </div>
+
+                <div class="accordion-header">
+                    📄 Où sont stockées les données ?
+                </div>
+                <div class="accordion-content">
+                    <p>Toutes les données sont stockées en France :</p>
+                    <ul>
+                        <li><strong>Datacenters :</strong> Certifiés ISO 27001 en France</li>
+                        <li><strong>Hébergeur :</strong> OVH (leader français)</li>
+                        <li><strong>Redondance :</strong> Copies dans plusieurs sites</li>
+                        <li><strong>Sauvegardes :</strong> Conservées en France uniquement</li>
+                    </ul>
+                    <p><strong>Garanties :</strong></p>
+                    <ul>
+                        <li>Aucun transfert hors UE</li>
+                        <li>Respect de la souveraineté numérique</li>
+                        <li>Conformité aux lois françaises</li>
+                        <li>Disponibilité 99,9%</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header">
+                    🔒 Que se passe-t-il si je quitte le syndicat ?
+                </div>
+                <div class="accordion-content">
+                    <p>En cas de départ du syndicat :</p>
+                    <ul>
+                        <li><strong>Accès :</strong> Suspension immédiate de votre compte</li>
+                        <li><strong>Données personnelles :</strong> Suppression sur demande</li>
+                        <li><strong>Données syndicales :</strong> Conservation pour l'historique (anonymisées)</li>
+                        <li><strong>Export :</strong> Possibilité de récupérer vos données</li>
+                    </ul>
+                    <p><strong>Conservation légale :</strong></p>
+                    <ul>
+                        <li>Données comptables : 10 ans (obligation légale)</li>
+                        <li>Procès-verbaux : Conservation permanente</li>
+                        <li>Données personnelles : Suppression après 3 ans d'inactivité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Support -->
+        <div class="card">
+            <div class="card-header">
+                📞 Vous ne trouvez pas votre réponse ?
+            </div>
+            <div class="card-body">
+                <p>Notre équipe support est là pour vous aider !</p>
+                
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>💬 Chat en ligne</h5>
+                                <p>Réponse immédiate</p>
+                                <p><strong>9h-18h du lundi au vendredi</strong></p>
+                                <a href="#" class="btn btn-primary">Démarrer le chat</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>📧 Email</h5>
+                                <p>Réponse sous 4h</p>
+                                <p><strong>support@sama-syndicat.com</strong></p>
+                                <a href="mailto:support@sama-syndicat.com" class="btn btn-primary">Envoyer un email</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>📞 Téléphone</h5>
+                                <p>Pour les urgences</p>
+                                <p><strong>01 23 45 67 89</strong></p>
+                                <a href="tel:0123456789" class="btn btn-primary">Appeler</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>🎫 Ticket</h5>
+                                <p>Demandes complexes</p>
+                                <p><strong>Suivi personnalisé</strong></p>
+                                <a href="support.html" class="btn btn-primary">Créer un ticket</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="../index.html" class="btn btn-outline">← Retour à l'accueil</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="support.html" class="btn btn-primary">Contacter le support →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

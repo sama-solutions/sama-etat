@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Assemblées - SAMA SYNDICAT</title>
+    <meta name="description" content="Documentation complète du module de gestion des assemblées">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Accueil</a>
+                <a href="../guide-utilisateur.html" class="nav-link active">Documentation</a>
+                <a href="../../formation/index.html" class="nav-link">Formation</a>
+                <a href="../faq.html" class="nav-link">FAQ</a>
+                <a href="../support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🛠️ Modules <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu show">
+                    <li><a href="adherents.html" class="sidebar-link">👥 Adhérents</a></li>
+                    <li><a href="assemblees.html" class="sidebar-link active">🏛️ Assemblées</a></li>
+                    <li><a href="revendications.html" class="sidebar-link">⚖️ Revendications</a></li>
+                    <li><a href="actions.html" class="sidebar-link">🚩 Actions</a></li>
+                    <li><a href="communications.html" class="sidebar-link">📢 Communications</a></li>
+                    <li><a href="formations.html" class="sidebar-link">🎓 Formations</a></li>
+                    <li><a href="conventions.html" class="sidebar-link">📋 Conventions</a></li>
+                    <li><a href="mediations.html" class="sidebar-link">🤝 Médiations</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">🏛️ Module Assemblées</h1>
+            <p class="content-subtitle">Organisation et gestion complète des assemblées syndicales</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Rechercher dans la documentation...">
+        </div>
+
+        <!-- Vue d'ensemble -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🌟 Vue d'ensemble du module
+            </div>
+            <div class="card-body">
+                <p>Le module Assemblées de SAMA SYNDICAT révolutionne l'organisation et la tenue des assemblées syndicales. Il permet de gérer l'ensemble du processus, de la planification à l'archivage, en passant par la tenue en mode présentiel, virtuel ou hybride.</p>
+                
+                <h4>🎯 Fonctionnalités principales</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>📅 Planification intelligente</h6>
+                        <ul>
+                            <li>Création d'assemblées avec assistant</li>
+                            <li>Gestion automatique des convocations</li>
+                            <li>Planification récurrente</li>
+                            <li>Réservation de salles intégrée</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>🎥 Assemblées modernes</h6>
+                        <ul>
+                            <li>Visioconférences intégrées</li>
+                            <li>Vote électronique sécurisé</li>
+                            <li>Diffusion en direct</li>
+                            <li>Enregistrement automatique</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>💡 Innovation :</strong> SAMA SYNDICAT est la première solution à proposer des assemblées 100% virtuelles avec vote électronique certifié pour les syndicats.
+                </div>
+            </div>
+        </div>
+
+        <!-- Types d'Assemblées -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📋 Types d'assemblées
+            </div>
+            <div class="card-body">
+                <h4>🏛️ Classification des assemblées</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Fréquence</th>
+                            <th>Participants</th>
+                            <th>Quorum requis</th>
+                            <th>Objectifs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>AG Ordinaire</strong></td>
+                            <td>Annuelle</td>
+                            <td>Tous les adhérents</td>
+                            <td>50% + 1</td>
+                            <td>Bilan, budget, orientations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AG Extraordinaire</strong></td>
+                            <td>Exceptionnelle</td>
+                            <td>Tous les adhérents</td>
+                            <td>2/3</td>
+                            <td>Décisions urgentes, statuts</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Réunion Bureau</strong></td>
+                            <td>Mensuelle</td>
+                            <td>Bureau exécutif</td>
+                            <td>50% + 1</td>
+                            <td>Gestion courante</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Assemblée Section</strong></td>
+                            <td>Trimestrielle</td>
+                            <td>Adhérents section</td>
+                            <td>1/3</td>
+                            <td>Questions sectorielles</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Réunion Information</strong></td>
+                            <td>Variable</td>
+                            <td>Tous les adhérents</td>
+                            <td>Aucun</td>
+                            <td>Information, consultation</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>🎯 Paramétrage par type</h4>
+                <p>Chaque type d'assemblée peut être configuré avec :</p>
+                <ul>
+                    <li><strong>Règles de quorum :</strong> Calcul automatique selon les statuts</li>
+                    <li><strong>Droits de vote :</strong> Qui peut voter sur quoi</li>
+                    <li><strong>Ordre du jour type :</strong> Modèles prédéfinis</li>
+                    <li><strong>Durée standard :</strong> Planification automatique</li>
+                    <li><strong>Documents requis :</strong> Pièces jointes obligatoires</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Création d'une Assemblée -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ➕ Création d'une assemblée
+            </div>
+            <div class="card-body">
+                <h4>🚀 Assistant de création</h4>
+                
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        📝 Étape 1 : Informations générales
+                    </div>
+                    <div class="accordion-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Champ</th>
+                                    <th>Description</th>
+                                    <th>Obligatoire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Type d'assemblée</td>
+                                    <td>Sélection dans la liste prédéfinie</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Titre</td>
+                                    <td>Nom de l'assemblée (généré automatiquement)</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Date et heure</td>
+                                    <td>Planification avec vérification des conflits</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Durée estimée</td>
+                                    <td>Durée prévue (suggérée selon le type)</td>
+                                    <td>Oui</td>
+                                </tr>
+                                <tr>
+                                    <td>Mode</td>
+                                    <td>Présentiel, virtuel ou hybride</td>
+                                    <td>Oui</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🏢 Étape 2 : Lieu et logistique
+                </div>
+                <div class="accordion-content">
+                    <h6>Mode présentiel :</h6>
+                    <ul>
+                        <li><strong>Lieu :</strong> Sélection dans la base des lieux</li>
+                        <li><strong>Capacité :</strong> Vérification automatique</li>
+                        <li><strong>Équipements :</strong> Projecteur, micro, etc.</li>
+                        <li><strong>Accessibilité :</strong> PMR, transports</li>
+                    </ul>
+
+                    <h6>Mode virtuel :</h6>
+                    <ul>
+                        <li><strong>Plateforme :</strong> Visioconférence intégrée</li>
+                        <li><strong>Capacité :</strong> Jusqu'à 1000 participants</li>
+                        <li><strong>Enregistrement :</strong> Automatique si activé</li>
+                        <li><strong>Salle d'attente :</strong> Contrôle des accès</li>
+                    </ul>
+
+                    <h6>Mode hybride :</h6>
+                    <ul>
+                        <li><strong>Lieu principal :</strong> Salle physique</li>
+                        <li><strong>Diffusion :</strong> Streaming vers les distants</li>
+                        <li><strong>Interaction :</strong> Chat et questions</li>
+                        <li><strong>Vote :</strong> Électronique pour tous</li>
+                    </ul>
+                </div>
+
+                <div class="accordion-header">
+                    📋 Étape 3 : Ordre du jour
+                </div>
+                <div class="accordion-content">
+                    <h6>Création de l'ordre du jour :</h6>
+                    <ol>
+                        <li><strong>Modèle :</strong> Utilisation d'un modèle type ou création libre</li>
+                        <li><strong>Points :</strong> Ajout des points à traiter</li>
+                        <li><strong>Durée :</strong> Estimation du temps par point</li>
+                        <li><strong>Responsable :</strong> Qui présente chaque point</li>
+                        <li><strong>Documents :</strong> Pièces jointes par point</li>
+                        <li><strong>Votes :</strong> Points nécessitant un vote</li>
+                    </ol>
+
+                    <div class="code-block">
+Exemple d'ordre du jour automatique :
+1. Ouverture de la séance (5 min)
+2. Vérification du quorum (2 min)
+3. Approbation du PV précédent (5 min)
+4. Rapport d'activité (20 min)
+5. Rapport financier (15 min)
+6. Questions diverses (10 min)
+7. Clôture de la séance (3 min)
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    👥 Étape 4 : Participants
+                </div>
+                <div class="accordion-content">
+                    <h6>Gestion des invitations :</h6>
+                    <ul>
+                        <li><strong>Automatique :</strong> Tous les adhérents selon le type</li>
+                        <li><strong>Personnalisée :</strong> Sélection manuelle</li>
+                        <li><strong>Par groupe :</strong> Section, responsabilité, etc.</li>
+                        <li><strong>Invités externes :</strong> Experts, partenaires</li>
+                    </ul>
+
+                    <h6>Droits des participants :</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Statut</th>
+                                <th>Présence</th>
+                                <th>Parole</th>
+                                <th>Vote</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Adhérent actif</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                            </tr>
+                            <tr>
+                                <td>Adhérent suspendu</td>
+                                <td>✅</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                            </tr>
+                            <tr>
+                                <td>Invité externe</td>
+                                <td>✅</td>
+                                <td>Sur autorisation</td>
+                                <td>❌</td>
+                            </tr>
+                            <tr>
+                                <td>Observateur</td>
+                                <td>✅</td>
+                                <td>❌</td>
+                                <td>❌</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Convocations et Rappels -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📧 Convocations et rappels
+            </div>
+            <div class="card-body">
+                <h4>📅 Calendrier des envois</h4>
+                
+                <h6>Processus automatisé :</h6>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5>📧</h5>
+                                <h6>J-15</h6>
+                                <p>Convocation officielle</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5>📱</h5>
+                                <h6>J-3</h6>
+                                <p>Rappel SMS + Email</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5>🔔</h5>
+                                <h6>J-1</h6>
+                                <p>Notification push</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h5>⏰</h5>
+                                <h6>H-2</h6>
+                                <p>Rappel final</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📝 Contenu des convocations</h4>
+                
+                <h6>Convocation officielle (J-15) :</h6>
+                <ul>
+                    <li><strong>En-tête :</strong> Logo et informations du syndicat</li>
+                    <li><strong>Objet :</strong> Type et date de l'assemblée</li>
+                    <li><strong>Informations pratiques :</strong> Date, heure, lieu/lien</li>
+                    <li><strong>Ordre du jour :</strong> Complet et détaillé</li>
+                    <li><strong>Documents :</strong> Pièces jointes nécessaires</li>
+                    <li><strong>Instructions :</strong> Comment participer</li>
+                    <li><strong>Contact :</strong> Personne à contacter</li>
+                </ul>
+
+                <h6>Personnalisation :</h6>
+                <ul>
+                    <li><strong>Modèles :</strong> Templates personnalisables par type</li>
+                    <li><strong>Langues :</strong> Multilingue selon les adhérents</li>
+                    <li><strong>Format :</strong> Email HTML + PDF attaché</li>
+                    <li><strong>Signature :</strong> Signature électronique du président</li>
+                </ul>
+
+                <h4>📊 Suivi des réponses</h4>
+                
+                <h6>Tableau de bord temps réel :</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">156</h3>
+                                <p>Présents confirmés</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">23</h3>
+                                <p>Absents excusés</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">45</h3>
+                                <p>Sans réponse</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Gestion des procurations :</h6>
+                <ul>
+                    <li><strong>Formulaire en ligne :</strong> Saisie simplifiée</li>
+                    <li><strong>Validation :</strong> Vérification automatique</li>
+                    <li><strong>Limites :</strong> Respect des règles statutaires</li>
+                    <li><strong>Traçabilité :</strong> Historique complet</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tenue de l'Assemblée -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🎯 Tenue de l'assemblée
+            </div>
+            <div class="card-body">
+                <h4>🚀 Interface de pilotage</h4>
+                
+                <h6>Tableau de bord président :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>📊 Informations temps réel</h6>
+                                <ul>
+                                    <li>Nombre de participants connectés</li>
+                                    <li>Statut du quorum (atteint/non atteint)</li>
+                                    <li>Temps écoulé par point</li>
+                                    <li>Prochains points à l'ordre du jour</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🎛️ Contrôles disponibles</h6>
+                                <ul>
+                                    <li>Gestion de la parole</li>
+                                    <li>Lancement des votes</li>
+                                    <li>Partage d'écran/documents</li>
+                                    <li>Enregistrement de la séance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>✋ Gestion des présences</h4>
+                
+                <h6>Pointage automatique :</h6>
+                <ul>
+                    <li><strong>Connexion :</strong> Enregistrement automatique à l'arrivée</li>
+                    <li><strong>QR Code :</strong> Scan pour le mode présentiel</li>
+                    <li><strong>Géolocalisation :</strong> Vérification de présence physique</li>
+                    <li><strong>Temps réel :</strong> Mise à jour instantanée du quorum</li>
+                </ul>
+
+                <h6>Gestion des retards et départs :</h6>
+                <ul>
+                    <li><strong>Arrivées tardives :</strong> Intégration en cours de séance</li>
+                    <li><strong>Départs anticipés :</strong> Déconnexion enregistrée</li>
+                    <li><strong>Pauses :</strong> Gestion des interruptions</li>
+                    <li><strong>Reconnexions :</strong> Problèmes techniques gérés</li>
+                </ul>
+
+                <h4>🗳️ Système de vote électronique</h4>
+                
+                <h6>Types de votes supportés :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Options</th>
+                            <th>Majorité</th>
+                            <th>Usage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Simple</td>
+                            <td>Pour / Contre / Abstention</td>
+                            <td>50% + 1</td>
+                            <td>Décisions courantes</td>
+                        </tr>
+                        <tr>
+                            <td>Qualifié</td>
+                            <td>Pour / Contre / Abstention</td>
+                            <td>2/3</td>
+                            <td>Modifications statutaires</td>
+                        </tr>
+                        <tr>
+                            <td>Choix multiple</td>
+                            <td>Plusieurs options</td>
+                            <td>Majorité relative</td>
+                            <td>Élections, sélections</td>
+                        </tr>
+                        <tr>
+                            <td>Consultatif</td>
+                            <td>Libre</td>
+                            <td>Aucune</td>
+                            <td>Sondages d'opinion</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h6>Processus de vote :</h6>
+                <ol>
+                    <li><strong>Lancement :</strong> Le président ouvre le vote</li>
+                    <li><strong>Notification :</strong> Tous les participants sont alertés</li>
+                    <li><strong>Vote :</strong> Interface simple et sécurisée</li>
+                    <li><strong>Temps limite :</strong> Durée configurable</li>
+                    <li><strong>Résultats :</strong> Affichage en temps réel</li>
+                    <li><strong>Proclamation :</strong> Annonce officielle</li>
+                    <li><strong>Archivage :</strong> Sauvegarde sécurisée</li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <strong>🔒 Sécurité :</strong> Le système de vote est certifié et garantit l'anonymat, l'unicité et la traçabilité de chaque vote.
+                </div>
+            </div>
+        </div>
+
+        <!-- Procès-Verbal Automatique -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📝 Procès-verbal automatique
+            </div>
+            <div class="card-body">
+                <h4>🤖 Génération intelligente</h4>
+                
+                <h6>Contenu automatique :</h6>
+                <ul>
+                    <li><strong>En-tête :</strong> Informations de l'assemblée</li>
+                    <li><strong>Participants :</strong> Liste automatique avec statuts</li>
+                    <li><strong>Quorum :</strong> Calcul et validation</li>
+                    <li><strong>Ordre du jour :</strong> Points traités avec timing</li>
+                    <li><strong>Décisions :</strong> Résumé des votes et résolutions</li>
+                    <li><strong>Actions :</strong> Tâches assignées avec responsables</li>
+                    <li><strong>Annexes :</strong> Documents présentés</li>
+                </ul>
+
+                <h4>✏️ Édition collaborative</h4>
+                
+                <h6>Processus de finalisation :</h6>
+                <ol>
+                    <li><strong>Génération :</strong> PV automatique immédiat</li>
+                    <li><strong>Révision :</strong> Correction par le secrétaire</li>
+                    <li><strong>Validation :</strong> Approbation par le président</li>
+                    <li><strong>Diffusion :</strong> Envoi aux participants</li>
+                    <li><strong>Approbation :</strong> Vote à la prochaine assemblée</li>
+                </ol>
+
+                <h6>Fonctionnalités d'édition :</h6>
+                <ul>
+                    <li><strong>Éditeur WYSIWYG :</strong> Interface intuitive</li>
+                    <li><strong>Commentaires :</strong> Annotations collaboratives</li>
+                    <li><strong>Historique :</strong> Suivi des modifications</li>
+                    <li><strong>Modèles :</strong> Templates personnalisables</li>
+                </ul>
+
+                <h4>📊 Statistiques et métriques</h4>
+                
+                <h6>Données collectées :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>📈 Participation</h6>
+                                <ul>
+                                    <li>Taux de présence : 78%</li>
+                                    <li>Durée moyenne : 2h15</li>
+                                    <li>Retards : 12 personnes</li>
+                                    <li>Départs anticipés : 5 personnes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h6>🗳️ Votes</h6>
+                                <ul>
+                                    <li>Nombre de votes : 8</li>
+                                    <li>Participation moyenne : 95%</li>
+                                    <li>Unanimité : 3 votes</li>
+                                    <li>Majorité qualifiée : 2 votes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🔄 Suivi des actions</h4>
+                
+                <h6>Gestion des résolutions :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Responsable</th>
+                            <th>Échéance</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Négociation augmentation salaires</td>
+                            <td>Président</td>
+                            <td>15/02/2025</td>
+                            <td><span class="badge badge-warning">En cours</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mise à jour règlement intérieur</td>
+                            <td>Secrétaire</td>
+                            <td>28/02/2025</td>
+                            <td><span class="badge badge-info">Planifiée</span></td>
+                        </tr>
+                        <tr>
+                            <td>Formation délégués</td>
+                            <td>Trésorier</td>
+                            <td>10/02/2025</td>
+                            <td><span class="badge badge-success">Terminée</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="alert alert-info">
+                    <strong>💡 Suivi automatique :</strong> SAMA SYNDICAT envoie des rappels automatiques aux responsables avant les échéances.
+                </div>
+            </div>
+        </div>
+
+        <!-- Archivage et Historique -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📚 Archivage et historique
+            </div>
+            <div class="card-body">
+                <h4>🗄️ Système d'archivage</h4>
+                
+                <h6>Conservation automatique :</h6>
+                <ul>
+                    <li><strong>Procès-verbaux :</strong> PDF signés numériquement</li>
+                    <li><strong>Enregistrements :</strong> Vidéos/audio des séances</li>
+                    <li><strong>Documents :</strong> Toutes les pièces jointes</li>
+                    <li><strong>Votes :</strong> Détail anonymisé des scrutins</li>
+                    <li><strong>Présences :</strong> Listes et statistiques</li>
+                </ul>
+
+                <h4>🔍 Recherche avancée</h4>
+                
+                <h6>Critères de recherche :</h6>
+                <ul>
+                    <li><strong>Date :</strong> Période, année, mois</li>
+                    <li><strong>Type :</strong> AG, bureau, section</li>
+                    <li><strong>Mots-clés :</strong> Dans le contenu des PV</li>
+                    <li><strong>Participants :</strong> Présence d'une personne</li>
+                    <li><strong>Décisions :</strong> Votes et résolutions</li>
+                    <li><strong>Statut :</strong> Approuvé, en attente</li>
+                </ul>
+
+                <h4>📊 Rapports et analyses</h4>
+                
+                <h6>Rapports disponibles :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rapport</th>
+                            <th>Contenu</th>
+                            <th>Fréquence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Participation annuelle</td>
+                            <td>Taux de présence par assemblée</td>
+                            <td>Annuel</td>
+                        </tr>
+                        <tr>
+                            <td>Efficacité des votes</td>
+                            <td>Analyse des scrutins et décisions</td>
+                            <td>Trimestriel</td>
+                        </tr>
+                        <tr>
+                            <td>Suivi des résolutions</td>
+                            <td>État d'avancement des actions</td>
+                            <td>Mensuel</td>
+                        </tr>
+                        <tr>
+                            <td>Coûts des assemblées</td>
+                            <td>Budget et économies réalisées</td>
+                            <td>Annuel</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>💰 Économies réalisées</h4>
+                
+                <h6>Calcul automatique des économies :</h6>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">2 620 000 CFA</h3>
+                                <p>Économies annuelles</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">65%</h3>
+                                <p>Réduction des coûts</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">+200%</h3>
+                                <p>Participation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h6>Détail des économies :</h6>
+                <ul>
+                    <li><strong>Frais de salle :</strong> 1 310 000 CFA/an économisés</li>
+                    <li><strong>Déplacements :</strong> 655 000 CFA/an économisés</li>
+                    <li><strong>Temps de préparation :</strong> 50% de réduction</li>
+                    <li><strong>Impression :</strong> 655 000 CFA/an économisés</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="adherents.html" class="btn btn-outline">← Module Adhérents</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="revendications.html" class="btn btn-primary">Module Revendications →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Adhérents - SAMA SYNDICAT</title>
+    <meta name="description" content="Documentation complète du module de gestion des adhérents">
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="../../index.html" class="logo">🏢 SAMA SYNDICAT</a>
+            <nav class="nav">
+                <a href="../../index.html" class="nav-link">Accueil</a>
+                <a href="../guide-utilisateur.html" class="nav-link active">Documentation</a>
+                <a href="../../formation/index.html" class="nav-link">Formation</a>
+                <a href="../faq.html" class="nav-link">FAQ</a>
+                <a href="../support.html" class="nav-link">Support</a>
+            </nav>
+            <button class="sidebar-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="../../index.html" class="sidebar-link">🏠 Accueil</a>
+            </li>
+            
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">🛠️ Modules <span class="arrow">▼</span></a>
+                <ul class="sidebar-submenu show">
+                    <li><a href="adherents.html" class="sidebar-link active">👥 Adhérents</a></li>
+                    <li><a href="assemblees.html" class="sidebar-link">🏛️ Assemblées</a></li>
+                    <li><a href="revendications.html" class="sidebar-link">⚖️ Revendications</a></li>
+                    <li><a href="actions.html" class="sidebar-link">🚩 Actions</a></li>
+                    <li><a href="communications.html" class="sidebar-link">📢 Communications</a></li>
+                    <li><a href="formations.html" class="sidebar-link">🎓 Formations</a></li>
+                    <li><a href="conventions.html" class="sidebar-link">📋 Conventions</a></li>
+                    <li><a href="mediations.html" class="sidebar-link">🤝 Médiations</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Header -->
+        <div class="content-header">
+            <h1 class="content-title">👥 Module Adhérents</h1>
+            <p class="content-subtitle">Gestion complète des adhérents et de leurs cotisations</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Rechercher dans la documentation...">
+        </div>
+
+        <!-- Vue d'ensemble -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🌟 Vue d'ensemble du module
+            </div>
+            <div class="card-body">
+                <p>Le module Adhérents est le cœur de SAMA SYNDICAT. Il permet de gérer l'ensemble du cycle de vie des adhérents, de leur inscription à leur éventuelle démission, en passant par le suivi de leurs cotisations et de leur participation aux activités syndicales.</p>
+                
+                <h4>🎯 Fonctionnalités principales</h4>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>👤 Gestion des profils</h6>
+                        <ul>
+                            <li>Création et modification des fiches adhérents</li>
+                            <li>Informations personnelles et professionnelles</li>
+                            <li>Historique complet des activités</li>
+                            <li>Gestion des responsabilités syndicales</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <h6>💰 Suivi des cotisations</h6>
+                        <ul>
+                            <li>Calcul automatique des montants</li>
+                            <li>Suivi des paiements et relances</li>
+                            <li>Génération des reçus</li>
+                            <li>Statistiques de collecte</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>💡 Bon à savoir :</strong> Toutes les données des adhérents sont chiffrées et respectent le RGPD. Seules les personnes autorisées peuvent y accéder.
+                </div>
+            </div>
+        </div>
+
+        <!-- Création d'un Adhérent -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                ➕ Création d'un nouvel adhérent
+            </div>
+            <div class="card-body">
+                <h4>📝 Processus d'inscription</h4>
+                
+                <h6>Étapes de création :</h6>
+                <ol>
+                    <li><strong>Accès au formulaire :</strong> Menu Adhérents → Nouveau</li>
+                    <li><strong>Informations obligatoires :</strong> Nom, prénom, email, employeur</li>
+                    <li><strong>Informations complémentaires :</strong> Adresse, téléphone, poste</li>
+                    <li><strong>Paramètres d'adhésion :</strong> Date, cotisation, mode de paiement</li>
+                    <li><strong>Validation :</strong> Vérification et enregistrement</li>
+                </ol>
+
+                <h4>📋 Formulaire détaillé</h4>
+                
+                <div class="accordion-group">
+                    <div class="accordion-header">
+                        👤 Informations personnelles
+                    </div>
+                    <div class="accordion-content">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Champ</th>
+                                    <th>Type</th>
+                                    <th>Obligatoire</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nom de famille</td>
+                                    <td>Texte</td>
+                                    <td>Oui</td>
+                                    <td>Nom de famille de l'adhérent</td>
+                                </tr>
+                                <tr>
+                                    <td>Prénom</td>
+                                    <td>Texte</td>
+                                    <td>Oui</td>
+                                    <td>Prénom de l'adhérent</td>
+                                </tr>
+                                <tr>
+                                    <td>Date de naissance</td>
+                                    <td>Date</td>
+                                    <td>Non</td>
+                                    <td>Pour les statistiques d'âge</td>
+                                </tr>
+                                <tr>
+                                    <td>Sexe</td>
+                                    <td>Sélection</td>
+                                    <td>Non</td>
+                                    <td>Masculin/Féminin/Autre</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td>Email</td>
+                                    <td>Oui</td>
+                                    <td>Adresse email principale</td>
+                                </tr>
+                                <tr>
+                                    <td>Téléphone</td>
+                                    <td>Téléphone</td>
+                                    <td>Non</td>
+                                    <td>Numéro de téléphone mobile</td>
+                                </tr>
+                                <tr>
+                                    <td>Adresse</td>
+                                    <td>Texte long</td>
+                                    <td>Non</td>
+                                    <td>Adresse postale complète</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="accordion-header">
+                    🏢 Informations professionnelles
+                </div>
+                <div class="accordion-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Champ</th>
+                                <th>Type</th>
+                                <th>Obligatoire</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Employeur</td>
+                                <td>Texte</td>
+                                <td>Oui</td>
+                                <td>Nom de l'entreprise ou organisation</td>
+                            </tr>
+                            <tr>
+                                <td>Poste occupé</td>
+                                <td>Texte</td>
+                                <td>Oui</td>
+                                <td>Intitulé du poste</td>
+                            </tr>
+                            <tr>
+                                <td>Service/Département</td>
+                                <td>Texte</td>
+                                <td>Non</td>
+                                <td>Service de rattachement</td>
+                            </tr>
+                            <tr>
+                                <td>Type de contrat</td>
+                                <td>Sélection</td>
+                                <td>Non</td>
+                                <td>CDI, CDD, Stage, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>Salaire mensuel</td>
+                                <td>Monétaire</td>
+                                <td>Non</td>
+                                <td>Pour le calcul des cotisations</td>
+                            </tr>
+                            <tr>
+                                <td>Ancienneté</td>
+                                <td>Numérique</td>
+                                <td>Non</td>
+                                <td>Ancienneté dans le poste (années)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="accordion-header">
+                    🏛️ Informations syndicales
+                </div>
+                <div class="accordion-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Champ</th>
+                                <th>Type</th>
+                                <th>Obligatoire</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Date d'adhésion</td>
+                                <td>Date</td>
+                                <td>Oui</td>
+                                <td>Date d'entrée dans le syndicat</td>
+                            </tr>
+                            <tr>
+                                <td>Numéro d'adhérent</td>
+                                <td>Texte</td>
+                                <td>Auto</td>
+                                <td>Généré automatiquement</td>
+                            </tr>
+                            <tr>
+                                <td>Montant cotisation</td>
+                                <td>Monétaire</td>
+                                <td>Oui</td>
+                                <td>Cotisation mensuelle</td>
+                            </tr>
+                            <tr>
+                                <td>Mode de paiement</td>
+                                <td>Sélection</td>
+                                <td>Oui</td>
+                                <td>Virement, prélèvement, espèces</td>
+                            </tr>
+                            <tr>
+                                <td>Responsabilité</td>
+                                <td>Sélection</td>
+                                <td>Non</td>
+                                <td>Rôle dans le syndicat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>✅ Validation et contrôles</h4>
+                
+                <h6>Contrôles automatiques :</h6>
+                <ul>
+                    <li><strong>Email unique :</strong> Vérification de l'unicité</li>
+                    <li><strong>Format email :</strong> Validation du format</li>
+                    <li><strong>Numéro de téléphone :</strong> Format français</li>
+                    <li><strong>Date de naissance :</strong> Cohérence (âge > 16 ans)</li>
+                    <li><strong>Montant cotisation :</strong> Valeur positive</li>
+                </ul>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Attention :</strong> Une fois créé, le numéro d'adhérent ne peut plus être modifié. Il sert de référence unique.
+                </div>
+            </div>
+        </div>
+
+        <!-- Gestion des Profils -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📝 Gestion des profils
+            </div>
+            <div class="card-body">
+                <h4>🔍 Recherche et consultation</h4>
+                
+                <h6>Méthodes de recherche :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🔍 Recherche simple</h6>
+                                <ul>
+                                    <li>Par nom ou prénom</li>
+                                    <li>Par numéro d'adhérent</li>
+                                    <li>Par email</li>
+                                    <li>Par employeur</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🎯 Filtres avancés</h6>
+                                <ul>
+                                    <li>Statut d'adhésion</li>
+                                    <li>Situation de cotisation</li>
+                                    <li>Responsabilité syndicale</li>
+                                    <li>Date d'adhésion</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📊 Fiche adhérent</h4>
+                
+                <h6>Onglets de la fiche :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Onglet</th>
+                            <th>Contenu</th>
+                            <th>Accès</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>📋 Informations</td>
+                            <td>Données personnelles et professionnelles</td>
+                            <td>Lecture/Écriture</td>
+                        </tr>
+                        <tr>
+                            <td>💰 Cotisations</td>
+                            <td>Historique des paiements</td>
+                            <td>Lecture</td>
+                        </tr>
+                        <tr>
+                            <td>📅 Participations</td>
+                            <td>Assemblées et événements</td>
+                            <td>Lecture</td>
+                        </tr>
+                        <tr>
+                            <td>🎓 Formations</td>
+                            <td>Formations suivies</td>
+                            <td>Lecture</td>
+                        </tr>
+                        <tr>
+                            <td>📝 Notes</td>
+                            <td>Notes internes</td>
+                            <td>Lecture/Écriture</td>
+                        </tr>
+                        <tr>
+                            <td>📊 Statistiques</td>
+                            <td>Métriques de participation</td>
+                            <td>Lecture</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>✏️ Modification des informations</h4>
+                
+                <h6>Droits de modification :</h6>
+                <ul>
+                    <li><strong>Adhérent :</strong> Ses propres informations de contact</li>
+                    <li><strong>Secrétaire :</strong> Toutes les informations</li>
+                    <li><strong>Trésorier :</strong> Informations financières</li>
+                    <li><strong>Président :</strong> Toutes les informations + responsabilités</li>
+                </ul>
+
+                <div class="alert alert-info">
+                    <strong>💡 Traçabilité :</strong> Toutes les modifications sont tracées avec l'auteur, la date et l'ancienne valeur.
+                </div>
+            </div>
+        </div>
+
+        <!-- Gestion des Cotisations -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                💰 Gestion des cotisations
+            </div>
+            <div class="card-body">
+                <h4>⚙️ Configuration des cotisations</h4>
+                
+                <h6>Types de cotisations :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Calcul</th>
+                            <th>Fréquence</th>
+                            <th>Exemple</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fixe</td>
+                            <td>Montant identique pour tous</td>
+                            <td>Mensuelle</td>
+                            <td>15€/mois</td>
+                        </tr>
+                        <tr>
+                            <td>Proportionnelle</td>
+                            <td>% du salaire</td>
+                            <td>Mensuelle</td>
+                            <td>1% du salaire</td>
+                        </tr>
+                        <tr>
+                            <td>Par tranches</td>
+                            <td>Selon le niveau de salaire</td>
+                            <td>Mensuelle</td>
+                            <td>10€ si < 2000€, 20€ si > 2000€</td>
+                        </tr>
+                        <tr>
+                            <td>Exceptionnelle</td>
+                            <td>Montant ponctuel</td>
+                            <td>Unique</td>
+                            <td>50€ pour action spéciale</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>📅 Génération automatique</h4>
+                
+                <h6>Processus automatisé :</h6>
+                <ol>
+                    <li><strong>Calcul mensuel :</strong> Le 1er de chaque mois</li>
+                    <li><strong>Génération des échéances :</strong> Pour tous les adhérents actifs</li>
+                    <li><strong>Envoi des avis :</strong> Email automatique</li>
+                    <li><strong>Suivi des paiements :</strong> Rapprochement bancaire</li>
+                    <li><strong>Relances :</strong> Automatiques selon paramétrage</li>
+                </ol>
+
+                <h4>💳 Modes de paiement</h4>
+                
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>🏦</h5>
+                                <h6>Virement</h6>
+                                <p>Paiement par virement bancaire</p>
+                                <span class="badge badge-success">Recommandé</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>💳</h5>
+                                <h6>Prélèvement</h6>
+                                <p>Prélèvement automatique</p>
+                                <span class="badge badge-primary">Pratique</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5>💰</h5>
+                                <h6>Espèces</h6>
+                                <p>Paiement en liquide</p>
+                                <span class="badge badge-warning">Limité</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📊 Suivi et relances</h4>
+                
+                <h6>Processus de relance :</h6>
+                <div class="code-block">
+J+7   : Rappel automatique par email
+J+15  : Relance par SMS + email
+J+30  : Courrier de mise en demeure
+J+45  : Convocation pour entretien
+J+60  : Suspension des droits syndicaux
+                </div>
+
+                <h6>Tableau de bord cotisations :</h6>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">156</h3>
+                                <p>À jour</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">23</h3>
+                                <p>En retard</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-danger">8</h3>
+                                <p>Très en retard</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">87%</h3>
+                                <p>Taux de collecte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statuts et Responsabilités -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🏛️ Statuts et responsabilités
+            </div>
+            <div class="card-body">
+                <h4>📊 Statuts d'adhésion</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Statut</th>
+                            <th>Description</th>
+                            <th>Droits</th>
+                            <th>Cotisations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge badge-success">Actif</span></td>
+                            <td>Adhérent en règle</td>
+                            <td>Tous les droits</td>
+                            <td>À jour</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-warning">Suspendu</span></td>
+                            <td>Suspension temporaire</td>
+                            <td>Limités</td>
+                            <td>En retard</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-danger">Démission</span></td>
+                            <td>A quitté le syndicat</td>
+                            <td>Aucun</td>
+                            <td>Arrêtées</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge badge-info">Retraite</span></td>
+                            <td>Adhérent retraité</td>
+                            <td>Consultation</td>
+                            <td>Réduites</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>👑 Responsabilités syndicales</h4>
+                
+                <h6>Hiérarchie des responsabilités :</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🏛️ Bureau exécutif</h6>
+                                <ul>
+                                    <li>👑 Président</li>
+                                    <li>👑 Vice-Président</li>
+                                    <li>📝 Secrétaire Général</li>
+                                    <li>💰 Trésorier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6>🗣️ Représentants</h6>
+                                <ul>
+                                    <li>🗣️ Délégué Syndical</li>
+                                    <li>👥 Délégué du Personnel</li>
+                                    <li>🏭 Représentant CHSCT</li>
+                                    <li>📋 Représentant CE</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🔄 Gestion des changements</h4>
+                
+                <h6>Processus de changement de statut :</h6>
+                <ol>
+                    <li><strong>Demande :</strong> Saisie de la demande</li>
+                    <li><strong>Validation :</strong> Approbation du bureau</li>
+                    <li><strong>Notification :</strong> Information de l'adhérent</li>
+                    <li><strong>Mise à jour :</strong> Modification du profil</li>
+                    <li><strong>Archivage :</strong> Conservation de l'historique</li>
+                </ol>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Important :</strong> Certains changements de statut nécessitent une validation du bureau exécutif.
+                </div>
+            </div>
+        </div>
+
+        <!-- Rapports et Statistiques -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                📊 Rapports et statistiques
+            </div>
+            <div class="card-body">
+                <h4>📈 Tableaux de bord</h4>
+                
+                <h6>Métriques principales :</h6>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-primary">187</h3>
+                                <p>Total adhérents</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-success">156</h3>
+                                <p>Actifs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-info">+12</h3>
+                                <p>Ce mois</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card bg-light">
+                            <div class="card-body text-center">
+                                <h3 class="text-warning">87%</h3>
+                                <p>Taux de collecte</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📋 Rapports disponibles</h4>
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Rapport</th>
+                            <th>Fréquence</th>
+                            <th>Contenu</th>
+                            <th>Format</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Liste des adhérents</td>
+                            <td>À la demande</td>
+                            <td>Informations complètes</td>
+                            <td>Excel, PDF</td>
+                        </tr>
+                        <tr>
+                            <td>Situation cotisations</td>
+                            <td>Mensuel</td>
+                            <td>État des paiements</td>
+                            <td>Excel, PDF</td>
+                        </tr>
+                        <tr>
+                            <td>Évolution effectifs</td>
+                            <td>Trimestriel</td>
+                            <td>Graphiques et tendances</td>
+                            <td>PDF</td>
+                        </tr>
+                        <tr>
+                            <td>Statistiques démographiques</td>
+                            <td>Annuel</td>
+                            <td>Répartition par âge, sexe, etc.</td>
+                            <td>PDF, Excel</td>
+                        </tr>
+                        <tr>
+                            <td>Rapport d'activité</td>
+                            <td>Annuel</td>
+                            <td>Synthèse complète</td>
+                            <td>PDF</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>🎯 Analyses avancées</h4>
+                
+                <h6>Indicateurs de performance :</h6>
+                <ul>
+                    <li><strong>Taux de croissance :</strong> Évolution du nombre d'adhérents</li>
+                    <li><strong>Taux de rétention :</strong> Fidélisation des adhérents</li>
+                    <li><strong>Taux de participation :</strong> Engagement dans les activités</li>
+                    <li><strong>Taux de collecte :</strong> Efficacité du recouvrement</li>
+                </ul>
+
+                <div class="alert alert-success">
+                    <strong>💡 Conseil :</strong> Utilisez ces rapports pour présenter l'activité du syndicat en assemblée générale.
+                </div>
+            </div>
+        </div>
+
+        <!-- Import/Export -->
+        <div class="card" data-searchable>
+            <div class="card-header">
+                🔄 Import et export de données
+            </div>
+            <div class="card-body">
+                <h4>📥 Import de données</h4>
+                
+                <h6>Formats supportés :</h6>
+                <ul>
+                    <li><strong>Excel (.xlsx, .xls) :</strong> Format recommandé</li>
+                    <li><strong>CSV (.csv) :</strong> Séparateur point-virgule</li>
+                    <li><strong>JSON (.json) :</strong> Pour les intégrations</li>
+                </ul>
+
+                <h6>Processus d'import :</h6>
+                <ol>
+                    <li><strong>Préparation :</strong> Téléchargez le modèle Excel</li>
+                    <li><strong>Saisie :</strong> Complétez le fichier avec vos données</li>
+                    <li><strong>Validation :</strong> Vérifiez le format et les données</li>
+                    <li><strong>Import :</strong> Téléchargez le fichier dans SAMA SYNDICAT</li>
+                    <li><strong>Contrôle :</strong> Vérifiez les données importées</li>
+                </ol>
+
+                <div class="alert alert-warning">
+                    <strong>⚠️ Attention :</strong> Sauvegardez toujours vos données avant un import massif.
+                </div>
+
+                <h4>📤 Export de données</h4>
+                
+                <h6>Options d'export :</h6>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Format</th>
+                            <th>Usage</th>
+                            <th>Contenu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Excel</td>
+                            <td>Analyse, traitement</td>
+                            <td>Toutes les données</td>
+                        </tr>
+                        <tr>
+                            <td>PDF</td>
+                            <td>Impression, archivage</td>
+                            <td>Mise en forme</td>
+                        </tr>
+                        <tr>
+                            <td>CSV</td>
+                            <td>Import dans autre système</td>
+                            <td>Données brutes</td>
+                        </tr>
+                        <tr>
+                            <td>JSON</td>
+                            <td>Intégrations techniques</td>
+                            <td>Structure complète</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>🔐 Sécurité et confidentialité</h4>
+                
+                <h6>Mesures de protection :</h6>
+                <ul>
+                    <li><strong>Chiffrement :</strong> Tous les exports sont chiffrés</li>
+                    <li><strong>Traçabilité :</strong> Tous les exports sont tracés</li>
+                    <li><strong>Droits d'accès :</strong> Selon les permissions utilisateur</li>
+                    <li><strong>Anonymisation :</strong> Option pour les données sensibles</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="row mt-4">
+            <div class="col-6">
+                <a href="../guide-utilisateur.html" class="btn btn-outline">← Guide utilisateur</a>
+            </div>
+            <div class="col-6 text-right">
+                <a href="assemblees.html" class="btn btn-primary">Module Assemblées →</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

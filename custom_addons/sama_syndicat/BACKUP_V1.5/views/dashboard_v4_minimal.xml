@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- VERSION 4: Dashboard minimaliste et élégant -->
+        <record id="view_syndicat_dashboard_v4_kanban" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.v4.kanban</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_kanban_dashboard_fullwidth" create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="date_derniere_maj"/>
+                    <field name="nb_adherents_total"/>
+                    <field name="nb_adherents_actifs"/>
+                    <field name="nb_cotisations_jour"/>
+                    <field name="nb_cotisations_retard"/>
+                    <field name="montant_cotisations_mois"/>
+                    <field name="nb_assemblees_mois"/>
+                    <field name="nb_revendications_en_cours"/>
+                    <field name="nb_actions_en_cours"/>
+                    <field name="nb_formations_en_cours"/>
+                    <field name="nb_mediations_en_cours"/>
+                    <field name="nb_communications_mois"/>
+                    <field name="alertes_cotisations"/>
+                    <field name="alertes_assemblees"/>
+                    <field name="alertes_actions"/>
+                    <field name="alertes_mediations"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_record o_kanban_dashboard_record">
+                                <!-- En-tête minimaliste -->
+                                <div class="o_kanban_dashboard_title text-center mb-4">
+                                    <h1 class="text-primary"><field name="name"/></h1>
+                                    <p class="text-muted mb-3">
+                                        <i class="fa fa-clock-o"/> <field name="date_derniere_maj" widget="datetime"/>
+                                    </p>
+                                    <button name="action_actualiser" type="object" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-refresh"/> Actualiser
+                                    </button>
+                                </div>
+
+                                <!-- Métriques principales en une ligne -->
+                                <div class="o_kanban_dashboard_section">
+                                    <div class="o_stat_box o_primary">
+                                        <button name="action_open_adherents" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_adherents_total"/></span>
+                                            <span class="o_stat_text">Adhérents</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_success">
+                                        <button name="action_open_cotisations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="montant_cotisations_mois" widget="monetary"/></span>
+                                            <span class="o_stat_text">Cotisations</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_info">
+                                        <button name="action_open_assemblees" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_assemblees_mois"/></span>
+                                            <span class="o_stat_text">Assemblées</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_warning">
+                                        <button name="action_open_revendications" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_revendications_en_cours"/></span>
+                                            <span class="o_stat_text">Revendications</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_danger">
+                                        <button name="action_open_actions" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_actions_en_cours"/></span>
+                                            <span class="o_stat_text">Actions</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Activités secondaires -->
+                                <div class="o_kanban_dashboard_section">
+                                    <div class="o_stat_box o_secondary">
+                                        <button name="action_open_formations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_formations_en_cours"/></span>
+                                            <span class="o_stat_text">Formations</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_dark">
+                                        <button name="action_open_mediations" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_mediations_en_cours"/></span>
+                                            <span class="o_stat_text">Médiations</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="o_stat_box o_primary">
+                                        <button name="action_open_communications" type="object" class="o_stat_button">
+                                            <span class="o_stat_value"><field name="nb_communications_mois"/></span>
+                                            <span class="o_stat_text">Communications</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Statut global -->
+                                <div class="o_kanban_dashboard_section">
+                                    <div class="text-center">
+                                        <!-- Statut avec alertes -->
+                                        <div t-if="record.alertes_cotisations.raw_value > 0 or record.alertes_assemblees.raw_value > 0 or record.alertes_actions.raw_value > 0 or record.alertes_mediations.raw_value > 0">
+                                            <div class="alert alert-warning">
+                                                <h5><i class="fa fa-exclamation-triangle"/> Attention requise</h5>
+                                                <p class="mb-0">
+                                                    <span t-if="record.alertes_cotisations.raw_value > 0">
+                                                        <button name="action_open_alertes_cotisations" type="object" class="btn btn-link p-0">
+                                                            <field name="alertes_cotisations"/> cotisations en retard
+                                                        </button>
+                                                        <br/>
+                                                    </span>
+                                                    <span t-if="record.alertes_assemblees.raw_value > 0">
+                                                        <button name="action_open_alertes_assemblees" type="object" class="btn btn-link p-0">
+                                                            <field name="alertes_assemblees"/> assemblées sans quorum
+                                                        </button>
+                                                        <br/>
+                                                    </span>
+                                                    <span t-if="record.alertes_actions.raw_value > 0">
+                                                        <button name="action_open_alertes_actions" type="object" class="btn btn-link p-0">
+                                                            <field name="alertes_actions"/> actions en retard
+                                                        </button>
+                                                        <br/>
+                                                    </span>
+                                                    <span t-if="record.alertes_mediations.raw_value > 0">
+                                                        <button name="action_open_alertes_mediations" type="object" class="btn btn-link p-0">
+                                                            <field name="alertes_mediations"/> médiations urgentes
+                                                        </button>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Statut OK -->
+                                        <div t-if="record.alertes_cotisations.raw_value == 0 and record.alertes_assemblees.raw_value == 0 and record.alertes_actions.raw_value == 0 and record.alertes_mediations.raw_value == 0">
+                                            <div class="alert alert-success">
+                                                <h4><i class="fa fa-check-circle"/> Tout va bien !</h4>
+                                                <p class="mb-0">Aucune alerte active. Le syndicat fonctionne parfaitement.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Actions rapides en bas -->
+                                <div class="o_kanban_dashboard_section">
+                                    <div class="text-center">
+                                        <h5 class="text-muted mb-3">Actions Rapides</h5>
+                                        <div class="btn-group" role="group">
+                                            <button name="action_open_adherents" type="object" class="btn btn-outline-primary btn-sm">
+                                                <i class="fa fa-users"/> Adhérents
+                                            </button>
+                                            <button name="action_open_assemblees" type="object" class="btn btn-outline-info btn-sm">
+                                                <i class="fa fa-gavel"/> Assemblées
+                                            </button>
+                                            <button name="action_open_communications" type="object" class="btn btn-outline-warning btn-sm">
+                                                <i class="fa fa-bullhorn"/> Communications
+                                            </button>
+                                            <button name="action_open_revendications" type="object" class="btn btn-outline-danger btn-sm">
+                                                <i class="fa fa-balance-scale"/> Revendications
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Détails complémentaires -->
+                                <div class="o_kanban_dashboard_section">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <small class="text-muted">Adhérents Actifs</small>
+                                            <br/>
+                                            <strong class="text-success"><field name="nb_adherents_actifs"/></strong>
+                                        </div>
+                                        <div class="col-4">
+                                            <small class="text-muted">Cotisations à Jour</small>
+                                            <br/>
+                                            <strong class="text-info"><field name="nb_cotisations_jour"/></strong>
+                                        </div>
+                                        <div class="col-4">
+                                            <small class="text-muted">En Retard</small>
+                                            <br/>
+                                            <strong class="text-warning"><field name="nb_cotisations_retard"/></strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Action pour le Dashboard V4 -->
+        <record id="action_syndicat_dashboard_v4" model="ir.actions.act_window">
+            <field name="name">Dashboard V4 - Minimaliste</field>
+            <field name="res_model">syndicat.dashboard</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_syndicat_dashboard_v4_kanban"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Dashboard Version 4 - Minimaliste et Élégant
+                </p>
+                <p>
+                    Interface épurée avec l'essentiel des informations syndicales.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

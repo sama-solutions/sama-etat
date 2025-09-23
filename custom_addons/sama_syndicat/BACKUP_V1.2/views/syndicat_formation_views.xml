@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Liste des Formations -->
+        <record id="view_syndicat_formation_list" model="ir.ui.view">
+            <field name="name">syndicat.formation.list</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <list string="Formations" multi_edit="1" sample="1">
+                    <field name="reference"/>
+                    <field name="name"/>
+                    <field name="type_formation"/>
+                    <field name="niveau"/>
+                    <field name="date_debut"/>
+                    <field name="lieu"/>
+                    <field name="formateur_principal_id"/>
+                    <field name="nb_participants_inscrits"/>
+                    <field name="nb_participants_max"/>
+                    <field name="nb_participants_presents"/>
+                    <field name="taux_reussite" widget="percentage"/>
+                    <field name="satisfaction_moyenne"/>
+                    <field name="certification" widget="boolean_toggle"/>
+                    <field name="statut" decoration-info="statut in ['planifiee', 'inscriptions_ouvertes']" decoration-warning="statut in ['confirmee', 'en_cours']" decoration-success="statut == 'terminee'" decoration-muted="statut in ['reportee', 'annulee']"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Vue Kanban des Formations -->
+        <record id="view_syndicat_formation_kanban" model="ir.ui.view">
+            <field name="name">syndicat.formation.kanban</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="statut" class="o_kanban_mobile" sample="1">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="type_formation"/>
+                    <field name="niveau"/>
+                    <field name="statut"/>
+                    <field name="date_debut"/>
+                    <field name="lieu"/>
+                    <field name="formateur_principal_id"/>
+                    <field name="nb_participants_inscrits"/>
+                    <field name="nb_participants_max"/>
+                    <field name="certification"/>
+                    <field name="taux_reussite"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="o_kanban_record_top">
+                                        <div class="o_kanban_record_headings">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                            </strong>
+                                            <div class="o_kanban_record_subtitle">
+                                                <field name="reference"/> - <field name="type_formation"/>
+                                            </div>
+                                        </div>
+                                        <div class="o_kanban_manage_button_section">
+                                            <a class="o_kanban_manage_toggle_button" href="#">
+                                                <i class="fa fa-ellipsis-v" role="img" aria-label="Manage" title="Manage"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <i class="fa fa-calendar" title="Date"/> <field name="date_debut" widget="date"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fa fa-clock-o" title="Heure"/> <field name="date_debut" widget="datetime" options="{'format': 'HH:mm'}"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <i class="fa fa-map-marker" title="Lieu"/> <field name="lieu"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <i class="fa fa-user" title="Formateur"/> <field name="formateur_principal_id"/>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-2">
+                                            <div class="col-6">
+                                                <span class="badge badge-pill" t-att-class="record.niveau.raw_value == 'expert' ? 'badge-danger' : record.niveau.raw_value == 'avance' ? 'badge-warning' : record.niveau.raw_value == 'intermediaire' ? 'badge-info' : 'badge-success'">
+                                                    <field name="niveau"/>
+                                                </span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="badge badge-pill badge-info">
+                                                    <field name="nb_participants_inscrits"/>/<field name="nb_participants_max"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.certification.raw_value">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-success">
+                                                    <i class="fa fa-certificate" title="Certification"/> Certifiante
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-1" t-if="record.statut.raw_value == 'terminee'">
+                                            <div class="col-12">
+                                                <span class="badge badge-pill badge-info">
+                                                    Réussite: <field name="taux_reussite" widget="percentage"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Calendrier des Formations -->
+        <record id="view_syndicat_formation_calendar" model="ir.ui.view">
+            <field name="name">syndicat.formation.calendar</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <calendar string="Calendrier des Formations" date_start="date_debut" date_stop="date_fin" color="type_formation">
+                    <field name="name"/>
+                    <field name="lieu"/>
+                    <field name="type_formation"/>
+                    <field name="niveau"/>
+                    <field name="statut"/>
+                    <field name="formateur_principal_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire des Formations -->
+        <record id="view_syndicat_formation_form" model="ir.ui.view">
+            <field name="name">syndicat.formation.form</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <form string="Formation">
+                    <header>
+                        <button name="action_ouvrir_inscriptions" string="Ouvrir Inscriptions" type="object" class="btn-primary" invisible="statut != 'planifiee'"/>
+                        <button name="action_confirmer" string="Confirmer" type="object" class="btn-success" invisible="statut != 'inscriptions_ouvertes'"/>
+                        <button name="action_commencer" string="Commencer" type="object" class="btn-success" invisible="statut != 'confirmee'"/>
+                        <button name="action_terminer" string="Terminer" type="object" class="btn-success" invisible="statut != 'en_cours'"/>
+                        <button name="action_reporter" string="Reporter" type="object" class="btn-warning" invisible="statut not in ['planifiee', 'inscriptions_ouvertes', 'confirmee']"/>
+                        <button name="action_annuler" string="Annuler" type="object" class="btn-danger" invisible="statut not in ['planifiee', 'inscriptions_ouvertes', 'confirmee']"/>
+                        <field name="statut" widget="statusbar" statusbar_visible="planifiee,inscriptions_ouvertes,confirmee,en_cours,terminee"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object" name="action_view_participants" icon="fa-users">
+                                <field string="Participants" name="nb_participants_inscrits" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_resultats" icon="fa-graduation-cap">
+                                <field string="Résultats" name="resultats_ids" widget="statinfo"/>
+                            </button>
+                            <button class="oe_stat_button" type="object" name="action_view_budget" icon="fa-money">
+                                <field string="Coût/Participant" name="cout_par_participant" widget="monetary"/>
+                            </button>
+                        </div>
+                        <widget name="web_ribbon" title="Inactif" bg_color="bg-danger" invisible="active"/>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="reference" readonly="1"/>
+                            </h1>
+                            <h2>
+                                <field name="name" required="1"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group name="basic_info" string="Informations de Base">
+                                <field name="type_formation" required="1"/>
+                                <field name="niveau" required="1"/>
+                                <field name="date_debut" required="1"/>
+                                <field name="date_fin" required="1"/>
+                                <field name="duree_totale" readonly="1" widget="float_time"/>
+                            </group>
+                            <group name="location_info" string="Lieu et Formateurs">
+                                <field name="lieu" required="1"/>
+                                <field name="adresse_complete"/>
+                                <field name="formateur_principal_id"/>
+                                <field name="formateurs_externes"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="participants_info" string="Participants">
+                                <field name="nb_participants_max"/>
+                                <field name="nb_participants_inscrits" readonly="1"/>
+                                <field name="nb_participants_presents"/>
+                            </group>
+                            <group name="evaluation_info" string="Évaluation">
+                                <field name="evaluation_requise"/>
+                                <field name="type_evaluation" invisible="not evaluation_requise"/>
+                                <field name="note_passage" invisible="not evaluation_requise"/>
+                                <field name="certification"/>
+                                <field name="organisme_certificateur" invisible="not certification"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="budget_info" string="Budget">
+                                <field name="budget_prevu"/>
+                                <field name="budget_reel"/>
+                                <field name="cout_par_participant" readonly="1"/>
+                            </group>
+                            <group name="results_info" string="Résultats" invisible="statut != 'terminee'">
+                                <field name="taux_reussite" readonly="1" widget="percentage"/>
+                                <field name="satisfaction_moyenne" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="followup_info" string="Suivi">
+                                <field name="suivi_requis"/>
+                                <field name="date_suivi" invisible="not suivi_requis"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description" name="description">
+                                <field name="description" widget="html" required="1"/>
+                            </page>
+                            <page string="Objectifs" name="objectifs">
+                                <field name="objectifs" widget="html" required="1"/>
+                            </page>
+                            <page string="Programme" name="programme">
+                                <field name="programme" widget="html" required="1"/>
+                            </page>
+                            <page string="Prérequis" name="prerequis">
+                                <field name="prerequis" widget="html"/>
+                            </page>
+                            <page string="Méthodes Pédagogiques" name="methodes">
+                                <field name="methodes_pedagogiques" widget="html"/>
+                            </page>
+                            <page string="Participants" name="participants">
+                                <field name="participants_ids" widget="many2many_tags"/>
+                            </page>
+                            <page string="Supports" name="supports">
+                                <field name="supports_formation"/>
+                            </page>
+                            <page string="Résultats" name="resultats" invisible="statut != 'terminee'">
+                                <field name="resultats_ids">
+                                    <list>
+                                        <field name="adherent_id"/>
+                                        <field name="present"/>
+                                        <field name="note"/>
+                                        <field name="reussi"/>
+                                        <field name="satisfaction"/>
+                                        <field name="certificat_delivre"/>
+                                        <field name="date_certificat"/>
+                                    </list>
+                                </field>
+                            </page>
+                            <page string="Notes" name="notes">
+                                <field name="notes_internes" placeholder="Notes internes..."/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vue Recherche des Formations -->
+        <record id="view_syndicat_formation_search" model="ir.ui.view">
+            <field name="name">syndicat.formation.search</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <search string="Rechercher Formations">
+                    <field name="name" string="Nom" filter_domain="['|', ('name', 'ilike', self), ('reference', 'ilike', self)]"/>
+                    <field name="lieu"/>
+                    <field name="formateur_principal_id"/>
+                    <field name="type_formation"/>
+                    <field name="niveau"/>
+                    <separator/>
+                    <filter string="Inscriptions ouvertes" name="inscriptions_ouvertes" domain="[('statut', '=', 'inscriptions_ouvertes')]"/>
+                    <filter string="À venir" name="a_venir" domain="[('date_debut', '>', datetime.datetime.now())]"/>
+                    <filter string="En cours" name="en_cours" domain="[('statut', 'in', ['inscriptions_ouvertes', 'confirmee', 'en_cours'])]"/>
+                    <filter string="Terminées" name="terminees" domain="[('statut', '=', 'terminee')]"/>
+                    <filter string="Certifiantes" name="certifiantes" domain="[('certification', '=', True)]"/>
+                    <filter string="Avec évaluation" name="avec_evaluation" domain="[('evaluation_requise', '=', True)]"/>
+                    <separator/>
+                    <filter string="Ce mois" name="ce_mois" domain="[('date_debut', '>=', datetime.datetime.now().replace(day=1)), ('date_debut', '&lt;', (datetime.datetime.now().replace(day=1) + datetime.timedelta(days=32)).replace(day=1))]"/>
+                    <filter string="Cette année" name="cette_annee" domain="[('date_debut', '>=', datetime.datetime.now().replace(month=1, day=1))]"/>
+                    <separator/>
+                    <filter string="Archivées" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Grouper par">
+                        <filter string="Statut" name="group_statut" context="{'group_by': 'statut'}"/>
+                        <filter string="Type" name="group_type" context="{'group_by': 'type_formation'}"/>
+                        <filter string="Niveau" name="group_niveau" context="{'group_by': 'niveau'}"/>
+                        <filter string="Formateur" name="group_formateur" context="{'group_by': 'formateur_principal_id'}"/>
+                        <filter string="Mois" name="group_mois" context="{'group_by': 'date_debut:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vue Graphique des Formations -->
+        <record id="view_syndicat_formation_graph" model="ir.ui.view">
+            <field name="name">syndicat.formation.graph</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <graph string="Statistiques Formations" type="bar" sample="1">
+                    <field name="type_formation" type="row"/>
+                    <field name="statut" type="col"/>
+                    <field name="nb_participants_inscrits" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Vue Pivot des Formations -->
+        <record id="view_syndicat_formation_pivot" model="ir.ui.view">
+            <field name="name">syndicat.formation.pivot</field>
+            <field name="model">syndicat.formation</field>
+            <field name="arch" type="xml">
+                <pivot string="Analyse Formations" sample="1">
+                    <field name="type_formation" type="row"/>
+                    <field name="niveau" type="col"/>
+                    <field name="nb_participants_inscrits" type="measure"/>
+                    <field name="taux_reussite" type="measure"/>
+                    <field name="satisfaction_moyenne" type="measure"/>
+                    <field name="budget_reel" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Action pour les Formations -->
+        <record id="action_syndicat_formation" model="ir.actions.act_window">
+            <field name="name">Formations</field>
+            <field name="res_model">syndicat.formation</field>
+            <field name="view_mode">kanban,calendar,list,form,graph,pivot</field>
+            <field name="context">{'search_default_a_venir': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer votre première formation
+                </p>
+                <p>
+                    Organisez des formations syndicales pour renforcer les compétences de vos adhérents avec un suivi complet des résultats.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

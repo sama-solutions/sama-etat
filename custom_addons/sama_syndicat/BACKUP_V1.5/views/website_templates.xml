@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Template de base pour le site web -->
+        <template id="website_layout" name="Syndicat Website Layout" inherit_id="website.layout">
+            <xpath expr="//head" position="inside">
+                <link rel="stylesheet" href="/sama_syndicat/static/src/css/website.css"/>
+            </xpath>
+        </template>
+
+        <!-- Page d'accueil -->
+        <template id="website_home" name="Syndicat - Accueil">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <!-- Hero Section -->
+                    <section class="s_banner pt-5 pb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-lg-6">
+                                    <h1 class="display-4 text-white font-weight-bold">
+                                        Bienvenue au Syndicat
+                                    </h1>
+                                    <p class="lead text-white mb-4">
+                                        Défendons ensemble nos droits et nos intérêts professionnels.
+                                        Rejoignez une communauté engagée pour l'amélioration de nos conditions de travail.
+                                    </p>
+                                    <div class="mb-3">
+                                        <a href="/syndicat/adhesion" class="btn btn-primary btn-lg mr-3">
+                                            <i class="fa fa-user-plus"/> Adhérer
+                                        </a>
+                                        <a href="/syndicat/about" class="btn btn-outline-light btn-lg">
+                                            <i class="fa fa-info-circle"/> En savoir plus
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="text-center">
+                                        <i class="fa fa-users fa-10x text-white opacity-75"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Statistiques -->
+                    <section class="pt-5 pb-5" t-if="dashboard">
+                        <div class="container">
+                            <div class="row text-center">
+                                <div class="col-md-3 mb-4">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <i class="fa fa-users fa-3x text-primary mb-3"/>
+                                            <h3 class="text-primary"><t t-esc="dashboard.nb_adherents_total"/></h3>
+                                            <p class="text-muted">Adhérents</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <i class="fa fa-gavel fa-3x text-success mb-3"/>
+                                            <h3 class="text-success"><t t-esc="dashboard.nb_assemblees_mois"/></h3>
+                                            <p class="text-muted">Assemblées ce mois</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <i class="fa fa-balance-scale fa-3x text-warning mb-3"/>
+                                            <h3 class="text-warning"><t t-esc="dashboard.nb_revendications_en_cours"/></h3>
+                                            <p class="text-muted">Revendications en cours</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 mb-4">
+                                    <div class="card border-0 shadow-sm">
+                                        <div class="card-body">
+                                            <i class="fa fa-graduation-cap fa-3x text-info mb-3"/>
+                                            <h3 class="text-info"><t t-esc="dashboard.nb_formations_en_cours"/></h3>
+                                            <p class="text-muted">Formations en cours</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Actualités -->
+                    <section class="pt-5 pb-5 bg-light" t-if="communications">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h2 class="display-5">Dernières Actualités</h2>
+                                    <p class="lead text-muted">Restez informé de nos dernières actions et communications</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-foreach="communications" t-as="comm">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card h-100 border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <a t-attf-href="/syndicat/actualites/#{comm.id}" class="text-decoration-none">
+                                                        <t t-esc="comm.titre"/>
+                                                    </a>
+                                                </h5>
+                                                <p class="card-text text-muted">
+                                                    <t t-esc="comm.contenu[:150]"/>...
+                                                </p>
+                                                <small class="text-muted">
+                                                    <i class="fa fa-calendar"/> <t t-esc="comm.date_creation"/>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <a href="/syndicat/actualites" class="btn btn-primary">
+                                        <i class="fa fa-newspaper-o"/> Voir toutes les actualités
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Prochaines assemblées -->
+                    <section class="pt-5 pb-5" t-if="assemblees">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h2 class="display-5">Prochaines Assemblées</h2>
+                                    <p class="lead text-muted">Participez à la vie démocratique de notre syndicat</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-foreach="assemblees" t-as="assemblee">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-primary">
+                                                    <i class="fa fa-gavel"/> <t t-esc="assemblee.titre"/>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <strong>Date:</strong> <t t-esc="assemblee.date_assemblee"/><br/>
+                                                    <strong>Lieu:</strong> <t t-esc="assemblee.lieu"/><br/>
+                                                    <strong>Type:</strong> <t t-esc="assemblee.type_assemblee"/>
+                                                </p>
+                                                <span t-attf-class="badge badge-#{assemblee.statut == 'confirmee' and 'success' or 'warning'}">
+                                                    <t t-esc="assemblee.statut"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Formations ouvertes -->
+                    <section class="pt-5 pb-5 bg-light" t-if="formations">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h2 class="display-5">Formations Ouvertes</h2>
+                                    <p class="lead text-muted">Développez vos compétences professionnelles</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-foreach="formations" t-as="formation">
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body">
+                                                <h5 class="card-title text-success">
+                                                    <i class="fa fa-graduation-cap"/> <t t-esc="formation.titre"/>
+                                                </h5>
+                                                <p class="card-text">
+                                                    <strong>Début:</strong> <t t-esc="formation.date_debut"/><br/>
+                                                    <strong>Durée:</strong> <t t-esc="formation.duree_heures"/> heures<br/>
+                                                    <strong>Places:</strong> <t t-esc="formation.nb_places_max"/>
+                                                </p>
+                                                <a t-attf-href="/syndicat/formations/#{formation.id}/inscription" class="btn btn-success btn-sm">
+                                                    <i class="fa fa-user-plus"/> S'inscrire
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <a href="/syndicat/formations" class="btn btn-success">
+                                        <i class="fa fa-graduation-cap"/> Voir toutes les formations
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Call to Action -->
+                    <section class="pt-5 pb-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <h2 class="text-white mb-4">Rejoignez-nous dès aujourd'hui !</h2>
+                                    <p class="lead text-white mb-4">
+                                        Ensemble, nous sommes plus forts. Défendons nos droits et améliorons nos conditions de travail.
+                                    </p>
+                                    <a href="/syndicat/adhesion" class="btn btn-light btn-lg">
+                                        <i class="fa fa-user-plus"/> Devenir adhérent
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page À propos -->
+        <template id="website_about" name="Syndicat - À propos">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">À propos de notre syndicat</h1>
+                                    <p class="lead text-muted">Découvrez notre histoire, nos valeurs et nos objectifs</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <h3>Notre Mission</h3>
+                                    <p>
+                                        Notre syndicat a pour mission de défendre les droits et les intérêts de tous nos adhérents.
+                                        Nous œuvrons pour l'amélioration des conditions de travail, la protection sociale et
+                                        le développement professionnel de nos membres.
+                                    </p>
+                                    
+                                    <h3>Nos Valeurs</h3>
+                                    <ul>
+                                        <li><strong>Solidarité :</strong> Nous soutenons tous nos membres</li>
+                                        <li><strong>Transparence :</strong> Nos actions sont ouvertes et démocratiques</li>
+                                        <li><strong>Justice :</strong> Nous luttons pour l'équité et la justice sociale</li>
+                                        <li><strong>Progrès :</strong> Nous favorisons l'innovation et l'amélioration continue</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <h3>Nos Actions</h3>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body text-center">
+                                                    <i class="fa fa-balance-scale fa-3x text-primary mb-3"/>
+                                                    <h5>Négociations</h5>
+                                                    <p class="small">Négociation des conventions collectives et des accords d'entreprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body text-center">
+                                                    <i class="fa fa-graduation-cap fa-3x text-success mb-3"/>
+                                                    <h5>Formation</h5>
+                                                    <p class="small">Organisation de formations professionnelles et syndicales</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body text-center">
+                                                    <i class="fa fa-handshake-o fa-3x text-warning mb-3"/>
+                                                    <h5>Médiation</h5>
+                                                    <p class="small">Résolution des conflits et médiation entre parties</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <div class="card border-0 shadow-sm">
+                                                <div class="card-body text-center">
+                                                    <i class="fa fa-bullhorn fa-3x text-info mb-3"/>
+                                                    <h5>Communication</h5>
+                                                    <p class="small">Information et communication avec nos adhérents</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page d'adhésion -->
+        <template id="website_adhesion" name="Syndicat - Adhésion">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">Adhérer au syndicat</h1>
+                                    <p class="lead text-muted">Rejoignez notre communauté et défendons ensemble nos droits</p>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="card border-0 shadow">
+                                        <div class="card-body p-5">
+                                            <form action="/syndicat/adhesion/submit" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="name" class="form-label">Nom complet *</label>
+                                                        <input type="text" class="form-control" id="name" name="name" required="required"/>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="email" class="form-label">Email *</label>
+                                                        <input type="email" class="form-control" id="email" name="email" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="phone" class="form-label">Téléphone</label>
+                                                        <input type="tel" class="form-control" id="phone" name="phone"/>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="profession" class="form-label">Profession *</label>
+                                                        <input type="text" class="form-control" id="profession" name="profession" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">Adresse</label>
+                                                    <textarea class="form-control" id="address" name="address" rows="3"/>
+                                                </div>
+                                                <div class="mb-3 form-check">
+                                                    <input type="checkbox" class="form-check-input" id="terms" name="terms" required="required"/>
+                                                    <label class="form-check-label" for="terms">
+                                                        J'accepte les conditions d'adhésion et le règlement intérieur du syndicat *
+                                                    </label>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-primary btn-lg">
+                                                        <i class="fa fa-user-plus"/> Envoyer ma demande d'adhésion
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page de contact -->
+        <template id="website_contact" name="Syndicat - Contact">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">Nous contacter</h1>
+                                    <p class="lead text-muted">Une question ? Une suggestion ? N'hésitez pas à nous écrire</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-8 mb-4">
+                                    <div class="card border-0 shadow">
+                                        <div class="card-body p-5">
+                                            <h3 class="mb-4">Envoyez-nous un message</h3>
+                                            <form action="/syndicat/contact/submit" method="post">
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="name" class="form-label">Nom complet *</label>
+                                                        <input type="text" class="form-control" id="name" name="name" required="required"/>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="email" class="form-label">Email *</label>
+                                                        <input type="email" class="form-control" id="email" name="email" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="phone" class="form-label">Téléphone</label>
+                                                        <input type="tel" class="form-control" id="phone" name="phone"/>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="subject" class="form-label">Sujet *</label>
+                                                        <input type="text" class="form-control" id="subject" name="subject" required="required"/>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="message" class="form-label">Message *</label>
+                                                    <textarea class="form-control" id="message" name="message" rows="5" required="required"/>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="submit" class="btn btn-primary btn-lg">
+                                                        <i class="fa fa-paper-plane"/> Envoyer le message
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="card border-0 shadow">
+                                        <div class="card-body p-4">
+                                            <h4 class="mb-4">Informations de contact</h4>
+                                            <div class="mb-3">
+                                                <i class="fa fa-map-marker fa-fw text-primary"/> 
+                                                <strong>Adresse :</strong><br/>
+                                                123 Rue du Syndicat<br/>
+                                                Dakar, Sénégal
+                                            </div>
+                                            <div class="mb-3">
+                                                <i class="fa fa-phone fa-fw text-primary"/> 
+                                                <strong>Téléphone :</strong><br/>
+                                                +221 33 123 45 67
+                                            </div>
+                                            <div class="mb-3">
+                                                <i class="fa fa-envelope fa-fw text-primary"/> 
+                                                <strong>Email :</strong><br/>
+                                                contact@syndicat.sn
+                                            </div>
+                                            <div class="mb-3">
+                                                <i class="fa fa-clock-o fa-fw text-primary"/> 
+                                                <strong>Horaires :</strong><br/>
+                                                Lun-Ven : 8h00 - 17h00<br/>
+                                                Sam : 8h00 - 12h00
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page des actualités -->
+        <template id="website_actualites" name="Syndicat - Actualités">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">Actualités du syndicat</h1>
+                                    <p class="lead text-muted">Restez informé de nos dernières actions et communications</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-if="communications">
+                                    <t t-foreach="communications" t-as="comm">
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm news-card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        <a t-attf-href="/syndicat/actualites/#{comm.id}" class="text-decoration-none">
+                                                            <t t-esc="comm.titre"/>
+                                                        </a>
+                                                    </h5>
+                                                    <p class="card-text text-muted">
+                                                        <t t-esc="comm.contenu[:200]"/>...
+                                                    </p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <small class="text-muted">
+                                                            <i class="fa fa-calendar"/> <t t-esc="comm.date_creation"/>
+                                                        </small>
+                                                        <span class="badge bg-primary">
+                                                            <t t-esc="comm.type_communication"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center">
+                                        <div class="alert alert-info">
+                                            <i class="fa fa-info-circle"/> Aucune actualité disponible pour le moment.
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page des formations -->
+        <template id="website_formations" name="Syndicat - Formations">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">Formations disponibles</h1>
+                                    <p class="lead text-muted">Développez vos compétences professionnelles et syndicales</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-if="formations">
+                                    <t t-foreach="formations" t-as="formation">
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm formation-card">
+                                                <div class="card-body d-flex flex-column">
+                                                    <h5 class="card-title text-success">
+                                                        <i class="fa fa-graduation-cap"/> <t t-esc="formation.titre"/>
+                                                    </h5>
+                                                    <p class="card-text flex-grow-1">
+                                                        <t t-esc="formation.titre"/>
+                                                    </p>
+                                                    <div class="mb-3">
+                                                        <p class="mb-1">
+                                                            <strong>Formation:</strong> <t t-esc="formation.titre"/>
+                                                        </p>
+                                                        <span class="badge bg-success">
+                                                            Formation disponible
+                                                        </span>
+                                                    </div>
+                                                    <t t-if="formation.statut == 'inscriptions_ouvertes'">
+                                                        <a t-attf-href="/syndicat/formations/#{formation.id}/inscription" class="btn btn-success">
+                                                            <i class="fa fa-user-plus"/> S'inscrire
+                                                        </a>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <button class="btn btn-secondary" disabled="disabled">
+                                                            <i class="fa fa-lock"/> Inscriptions fermées
+                                                        </button>
+                                                    </t>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center">
+                                        <div class="alert alert-info">
+                                            <i class="fa fa-info-circle"/> Aucune formation disponible pour le moment.
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Page des revendications -->
+        <template id="website_revendications" name="Syndicat - Revendications">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 text-center mb-5">
+                                    <h1 class="display-4">Nos revendications</h1>
+                                    <p class="lead text-muted">Découvrez les actions que nous menons pour défendre vos droits</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <t t-if="revendications">
+                                    <t t-foreach="revendications" t-as="revendication">
+                                        <div class="col-md-6 col-lg-4 mb-4">
+                                            <div class="card h-100 border-0 shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title text-warning">
+                                                        <i class="fa fa-balance-scale"/> <t t-esc="revendication.titre"/>
+                                                    </h5>
+                                                    <p class="card-text">
+                                                        <t t-esc="revendication.description"/>
+                                                    </p>
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <small class="text-muted">
+                                                            <i class="fa fa-calendar"/> <t t-esc="revendication.date_creation"/>
+                                                        </small>
+                                                        <span t-attf-class="badge bg-#{revendication.statut == 'acceptee' and 'success' or revendication.statut == 'en_negociation' and 'warning' or 'primary'}">
+                                                            <t t-esc="revendication.statut"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <div class="col-12 text-center">
+                                        <div class="alert alert-info">
+                                            <i class="fa fa-info-circle"/> Aucune revendication publique pour le moment.
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Template pour le détail d'une actualité -->
+        <template id="website_actualite_detail" name="Syndicat - Détail Actualité">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 mx-auto">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="/syndicat">Accueil</a></li>
+                                            <li class="breadcrumb-item"><a href="/syndicat/actualites">Actualités</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page"><t t-esc="communication.titre"/></li>
+                                        </ol>
+                                    </nav>
+                                    
+                                    <article class="card border-0 shadow">
+                                        <div class="card-body p-5">
+                                            <h1 class="display-5 mb-4"><t t-esc="communication.titre"/></h1>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                                <div>
+                                                    <small class="text-muted">
+                                                        <i class="fa fa-calendar"/> Publié le <t t-esc="communication.date_creation"/>
+                                                    </small>
+                                                </div>
+                                                <span class="badge bg-primary">
+                                                    <t t-esc="communication.type_communication"/>
+                                                </span>
+                                            </div>
+                                            
+                                            <div class="content">
+                                                <t t-raw="communication.contenu"/>
+                                            </div>
+                                            
+                                            <hr class="my-4"/>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="/syndicat/actualites" class="btn btn-outline-primary">
+                                                    <i class="fa fa-arrow-left"/> Retour aux actualités
+                                                </a>
+                                                <div class="text-muted">
+                                                    <i class="fa fa-eye"/> <t t-esc="communication.nb_lectures"/> lectures
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <!-- Templates pour les pages de succès et d'erreur -->
+        <template id="website_adhesion_success" name="Syndicat - Adhésion Réussie">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6 text-center">
+                                    <div class="alert alert-success">
+                                        <i class="fa fa-check-circle fa-3x mb-3"/>
+                                        <h3>Demande d'adhésion envoyée !</h3>
+                                        <p>Merci pour votre demande d'adhésion. Nous vous recontacterons bientôt.</p>
+                                        <a href="/syndicat" class="btn btn-primary">Retour à l'accueil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+        <template id="website_contact_success" name="Syndicat - Message Envoyé">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure">
+                    <section class="pt-5 pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6 text-center">
+                                    <div class="alert alert-success">
+                                        <i class="fa fa-paper-plane fa-3x mb-3"/>
+                                        <h3>Message envoyé !</h3>
+                                        <p>Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+                                        <a href="/syndicat" class="btn btn-primary">Retour à l'accueil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- DASHBOARD MODERNE AVEC CARTES INSPIRÉ D'ODOO ENTERPRISE -->
+        <record id="view_syndicat_dashboard_modern_cards" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.modern.cards</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_kanban_dashboard_fullwidth" create="false" edit="false" delete="false">
+                    <field name="name"/>
+                    <field name="date_derniere_maj"/>
+                    <field name="nb_adherents_total"/>
+                    <field name="nb_adherents_actifs"/>
+                    <field name="nb_nouveaux_adherents_mois"/>
+                    <field name="taux_croissance_adherents"/>
+                    <field name="nb_cotisations_jour"/>
+                    <field name="nb_cotisations_retard"/>
+                    <field name="taux_cotisations_jour"/>
+                    <field name="montant_cotisations_mois"/>
+                    <field name="nb_assemblees_mois"/>
+                    <field name="taux_participation_moyen"/>
+                    <field name="nb_revendications_en_cours"/>
+                    <field name="nb_revendications_acceptees"/>
+                    <field name="taux_succes_revendications"/>
+                    <field name="nb_actions_en_cours"/>
+                    <field name="nb_formations_en_cours"/>
+                    <field name="nb_adherents_formes"/>
+                    <field name="nb_mediations_en_cours"/>
+                    <field name="taux_reussite_mediations"/>
+                    <field name="nb_communications_mois"/>
+                    <field name="taux_ouverture_moyen"/>
+                    <field name="alertes_cotisations"/>
+                    <field name="alertes_assemblees"/>
+                    <field name="alertes_actions"/>
+                    <field name="alertes_mediations"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_record o_kanban_dashboard_record">
+                                
+                                <!-- Header avec titre et actions -->
+                                <div class="o_dashboard_header">
+                                    <div class="text-center">
+                                        <h1 class="o_dashboard_title">
+                                            <i class="fa fa-tachometer me-2"/>
+                                            <field name="name"/>
+                                        </h1>
+                                        <p class="o_dashboard_subtitle">
+                                            <i class="fa fa-clock-o me-1"/>
+                                            Dernière mise à jour : <field name="date_derniere_maj" widget="datetime"/>
+                                        </p>
+                                        <button name="action_actualiser" type="object" class="btn btn-light btn-lg mt-2">
+                                            <i class="fa fa-refresh me-1"/> Actualiser
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- KPI Cards Row 1 - Adhérents -->
+                                <div class="o_dashboard_section">
+                                    <h3 class="o_section_title">
+                                        <i class="fa fa-users text-primary me-2"/>
+                                        Gestion des Adhérents
+                                    </h3>
+                                    <div class="row g-3">
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_primary">
+                                                <button name="action_open_adherents" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-users fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_adherents_total"/></div>
+                                                        <div class="o_card_label">Total Adhérents</div>
+                                                        <div class="o_card_progress">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-primary" style="width: 100%"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_success">
+                                                <button name="action_open_adherents" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-user-check fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_adherents_actifs"/></div>
+                                                        <div class="o_card_label">Adhérents Actifs</div>
+                                                        <div class="o_card_badge">
+                                                            <span class="badge bg-success">
+                                                                <t t-esc="Math.round((record.nb_adherents_actifs.raw_value / record.nb_adherents_total.raw_value) * 100)"/>%
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_info">
+                                                <button name="action_open_adherents" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-user-plus fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_nouveaux_adherents_mois"/></div>
+                                                        <div class="o_card_label">Nouveaux ce mois</div>
+                                                        <div class="o_card_trend" t-if="record.taux_croissance_adherents.raw_value > 0">
+                                                            <i class="fa fa-arrow-up text-success me-1"/>
+                                                            <span class="text-success">+<field name="taux_croissance_adherents" widget="percentage"/></span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_warning" t-if="record.nb_cotisations_retard.raw_value > 0">
+                                                <button name="action_open_alertes_cotisations" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-exclamation-triangle fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_cotisations_retard"/></div>
+                                                        <div class="o_card_label">Cotisations en retard</div>
+                                                        <div class="o_card_alert">
+                                                            <span class="badge bg-warning">Action requise</span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- KPI Cards Row 2 - Finances -->
+                                <div class="o_dashboard_section">
+                                    <h3 class="o_section_title">
+                                        <i class="fa fa-euro text-success me-2"/>
+                                        Situation Financière
+                                    </h3>
+                                    <div class="row g-3">
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_success">
+                                                <button name="action_open_cotisations" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-money fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="montant_cotisations_mois" widget="monetary"/></div>
+                                                        <div class="o_card_label">Cotisations ce mois</div>
+                                                        <div class="o_card_progress">
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-success" t-attf-style="width: #{record.taux_cotisations_jour.raw_value}%"/>
+                                                            </div>
+                                                            <small class="text-muted"><field name="taux_cotisations_jour" widget="percentage"/> collecté</small>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_info">
+                                                <button name="action_open_cotisations" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-check-circle fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_cotisations_jour"/></div>
+                                                        <div class="o_card_label">Cotisations à jour</div>
+                                                        <div class="o_card_ratio">
+                                                            <span class="text-muted">sur <field name="nb_adherents_total"/> adhérents</span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_chart">
+                                                <div class="o_card_content">
+                                                    <div class="o_card_label">Taux de collecte</div>
+                                                    <div class="o_circular_progress">
+                                                        <div class="o_progress_circle" t-attf-data-percentage="#{record.taux_cotisations_jour.raw_value}">
+                                                            <div class="o_progress_text">
+                                                                <field name="taux_cotisations_jour" widget="percentage"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- KPI Cards Row 3 - Activités -->
+                                <div class="o_dashboard_section">
+                                    <h3 class="o_section_title">
+                                        <i class="fa fa-calendar text-info me-2"/>
+                                        Activités Syndicales
+                                    </h3>
+                                    <div class="row g-3">
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_info">
+                                                <button name="action_open_assemblees" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-gavel fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_assemblees_mois"/></div>
+                                                        <div class="o_card_label">Assemblées ce mois</div>
+                                                        <div class="o_card_metric">
+                                                            <small class="text-muted">Participation: <field name="taux_participation_moyen" widget="percentage"/></small>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_warning">
+                                                <button name="action_open_revendications" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-balance-scale fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_revendications_en_cours"/></div>
+                                                        <div class="o_card_label">Revendications actives</div>
+                                                        <div class="o_card_success">
+                                                            <span class="badge bg-success"><field name="nb_revendications_acceptees"/> acceptées</span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_danger">
+                                                <button name="action_open_actions" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-flag fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_actions_en_cours"/></div>
+                                                        <div class="o_card_label">Actions en cours</div>
+                                                        <div class="o_card_status">
+                                                            <span class="badge bg-danger">Urgent</span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6">
+                                            <div class="o_dashboard_card o_card_secondary">
+                                                <button name="action_open_formations" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-graduation-cap fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_formations_en_cours"/></div>
+                                                        <div class="o_card_label">Formations actives</div>
+                                                        <div class="o_card_metric">
+                                                            <small class="text-muted"><field name="nb_adherents_formes"/> formés</small>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Communication & Support -->
+                                <div class="o_dashboard_section">
+                                    <h3 class="o_section_title">
+                                        <i class="fa fa-comments text-primary me-2"/>
+                                        Communication &amp; Support
+                                    </h3>
+                                    <div class="row g-3">
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_primary">
+                                                <button name="action_open_communications" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-bullhorn fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_communications_mois"/></div>
+                                                        <div class="o_card_label">Communications</div>
+                                                        <div class="o_card_metric">
+                                                            <small class="text-muted">Taux ouverture: <field name="taux_ouverture_moyen" widget="percentage"/></small>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_dark">
+                                                <button name="action_open_mediations" type="object" class="o_card_button">
+                                                    <div class="o_card_icon">
+                                                        <i class="fa fa-handshake-o fa-2x"/>
+                                                    </div>
+                                                    <div class="o_card_content">
+                                                        <div class="o_card_value"><field name="nb_mediations_en_cours"/></div>
+                                                        <div class="o_card_label">Médiations actives</div>
+                                                        <div class="o_card_success">
+                                                            <span class="badge bg-success">
+                                                                <field name="taux_reussite_mediations" widget="percentage"/> succès
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-4 col-lg-6">
+                                            <div class="o_dashboard_card o_card_performance">
+                                                <div class="o_card_content">
+                                                    <div class="o_card_label">Performance Globale</div>
+                                                    <div class="o_performance_metrics">
+                                                        <div class="o_metric">
+                                                            <span class="o_metric_label">Revendications</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-success" t-attf-style="width: #{record.taux_succes_revendications.raw_value}%"/>
+                                                            </div>
+                                                            <span class="o_metric_value"><field name="taux_succes_revendications" widget="percentage"/></span>
+                                                        </div>
+                                                        <div class="o_metric">
+                                                            <span class="o_metric_label">Médiations</span>
+                                                            <div class="progress">
+                                                                <div class="progress-bar bg-info" t-attf-style="width: #{record.taux_reussite_mediations.raw_value}%"/>
+                                                            </div>
+                                                            <span class="o_metric_value"><field name="taux_reussite_mediations" widget="percentage"/></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Alertes Section -->
+                                <div class="o_dashboard_section" t-if="record.alertes_cotisations.raw_value > 0 or record.alertes_assemblees.raw_value > 0 or record.alertes_actions.raw_value > 0 or record.alertes_mediations.raw_value > 0">
+                                    <h3 class="o_section_title">
+                                        <i class="fa fa-exclamation-triangle text-danger me-2"/>
+                                        Alertes &amp; Actions Requises
+                                    </h3>
+                                    <div class="row g-3">
+                                        <div class="col-xl-3 col-lg-6" t-if="record.alertes_cotisations.raw_value > 0">
+                                            <div class="o_alert_card o_alert_warning">
+                                                <button name="action_open_alertes_cotisations" type="object" class="o_alert_button">
+                                                    <div class="o_alert_icon">
+                                                        <i class="fa fa-euro"/>
+                                                    </div>
+                                                    <div class="o_alert_content">
+                                                        <div class="o_alert_value"><field name="alertes_cotisations"/></div>
+                                                        <div class="o_alert_label">Cotisations en retard</div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6" t-if="record.alertes_assemblees.raw_value > 0">
+                                            <div class="o_alert_card o_alert_info">
+                                                <button name="action_open_alertes_assemblees" type="object" class="o_alert_button">
+                                                    <div class="o_alert_icon">
+                                                        <i class="fa fa-gavel"/>
+                                                    </div>
+                                                    <div class="o_alert_content">
+                                                        <div class="o_alert_value"><field name="alertes_assemblees"/></div>
+                                                        <div class="o_alert_label">Assemblées sans quorum</div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6" t-if="record.alertes_actions.raw_value > 0">
+                                            <div class="o_alert_card o_alert_danger">
+                                                <button name="action_open_alertes_actions" type="object" class="o_alert_button">
+                                                    <div class="o_alert_icon">
+                                                        <i class="fa fa-flag"/>
+                                                    </div>
+                                                    <div class="o_alert_content">
+                                                        <div class="o_alert_value"><field name="alertes_actions"/></div>
+                                                        <div class="o_alert_label">Actions en retard</div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-3 col-lg-6" t-if="record.alertes_mediations.raw_value > 0">
+                                            <div class="o_alert_card o_alert_warning">
+                                                <button name="action_open_alertes_mediations" type="object" class="o_alert_button">
+                                                    <div class="o_alert_icon">
+                                                        <i class="fa fa-handshake-o"/>
+                                                    </div>
+                                                    <div class="o_alert_content">
+                                                        <div class="o_alert_value"><field name="alertes_mediations"/></div>
+                                                        <div class="o_alert_label">Médiations urgentes</div>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Success Message -->
+                                <div class="o_dashboard_section" t-if="record.alertes_cotisations.raw_value == 0 and record.alertes_assemblees.raw_value == 0 and record.alertes_actions.raw_value == 0 and record.alertes_mediations.raw_value == 0">
+                                    <div class="o_success_banner">
+                                        <div class="text-center">
+                                            <i class="fa fa-trophy fa-3x text-warning mb-3"/>
+                                            <h3 class="text-success">Excellent travail !</h3>
+                                            <p class="text-muted mb-0">Toutes les activités syndicales sont parfaitement gérées. Aucune alerte active.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Action pour le dashboard moderne -->
+        <record id="action_syndicat_dashboard_modern_cards" model="ir.actions.act_window">
+            <field name="name">Dashboard Moderne - Cartes Avancées</field>
+            <field name="res_model">syndicat.dashboard</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_syndicat_dashboard_modern_cards"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Dashboard Moderne avec Cartes Avancées
+                </p>
+                <p>
+                    Interface moderne inspirée d'Odoo Enterprise avec cartes interactives, métriques visuelles et indicateurs de performance.
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- DASHBOARDS ALTERNATIFS -->
+        
+        <!-- Menu pour dashboard exécutif -->
+        <menuitem id="menu_dashboard_executive" 
+                  name="👔 Dashboard Exécutif" 
+                  parent="menu_syndicat_main" 
+                  action="action_syndicat_dashboard_executive" 
+                  sequence="2"/>
+
+    </data>
+</odoo>

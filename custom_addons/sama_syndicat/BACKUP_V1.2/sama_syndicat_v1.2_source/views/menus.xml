@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Menu Principal -->
+        <menuitem id="menu_syndicat_main" 
+                  name="Syndicat" 
+                  sequence="10" 
+                  web_icon="sama_syndicat,static/description/icon.png"/>
+
+        <!-- Tableau de Bord -->
+        <menuitem id="menu_syndicat_dashboard" 
+                  name="Tableau de Bord" 
+                  parent="menu_syndicat_main" 
+                  action="action_syndicat_dashboard" 
+                  sequence="1"/>
+
+        <!-- Gestion des Adhérents -->
+        <menuitem id="menu_syndicat_adherents" 
+                  name="Adhérents" 
+                  parent="menu_syndicat_main" 
+                  sequence="10"/>
+
+        <menuitem id="menu_syndicat_adherents_list" 
+                  name="Tous les Adhérents" 
+                  parent="menu_syndicat_adherents" 
+                  action="action_syndicat_adherent" 
+                  sequence="1"/>
+
+        <!-- Assemblées et Réunions -->
+        <menuitem id="menu_syndicat_assemblees" 
+                  name="Assemblées" 
+                  parent="menu_syndicat_main" 
+                  sequence="20"/>
+
+        <menuitem id="menu_syndicat_assemblees_list" 
+                  name="Toutes les Assemblées" 
+                  parent="menu_syndicat_assemblees" 
+                  action="action_syndicat_assemblee" 
+                  sequence="1"/>
+
+        <!-- Revendications -->
+        <menuitem id="menu_syndicat_revendications" 
+                  name="Revendications" 
+                  parent="menu_syndicat_main" 
+                  sequence="30"/>
+
+        <menuitem id="menu_syndicat_revendications_list" 
+                  name="Toutes les Revendications" 
+                  parent="menu_syndicat_revendications" 
+                  action="action_syndicat_revendication" 
+                  sequence="1"/>
+
+        <!-- Actions Syndicales -->
+        <menuitem id="menu_syndicat_actions" 
+                  name="Actions Syndicales" 
+                  parent="menu_syndicat_main" 
+                  sequence="40"/>
+
+        <menuitem id="menu_syndicat_actions_list" 
+                  name="Toutes les Actions" 
+                  parent="menu_syndicat_actions" 
+                  action="action_syndicat_action" 
+                  sequence="1"/>
+
+        <!-- Communications -->
+        <menuitem id="menu_syndicat_communications" 
+                  name="Communications" 
+                  parent="menu_syndicat_main" 
+                  sequence="50"/>
+
+        <menuitem id="menu_syndicat_communications_list" 
+                  name="Toutes les Communications" 
+                  parent="menu_syndicat_communications" 
+                  action="action_syndicat_communication" 
+                  sequence="1"/>
+
+        <!-- Formations -->
+        <menuitem id="menu_syndicat_formations" 
+                  name="Formations" 
+                  parent="menu_syndicat_main" 
+                  sequence="60"/>
+
+        <menuitem id="menu_syndicat_formations_list" 
+                  name="Toutes les Formations" 
+                  parent="menu_syndicat_formations" 
+                  action="action_syndicat_formation" 
+                  sequence="1"/>
+
+        <!-- Conventions Collectives -->
+        <menuitem id="menu_syndicat_conventions" 
+                  name="Conventions" 
+                  parent="menu_syndicat_main" 
+                  sequence="70"/>
+
+        <menuitem id="menu_syndicat_conventions_list" 
+                  name="Toutes les Conventions" 
+                  parent="menu_syndicat_conventions" 
+                  action="action_syndicat_convention" 
+                  sequence="1"/>
+
+        <!-- Médiations -->
+        <menuitem id="menu_syndicat_mediations" 
+                  name="Médiations" 
+                  parent="menu_syndicat_main" 
+                  sequence="80"/>
+
+        <menuitem id="menu_syndicat_mediations_list" 
+                  name="Toutes les Médiations" 
+                  parent="menu_syndicat_mediations" 
+                  action="action_syndicat_mediation" 
+                  sequence="1"/>
+
+        <!-- Configuration -->
+        <menuitem id="menu_syndicat_configuration" 
+                  name="Configuration" 
+                  parent="menu_syndicat_main" 
+                  sequence="100" 
+                  groups="sama_syndicat.group_syndicat_manager"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vue Kanban du Tableau de Bord -->
+        <record id="view_syndicat_dashboard_kanban" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.kanban</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_dashboard o_kanban_dashboard_fullwidth" create="false" sample="1" default_order="date_creation desc">
+                    <field name="name"/>
+                    <field name="date_derniere_maj"/>
+                    <field name="nb_adherents_total"/>
+                    <field name="nb_adherents_actifs"/>
+                    <field name="nb_nouveaux_adherents_mois"/>
+                    <field name="taux_croissance_adherents"/>
+                    <field name="nb_cotisations_jour"/>
+                    <field name="nb_cotisations_retard"/>
+                    <field name="taux_cotisations_jour"/>
+                    <field name="montant_cotisations_mois"/>
+                    <field name="nb_assemblees_mois"/>
+                    <field name="taux_participation_moyen"/>
+                    <field name="prochaine_assemblee"/>
+                    <field name="nb_revendications_en_cours"/>
+                    <field name="nb_revendications_acceptees"/>
+                    <field name="taux_succes_revendications"/>
+                    <field name="nb_actions_en_cours"/>
+                    <field name="prochaine_action"/>
+                    <field name="nb_formations_en_cours"/>
+                    <field name="nb_adherents_formes"/>
+                    <field name="nb_mediations_en_cours"/>
+                    <field name="taux_reussite_mediations"/>
+                    <field name="nb_communications_mois"/>
+                    <field name="taux_ouverture_moyen"/>
+                    <field name="alertes_cotisations"/>
+                    <field name="alertes_assemblees"/>
+                    <field name="alertes_actions"/>
+                    <field name="alertes_mediations"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="o_kanban_record o_kanban_dashboard_record" style="width: 100%; max-width: none;">
+                                <!-- Titre et dernière mise à jour -->
+                                <div class="row mb-4">
+                                    <div class="col-12">
+                                        <h2 class="o_kanban_dashboard_title">
+                                            <field name="name"/>
+                                        </h2>
+                                        <p class="text-muted">
+                                            Dernière mise à jour : <field name="date_derniere_maj" widget="datetime"/>
+                                            <button name="action_actualiser" type="object" class="btn btn-sm btn-primary ml-2">
+                                                <i class="fa fa-refresh" title="Actualiser"/> Actualiser
+                                            </button>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <!-- Statistiques principales -->
+                                    <!-- Adhérents -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-primary mb-3 dashboard-card">
+                                            <div class="card-header bg-primary text-white">
+                                                <i class="fa fa-users" title="Adhérents"/> Adhérents
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h4 class="text-primary"><field name="nb_adherents_total"/></h4>
+                                                        <small>Total</small>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h4 class="text-success"><field name="nb_adherents_actifs"/></h4>
+                                                        <small>Actifs</small>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-6">
+                                                        <span class="badge badge-info">+<field name="nb_nouveaux_adherents_mois"/> ce mois</span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span t-att-class="record.taux_croissance_adherents.raw_value >= 0 ? 'badge badge-success' : 'badge badge-warning'">
+                                                            <field name="taux_croissance_adherents" widget="percentage"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cotisations -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-success mb-3 dashboard-card">
+                                            <div class="card-header bg-success text-white">
+                                                <i class="fa fa-money" title="Cotisations"/> Cotisations
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h4 class="text-success"><field name="nb_cotisations_jour"/></h4>
+                                                        <small>À jour</small>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h4 class="text-warning"><field name="nb_cotisations_retard"/></h4>
+                                                        <small>En retard</small>
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-6">
+                                                        <span class="badge badge-success">
+                                                            <field name="taux_cotisations_jour" widget="percentage"/>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="badge badge-info">
+                                                            <field name="montant_cotisations_mois" widget="monetary"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Assemblées -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-info mb-3 dashboard-card">
+                                            <div class="card-header bg-info text-white">
+                                                <i class="fa fa-gavel" title="Assemblées"/> Assemblées
+                                            </div>
+                                            <div class="card-body">
+                                                <h5><field name="nb_assemblees_mois"/> ce mois</h5>
+                                                <p class="text-muted">
+                                                    Participation: <field name="taux_participation_moyen" widget="percentage"/>
+                                                </p>
+                                                <small class="text-info">
+                                                    <field name="prochaine_assemblee"/>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Alertes -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-warning mb-3">
+                                            <div class="card-header bg-warning text-white">
+                                                <i class="fa fa-exclamation-triangle" title="Alertes"/> Alertes
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="alert alert-warning dashboard-alert" role="alert" t-if="record.alertes_cotisations.raw_value > 0">
+                                                    <strong><field name="alertes_cotisations"/></strong> cotisations en retard
+                                                </div>
+                                                <div class="alert alert-info dashboard-alert" role="alert" t-if="record.alertes_assemblees.raw_value > 0">
+                                                    <strong><field name="alertes_assemblees"/></strong> assemblées sans quorum
+                                                </div>
+                                                <div class="alert alert-danger dashboard-alert" role="alert" t-if="record.alertes_actions.raw_value > 0">
+                                                    <strong><field name="alertes_actions"/></strong> actions en retard
+                                                </div>
+                                                <div class="alert alert-warning dashboard-alert" role="alert" t-if="record.alertes_mediations.raw_value > 0">
+                                                    <strong><field name="alertes_mediations"/></strong> médiations urgentes
+                                                </div>
+                                                <div class="alert alert-success" role="status" t-if="record.alertes_cotisations.raw_value == 0 and record.alertes_assemblees.raw_value == 0 and record.alertes_actions.raw_value == 0 and record.alertes_mediations.raw_value == 0">
+                                                    <i class="fa fa-check" title="Aucune alerte"/> Aucune alerte
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Deuxième ligne -->
+                                <div class="row">
+                                    <!-- Revendications -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-warning mb-3 dashboard-card">
+                                            <div class="card-header bg-warning text-white">
+                                                <i class="fa fa-balance-scale" title="Revendications"/> Revendications
+                                            </div>
+                                            <div class="card-body">
+                                                <h5><field name="nb_revendications_en_cours"/> en cours</h5>
+                                                <p class="text-muted">
+                                                    <field name="nb_revendications_acceptees"/> acceptées
+                                                </p>
+                                                <span class="badge badge-success">
+                                                    Succès: <field name="taux_succes_revendications" widget="percentage"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Actions -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-danger mb-3 dashboard-card">
+                                            <div class="card-header bg-danger text-white">
+                                                <i class="fa fa-flag" title="Actions"/> Actions
+                                            </div>
+                                            <div class="card-body">
+                                                <h5><field name="nb_actions_en_cours"/> en cours</h5>
+                                                <small class="text-danger">
+                                                    <field name="prochaine_action"/>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Formations -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-secondary mb-3 dashboard-card">
+                                            <div class="card-header bg-secondary text-white">
+                                                <i class="fa fa-graduation-cap" title="Formations"/> Formations
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5><field name="nb_formations_en_cours"/></h5>
+                                                        <small>En cours</small>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5><field name="nb_adherents_formes"/></h5>
+                                                        <small>Adhérents formés</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Médiations -->
+                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                        <div class="card border-dark mb-3 dashboard-card">
+                                            <div class="card-header bg-dark text-white">
+                                                <i class="fa fa-handshake-o" title="Médiations"/> Médiations
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5><field name="nb_mediations_en_cours"/></h5>
+                                                        <small>En cours</small>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="badge badge-success">
+                                                            <field name="taux_reussite_mediations" widget="percentage"/>
+                                                        </span>
+                                                        <br/><small>Taux de réussite</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Troisième ligne -->
+                                <div class="row">
+                                    <!-- Communications -->
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="card border-primary mb-3 dashboard-card">
+                                            <div class="card-header bg-primary text-white">
+                                                <i class="fa fa-bullhorn" title="Communications"/> Communications
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h5><field name="nb_communications_mois"/> ce mois</h5>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <span class="badge badge-info">
+                                                            Ouverture: <field name="taux_ouverture_moyen" widget="percentage"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Actions rapides -->
+                                    <div class="col-lg-6 col-md-12">
+                                        <div class="card border-success mb-3">
+                                            <div class="card-header bg-success text-white">
+                                                <i class="fa fa-rocket" title="Actions rapides"/> Actions Rapides
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <button name="action_open_adherents" type="object" class="btn btn-outline-primary btn-sm mb-2 w-100">
+                                                            <i class="fa fa-users" title="Gérer adhérents"/> Gérer Adhérents
+                                                        </button>
+                                                        <button name="action_open_assemblees" type="object" class="btn btn-outline-info btn-sm w-100">
+                                                            <i class="fa fa-gavel" title="Planifier assemblée"/> Planifier Assemblée
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button name="action_open_communications" type="object" class="btn btn-outline-warning btn-sm mb-2 w-100">
+                                                            <i class="fa fa-bullhorn" title="Nouvelle communication"/> Nouvelle Communication
+                                                        </button>
+                                                        <button name="action_open_revendications" type="object" class="btn btn-outline-danger btn-sm w-100">
+                                                            <i class="fa fa-balance-scale" title="Nouvelle revendication"/> Nouvelle Revendication
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Vue Formulaire du Tableau de Bord -->
+        <record id="view_syndicat_dashboard_form" model="ir.ui.view">
+            <field name="name">syndicat.dashboard.form</field>
+            <field name="model">syndicat.dashboard</field>
+            <field name="arch" type="xml">
+                <form string="Tableau de Bord" create="false" edit="false">
+                    <header>
+                        <button name="action_actualiser" string="Actualiser" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                            <p>
+                                Dernière mise à jour : <field name="date_derniere_maj" widget="datetime"/>
+                            </p>
+                        </div>
+                        <notebook>
+                            <page string="Adhérents" name="adherents">
+                                <group>
+                                    <group string="Effectifs">
+                                        <field name="nb_adherents_total"/>
+                                        <field name="nb_adherents_actifs"/>
+                                        <field name="nb_adherents_suspendus"/>
+                                        <field name="nb_nouveaux_adherents_mois"/>
+                                        <field name="taux_croissance_adherents" widget="percentage"/>
+                                    </group>
+                                    <group string="Cotisations">
+                                        <field name="nb_cotisations_jour"/>
+                                        <field name="nb_cotisations_retard"/>
+                                        <field name="taux_cotisations_jour" widget="percentage"/>
+                                        <field name="montant_cotisations_mois"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Activités" name="activites">
+                                <group>
+                                    <group string="Assemblées">
+                                        <field name="nb_assemblees_total"/>
+                                        <field name="nb_assemblees_mois"/>
+                                        <field name="taux_participation_moyen" widget="percentage"/>
+                                        <field name="prochaine_assemblee"/>
+                                    </group>
+                                    <group string="Actions">
+                                        <field name="nb_actions_total"/>
+                                        <field name="nb_actions_en_cours"/>
+                                        <field name="nb_actions_terminees"/>
+                                        <field name="prochaine_action"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Revendications" name="revendications">
+                                <group>
+                                    <group string="Statistiques">
+                                        <field name="nb_revendications_total"/>
+                                        <field name="nb_revendications_en_cours"/>
+                                        <field name="nb_revendications_acceptees"/>
+                                        <field name="taux_succes_revendications" widget="percentage"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Formations" name="formations">
+                                <group>
+                                    <group string="Statistiques">
+                                        <field name="nb_formations_total"/>
+                                        <field name="nb_formations_en_cours"/>
+                                        <field name="nb_adherents_formes"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Médiations" name="mediations">
+                                <group>
+                                    <group string="Statistiques">
+                                        <field name="nb_mediations_total"/>
+                                        <field name="nb_mediations_en_cours"/>
+                                        <field name="nb_mediations_resolues"/>
+                                        <field name="taux_reussite_mediations" widget="percentage"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Communications" name="communications">
+                                <group>
+                                    <group string="Statistiques">
+                                        <field name="nb_communications_mois"/>
+                                        <field name="taux_ouverture_moyen" widget="percentage"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Alertes" name="alertes">
+                                <group>
+                                    <group string="Alertes Actives">
+                                        <field name="alertes_cotisations"/>
+                                        <field name="alertes_assemblees"/>
+                                        <field name="alertes_actions"/>
+                                        <field name="alertes_mediations"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action pour le Tableau de Bord -->
+        <record id="action_syndicat_dashboard" model="ir.actions.act_window">
+            <field name="name">Tableau de Bord</field>
+            <field name="res_model">syndicat.dashboard</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Tableau de bord syndical
+                </p>
+                <p>
+                    Vue d'ensemble de toutes les activités syndicales avec des indicateurs clés et des alertes.
+                </p>
+            </field>
+        </record>
+
+    </data>
+
+        <!-- Action pour les Cotisations -->
+        <record id="action_open_cotisations" model="ir.actions.act_window">
+            <field name="name">Cotisations</field>
+            <field name="res_model">syndicat.adherent</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('cotisations_a_jour', '=', False)]</field>
+            <field name="context">{'search_default_cotisations_retard': 1}</field>
+            <field name="help">Liste des adhérents avec des cotisations en retard</field>
+        </record>
+\n    </odoo>
